@@ -1,11 +1,12 @@
 #body_login{
-    background-color: #e0ffae;
+    background-color: #ebfbd1;
 }
 
 
 #texto_inicial{
     margin-top: 150px;
     text-align:justify;
+    color: #172a00;
 }
 .forms{
     border-radius: 20px;
@@ -14,11 +15,11 @@
 #forms_login{
     
     border-radius: 20px;
-    background-color: #b6b6b69d;
+    background-color: #98a768;
     padding: 25px;
     padding-top: 30px;
     text-align: left;
-    color:#121938;
+    color:#172a00;
     width: 100%;
 }
 
