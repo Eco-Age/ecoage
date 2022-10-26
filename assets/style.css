@@ -2,8 +2,9 @@
     background-color: #e0ffae;
 }
 
+
 #texto_inicial{
-    width: 70%;
+    margin-top: 150px;
     text-align:justify;
 }
 .forms{
@@ -23,8 +24,7 @@
 
 #login_i{
     background-color: #83000000;
-    margin: 100px auto;
-    
+    margin: 180px auto;
 }
 
 #legend_login{
@@ -32,5 +32,5 @@
     text-align: center;
 }
 #logo{
-    width: 50%;
+    width: 40%;
 }
