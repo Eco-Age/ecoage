@@ -1,0 +1,36 @@
+#body_login{
+    background-color: #e0ffae;
+}
+
+#texto_inicial{
+    width: 70%;
+    text-align:justify;
+}
+.forms{
+    border-radius: 20px;
+}
+
+#forms_login{
+    
+    border-radius: 20px;
+    background-color: #b6b6b69d;
+    padding: 25px;
+    padding-top: 30px;
+    text-align: left;
+    color:#121938;
+    width: 100%;
+}
+
+#login_i{
+    background-color: #83000000;
+    margin: 100px auto;
+    
+}
+
+#legend_login{
+    margin: auto;
+    text-align: center;
+}
+#logo{
+    width: 50%;
+}
