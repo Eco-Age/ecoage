@@ -2,61 +2,78 @@
 if (!isset($_SESSION)) {
     session_start();
   };
-  require_once("conecta_bd.php");
-  
-function buscarUsuario($email, $senha) {
-    $senha_md5 = md5($senha);
+  require_once("conexao.php");
 
-    $sql = "SELECT * FROM Usuario
-            WHERE email = ? AND senha = ?";
+--------------- Funções que estão funcionando: ----------------------
+
+  function inserirUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha){
+
+    $conexao = obterConexao();
+    $senha_md5 = md5($senha);
+  
+    $sql = "INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha) 
+            VALUES (?, ?, ?, ?, ?, ?)"; 
+
     $conexao = obterConexao();
     $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("ss", $email,$senha_md5);
+    $stmt->bind_param("ssssss", $nome_completo, $data_nasc, $tel, $apelido, $email, $senha_md5);   
     $stmt->execute();
-    $resultado = $stmt->get_result();
-    $usuario = mysqli_fetch_assoc($resultado);
+
+    if ($stmt->affected_rows > 0) {
+        $_SESSION["msg"] = "Cadastro efetuado com sucesso!";
+        $_SESSION["tipo_msg"] = "alert-success"; 
+  
+      } else{
+        $_SESSION["msg"] = "O cadastro não foi efetuado! Erro: " . mysqli_error($conexao);
+        $_SESSION["tipo_msg"] = "alert-danger";
+  
+      }
+
     $stmt->close();
-    $conexao->close();
-    return $usuario;  
-  
-   }
-  
-function InsereUsuario($nome,$email,$senha){
-    $conexao = obterConexao();
+    $conexao->close(); 
+}  
+
+function buscarUsuario($apelido, $senha) {
+
     $senha_md5 = md5($senha);
-  
-    $sql = "INSERT INTO Usuario(nome,email,senha) 
-            VALUES(?, ?, ?)";  
-  $conexao = obterConexao();
-  $stmt = $conexao->prepare($sql);
-  $stmt->bind_param("sss", $nome, $email, $senha_md5);
-  $stmt->execute();
-  if ($stmt->affected_rows > 0) {
-    $_SESSION["mensagem"] = "O usuario {$nome} foi adicionado!";
-    $_SESSION["tipo_msg"] = "alert-success";
-  } else {
-    $_SESSION["mensagem"] = "O usuario {$nome} não foi adicionado!";
-    $_SESSION["tipo_msg"] = "alert-danger";
-  }
-  $stmt->close();
-  $conexao->close(); 
-   }  
-   
-function login($email, $senha){
-    $usuario = buscarUsuario($email, $senha);
-
-    if ($usuario == null) {
-      $_SESSION["mensagem"] = "O usuario ou senha incorretos!";
-      $_SESSION["tipo_msg"] = "alert-danger";    
-      
-      return false;
-    } else {
-      $_SESSION["logado"] = $usuario["nome"];
-      $_SESSION["id_usuario"] = $usuario["id_usuario"];
-
-      return true;
+    
+     $sql = "SELECT * FROM Usuario
+             WHERE apelido = ? AND senha = ?"; 
+    
+     $conexao = obterConexao();
+    
+     $stmt = $conexao->prepare($sql); 
+     $stmt->bind_param("ss", $apelido, $senha_md5);   
+     $stmt->execute(); 
+     
+     $resultado = $stmt->get_result(); 
+     $login = mysqli_fetch_assoc($resultado);
+    
+     $stmt->close();
+     $conexao->close();
+    
+     return $login;
     }
-   }
+
+function fazer_login($apelido, $senha){
+
+    $usuario = buscarUsuario($apelido, $senha);
+    
+         if ($usuario == null){
+            $_SESSION["msg"] = "Usuário ou senha incorretos!";
+            $_SESSION["tipo_msg"] = "alert-danger";
+    
+            return false;
+           } else {
+               $_SESSION["nome_logado"] = $usuario["nome_completo"];
+               $_SESSION["apelido_logado"] = $usuario["apelido"];
+               $_SESSION["id_usuario"] = $usuario["id_usuario"];
+    
+               return true;
+           }   
+    }
+ 
+------------------------------------------------------------------------------------------------
   
 function listarUsuario(){
   $lista_usuario = [];
