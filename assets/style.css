@@ -35,3 +35,46 @@
 #logo{
     width: 40%;
 }
+
+#game{
+    margin-left: 865px;
+}
+
+#icone_game, #icone_perfil, #icone_sair{
+    vertical-align: middle;
+}
+
+#icone_perfil, #icone_sair{
+    margin-right: 10px;
+}
+
+#icone_game{
+    color: #724a92;
+}
+
+#icone_sair{
+    color: #2c5300;
+}
+
+#icone_perfil{
+    color: #724a92;
+}
+
+
+.nav-link{
+    height: 50px;    
+    background-color: #F1E9E9;
+    color: #2a0028;
+    margin-right: 5px;
+    border-radius: 10px;
+    border: none;
+
+}
+nav{
+    border: none;
+}
+
+#fundo{
+    margin-top: 300px;
+}
+
