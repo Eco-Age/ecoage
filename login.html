@@ -5,9 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">  
     <title>Eco Age</title>
+    <script>
+      function cadastro(){
+        alert('Cadastro efetuado com sucesso!');
+      }
+    </script>
 </head>
 <body id="body_login">
     <div class="container">
@@ -21,10 +26,10 @@
              <div class="col-4">
                 <fieldset id="forms_login">
                   <legend id="legend_login"><img id="logo" src="../assets/logo.png" alt="logo"></legend>
-                  <form action="../src/login.php" method="post">
+                  <form action="../src/pagina_inicial.html" method="post">
                       <div class="form-group">
                           <label for="apelido_login" id="apelido_login">Apelido:</label>
-                          <input type="email" name="apelido_login" class="form-control" id="apelido_login" placeholder="Digite seu apelido...">
+                          <input type="text" name="apelido_login" class="form-control" id="apelido_login" placeholder="Digite seu apelido...">
                       </div>
                       <div class="form-group">
                           <label for="senha_login" id="email_l">Senha:</label>
@@ -56,7 +61,7 @@
                      </div>
                      <div class="modal-body">
                        <fieldset>      
-                           <form action="../src/inserir_U.php" method="post">
+                           <form action="login.html" method="post">
                              
                            <div class="form-group">
                                <label for="nome" id="nome">Nome Completo:</label> 
@@ -90,10 +95,9 @@
                              <input type="password" name="senha_cadastro" class="form-control" id="senha_cadastro" placeholder="Digite sua senha...">
                              <small id="emailHelp" class="form-text text-muted">Máx.: 8 caracteres.</small>
                            </div>
-       
-                             
+
                              <div class="form-group">    
-                               <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserir">Inserir</button> 
+                               <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserir" onclick="cadastro()">Inserir</button> 
                              </div>   
                            </form>
                        </fieldset>       
