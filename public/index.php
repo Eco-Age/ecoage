@@ -13,14 +13,14 @@ exibirMsg();
 <body id="body_login">
     <div class="container">
       <div class="row" id="login_i">
-             <div class="col-6" id="texto_inicial" >            
-                   <h2>Nesta aplicação web você tera acesso a suas séries favoritas!
+             <div class="col-6" class="texto_inicial" >            
+                   <h2 class="texto_inicial">Nesta aplicação web você tera acesso a suas séries favoritas!
                    Realize o login ao lado, ou crie uma nova conta e embarque no nosso universo!</h2>
              </div>
              <div class="col-1">
              </div>
              <div class="col-4">
-                <fieldset id="forms_login">
+                <fieldset id="forms_login" class="col-12">             
                   <legend id="legend_login"><img id="logo" src="../assets/logo.png" alt="logo"></legend>
                   <form action="../src/login.php" method="post">
                       <div class="form-group">
@@ -32,14 +32,21 @@ exibirMsg();
                           <input type="password" name="senha_login" class="form-control" id="senha_login" placeholder="Digite sua senha...">
                           <small id="emailHelp" class="form-text text-muted">Máx.: 8 caracteres.</small>
                       </div>
-                      
-                      <button type="submit" class="btn btn-primary" id="btnlogin">Entrar</button>
+                      <div class="row">
+                      <div class="col-2"></div>
+                      <button type="submit" class="btn btn-primary col-8" id="btnlogin">Entrar</button>
+                      <div class="col-2"></div>
+                      </div>
                   </form>
 
                       <br>
-                      <button type="button" class="btn btn-primary" id="btnnovaconta" data-toggle="modal" data-target="#modal"> 
+                      <div class="row">
+                      <div class="col-2"></div>
+                      <button type="button" class="btn btn-primary col-8" id="btnnovaconta" data-toggle="modal" data-target="#modal"> 
                           Criar nova conta
                       </button>
+                      <div class="col-2"></div>
+                    </div>
                 </fieldset>
              </div>
             
@@ -108,4 +115,6 @@ exibirMsg();
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
+       
+
        
