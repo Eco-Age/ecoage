@@ -3,17 +3,18 @@
 }
 
 
-#texto_inicial{
+.texto_inicial{
     margin-top: 150px;
-    text-align:justify;
+    text-align:center;
     color: #172a00;
+    font-size: 25pt;
 }
 .forms{
     border-radius: 20px;
 }
 
 #forms_login{
-    
+    margin: auto;
     border-radius: 20px;
     background-color: #98a768;
     padding: 25px;
@@ -78,3 +79,12 @@ nav{
     margin-top: 300px;
 }
 
+#btnnovaconta{
+    background-color: #724a92;
+    border: none;
+}
+
+#btnlogin{
+    background-color: #623f80;
+    border: none;
+}
