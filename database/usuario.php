@@ -77,7 +77,7 @@ function fazer_login($apelido, $senha){
   
 function listarUsuario(){
   $lista_usuario = [];
-  $sql = "SELECT u.id_usuario,u.nome,u.email
+  $sql = "SELECT u.id_usuario,u.nome_completo,u.data_nasc,u.tel,u.apelido,u.email,u.senha
           FROM Usuario u"; 
   
   $conexao = obterConexao();
@@ -112,14 +112,14 @@ function removerUsuario($id_usuario) {
   $conexao->close();
 }
 
-function editarUsuario($id_usuario,$nome,$email,$senha){
+function editarUsuario($id_usuario,$nome_completo,$data_nasc,$tel,$apelido,$email,$senha){
     $conexao = obterConexao();
     $sql = "UPDATE Usuario 
-            SET nome = ? , email = ? ,senha = ? 
+            SET nome_completo = ? , data_nasc = ? ,tel = ? ,apelido = ?, email = ?, senha = ?
             where id_usuario = ? ";
     $conexao = obterConexao();
     $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("sssi",$nome,$email,$senha,$id_usuario);
+    $stmt->bind_param("ssssssi",$nome_completo,$data_nasc,$tel,$apelido,$email,$senha,$id_usuario);
     $status = $stmt->execute();
     if ($stmt->affected_rows > 0) {
       $_SESSION["msg"] = "O usuario {$nome} foi alterado!";
