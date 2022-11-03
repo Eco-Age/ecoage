@@ -88,3 +88,12 @@ nav{
     background-color: #623f80;
     border: none;
 }
+
+.card{
+    align-items: center;
+    margin-top: 25px;
+    text-align: center;
+    width: 18rem;
+    height: 25rem;
+    margin-right: 20px;
+}
