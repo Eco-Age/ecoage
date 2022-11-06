@@ -4,7 +4,7 @@ function obterConexao() {
   $servidor = "localhost";
   $usuario = "web";
   $senha = "web";
-  $banco = "serie";
+  $banco = "ecoage";
   
   $conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
   
