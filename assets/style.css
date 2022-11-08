@@ -1,13 +1,16 @@
 #body_login{
-    background-color: #ebfbd1;
+    background-color: #623f80;
 }
-
 
 .texto_inicial{
     margin-top: 150px;
     text-align:center;
-    color: #172a00;
-    font-size: 25pt;
+    color: #a1c91d;
+    font-size: 22pt;
+}
+
+#senhahelp{
+    color: #60006d;
 }
 .forms{
     border-radius: 20px;
@@ -37,9 +40,7 @@
     width: 40%;
 }
 
-#game{
-    margin-left: 865px;
-}
+
 
 #icone_game, #icone_perfil, #icone_sair{
     vertical-align: middle;
@@ -50,30 +51,55 @@
 }
 
 #icone_game{
-    color: #724a92;
+    color: #623f80;
 }
+
 
 #icone_sair{
     color: #2c5300;
 }
 
 #icone_perfil{
-    color: #724a92;
+    color: #623f80;
 }
 
+#icone_home{
+    color: #623f80;
+}
+
+#menu_home:hover, #icone_home:hover, #menu_portal:hover, #menu_tecidos:hover, #game:hover, #icone_game:hover, #icone_menu:hover, #menu_m:hover{
+        background-color: #240f36;
+        color: #efff14;
+}
 
 .nav-link{
-    height: 50px;    
-    background-color: #F1E9E9;
-    color: #2a0028;
-    margin-right: 5px;
-    border-radius: 10px;
+    background-color: #f1f7e0;
+    color: #2d4931;
+    margin-right: 15px;
+    border-radius: 55px;
     border: none;
-
+    align-items: center;  
+    height: 45px;
 }
+
+.navbar-text, .navbar-brand{
+    height: 75px;     
+ 
+}
+
+.container{
+text-align: center;
+}
+
+
 nav{
     border: none;
+    background-color: #623f80;
+    box-shadow:  2px 2px 5px #a18eaaa9;
+    margin-bottom: 20px;
 }
+
+
 
 #fundo{
     margin-top: 300px;
@@ -91,7 +117,7 @@ nav{
 
 .card{
     align-items: center;
-    margin-top: 25px;
+    margin-top: 40px;
     text-align: center;
     width: 18rem;
     height: 25rem;
@@ -102,6 +128,37 @@ nav{
     margin-top: 20px;
 }
 
+#txt_portal{
+    margin-bottom: 20px;
+}
 #portal_de_noticias{
-    margin-top: 100px;
+    margin-top: 30px;
+}
+
+#menu{
+    margin-left: 550px;
+}
+
+.img_carrosel{
+    width: 700px;
+    height: 350px;
+    object-fit: cover;
+    filter: brightness(0.45);
+}
+  #filtros_{
+    background-color: #580f6e;
+    border: none;
+    color: #efff14;
+    vertical-align: middle;
+    margin-top: 10px;
+}
+
+#btn_filtros{
+    background-color: #efff14;    
+    border: none;
+    color: #9e00b3;
+}
+
+#seta_filtro{
+    vertical-align: middle;
 }
