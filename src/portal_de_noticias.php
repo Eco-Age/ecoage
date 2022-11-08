@@ -7,20 +7,30 @@
   include("../include/navegacao.php");  
 ?>
 <div id="portal_de_noticias">
-    <h1 id="txt_portal">Portal de Notícias:</h1>
-        <div class="row">
-            <div class="col-4"></div>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar">
-                </form>
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#filtros" aria-expanded="false" aria-controls="collapseExample" id="btn_filtros">
-                Filtros<span class="material-symbols-outlined" id="seta_filtro">arrow_drop_down</span>
-                </button> 
-            <div class="col-4"></div>
-        </div>                
-        <div class="row">
+
+    <div class="row">
         <div class="col-4"></div>
-            <div class="collapse col-4" id="filtros">
+            <div class="col-4">
+                <h1 id="txt_portal">Portal de Notícias:</h1>
+            </div>
+        <div class="col-4"></div>
+    </div>
+
+        <div class="row">
+            <div class="col-5"></div>
+               
+                    <form class="form-inline">
+                        <input class="form-control" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar">
+                    </form>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#filtros" aria-expanded="false" aria-controls="collapseExample" id="btn_filtros">
+                    Filtros<span class="material-symbols-outlined" id="seta_filtro">arrow_drop_down</span>
+                    </button> 
+            <div class="col-5"></div>
+        </div> 
+
+        <div class="row">
+        <div class="col-5"></div>
+            <div class="collapse" id="filtros">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="filtros_" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Em qualquer data
@@ -34,7 +44,7 @@
                         </div>
                 </div>
             </div>
-        <div class="col-4"></div>
+        <div class="col-5"></div>
         </div>
                       
       <div class="row">
