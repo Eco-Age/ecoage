@@ -130,6 +130,7 @@ nav{
 
 #txt_portal{
     margin-bottom: 20px;
+    text-align: center;
 }
 #portal_de_noticias{
     margin-top: 30px;
@@ -151,12 +152,14 @@ nav{
     color: #efff14;
     vertical-align: middle;
     margin-top: 10px;
+    width: 350px;
 }
 
 #btn_filtros{
     background-color: #efff14;    
     border: none;
     color: #9e00b3;
+    margin-left: 20px;
 }
 
 #seta_filtro{
