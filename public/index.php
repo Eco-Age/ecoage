@@ -14,7 +14,7 @@ exibirMsg();
     <div class="container">
       <div class="row" id="login_i">
              <div class="col-6" class="texto_inicial" >            
-                   <h2 class="texto_inicial">Olá!! Você faz ideia do impacto ambiental que a peça que você está vestindo pode causar? 
+                   <h2 class="texto_inicial">Olá!!! Você faz ideia do impacto ambiental que a peça que você está vestindo pode causar? 
                   Não?! Então realize o login ao lado, ou crie uma nova conta e embarque no nosso universo!</h2>
              </div>
              <div class="col-1">
