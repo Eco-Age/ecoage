@@ -2,8 +2,8 @@
 
 function exibirMsg() {
   $mensagem = "";
-  if(!empty($_SESSION["mensagem"])){
-    $mensagem = $_SESSION["mensagem"];
+  if(!empty($_SESSION["msg"])){
+    $mensagem = $_SESSION["msg"];
     if(!empty($_SESSION["tipo_msg"])){
       $tipo_msg = $_SESSION["tipo_msg"];
     }
@@ -13,9 +13,9 @@ function exibirMsg() {
     <p class="alert <?=$tipo_msg?> text-center">
       <?=$mensagem?>
     </p>  
-  <?php
+  <?phpmensagem
   endif;
-  $_SESSION["mensagem"] = "";
+  $_SESSION["msg"] = "";
 }
 
 ?>
