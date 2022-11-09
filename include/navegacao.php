@@ -52,6 +52,6 @@ include("cabecalho.php");
          </div>
       </div>
     </nav>
-</header>  
+  </header>
 
   
