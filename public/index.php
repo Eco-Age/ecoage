@@ -110,6 +110,18 @@ exibirMsg();
                </div>
           </div>
        </div>
+  <footer class="footer navbar-fixed bottom" id="rodape">
+        <div id="copy-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Desenvolvido por <a href="">Ana Beatriz, Eduardo e Gabrielle</a> &copy; ecoage.com.br 2022</p>
+                        <!-- colocar no link uma página de contato para nós -->
+                    </div>
+                </div>
+            </div>
+        </div>
+      </footer>
       </body>
 </html>
        
