@@ -13,6 +13,10 @@
   <?php } ?>
   <h3 id="bemvindoo">Bem vindo(a) <?= $_SESSION["nome_logado"] ?>!</h3>
 </div>
+    <?php
+        include("../include/rodape.php");
+    ?>
+
 </body>
 </html>
 
