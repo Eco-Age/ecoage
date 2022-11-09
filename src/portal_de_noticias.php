@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-5"></div>
                
-                    <form class="form-inline">
+                    <form action="site_externo.html" class="form-inline">
                         <input class="form-control" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar">
                     </form>
                     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#filtros" aria-expanded="false" aria-controls="collapseExample" id="btn_filtros">
@@ -36,11 +36,11 @@
                     Em qualquer data
                     </button>
                         <div class="dropdown-menu" aria-labelledby="filtros_">
-                            <a class="dropdown-item" href="#">Na última hora</a>
-                            <a class="dropdown-item" href="#">Nas últimas 24 horas</a>
-                            <a class="dropdown-item" href="#">Na última semana</a>
-                            <a class="dropdown-item" href="#">No último mês</a>
-                            <a class="dropdown-item" href="#">No último ano</a>
+                            <a class="dropdown-item" href="site_externo.html">Na última hora</a>
+                            <a class="dropdown-item" href="site_externo.html">Nas últimas 24 horas</a>
+                            <a class="dropdown-item" href="site_externo.html">Na última semana</a>
+                            <a class="dropdown-item" href="site_externo.html">No último mês</a>
+                            <a class="dropdown-item" href="site_externo.html">No último ano</a>
                         </div>
                 </div>
             </div>
@@ -65,17 +65,17 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <a href="google.com"><img class="img_carrosel d-block w-100" src="../assets/logo.png" alt="Segundo Slide"></a>
+                        <a href="https://blog.etiquetaunica.com.br/o-impacto-da-industria-da-moda-no-meio-ambiente/"><img class="img_carrosel d-block w-100" src="../assets/noticia2.jpeg" alt="Segundo Slide"></a>
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Título da notícia</h5>
-                            <p>Descrição da notícia...</p>
+                            <h5>Meio Ambiente</h5>
+                            <p>O Impacto da Indústria da Moda na nossa atmosfera...</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <a href="google.com"><img class="img_carrosel d-block w-100" src="../assets/logo.png" alt="Terceiro Slide"></a>
+                        <a href="https://blogfca.pucminas.br/colab/fast-fashion-meio-ambiente/"><img class="img_carrosel d-block w-100" src="../assets/noticia3.jpg" alt="Terceiro Slide"></a>
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Título da notícia</h5>
-                            <p>Descrição da notícia...</p>
+                            <h5>Fast fashion</h5>
+                            <p>Fast fashion e os impactos no meio ambiente...</p>
                         </div>
                     </div>
                 </div>
@@ -96,6 +96,5 @@
     <?php
         include("../include/rodape.php");
     ?>
-
 </body>
 </html>
