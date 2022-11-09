@@ -16,5 +16,5 @@ function exibirMsg() {
   <?php
   endif;
   $_SESSION["msg"] = "";
-}
+  }
 ?>
