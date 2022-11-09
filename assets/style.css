@@ -122,9 +122,6 @@
         color: #efff14;
 }
 
-#menu{
-    margin-left: 550px;
-}
 .nav-link{
     background-color: #f1f7e0;
     color: #2d4931;
@@ -152,6 +149,9 @@ nav{
     margin-bottom: 20px;
 }
 
+#menu_ajuda{
+    margin-left: 470px;
+}
 
 
 /* PÁGINA TECIDOS */
