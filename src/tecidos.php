@@ -40,3 +40,6 @@
         <div class="col-1"></div>
     </div>
 </div>
+    <?php
+        include("../include/rodape.php");
+    ?>
