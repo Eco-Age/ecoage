@@ -1,6 +1,10 @@
 <?php
       require("../database/usuario.php");
       include("../include/navegacao.php");
+      include("../util/mensagens.php");
+      include("../util/formatacoes.php");  
+
+exibirMsg();
 
     $id_usuario = $_GET["id_usuario"];
     $usuario = buscarUsuarioLogado($id_usuario);
