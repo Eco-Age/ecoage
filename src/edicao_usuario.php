@@ -6,7 +6,10 @@
 
 exibirMsg();
 
-    $id_usuario = $_GET["id_usuario"];
+    if(isset($_SESSION["id_usuario"])){
+    $id_usuario = $_SESSION["id_usuario"];
+  }
+
     $usuario = buscarUsuarioLogado($id_usuario);
 ?>
 <div class="container">
