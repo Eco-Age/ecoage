@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
   };
   require_once("conexao.php");
 
---------------- Funções que estão funcionando: ----------------------
+//--------------- Funções que estão funcionando: ----------------------
 
   function inserirUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha){
 
@@ -73,7 +73,50 @@ function fazer_login($apelido, $senha){
            }   
     }
  
-------------------------------------------------------------------------------------------------
+    function buscarUsuarioLogado($id_usuario){
+    
+      $sql = "SELECT * FROM Usuario WHERE id_usuario = ?";
+      
+      $conexao = obterConexao(); 
+    
+      $stmt = $conexao->prepare($sql);
+    
+      $stmt->bind_param("i", $id_usuario);
+      $stmt->execute();
+    
+      $resultado = $stmt->get_result();
+      $usuario = mysqli_fetch_assoc($resultado);
+    
+      $stmt->close();
+      $conexao->close();
+    
+      return $usuario;  
+    }
+   
+    function editarUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $id_usuario){
+      $sql = "UPDATE Usuario 
+        SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?, senha = ?
+        WHERE id_usuario = ?";
+
+$conexao = obterConexao();
+
+$stmt = $conexao->prepare($sql);
+$stmt->bind_param("ssssssi", $nome_completo, $data_nasc, $tel, $apelido, $email, $senha_md5, $id_usuario);
+$stmt->execute();
+
+if ($stmt->affected_rows > 0) {
+  $_SESSION["msg"] = "Seus dados foram alterados!";
+  $_SESSION["tipo_msg"] = "alert-warning";
+} else {
+  $_SESSION["msg"] = "Seus dados não foram alterados! Erro: " . mysqli_error($conexao);
+  $_SESSION["tipo_msg"] = "alert-danger";
+}  
+
+$stmt->close();
+$conexao->close();
+}
+
+//------------------------------------------------------------------------------------------------
   
 function listarUsuario(){
   $lista_usuario = [];
@@ -112,37 +155,3 @@ function removerUsuario($id_usuario) {
   $conexao->close();
 }
 
-function editarUsuario($id_usuario,$nome_completo,$data_nasc,$tel,$apelido,$email,$senha){
-    $conexao = obterConexao();
-    $sql = "UPDATE Usuario 
-            SET nome_completo = ? , data_nasc = ? ,tel = ? ,apelido = ?, email = ?, senha = ?
-            where id_usuario = ? ";
-    $conexao = obterConexao();
-    $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("ssssssi",$nome_completo,$data_nasc,$tel,$apelido,$email,$senha,$id_usuario);
-    $status = $stmt->execute();
-    if ($stmt->affected_rows > 0) {
-      $_SESSION["msg"] = "O usuario {$nome} foi alterado!";
-      $_SESSION["tipo_msg"] = "alert-warning";
-    } else {
-      $_SESSION["msg"] = "O usuario {$nome} não foi alterado!";
-      $_SESSION["tipo_msg"] = "alert-danger";
-    }    
-    $stmt->close();
-    $conexao->close(); 
-}
-
-function buscarUsuarioLogado($id_usuario){
-    $sql = "SELECT * FROM Usuario WHERE id_usuario = ?";
-
-    $conexao = obterConexao();
-    $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("i", $id_usuario);
-    $stmt->execute();
-    $resultado = $stmt->get_result();
-    $usuario = mysqli_fetch_assoc($resultado);
-    $stmt->close();
-    $conexao->close();
-    return $usuario;  
-}
-?>

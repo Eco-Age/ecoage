@@ -40,7 +40,49 @@
     width: 40%;
 }
 
+#fundo{
+    margin-top: 300px;
+}
 
+#btnnovaconta{
+    background-color: #724a92;
+    border: none;
+}
+
+#btnlogin{
+    background-color: #623f80;
+    border: none;
+}
+
+
+/* EDIÇÃO USUÁRIO */
+
+#meus_dados{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#field_edicao_usuario{
+    text-align: left;
+    background-color: #e9e2f0;
+    padding: 20px;
+    border-radius: 20px;
+    color: #60006d;
+    box-shadow:  2px 2px 5px #a18eaaa9;
+    margin-bottom: 100px;
+}
+
+#botao_editar_usuario{
+    background-color: #efff14;    
+    border: none;
+    color: #9e00b3;
+    width: 100%;
+}
+
+#botao_editar_usuario:hover{
+    background-color: #00eeff;
+    color: #9e00b3;
+}
+/* NAVEGAÇÃO */
 
 #icone_game, #icone_perfil, #icone_sair{
     vertical-align: middle;
@@ -72,6 +114,9 @@
         color: #efff14;
 }
 
+#menu{
+    margin-left: 550px;
+}
 .nav-link{
     background-color: #f1f7e0;
     color: #2d4931;
@@ -101,19 +146,7 @@ nav{
 
 
 
-#fundo{
-    margin-top: 300px;
-}
-
-#btnnovaconta{
-    background-color: #724a92;
-    border: none;
-}
-
-#btnlogin{
-    background-color: #623f80;
-    border: none;
-}
+/* PÁGINA TECIDOS */
 
 .card{
     align-items: center;
@@ -123,6 +156,9 @@ nav{
     height: 25rem;
     margin-right: 20px;
 }
+
+
+/* PORTAL DE NOTÍCIAS */
 
 #carrosel{
     margin-top: 20px;
@@ -136,15 +172,14 @@ nav{
     margin-top: 30px;
 }
 
-#menu{
-    margin-left: 550px;
-}
+
 
 .img_carrosel{
     width: 700px;
-    height: 350px;
+    height: 400px;
     object-fit: cover;
     filter: brightness(0.45);
+    margin-bottom: 100px;
 }
   #filtros_{
     background-color: #580f6e;
@@ -152,7 +187,7 @@ nav{
     color: #efff14;
     vertical-align: middle;
     margin-top: 10px;
-    width: 350px;
+    width: 330px;
 }
 
 #btn_filtros{

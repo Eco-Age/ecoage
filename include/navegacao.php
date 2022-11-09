@@ -5,7 +5,7 @@ include("cabecalho.php");
 ?>
 <body>    
 <header id="navegacao">
-<nav class="navbar navbar-expand-lg sticky-top">
+<nav class="navbar navbar-expand-lg">
   <div class="container">
       <div class="row">
         <ul class="navbar nav">
@@ -38,7 +38,7 @@ include("cabecalho.php");
                       <?php 
                               if (isset($_SESSION["id_usuario"])) { ?>
                               <form action="../src/edicao_usuario.php" method="get">
-                                  <input type="hidden"  name="id_usuario" value="<?=$_SESSION["id_usuario"]?>">
+                                  <input type="hidden"  name="id_usuario" value="<?=$_SESSION["id_usuario"]?>"/>
                                   <button type="submit" class="dropdown-item"><span class="material-icons" id="icone_perfil">account_circle</span>Meu perfil</button>
                               </form>
                         <?php } ?>  

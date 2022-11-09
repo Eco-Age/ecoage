@@ -13,9 +13,8 @@ function exibirMsg() {
     <p class="alert <?=$tipo_msg?> text-center">
       <?=$mensagem?>
     </p>  
-  <?phpmensagem
+  <?php
   endif;
   $_SESSION["msg"] = "";
 }
-
 ?>
