@@ -82,6 +82,14 @@
     background-color: #00eeff;
     color: #9e00b3;
 }
+
+#modal_tecidos{
+    text-align: left;
+}
+
+#checkbox{
+    text-align: center;
+}
 /* NAVEGAÇÃO */
 
 #icone_game, #icone_perfil, #icone_sair{
