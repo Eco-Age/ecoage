@@ -165,3 +165,18 @@ nav{
 #seta_filtro{
     vertical-align: middle;
 }
+
+/* rodapé */
+#rodape {
+    background-color: #580f6e;
+    color: #fafafa;
+    clear: both;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;    
+}
+
+#copy-area{
+    background-color: #350046
+}
