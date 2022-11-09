@@ -223,3 +223,31 @@ nav{
 #copy-area{
     background-color: #350046
 }
+
+/* site externo */
+
+#field_site_externo{
+   border: none;
+   background-color: #f0fff2;
+   margin-top: 20px;
+   text-align: left;
+   padding-left: 20px;
+   padding-top: 10px;
+   border-radius: 20px;
+   height: 170px;
+   box-shadow:  5px 5px 10px #3d613da9;
+}
+
+#field_site_externo:hover{
+    background-color: #e4ffe8;
+}
+
+#todos_field{
+    margin-bottom: 160px;
+    margin-top: 10px;
+}
+
+#link_site_externo{
+    color: #313131;
+    text-decoration: none;
+}
