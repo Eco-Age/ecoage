@@ -93,29 +93,35 @@ function fazer_login($apelido, $senha){
       return $usuario;  
     }
    
-    function editarUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $id_usuario){
-      $sql = "UPDATE Usuario 
-        SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?, senha = ?
-        WHERE id_usuario = ?";
+       
+function editarUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $id_usuario){
+    $senha_md5 = md5($senha); 
 
-$conexao = obterConexao();
+    $sql = "UPDATE Usuario 
+            SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?, senha = ?
+            WHERE id_usuario = ?";
 
-$stmt = $conexao->prepare($sql);
-$stmt->bind_param("ssssssi", $nome_completo, $data_nasc, $tel, $apelido, $email, $senha_md5, $id_usuario);
-$stmt->execute();
+      $conexao = obterConexao();
 
-if ($stmt->affected_rows > 0) {
-  $_SESSION["msg"] = "Seus dados foram alterados!";
-  $_SESSION["tipo_msg"] = "alert-warning";
-} else {
-  $_SESSION["msg"] = "Seus dados não foram alterados! Erro: " . mysqli_error($conexao);
-  $_SESSION["tipo_msg"] = "alert-danger";
-}  
+      $stmt = $conexao->prepare($sql);
+      $stmt->bind_param("ssssssi", $nome_completo, $data_nasc, $tel, $apelido, $email, $senha_md5, $id_usuario);
+      $stmt->execute();
 
-$stmt->close();
-$conexao->close();
+      if ($stmt->affected_rows > 0) {
+        $_SESSION["msg"] = "Seus dados foram alterados!";
+        $_SESSION["tipo_msg"] = "alert-warning";
+      } else {
+        $_SESSION["msg"] = "Seus dados não foram alterados! Erro: " . mysqli_error($conexao);
+        $_SESSION["tipo_msg"] = "alert-danger";
+      }  
+
+      $stmt->close();
+      $conexao->close();
 }
 
+    
+
+?>
 //------------------------------------------------------------------------------------------------
   
 function listarUsuario(){
