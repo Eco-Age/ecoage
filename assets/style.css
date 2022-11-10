@@ -205,6 +205,34 @@ nav{
     margin-right: 20px;
 }
 
+#container-tecidos{
+    height: 900px;
+}
+
+#visao_adm, #visao_usu{
+    vertical-align: middle;
+    margin-left: 8px;
+    color: #580f6e;
+}
+
+#visaoadm, #visaousu{
+    
+    text-decoration: none;
+    color: #580f6e;
+    font-size: 11pt;
+    margin-bottom: 50px;
+}
+
+#visaoadm:hover, #visaousu:hover{
+    font-size: 11.5pt;
+}
+
+#row_cadastrar{
+    margin-top: 20px;
+}
+
+
+
 
 /* PORTAL DE NOTÍCIAS */
 
@@ -255,6 +283,7 @@ nav{
     color: #fafafa;
     clear: both;
     position: relative;
+    margin-top: auto;
     bottom: 0;
     left: 0;
     width: 100%;    
@@ -263,6 +292,7 @@ nav{
 #copy-area{
     background-color: #350046
 }
+
 
 /* site externo */
 
