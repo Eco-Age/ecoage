@@ -55,6 +55,41 @@
 }
 
 
+#icon {
+    position: absolute;
+    top: 168px;
+    right: 30px;
+    transform: translateY(-50%);
+    background: URL('mostrar.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+
+}
+
+#icon.ocultar {
+    background: URL('ocultar.png');
+    background-size: cover;
+}
+
+#icon_cadastro {
+    position: absolute;
+    top: 410px;
+    right: 30px;
+    transform: translateY(-50%);
+    background: URL('mostrar.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+#icon_cadastro.ocultar {
+    background: URL('ocultar.png');
+    background-size: cover;
+}
+
 /* EDIÇÃO USUÁRIO */
 
 #meus_dados{
@@ -100,9 +135,9 @@
     margin-right: 10px;
 }
 
-#icone_game{
+/*#icone_game{
     color: #623f80;
-}
+}*/
 
 
 #icone_sair{
@@ -113,11 +148,16 @@
     color: #623f80;
 }
 
+
+#button_perfil{
+    cursor: pointer;
+}
+/*
 #icone_home{
     color: #623f80;
-}
+}*/
 
-#menu_home:hover, #icone_home:hover, #menu_portal:hover, #menu_tecidos:hover, #game:hover, #icone_game:hover, #icone_menu:hover, #menu_m:hover{
+#menu_home:hover, #icone_home:hover, #menu_portal:hover, #menu_tecidos:hover, #game:hover, #icone_game:hover, #icone_menu:hover, #menu_m:hover, #ajuda:hover, #icone_ajuda:hover{
         background-color: #240f36;
         color: #efff14;
 }
