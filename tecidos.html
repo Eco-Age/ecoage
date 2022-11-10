@@ -14,88 +14,117 @@
         <title>Eco Age</title>
     </head>
     <body>
-    <header id="navegacao">
-     <nav class="navbar navbar-expand-lg sticky-top">
-      <div class="container">
-          <div class="row">
-            <ul class="navbar nav">
-                <li class="navbar-brand">
-                    <a href="pagina_inicial.html" id=""> <img src="assets/logo.png" width="50" height="50" alt="Eco Age"></a>
-                </li>
-                
-                <li class="navbar-text active">
-                    <a class="nav-link " href="pagina_inicial.html" id="menu_home" autocomplete="off" checked><span class="material-icons" id="icone_home">home</span></a>
-                </li>
+        <header id="navegacao">
+            <nav class="navbar navbar-expand-lg sticky-top">
+             <div class="container">
+                 <div class="row">
+                   <ul class="navbar nav">
+                       <li class="navbar-brand">
+                           <a href="pagina_inicial.html" id=""> <img src="assets/logo.png" width="50" height="50" alt="Eco Age"></a>
+                       </li>
+                       
+                       <li class="navbar-text active">
+                           <a class="nav-link " href="pagina_inicial.html" id="menu_home" autocomplete="off" checked><span class="material-icons" id="icone_home">home</span></a>
+                       </li>
+           
+                       <li class="navbar-text" >
+                           <a class="nav-link" href="portal_de_noticias.html" id="menu_portal"><span >Portal de Notícias</span></a>
+                       </li>
+           
+                       <li class="navbar-text">
+                           <a class="nav-link" href="tecidos.html" id="menu_tecidos">Tecidos</a>
+                       </li>
+                     
+                       <li class="navbar-text">
+                           <a class="nav-link" href="jogo.html" id="game"><span class="material-symbols-outlined" id="icone_game">stadia_controller</span></a>
+                       </li>
+           
+                       <li class="navbar-text" id="menu_ajuda">
+                           <a class="nav-link" href="ajuda.html" id="ajuda"><span class="material-symbols-outlined">help</span></a>
+                       </li>
+           
+                       <li class="navbar-text dropdown" id="menu">
+                           <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="menu_m"><span class="material-icons" id="icone_menu">menu</span></a>
+                           <div class="dropdown-menu dropdown-menu-right">
+                                   <div class="dropdown-item">
+                                       <a class="dropdown-item" href="edicao_usuario.html"><span class="material-icons" id="icone_perfil">account_circle</span>Meu perfil</a>
+                                   </div>
+                                   <div class="dropdown-item">
+                                       <a class="dropdown-item" href="login.html"><span class="material-icons" id="icone_sair">logout</span>Sair</a>
+                                   </div>
+                           </div>
+                       </li>
+                   </ul>
+                 </div>
+               </div>
+           </nav>
+           </header> 
     
-                <li class="navbar-text" >
-                    <a class="nav-link" href="portal_de_noticias.html" id="menu_portal"><span >Portal de Notícias</span></a>
-                </li>
-    
-                <li class="navbar-text">
-                    <a class="nav-link" href="tecidos.html" id="menu_tecidos">Tecidos</a>
-                </li>
-              
-                <li class="navbar-text">
-                    <a class="nav-link" href="jogo.html" id="game"><span class="material-symbols-outlined" id="icone_game">stadia_controller</span></a>
-                </li>
-    
-                <li class="navbar-text" id="menu_ajuda">
-                    <a class="nav-link" href="ajuda.html" id="ajuda"><span class="material-symbols-outlined">help</span></a>
-                </li>
-    
-                <li class="navbar-text dropdown" id="menu">
-                    <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="menu_m"><span class="material-icons" id="icone_menu">menu</span></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                            <div class="dropdown-item">
-                                <a class="dropdown-item" href="edicao_usuario.html"><span class="material-icons" id="icone_perfil">account_circle</span>Meu perfil</a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a class="dropdown-item" href="login.html"><span class="material-icons" id="icone_sair">logout</span>Sair</a>
-                            </div>
-                    </div>
-                </li>
-            </ul>
-          </div>
+ <main>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-3">
+            <img class="card-img-top" src="assets/tecido.png" alt="Imagem de capa do card">
+            <p>
+                <h5>Poliester</h5>
+                <p>Voce conquistou esse tecido</p>
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  Saiba mais..
+                </a>
+              </p>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    Poliéster é uma categoria de polímeros que, quimicamente falando, contém um grupo funcional éster na cadeia principal. Apesar de existirem muitos tipos de poliéster, o termo normalmente é usado para se referir ao politereftalato de etileno, ou PET. Sua composição pode ser natural e sintética, tornando alguns tipos biodegradáveis, enquanto grande parte dos poliésteres sintéticos não o são.
+                </div>
+              </div>
+            </div>
+
+
+        <div class="col-3">
+            <img class="card-img-top" src="assets/tecido_bloqueado.png" alt="Imagem de capa do card">
+            <p>
+                 <h5>Algodão</h5>
+                <p>Jogue para desbloquear esse tecido</p>
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  Saiba mais..
+                </a>
+              </p>
+              <div class="collapse" id="collapse2">
+                <div class="card card-body">
+                    Poliéster é uma categoria de polímeros que, quimicamente falando, contém um grupo funcional éster na cadeia principal. Apesar de existirem muitos tipos de poliéster, o termo normalmente é usado para se referir ao politereftalato de etileno, ou PET. Sua composição pode ser natural e sintética, tornando alguns tipos biodegradáveis, enquanto grande parte dos poliésteres sintéticos não o são.
+                </div>
+              </div>
+
         </div>
-    </nav>
-</header>  
- <main class="container">
-    <div class="container">
-        <div class="row">
-            <div class="col-1"></div>
-                <div class="card col-3">
-                        <img class="card-img-top" src="assets/tecido.png" alt="Imagem de capa do card">
-                            <div class="card-body">
-                                <h5 class="card-title">Poliéster</h5>
-                                <p class="card-text">Você conquistou esse tecido!</p>
-                                <a class="btn btn-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Saber mais...</a>
-                                    <div class="collapse" id="collapseExample">
-                                        <div class="card-body">
-                                            Poliéster é uma categoria de polímeros que, quimicamente falando, contém um grupo funcional éster na cadeia principal. Apesar de existirem muitos tipos de poliéster, o termo normalmente é usado para se referir ao politereftalato de etileno, ou PET. Sua composição pode ser natural e sintética, tornando alguns tipos biodegradáveis, enquanto grande parte dos poliésteres sintéticos não o são.
-                                        </div>
-                                    </div>
-                            </div>
+
+        <div class="col-3">
+            <img class="card-img-top" src="assets/tecido_bloqueado.png" alt="Imagem de capa do card">
+            <p>
+                 <h5>Linho</h5>
+                <p>Jogue para desbloquear esse tecido</p>
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  Saiba mais..
+                </a>
+              </p>
+              <div class="collapse" id="collapse3">
+                <div class="card card-body">
+                    Poliéster é uma categoria de polímeros que, quimicamente falando, contém um grupo funcional éster na cadeia principal. Apesar de existirem muitos tipos de poliéster, o termo normalmente é usado para se referir ao politereftalato de etileno, ou PET. Sua composição pode ser natural e sintética, tornando alguns tipos biodegradáveis, enquanto grande parte dos poliésteres sintéticos não o são.
                 </div>
-                <div class="card col-3">
-                            <img class="card-img-top" src="assets/tecido.png" alt="Imagem de capa do card">
-                            <div class="card-body">
-                                <h5 class="card-title">Tecido</h5>
-                                <p class="card-text">Você conquistou esse tecido!</p>
-                                <a href="#" class="btn btn-link">Saber mais...</a>
-                            </div>
-                </div>
-                <div class="card col-3">
-                            <img class="card-img-top" src="assets/tecido_bloqueado.png" alt="Imagem de capa do card">
-                            <div class="card-body">
-                                <h5 class="card-title">Tecido</h5>
-                                <p class="card-text">Jogue para conquistar esse tecido.</p>
-                            </div>
-                </div>
-            <div class="col-1"></div>
+              </div>
+
         </div>
+
     </div>
+    <div class="col-1"></div>
+
+    </div>
+</div>
 </main>
-    
+
+
 <footer class="footer navbar-fixed bottom" id="rodape">
     <div class="area_contato">
         <div class="container">
@@ -103,28 +132,27 @@
                 <div class="col-md-12">
                     <h5 class="main-title">Entre em contato conosco:</h5>
                 </div>
-            </div>
             <div class="col-md-12 contact-box">
                 <span class="contact-title material-symbols-outlined">mail</span><p>Envie um e-mail: ecoage@gmail.com</p>
             </div>
+            </div>  
         </div>
     </div>
 
     </div>
+
+   
     <div id="copy-area">
         <div class="container">
             <div class="row">
-                <div class="col-12">     
-                    <a class="badge" href="sobre_nos.html" id="sobre_nos">Sobre nós</a>   
-                </div>  
                 <div class="col-md-12">
                     <p>Desenvolvido por <a href="">Ana Beatriz, Eduardo e Gabrielle</a> &copy; ecoage.com.br 2022</p>
-                    <!-- colocar no link uma página de contato para nós -->
+                    colocar no link uma página de contato para nós 
                 </div>
             </div>
         </div>
     </div>
-</footer>
+</footer> 
 
 </body>
 </html>
