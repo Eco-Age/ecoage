@@ -17,8 +17,6 @@ include("cabecalho.php");
           <a class="nav-link " href="pagina_inicial.php" id="menu_home" autocomplete="off" checked><span class="material-icons" id="icone_home">home</span></a>
           </li>
 
-          
-
           <li class="navbar-text" >
             <a class="nav-link" href="portal_de_noticias.php" id="menu_portal"><span >Portal de Notícias</span></a>
           </li>
@@ -27,10 +25,14 @@ include("cabecalho.php");
             <a class="nav-link" href="tecidos.php" id="menu_tecidos">Tecidos</a>
           </li>
 
-          
           <li class="navbar-text">
             <a class="nav-link" href="jogo.php" id="game"><span class="material-symbols-outlined" id="icone_game">stadia_controller</span></a>
           </li>
+
+          <li class="navbar-text" id="menu_ajuda">
+            <a class="nav-link" href="ajuda.php" id="ajuda"><span class="material-symbols-outlined" id="icone_ajuda">help</span></a>
+          </li>
+
             <li class="navbar-text dropdown" id="menu">
                 <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="menu_m"><span class="material-icons" id="icone_menu">menu</span></a>
                   <div class="dropdown-menu dropdown-menu-right">
@@ -39,7 +41,7 @@ include("cabecalho.php");
                               if (isset($_SESSION["id_usuario"])) { ?>
                               <form action="../src/edicao_usuario.php" method="get">
                                   <input type="hidden"  name="id_usuario" value="<?=$_SESSION["id_usuario"]?>"/>
-                                  <button type="submit" class="dropdown-item"><span class="material-icons" id="icone_perfil">account_circle</span>Meu perfil</button>
+                                  <button type="submit" class="dropdown-item" id="button_perfil"><span class="material-icons" id="icone_perfil">account_circle</span>Meu perfil</button>
                               </form>
                         <?php } ?>  
                     </div>
@@ -53,5 +55,3 @@ include("cabecalho.php");
       </div>
     </nav>
   </header>
-
-  
