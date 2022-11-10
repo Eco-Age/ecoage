@@ -30,6 +30,7 @@ exibirMsg();
                       <div class="form-group">
                           <label for="senha_login" id="email_l">Senha:</label>
                           <input type="password" name="senha_login" class="form-control" id="senha_login" placeholder="Digite sua senha...">
+                          <div id="icon" onclick="mostrarOcultar_login()"></div>
                           <small id="senhahelp" class="form-text">Máx.: 8 caracteres.</small>
                       </div>
                       <div class="row">
@@ -95,6 +96,7 @@ exibirMsg();
                            <div class="form-group">
                              <label for="senha_cadastro">Senha:</label>
                              <input type="password" name="senha_cadastro" class="form-control" id="senha_cadastro" placeholder="Digite sua senha...">
+                             <div id="icon_cadastro" onclick="mostrarOcultar_cadastro()"></div>
                              <small id="emailHelp" class="form-text text-muted">Máx.: 8 caracteres.</small>
                            </div>
        
@@ -122,6 +124,7 @@ exibirMsg();
             </div>
         </div>
       </footer>
+
+      <script src="../assets/script.js"></script>
       </body>
 </html>
-       
