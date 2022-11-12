@@ -23,3 +23,28 @@ function mostrarOcultar_cadastro(){
         icon_cadastro.classList.remove('ocultar')
     }
 }
+
+
+function confirmarvisaoadm(){
+    if(confirm("Esta aplicação web é um protótipo. Ao clicar em Ok você poderá conhecer algumas funcionalidades de administrador.")){
+        window.location="./tecidos_adm.html";
+    }
+}
+
+function confirmarvisaousu(){
+    alert("Você voltará a ver a página como usuário.");
+    window.location="./tecidos.html";
+}
+
+function excluirtecido(){
+    alert("Opa! Apenas administradores podem excluir um tecido!");
+}
+
+function editartecido(){
+    alert("Opa! Apenas administradores podem editar um tecido!");
+}
+
+function inserirtecido(){
+    alert("Esta aplicação web é um protótipo. Apenas administradores podem cadastrar novos tecidos, isso foi uma simulação.");
+    window.location="./tecidos_adm.html";
+}

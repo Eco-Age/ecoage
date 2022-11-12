@@ -1,21 +1,29 @@
 #body_login{
-    background-color: #580f6e;
     background-image: url("fundo_login.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-    backdrop-filter: brightness(40%);
+    background-size: cover;
+    background-position: center;    
+    backdrop-filter: brightness(25%);
+    display: inline-block;
+    width: 100%;
+}
+
+#escurecendo-body{
+    background-color: rgba(0, 0, 0, 0.568);
+    margin-top: 0px;
 }
 
 .texto_inicial{
     margin-top: 150px;
     text-align:center;
-    color: #a1c91d;
+    color: #F1E9E9;
     font-size: 22pt;
 }
 
 #senhahelp{
-    color: #60006d;
+    color: #364230;
+    margin-top: 5px;
+    margin-left: 20px;
 }
 .forms{
     border-radius: 20px;
@@ -23,14 +31,30 @@
 
 #forms_login{
     margin: auto;
-    border-radius: 20px;
-    background-color: #98a768;
+    border-radius: 40px;
+    background-color:#b3d39e ;
     padding: 25px;
-    padding-top: 30px;
+    padding-top: 8px;
     text-align: left;
-    color:#172a00;
-    width: 100%;
+    color:#364230;
+    width: 90%;
+    box-shadow:  3px 3px 2px #000000a9;
+    font-size: 13pt;
+    font-weight: 500;
+    padding-bottom: 45px;
 }
+
+#apelido_login, #senha_login{
+    border-radius: 20px;   
+}
+
+#apelido_login:focus, #senha_login:focus{
+    color: #2c5300;
+    box-shadow: 0 0 3px #2c5300;
+    border: #2c5300;
+    
+}
+
 
 #login_i{
     background-color: #83000000;
@@ -41,6 +65,7 @@
 #legend_login{
     margin: auto;
     text-align: center;
+    
 }
 #logo{
     width: 40%;
@@ -51,19 +76,55 @@
 }
 
 #btnnovaconta{
-    background-color: #724a92;
+    background-color: #8d60b4;
+    color: #fdfffa;
+    border-radius: 20px;
     border: none;
+    font-weight: 400;
+
 }
 
 #btnlogin{
-    background-color: #623f80;
+    background-color: #432b58;
+    color: #fcfff8;
+    border-radius: 20px;
+    width: 100%;
     border: none;
+    margin-bottom: 10px;
+    font-weight: 400;
 }
 
+#btnlogin:hover{
+    background-color: #623f80;
+    color: #d1f5a1;
+}
 
-#icon {
+#btnnovaconta:hover{
+    background-color: #572a80;
+    color: #d1f5a1;
+}
+
+#rodape_login{
+    background-color: #623f80;
+    color: #67b16d;
+    clear: both;
+    position: relative;
+    margin-top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%; 
+    padding-top: 20px;   
+    text-decoration: none;
+}
+
+#sobre_nos_login{
+    text-decoration: none;
+    color: #89e791;
+}
+
+#icon{
     position: absolute;
-    top: 168px;
+    top: 150px;
     right: 30px;
     transform: translateY(-50%);
     background: URL('mostrar.png');
@@ -71,7 +132,7 @@
     width: 25px;
     height: 25px;
     cursor: pointer;
-
+    margin-right: 8px;
 }
 
 #icon.ocultar {
@@ -212,9 +273,62 @@ nav{
 }
 
 #container-tecidos{
-    height: 900px;
+    height: auto;
+    display: block;
 }
 
+#imgtecido1, #imgtecido2, #imgtecido3{
+    width: 80%;
+}
+
+#tecidos{
+    margin-bottom: 100px;
+    margin-top:50px;
+
+}
+
+#tecido1, #tecido2, #tecido3{
+    background-color: #f5eff5;
+    padding: 30px;
+    border: none;
+    border-radius: 30px;
+    height: auto;
+    width: 320px;
+    margin-left: 20px;
+    box-shadow: 3px 3px 5px #31313156;
+   
+}
+
+
+#tecido1_usu, #tecido2_usu, #tecido3_usu{
+    background-color: #f5eff5;
+    padding: 30px;
+    border: none;
+    border-radius: 30px;
+    height: auto;
+    width: 320px;
+    margin-left: 20px;
+    box-shadow: 3px 3px 5px #31313156;
+}
+
+#tecido2_usu, #tecido3_usu{
+    background-color: #d3d3d3;
+}
+
+#card1{
+    width: auto;
+    height: auto;
+}
+
+#card2{
+    width: auto;
+    height: auto;
+}
+
+#card3{
+    width: auto;
+    height: auto;
+}
 #visao_adm, #visao_usu{
     vertical-align: middle;
     margin-left: 8px;
@@ -237,8 +351,38 @@ nav{
     margin-top: 20px;
 }
 
+.btndelete, .btnedit{
+    border: none;
+    border-radius: 3px;
+    padding: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
 
+.btndelete:hover, .btnedit:hover{
+    border: none;
+    box-shadow: 0 0 2px #364230;
+}
 
+.btndelete:focus, .btnedit:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.btndelete{
+    background-color: #ff1c1c;
+}
+
+.btnedit{
+    background-color: #572a80;
+}
+
+#btndelete1, #btndelete2, #btndelete3, #btnedit1, #btnedit2, #btnedit3{
+    color: #ffffff;
+    border: none;
+}
 
 /* PORTAL DE NOTÍCIAS */
 

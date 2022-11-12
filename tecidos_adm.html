@@ -61,26 +61,26 @@
 </header>  
 
  <main class="container" id="container-tecidos">
-
     <div class="container">
-
         <div class="row">
             <div class="col-8"></div>
             <div class="col-4">
-            <a href="tecidos.html" id="visaousu">Visualizar como usuário<span class="material-symbols-outlined" id="visao_usu">visibility</span></a>        
-            </div>
+                <button class="btn" onclick="confirmarvisaousu()">
+                    Visualizar como usuário<span class="material-symbols-outlined" id="visao_usu">visibility</span>
+                </button>            </div>
             <div class="col-0"></div>
         </div>
 
         <div class="row" id="row_cadastrar">
             <div class="col-4"></div>
             <div class="col-4">
-            <button type="button" class="btn btn-primary col-8" id="btnnovaconta" data-toggle="modal" data-target="#modal_tecidos"> 
+            <button type="button" class="btn btn-primary col-8" id="btncadastrartecido" data-toggle="modal" data-target="#modal_tecidos"> 
                 Cadastrar Tecido
             </button>        
             </div>
             <div class="col-4"></div>
         </div>
+    </div>
     
         <div class="modal fade modal_tecidos" id="modal_tecidos" tabindex="-1" role="dialog" aria-labelledby="modal_tecidos" aria-hidden="true">
                      <div class="modal-dialog modal-dialog-centered" role="document">
@@ -99,22 +99,24 @@
                                 <label for="id_tipo_tecidos">Tecido:</label>
                                 <select name="id_tipo_tecidos" id="id_tipo_tecidos" class="form-control">
                                     <option value='Poliester'>Poliester</option>
-                                    
+                                    <option value='Algodao'>Algodão</option>
+                                    <option value='Linho'>Linho</option>
+                                    <option value='La'>Lã</option>
+                                    <option value='Couro'>Couro</option>
+                                    <option value='Viscose'>Viscose</option>
+                                    <option value='Seda'>Seda</option>
+                                    <option value='Lurex'>Lurex</option>
+                                    <option value='Veludo'>Veludo</option>
                                 </select> 
                                 </div>                         
            
                                <div class="form-group">
                                 <label for="desc_tecidos">Descrição do Tecido:</label>  
-                                <textarea class="form-control" rows="5" id="desc_tecidos" name="desc_tecidos"></textarea>
+                                <textarea class="form-control" rows="5" id="desc_tecidos" name="desc_tecidos" placeholder="Descreva o tecido e a sua relação com o meio ambiente..."></textarea>
                                 </div> 
-    
-                        <div class="form-group" id="checkbox"> 
-                            <input type="checkbox" class="form-check-input" id="sustentavel" name="sustentavel">
-                            <label class="form-check-label" for="sustentavel">Sustentável?</label> 
-                        </div>  
                                  
                                  <div class="form-group">    
-                                   <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserir">Inserir</button> 
+                                   <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserir" onclick="inserirtecido()">Inserir</button> 
                                  </div>   
                                </form>
                            </fieldset>       
@@ -124,102 +126,96 @@
         </div>
                    
     <div class="container">
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-3">
-                <img class="card-img-top" src="assets/tecido.png" alt="Imagem de capa do card">
+        <div class="row" id="tecidos">
+            <div id="tecido1">
+                    <img id="imgtecido1"class="card-img-top" src="assets/tecido.png" alt="Imagem de capa do card">
                 <p>
                     <h5>Poliester</h5>
-                    <p>Voce conquistou esse tecido</p>
-                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                      Saiba mais..
-                    </a>
+                        <p>Voce conquistou esse tecido</p>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Saiba mais..
+                        </a>
                     <p>
-                        <button class="btndelete">
-                            <span class="material-symbols-outlined">
+                        <button class="btnedit" onclick="editartecido()">
+                            <span class="material-symbols-outlined" id="btnedit1">
                                 edit
                             </span>
                         </button>
-                        <button>
-                            <span class="material-symbols-outlined">
+                        <button class="btndelete" onclick="excluirtecido()">
+                            <span class="material-symbols-outlined" id="btndelete1">
                                 close
                             </span>
                         </button>
-                        </p>
-                  </p>
-                  <div class="collapse" id="collapseExample">
-                    <div class="card card-body">
-                        Poliéster é uma categoria de polímeros que, quimicamente falando, contém um grupo funcional éster na cadeia principal. Apesar de existirem muitos tipos de poliéster, o termo normalmente é usado para se referir ao politereftalato de etileno, ou PET. Sua composição pode ser natural e sintética, tornando alguns tipos biodegradáveis, enquanto grande parte dos poliésteres sintéticos não o são.
-                    </div>
-                  </div>
-                </div>
-    
-    
-            <div class="col-3">
-                <img class="card-img-top" src="assets/tecido_bloqueado.png" alt="Imagem de capa do card">
-                <p>
-                     <h5>Algodão</h5>
-                    <p>Jogue para desbloquear esse tecido</p>
-                    <a class="btn btn-primary" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapseExample">
-                      Saiba mais..
-                    </a>
-                    <p>
-                    <button class="btndelete">
-                        <span class="material-symbols-outlined">
-                            edit
-                        </span>
-                    </button>
-                    <button>
-                        <span class="material-symbols-outlined">
-                            close
-                        </span>
-                    </button>
                     </p>
-                    
-                  </p>
-                  <div class="collapse" id="collapse2">
-                    <div class="card card-body">
+                </p>
+                  
+                <div class="collapse" id="collapse1">
+                    <div class="card card-body"  id="card1">
                         Poliéster é uma categoria de polímeros que, quimicamente falando, contém um grupo funcional éster na cadeia principal. Apesar de existirem muitos tipos de poliéster, o termo normalmente é usado para se referir ao politereftalato de etileno, ou PET. Sua composição pode ser natural e sintética, tornando alguns tipos biodegradáveis, enquanto grande parte dos poliésteres sintéticos não o são.
                     </div>
-                  </div>
-    
+                </div>
             </div>
-    
-            <div class="col-3">
-                <img class="card-img-top" src="assets/tecido_bloqueado.png" alt="Imagem de capa do card">
-                <p>
-                     <h5>Linho</h5>
-                    <p>Jogue para desbloquear esse tecido</p>
-                    <a class="btn btn-primary" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">
-                      Saiba mais..
-                    </a>
+            <div  id="tecido2">
+                <img id="imgtecido2" class="card-img-top" src="assets/tecido2.png" alt="Imagem de capa do card">
                     <p>
-                        <button class="btndelete">
-                            <span class="material-symbols-outlined">
-                                edit
-                            </span>
-                        </button>
-                        <button>
-                            <span class="material-symbols-outlined">
-                                close
-                            </span>
-                        </button>
+                        <h5>Algodão</h5>
+                            <p>Jogue para desbloquear esse tecido</p>
+                            <a class="btn btn-primary" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">
+                            Saiba mais..
+                            </a>
+                        <p>
+                            <button class="btnedit" onclick="editartecido()">
+                                <span class="material-symbols-outlined" id="btnedit2">
+                                    edit
+                                </span>
+                            </button>
+                            <button class="btndelete" onclick="excluirtecido()">
+                                <span class="material-symbols-outlined" id="btndelete2">
+                                    delete
+                                </span>
+                            </button>
+                        </p>
+                    
+                    </p>
+                  
+                <div class="collapse" id="collapse2">
+                    <div class="card card-body" id="card2">
+                        Poliéster é uma categoria de polímeros que, quimicamente falando, contém um grupo funcional éster na cadeia principal. Apesar de existirem muitos tipos de poliéster, o termo normalmente é usado para se referir ao politereftalato de etileno, ou PET. Sua composição pode ser natural e sintética, tornando alguns tipos biodegradáveis, enquanto grande parte dos poliésteres sintéticos não o são.
+                    </div>
+                </div>
+            </div>
+            <div id="tecido3">
+                <img id="imgtecido3" class="card-img-top" src="assets/tecido3.png" alt="Linho">
+                    <p>
+                        <h5>Linho</h5>
+                            <p>Jogue para desbloquear esse tecido</p>
+                            <a class="btn btn-primary" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            Saiba mais..
+                            </a>
+
+                        <p>
+                            <button class="btnedit" onclick="editartecido()">
+                                <span class="material-symbols-outlined" id="btnedit3">
+                                    edit
+                                </span>
+                            </button>
+                            <button class="btndelete" onclick="excluirtecido()">
+                                <span class="material-symbols-outlined" id="btndelete3">
+                                    delete
+                                </span>
+                            </button>
                         </p>
                   </p>
-                  <div class="collapse" id="collapse3">
-                    <div class="card card-body">
+
+                <div class="collapse" id="collapse3">
+                    <div class="card card-body" id="card3">
                         Poliéster é uma categoria de polímeros que, quimicamente falando, contém um grupo funcional éster na cadeia principal. Apesar de existirem muitos tipos de poliéster, o termo normalmente é usado para se referir ao politereftalato de etileno, ou PET. Sua composição pode ser natural e sintética, tornando alguns tipos biodegradáveis, enquanto grande parte dos poliésteres sintéticos não o são.
                     </div>
-                  </div>
-    
+                </div>
             </div>
-    
-        </div>
-        <div class="col-1"></div>
-    
-        </div>
+        </div>    
     </div>
-    </main>
+</main>
     
 
 <footer class="footer navbar-fixed bottom" id="rodape">
@@ -248,5 +244,7 @@
         </div>
     </div>
 </footer>
+
+<script src="assets/script.js"></script>
 </body>
 </html>
