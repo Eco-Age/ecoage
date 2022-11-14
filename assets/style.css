@@ -583,47 +583,76 @@ nav{
     background-color: #623f80;
     color: #efff14;
     border: none;
+}    
+
+    #botao_inserirnoticia:hover{
+    background-color: #422758;
+    color: #efff14;
+    border: none;
 }
+
 
 /* Imagens página incial */
 
-#Ana_img{
-    margin-top:30px;
-    width: 300px;
+
+
+#Ana_img, #Edu_img, #Gabi_img{
+    /*margin-top:30px;
+    width: 300px;*/
+
+    width: 150px;
+    margin: auto;
 }
 
-#Edu_img,#Gabi_img{
+/*#Edu_img,#Gabi_img{
     width:300px;
-}
+}*/
 
-#texto_inicial_ana{
+#texto_inicial_ana, #texto_inicial_gabi{
+    /*    
     display: inline-block;
     margin-top: 100px;
     vertical-align: top;   
     padding-right: 100px;
     width: 50%;
+    text-align: left;*/
+    display: block;
     text-align: left;
+    margin: auto;  
+    width: auto; 
+    height: auto;
+    font-size: 13pt;
 }
 
 #texto_inicial_edu{
-    display: inline-block;
+    /*display: inline-block;
     vertical-align: middle;
     padding-left: 10px;
     width: 50%;
+    text-align: right;*/
+
+    display: block;
     text-align: right;
+    margin: auto;  
+    width: auto; 
+    height: auto;
+    font-size: 13pt;
 }
 
 #texto_inicial_gabi{
-    display: inline-block;
+   /* display: inline-block;
     margin-top: 50px;
     margin-right: 50px;
     padding-right: 100px;
     width: 50%;
-    text-align: left;
+    text-align: left;*/
 }
 
-#botao_inserirnoticia:hover{
-    background-color: #422758;
-    color: #efff14;
-    border: none;
+#apresentacao_home{
+    width: auto;
+    height: auto;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 80px;
 }
+
