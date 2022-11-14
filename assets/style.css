@@ -1,3 +1,7 @@
+* {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 #body_login{
     background-image: url("fundo_login.jpg");
     background-repeat: no-repeat;
@@ -331,21 +335,10 @@ nav{
 }
 #visao_adm, #visao_usu{
     vertical-align: middle;
-    margin-left: 8px;
-    color: #580f6e;
+    margin-left: 5px;
+    color: #f0f8e5;
 }
 
-#visaoadm, #visaousu{
-    
-    text-decoration: none;
-    color: #580f6e;
-    font-size: 11pt;
-    margin-bottom: 50px;
-}
-
-#visaoadm:hover, #visaousu:hover{
-    font-size: 11.5pt;
-}
 
 #row_cadastrar{
     margin-top: 20px;
@@ -390,15 +383,19 @@ nav{
     margin-top: 20px;
 }
 
-#txt_portal{
-    margin-bottom: 20px;
-    text-align: center;
+#txt_portal, #txt_portal2{
+    margin-top: 10px;
+    margin-bottom: 20px;  
+    text-align: center;  
 }
+
 #portal_de_noticias{
     margin-top: 30px;
 }
 
-
+#filtros_menu{
+    width: 320px;
+}
 
 .img_carrosel{
     width: 700px;
@@ -408,23 +405,33 @@ nav{
     margin-bottom: 100px;
 }
   #filtros_{
-    background-color: #580f6e;
+    background-color: #581b69;
     border: none;
-    color: #efff14;
+    color: #d1f5a1;
     vertical-align: middle;
     margin-top: 10px;
-    width: 330px;
+    width: 310px;
 }
 
 #btn_filtros{
-    background-color: #efff14;    
+    background-color: #d1f5a1;    
     border: none;
-    color: #9e00b3;
-    margin-left: 20px;
+    color: #581b69;
+    margin-left: 10px;
+    width: auto;
+}
+
+#btn_filtros:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
 }
 
 #seta_filtro{
     vertical-align: middle;
+}
+
+#btn_pesquisar_noticia{
+    width: auto;
 }
 
 /* rodapé */
@@ -446,20 +453,20 @@ nav{
 
 /* site externo */
 
-#field_site_externo{
+.field_site_externo{
    border: none;
-   background-color: #f0fff2;
+   background-color: #f0f8e5;
    margin-top: 20px;
    text-align: left;
    padding-left: 20px;
-   padding-top: 10px;
-   border-radius: 20px;
-   height: 170px;
-   box-shadow:  5px 5px 10px #3d613da9;
+   padding-top: 15px;
+   border-radius: 8px;
+   height: auto;
+   box-shadow:  3px 3px 10px #1d421f49;
 }
 
-#field_site_externo:hover{
-    background-color: #e4ffe8;
+.field_site_externo:hover{
+    background-color: #e0fcb983;
 }
 
 #todos_field{
@@ -467,7 +474,119 @@ nav{
     margin-top: 10px;
 }
 
-#link_site_externo{
-    color: #313131;
+.link_site_externo{
     text-decoration: none;
+    color: #580f6e;
+}
+
+.link_site_externo:hover{
+    text-decoration: none;
+    color: #580f6e;
+}
+
+#icone_voltar_noticias{
+    background-color: #623f80;
+    color: #f0f8e5;
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    vertical-align: middle;
+    box-shadow: 3px 3px 8px #580f6e18;
+
+}
+
+#icone_voltar_noticias:hover{
+    background-color: #580f6e;
+    color: #f0f8e5;
+    box-shadow: 3px 3px 8px #580f6e18;
+
+}
+
+#icone_voltar_noticias:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+#filtros_menu2{
+    width: 310px;
+}
+
+#visaoadm_noticias, #visaousu_noticias{
+    border-radius: 20px;
+    font-size: 10pt;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 8px;
+    background-color: #623f80;
+    color: #f0f8e5;
+    margin-top: 20px;
+    box-shadow: 3px 3px 10px #432b5813;
+}
+
+
+#btncadastrarnoticia{
+    margin-right: 10px;
+    width: 50px;
+    background-color: #623f80;
+    color: #f0f8e5;
+    border: none;
+}
+
+#btncadastrarnoticia:focus{
+    box-shadow: 0px 0px 8px #5e397e42;
+    outline: 0;
+}
+
+#filtros2_{
+    background-color: #581b69;
+    border: none;
+    color: #d1f5a1;
+    vertical-align: middle;
+    margin-top: 10px;
+    width: 310px;
+}
+
+#filtros3_{
+    background-color: #581b69;
+    border: none;
+    color: #d1f5a1;
+    vertical-align: middle;
+    margin-top: 10px;
+    width: 360px;
+}
+
+#filtros_menu3{
+    width: 360px;
+}
+.btns_noticias{
+    margin-bottom: auto;
+    margin-top: auto;
+    text-align: left;    
+    vertical-align: middle;
+}
+
+#todos_field_adm{
+    margin-bottom: 160px;
+    margin-top: 10px;
+}
+
+.modal{
+    text-align: left;
+}
+
+#voltar_adm{
+    background-color: #00000000;
+}
+
+#botao_inserirnoticia{
+    background-color: #623f80;
+    color: #efff14;
+    border: none;
+}
+
+#botao_inserirnoticia:hover{
+    background-color: #422758;
+    color: #efff14;
+    border: none;
 }

@@ -48,3 +48,32 @@ function inserirtecido(){
     alert("Esta aplicação web é um protótipo. Apenas administradores podem cadastrar novos tecidos, isso foi uma simulação.");
     window.location="./tecidos_adm.html";
 }
+
+function confirmarvisaoadm_noticia(){
+    if(confirm("Esta aplicação web é um protótipo. Ao clicar em Ok você poderá conhecer algumas funcionalidades de administrador.")){
+        window.location="./site_externo_adm.html";
+    }
+}
+
+function confirmarvisaousu_noticia(){
+    alert("Você voltará a ver a página como usuário.");
+    window.location="./site_externo.html";
+}
+
+function voltaratencao(){
+    alert("Você voltará a página inicial do portal de notícias como usuário.");
+        window.location="./portal_de_noticias.html";
+}
+
+function excluirnoticia(){
+    alert("Opa! Apenas administradores podem excluir uma notícia!");
+}
+
+function editarnoticia(){
+    alert("Opa! Apenas administradores podem editar uma notícia!");
+}
+
+function inserirnoticia(){
+    alert("Esta aplicação web é um protótipo. Apenas administradores podem cadastrar novas notícias, isso foi uma simulação.");
+    window.location="./site_externo_adm.html";
+}

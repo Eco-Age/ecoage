@@ -14,82 +14,79 @@
         <title>Eco Age</title>
     </head>
     <body>
-    <header id="navegacao">
-     <nav class="navbar navbar-expand-lg sticky-top">
-      <div class="container">
-          <div class="row">
-            <ul class="navbar nav">
-                <li class="navbar-brand">
-                    <a href="pagina_inicial.html" id=""> <img src="assets/logo.png" width="50" height="50" alt="Eco Age"></a>
-                </li>
-                
-                <li class="navbar-text active">
-                    <a class="nav-link " href="pagina_inicial.html" id="menu_home" autocomplete="off" checked><span class="material-icons" id="icone_home">home</span></a>
-                </li>
-    
-                <li class="navbar-text" >
-                    <a class="nav-link" href="portal_de_noticias.html" id="menu_portal"><span >Portal de Notícias</span></a>
-                </li>
-    
-                <li class="navbar-text">
-                    <a class="nav-link" href="tecidos.html" id="menu_tecidos">Tecidos</a>
-                </li>
-              
-                <li class="navbar-text">
-                    <a class="nav-link" href="jogo.html" id="game"><span class="material-symbols-outlined" id="icone_game">stadia_controller</span></a>
-                </li>
-    
-                <li class="navbar-text" id="menu_ajuda">
-                    <a class="nav-link" href="ajuda.html" id="ajuda"><span class="material-symbols-outlined">help</span></a>
-                </li>
-    
-                <li class="navbar-text dropdown" id="menu">
-                    <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="menu_m"><span class="material-icons" id="icone_menu">menu</span></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                            <div class="dropdown-item">
-                                <a class="dropdown-item" href="edicao_usuario.html"><span class="material-icons" id="icone_perfil">account_circle</span>Meu perfil</a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a class="dropdown-item" href="login.html"><span class="material-icons" id="icone_sair">logout</span>Sair</a>
-                            </div>
-                    </div>
-                </li>
-            </ul>
-          </div>
-        </div>
-    </nav>
-</header>  
+        <header id="navegacao">
+            <nav class="navbar navbar-expand-lg sticky-top">
+             <div class="container">
+                 <div class="row">
+                   <ul class="navbar nav">
+                       <li class="navbar-brand">
+                           <a href="pagina_inicial.html" id=""> <img src="assets/logo.png" width="50" height="50" alt="Eco Age"></a>
+                       </li>
+                       
+                       <li class="navbar-text active">
+                           <a class="nav-link " href="pagina_inicial.html" id="menu_home" autocomplete="off" checked><span class="material-icons" id="icone_home">home</span></a>
+                       </li>
+           
+                       <li class="navbar-text" >
+                           <a class="nav-link" href="portal_de_noticias.html" id="menu_portal"><span >Portal de Notícias</span></a>
+                       </li>
+           
+                       <li class="navbar-text">
+                           <a class="nav-link" href="tecidos.html" id="menu_tecidos">Tecidos</a>
+                       </li>
+                     
+                       <li class="navbar-text">
+                           <a class="nav-link" href="jogo.html" id="game"><span class="material-symbols-outlined" id="icone_game">stadia_controller</span></a>
+                       </li>
+           
+                       <li class="navbar-text" id="menu_ajuda">
+                           <a class="nav-link" href="ajuda.html" id="ajuda"><span class="material-symbols-outlined">help</span></a>
+                       </li>
+           
+                       <li class="navbar-text dropdown" id="menu">
+                           <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="menu_m"><span class="material-icons" id="icone_menu">menu</span></a>
+                           <div class="dropdown-menu dropdown-menu-right">
+                                   <div class="dropdown-item">
+                                       <a class="dropdown-item" href="edicao_usuario.html"><span class="material-icons" id="icone_perfil">account_circle</span>Meu perfil</a>
+                                   </div>
+                                   <div class="dropdown-item">
+                                       <a class="dropdown-item" href="login.html"><span class="material-icons" id="icone_sair">logout</span>Sair</a>
+                                   </div>
+                           </div>
+                       </li>
+                   </ul>
+                 </div>
+               </div>
+           </nav>
+           </header>  
  <main class="container">
     <div id="portal_de_noticias">
 
-    <div class="row">
-        <div class="col-4"></div>
-            <div class="col-4">
-                <h1 id="txt_portal">Portal de Notícias:</h1>
-            </div>
-        <div class="col-4"></div>
-    </div>
+        <div class="row">
+            <div class="col-4"></div>
+                    <h1 class="col-4" id="txt_portal">Portal de Notícias:</h1>
+            <div class="col-4"></div>
+        </div>
 
         <div class="row">
-            <div class="col-5"></div>
-               
-                    <form action="site_externo.html" class="form-inline">
-                        <input class="form-control" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar">
-                    </form>
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#filtros" aria-expanded="false" aria-controls="collapseExample" id="btn_filtros">
-                    Filtros<span class="material-symbols-outlined" id="seta_filtro">arrow_drop_down</span>
-                    </button> 
-            <div class="col-5"></div>
+            <div class="col-4"></div>
+                <form action="site_externo.html" class="form-inline col-4">
+                        <input class="form-control" id="btn_pesquisar_noticia" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#filtros" aria-expanded="false" aria-controls="collapseExample" id="btn_filtros">
+                            Filtros<span class="material-symbols-outlined" id="seta_filtro">arrow_drop_down</span>
+                        </button> 
+                </form>
+            <div class="col-4"></div>
         </div> 
 
         <div class="row">
-        <div class="col-5"></div>
+        <div class="col-4"></div>
             <div class="collapse" id="filtros">
-                <div class="dropdown">
+                <div class="dropdown col-4">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="filtros_" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Em qualquer data
                     </button>
-                        <div class="dropdown-menu" aria-labelledby="filtros_">
+                        <div class="dropdown-menu" id="filtros_menu" aria-labelledby="filtros_">
                             <a class="dropdown-item" href="site_externo.html">Na última hora</a>
                             <a class="dropdown-item" href="site_externo.html">Nas últimas 24 horas</a>
                             <a class="dropdown-item" href="site_externo.html">Na última semana</a>
@@ -98,7 +95,7 @@
                         </div>
                 </div>
             </div>
-        <div class="col-5"></div>
+        <div class="col-4"></div>
         </div>
                       
       <div class="row">
