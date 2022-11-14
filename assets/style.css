@@ -585,6 +585,43 @@ nav{
     border: none;
 }
 
+/* Imagens página incial */
+
+#Ana_img{
+    margin-top:30px;
+    width: 300px;
+}
+
+#Edu_img,#Gabi_img{
+    width:300px;
+}
+
+#texto_inicial_ana{
+    display: inline-block;
+    margin-top: 100px;
+    vertical-align: top;   
+    padding-right: 100px;
+    width: 50%;
+    text-align: left;
+}
+
+#texto_inicial_edu{
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 10px;
+    width: 50%;
+    text-align: right;
+}
+
+#texto_inicial_gabi{
+    display: inline-block;
+    margin-top: 50px;
+    margin-right: 50px;
+    padding-right: 100px;
+    width: 50%;
+    text-align: left;
+}
+
 #botao_inserirnoticia:hover{
     background-color: #422758;
     color: #efff14;
