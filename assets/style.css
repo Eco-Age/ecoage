@@ -277,7 +277,6 @@ nav{
 }
 
 #container-tecidos{
-    height: auto;
     display: block;
 }
 
@@ -339,6 +338,48 @@ nav{
     color: #f0f8e5;
 }
 
+#visaoadm, #visaousu{
+    border-radius: 20px;
+    font-size: 10pt;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 8px;
+    background-color: #623f80;
+    color: #f0f8e5;
+    margin-top: 20px;
+    box-shadow: 3px 3px 10px #432b5813;
+}
+
+#btncadastrartecido:focus, #botao_inserir_tecido:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+#btncadastrartecido:hover{
+    background-color: #44265e;
+    color: #f0f8e5;
+}
+
+#btncadastrartecido{
+    width: 100%;
+    background-color: #623f80;
+    color: #f0f8e5;
+    border: none;
+}
+
+#botao_inserir_tecido{
+    width: 100%;
+    background-color: #623f80;
+    color: #f0f8e5;
+    border: none;
+}
+
+#saibamais, #saibamais2, #saibamais3, #saibamais4{
+    background-color: #572a80;
+    color: #ffffff;
+    border: none;
+}
 
 #row_cadastrar{
     margin-top: 20px;
@@ -443,11 +484,24 @@ nav{
     margin-top: auto;
     bottom: 0;
     left: 0;
-    width: 100%;    
+    width: 100%;        
+    padding-top: 20px;   
+    text-decoration: none;
+}
+
+#sobre_nos{
+    color: #89e791;
+}
+
+#sobre_nos:hover{
+    text-decoration: none;
+    color: #a6ffad;
 }
 
 #copy-area{
-    background-color: #350046
+    background-color: #350046;
+    text-decoration: none;
+    padding-top: 20px;
 }
 
 
@@ -656,3 +710,69 @@ nav{
     margin-bottom: 80px;
 }
 
+
+/* pagina de ajuda/duvidassss */
+#duvidas_frequentes {
+    text-align: center;
+    color: #1b1025;
+    margin-top: 20px;
+}
+
+#caixas_duvidas{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+
+#duvida1, #duvida2, #duvida3, #duvida4{
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 60px;
+    padding-right: 60px;
+    text-align: center;
+    display: block;
+    margin: auto;  
+    width: auto; 
+    height: auto;
+}
+
+#next, #ante{
+    color: #ffffff;
+    background-color: #623f80;
+    border-radius: 20px;
+    padding: 8px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#next:hover, #ante:hover{
+    color: #efff14;
+    background-color: #623f80;
+}
+
+
+#carrosel_duvidas{
+    object-fit: cover; 
+    padding: 30px;
+    border-radius: 100px;
+    width: 100%;
+    height: 165px;
+    background-color: #aeca9346;
+    box-shadow: 2px 2px 6px #00000018;
+}
+
+#pagina_de_duvidas{
+    margin-bottom: 100px;
+}
+
+#enviarDuvida{
+    width: 100%;
+    background-color: #835ba7;
+    color: #bffa87;
+    border: none;
+    font-weight: 400;
+}
+
+#enviarDuvida:hover{
+    background-color: #6e4a8d ;
+}

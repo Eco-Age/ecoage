@@ -65,10 +65,16 @@
         <div class="row">
             <div class="col-8"></div>
             <div class="col-4">
-                <button class="btn" onclick="confirmarvisaousu()">
+                <button class="btn" onclick="confirmarvisaousu()" id="visaousu">
                     Visualizar como usuário<span class="material-symbols-outlined" id="visao_usu">visibility</span>
                 </button>            </div>
             <div class="col-0"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-4"></div>
+                    <h1 class="col-4" id="txt_tecidos2">Tecidos:</h1>
+            <div class="col-4"></div>
         </div>
 
         <div class="row" id="row_cadastrar">
@@ -116,7 +122,7 @@
                                 </div> 
                                  
                                  <div class="form-group">    
-                                   <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserir" onclick="inserirtecido()">Inserir</button> 
+                                   <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserir_tecido" onclick="inserirtecido()">Inserir</button> 
                                  </div>   
                                </form>
                            </fieldset>       
@@ -126,14 +132,15 @@
         </div>
                    
     <div class="container">
+
         <div class="row" id="tecidos">
             <div id="tecido1">
                     <img id="imgtecido1"class="card-img-top" src="assets/tecido.png" alt="Imagem de capa do card">
                 <p>
                     <h5>Poliester</h5>
                         <p>Voce conquistou esse tecido</p>
-                        <a class="btn btn-primary" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Saiba mais..
+                        <a class="btn btn-primary" id="saibamais" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">
+                        Saiba mais...
                         </a>
                     <p>
                         <button class="btnedit" onclick="editartecido()">
@@ -160,8 +167,8 @@
                     <p>
                         <h5>Algodão</h5>
                             <p>Jogue para desbloquear esse tecido</p>
-                            <a class="btn btn-primary" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">
-                            Saiba mais..
+                            <a class="btn btn-primary" id="saibamais2" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">
+                            Saiba mais...
                             </a>
                         <p>
                             <button class="btnedit" onclick="editartecido()">
@@ -189,8 +196,8 @@
                     <p>
                         <h5>Linho</h5>
                             <p>Jogue para desbloquear esse tecido</p>
-                            <a class="btn btn-primary" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            Saiba mais..
+                            <a class="btn btn-primary" id="saibamais3" data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapse3">
+                            Saiba mais...
                             </a>
 
                         <p>

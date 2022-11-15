@@ -64,18 +64,26 @@
         <div class="row">
             <div class="col-8"></div>
             <div class="col-4">
-                <button class="btn" onclick="confirmarvisaoadm()">
+                <button class="btn" onclick="confirmarvisaoadm()" id="visaoadm">
                     Visualizar como administrador<span class="material-symbols-outlined" id="visao_usu">visibility</span>
                 </button>            </div>
             <div class="col-0"></div>
         </div>
+
+        <div class="row">
+            <div class="col-4"></div>
+                    <h1 class="col-4" id="txt_tecidos">Tecidos Conquistados:</h1>
+            <div class="col-4"></div>
+        </div>
+
+
         <div class="row" id="tecidos">
             <div id="tecido1_usu">
-                    <img id="imgtecido1"class="card-img-top" src="assets/tecido.png" alt="Imagem de capa do card">
+                    <img id="imgtecido1"class="card-img-top" src="assets/tecido.png" alt="Poliéster">
                 <p>
                     <h5>Poliester</h5>
-                        <p>Voce conquistou esse tecido</p>
-                        <a class="btn btn-primary" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <p>Voce conquistou esse tecido!</p>
+                        <a class="btn btn-primary" id="saibamais4" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">
                         Saiba mais..
                         </a>
                 </p>
@@ -87,11 +95,11 @@
                 </div>
             </div>
             <div  id="tecido2_usu">
-                <img id="imgtecido2" class="card-img-top" src="assets/tecido_bloqueado.png" alt="Imagem de capa do card">
+                <img id="imgtecido2" class="card-img-top" src="assets/tecido_bloqueado.png" alt="Algodão">
                     <p>
                         <h5>Algodão</h5>
                             <p>Jogue para desbloquear esse tecido</p>
-                            <a class="btn btn-secondary" data-toggle="collapse" href="" role="button" aria-expanded="false" aria-controls="collapse2">
+                            <a class="btn btn-secondary" data-toggle="" href="" role="" aria-expanded="" aria-controls="">
                             Saiba mais..
                             </a>                   
                     </p>
@@ -101,7 +109,7 @@
                     <p>
                         <h5>Linho</h5>
                             <p>Jogue para desbloquear esse tecido</p>
-                            <a class="btn btn-secondary" data-toggle="collapse" href="" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <a class="btn btn-secondary" data-toggle="" href="" role="" aria-expanded="" aria-controls="">
                             Saiba mais..
                             </a>
                   </p>
@@ -130,7 +138,7 @@
         <div class="container">
             <div class="row">  
                 <div class="col-md-12">
-                    <p>Desenvolvido por <a href="sobre_nos.html">Ana Beatriz, Eduardo e Gabrielle</a> &copy; ecoage.com.br 2022</p>
+                    <p>Desenvolvido por <a href="sobre_nos.html" id="sobre_nos">Ana Beatriz, Eduardo e Gabrielle</a> &copy; ecoage.com.br 2022</p>
                     <!-- colocar no link uma página de contato para nós -->
                 </div>
             </div>
