@@ -776,3 +776,23 @@ nav{
 #enviarDuvida:hover{
     background-color: #6e4a8d ;
 }
+
+/* sobre nós */
+
+#txt_sobre_nos{
+    margin-left: 120px;
+    padding-bottom: 25px;
+    font-style:normal;
+    font-variant:small-caps;
+}
+
+#sobre_nos_ana, #sobre_nos_edu, #sobre_nos_gabi{
+   
+    display: inline-block;
+   
+}
+
+#txt_apresentacao{
+    display: flex;
+    
+}
