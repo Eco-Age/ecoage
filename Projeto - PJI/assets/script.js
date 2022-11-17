@@ -79,9 +79,14 @@ function inserirnoticia(){
 }
 
 function editar_perfil(){
-    alert('Seus dados foram alterados com sucesso!\n\n(Trata-se apenas de um protótipo)');
+    alert('Seus dados foram alterados com sucesso!\n\nTrata-se apenas de um protótipo.');
 }
 
 function jogo(){
-    alert('O jogo não está disponível nesta versão.\nTrata-se apenas de um protótipo');
+    alert('O jogo não está disponível nesta versão.\nTrata-se apenas de um protótipo.');
+}
+
+function esqueciminhasenha(){
+    alert('Esta aplicação web é um protótipo. Esta função ainda não foi implementada.');
+    window.location="./index.html";
 }

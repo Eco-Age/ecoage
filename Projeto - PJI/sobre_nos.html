@@ -15,68 +15,86 @@
 </head>
 
     <body>
-    <header id="navegacao">
-     <nav class="navbar navbar-expand-lg sticky-top">
-      <div class="container">
-          <div class="row">
-            <ul class="navbar nav">
-                <li class="navbar-brand">
-                    <a href="pagina_inicial.html" id=""> <img src="assets/logo.png" width="50" height="50" alt="Eco Age"></a>
-                </li>
-                
-                <li class="navbar-text active">
-                    <a class="nav-link " href="pagina_inicial.html" id="menu_home" autocomplete="off" checked><span class="material-icons" id="icone_home">home</span></a>
-                </li>
-    
-                <li class="navbar-text" >
-                    <a class="nav-link" href="portal_de_noticias.html" id="menu_portal"><span >Portal de Notícias</span></a>
-                </li>
-    
-                <li class="navbar-text">
-                    <a class="nav-link" href="tecidos.html" id="menu_tecidos">Tecidos</a>
-                </li>
-              
-                <li class="navbar-text">
-                    <a class="nav-link" href="jogo.html" id="game"><span class="material-symbols-outlined" id="icone_game">stadia_controller</span></a>
-                </li>
-    
-                <li class="navbar-text" id="menu_ajuda">
-                    <a class="nav-link" href="ajuda.html" id="ajuda"><span class="material-symbols-outlined">help</span></a>
-                </li>
-    
-                <li class="navbar-text dropdown" id="menu">
-                    <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="menu_m"><span class="material-icons" id="icone_menu">menu</span></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                            <div class="dropdown-item">
-                                <a class="dropdown-item" href="edicao_usuario.html"><span class="material-icons" id="icone_perfil">account_circle</span>Meu perfil</a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a class="dropdown-item" href="index.html"><span class="material-icons" id="icone_sair">logout</span>Sair</a>
-                            </div>
-                    </div>
-                </li>
-            </ul>
-          </div>
-        </div>
-    </nav>
-</header>  
+        <header id="navegacao">
+            <nav class="navbar navbar-expand-lg sticky-top">
+             <div class="container">
+                 <div class="row">
+                   <ul class="navbar nav">
+                       <li class="navbar-brand col-1">
+                           <a href="pagina_inicial.html" id=""> <img src="assets/logo.png" width="50" height="50" alt="Eco Age"></a>
+                       </li>
+                       
+                       <li class="navbar-text active" >
+                           <a class="nav-link " href="pagina_inicial.html" id="menu_home" autocomplete="off" checked><span class="material-icons" id="icone_home">home</span></a>
+                       </li>
+           
+                       <li class="navbar-text" >
+                           <a class="nav-link" href="portal_de_noticias.html" id="menu_portal"><span >Portal de Notícias</span></a>
+                       </li>
+           
+                       <li class="navbar-text">
+                           <a class="nav-link" href="tecidos.html" id="menu_tecidos">Tecidos</a>
+                       </li>
+                     
+                       <li class="navbar-text">
+                           <a class="nav-link" href="jogo.html" id="game"><span class="material-symbols-outlined" id="icone_game">stadia_controller</span></a>
+                       </li>
+                       
+                       <li class="navbar-text" id="menu_ajuda">
+                           <a class="nav-link" href="ajuda.html" id="ajuda"><span class="material-symbols-outlined">help</span></a>
+                       </li>
+           
+                       <li class="navbar-text" id="menu_sobre_nos">
+                           <a class="nav-link" href="sobre_nos.html"  id="icone_sobrenos"><span class="material-symbols-outlined">groups</span></a>
+                       </li>
+           
+                       
+           
+                       <li class="navbar-text dropdown" id="menu">
+                           <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="menu_m"><span class="material-icons" id="icone_menu">menu</span></a>
+                           <div class="dropdown-menu dropdown-menu-right">
+                                   <div class="dropdown-item">
+                                       <a class="dropdown-item" href="edicao_usuario.html"><span class="material-icons" id="icone_perfil">account_circle</span>Meu perfil</a>
+                                   </div>
+                                   <div class="dropdown-item">
+                                       <a class="dropdown-item" href="index.html"><span class="material-icons" id="icone_sair">logout</span>Sair</a>
+                                   </div>
+                           </div>
+                       </li>
+                   </ul>
+                 </div>
+               </div>
+           </nav>
+           </header>
 
-<main class="container">
-      
+<main class="container" id="container_sobrenos">
     <div class="row">
-        <div class="col-12"></div>
-        <div class="col-9" id="txt_sobre_nos">     
-            <p>E aí! Que bom te ver por aqui. O que tá achando do site? Uma dica: Você sempre pode nos dar 
-                sua opinião enviando um e-mail pra ecoage@gmail.com ou direto pela página de dúvidas!
-            </p>
+        <div class="col-2"></div>
+        <div class="col-8" id="txt_sobre_nos">     
+            <h6>E aí! Que bom te ver por aqui. O que tá achando do site? Uma dica: Você sempre pode nos dar 
+                sua opinião enviando um e-mail pra ecoage@gmail.com ou direto pela <a href="ajuda.html" id="paginaduvidas"> página de dúvidas!</a>
+            </h6>
         </div>
+        <div class="col-2"></div>
     </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8" id="txt_sobre_nos">     
+            <h3>
+                Um pouco sobre nós:
+                </h3>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-3"></div>
         <div class="col-2" id="sobre_nos_ana">
             <h6>Ana Beatriz</h6>
             <img src="assets/Ana_avatar.png" id="Ana_img">
             <div class="col-6" id="txt_apresentacao">
                 <p>Oi galera! Sou a Ana, estudo no Instituto Federal de São Paulo - Câmpus Araraquara.
-                    Amo (inserir hobby) e (hobby). Fiz parte do desenvolvimento do site ecoage como Trabalho
+                    Amo ouvir música e conversar com os meus amigos. Fiz parte do desenvolvimento do site ecoage como Trabalho
                     de Conclusão de Curso.
                     Vocês podem conhecer mais sobre mim me seguindo nas redes sociais:<br>
 
@@ -105,7 +123,7 @@
             <img src="assets/Gabi_avatar.png" id="Gabi_img">
             <div class="col-6" id="txt_apresentacao">
                 <p> Oiii gentee! Sou a Gabi, estudo no Instituto Federal de São Paulo - Câmpus Araraquara.
-                    Amo (inserir hobby) e (hobby). Fiz parte do desenvolvimento do site ecoage como Trabalho
+                    Amo dançar e ouvir música. Fiz parte do desenvolvimento do site ecoage como Trabalho
                     de Conclusão de Curso.
                     Vocês podem conhecer mais sobre mim me seguindo nas redes sociais:<br>
 
@@ -115,7 +133,8 @@
                 </p>
             </div>  
         </div>
-
+        <div class="col-3"></div>
+</div>
 </main>
 
 <footer class="footer navbar-fixed bottom" id="rodape">
