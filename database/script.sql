@@ -16,6 +16,8 @@ CREATE TABLE Usuario(
     PRIMARY KEY(id_usuario)
 );
 
+INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha) 
+VALUES ('ecoage', '2022-02-02','123456789' , 'ecoage', 'ecoage@gmail.com', '21232f297a57a5a743894a0e4a801fc3'); -- senha: admin
 
 
 CREATE TABLE Tipo_Tecidos (
