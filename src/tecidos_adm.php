@@ -1,15 +1,16 @@
 <?php
- session_start();
+session_start();
 
- if(!isset($_SESSION["id_usuario"])){
-   header("Location: ../public/index.php");
- }
-  include("../include/navegacao.php");
-  require("../database/tipo_tecidos.php");
-  require("../database/tecidos.php");
+if(!isset($_SESSION["id_usuario"])){
+  header("Location: ../public/index.php");
+}
+include("../include/navegacao.php");
+require("../database/tipo_tecidos.php");
+require("../database/tecidos.php");
 
-    $lista_tipo_tecidos = listarTipoTecidos();
-    $lista_tecidos = listarTecidos();
+$lista_tipo_tecidos = listarTipoTecidos();
+$lista_tecidos = listarTecidos();
+
 
 ?>
 <div class="container">
@@ -68,7 +69,7 @@
                  </div>
                </div>
 
-    <div class="row">
+ <?php /*   <div class="row">
         <div class="col-1"></div>
             
         <div class="card col-3">
@@ -96,21 +97,58 @@
                             endforeach
                         ?>
                     </div>
-            <div class="card col-3">
-                        <img class="card-img-top" src="../assets/tecido.png" alt="Imagem de capa do card">
-                        <div class="card-body">
-                            <h5 class="card-title">Tecido</h5>
-                            <p class="card-text">Você conquistou esse tecido!</p>
-                            <a href="#" class="btn btn-link">Saber mais...</a>
-                        </div>
+        */ ?>
+        <?php
+            foreach ($lista_tecidos as $tecido) :
+        ?>
+
+        <div class="row" id="tecidos">
+            <div id="tecido1_usu">
+                    <img id="imgtecido1"class="card-img-top" src="../assets/tecido.png" alt="Poliéster">
+                <p>
+                    <h5><?= $tecido["nome_tecidos"] ?></h5>
+                        <p>Voce conquistou esse tecido!</p>
+                        <?php
+                            $sustentavel = $tecido["sustentavel"] ? "checked='checked'" : "";
+                        ?>
+                        <a class="btn btn-primary" id="" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">
+                        Saiba mais..
+                        </a>
+                        <h4 class="card-title"> 
+                            <input type="checkbox" class="form-check-input" name="sustentavel" <?=$sustentavel?> disabled> 
+                        </h4>
+                </p>
+                  
+                <div class="collapse" id="collapse1">
+                    <div class="card card-body"  id="card1">
+                        <?= $tecido["desc_tecidos"] ?>          
+                    </div>
+                </div>
             </div>
-            <div class="card col-3">
-                        <img class="card-img-top" src="../assets/tecido_bloqueado.png" alt="Imagem de capa do card">
-                        <div class="card-body">
-                            <h5 class="card-title">Tecido</h5>
-                            <p class="card-text">Jogue para conquistar esse tecido.</p>
-                        </div>
+            <div  id="tecido2_usu">
+                <img id="imgtecido2" class="card-img-top" src="../assets/tecido_bloqueado.png" alt="Algodão">
+                    <p>
+                        <h5>Algodão</h5>
+                            <p>Jogue para desbloquear esse tecido</p>
+                            <a class="btn btn-secondary" data-toggle="" href="" role="" aria-expanded="" aria-controls="">
+                            Saiba mais..
+                            </a>                   
+                    </p>
             </div>
-        <div class="col-1"></div>
+            <div id="tecido3_usu">
+                <img id="imgtecido3" class="card-img-top" src="../assets/tecido_bloqueado.png" alt="Linho">
+                    <p>
+                        <h5>Linho</h5>
+                            <p>Jogue para desbloquear esse tecido</p>
+                            <a class="btn btn-secondary" data-toggle="" href="" role="" aria-expanded="" aria-controls="">
+                            Saiba mais..
+                            </a>
+                  </p>
+            </div>
+        </div>
+        <?php endforeach ?>    
     </div>
 </div>
+<?php
+    include ("../include/rodape.php");
+?>
