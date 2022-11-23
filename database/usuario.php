@@ -117,7 +117,7 @@ $sql = "UPDATE Usuario
   $stmt->close();
   $conexao->close();
 }
-    
+
 
 //------------------------------------------------------------------------------------------------
   
@@ -157,6 +157,4 @@ function removerUsuario($id_usuario) {
   $stmt->close();
   $conexao->close();
 }
-
 ?>
-
