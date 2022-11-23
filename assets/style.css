@@ -206,10 +206,6 @@
     margin-right: 10px;
 }
 
-/*#icone_game{
-    color: #623f80;
-}*/
-
 
 #icone_sair{
     color: #2c5300;
@@ -223,10 +219,7 @@
 #button_perfil{
     cursor: pointer;
 }
-/*
-#icone_home{
-    color: #623f80;
-}*/
+
 
 #menu_home:hover, #icone_home:hover, #menu_portal:hover, #menu_tecidos:hover, #game:hover, #icone_game:hover, #icone_menu:hover, #menu_m:hover, #ajuda:hover, #icone_ajuda:hover{
         background-color: #240f36;
@@ -261,9 +254,8 @@ nav{
 }
 
 #menu_ajuda{
-    margin-left: 470px;
+    margin-left: 230px;
 }
-
 
 /* PÁGINA TECIDOS */
 
@@ -650,26 +642,17 @@ nav{
 
 
 
-#Ana_img, #Edu_img, #Gabi_img{
-    /*margin-top:30px;
-    width: 300px;*/
 
+#Ana_img, #Edu_img, #Gabi_img{
     width: 150px;
     margin: auto;
 }
 
-/*#Edu_img,#Gabi_img{
-    width:300px;
-}*/
+#Ana_img:hover, #Edu_img:hover, #Gabi_img:hover{
+    width: 160px;
+}
 
 #texto_inicial_ana, #texto_inicial_gabi{
-    /*    
-    display: inline-block;
-    margin-top: 100px;
-    vertical-align: top;   
-    padding-right: 100px;
-    width: 50%;
-    text-align: left;*/
     display: block;
     text-align: left;
     margin: auto;  
@@ -679,27 +662,12 @@ nav{
 }
 
 #texto_inicial_edu{
-    /*display: inline-block;
-    vertical-align: middle;
-    padding-left: 10px;
-    width: 50%;
-    text-align: right;*/
-
     display: block;
     text-align: right;
     margin: auto;  
     width: auto; 
     height: auto;
     font-size: 13pt;
-}
-
-#texto_inicial_gabi{
-   /* display: inline-block;
-    margin-top: 50px;
-    margin-right: 50px;
-    padding-right: 100px;
-    width: 50%;
-    text-align: left;*/
 }
 
 #apresentacao_home{
@@ -709,7 +677,6 @@ nav{
     margin-top: 50px;
     margin-bottom: 80px;
 }
-
 
 /* pagina de ajuda/duvidassss */
 #duvidas_frequentes {
@@ -780,10 +747,9 @@ nav{
 /* sobre nós */
 
 #txt_sobre_nos{
-    margin-left: 120px;
     padding-bottom: 25px;
     font-style:normal;
-    font-variant:small-caps;
+    /*font-variant:small-caps;*/
 }
 
 #sobre_nos_ana, #sobre_nos_edu, #sobre_nos_gabi{
@@ -795,4 +761,27 @@ nav{
 #txt_apresentacao{
     display: flex;
     
+}
+
+/* jogo */
+.img_carrosel_jogo{
+    width: 100%;
+    height: 310px;
+    object-fit: cover;
+    margin-bottom: 100px;
+}
+
+#container_sobrenos{
+margin-bottom: 100px;
+margin-top: 50px;
+}
+
+#paginaduvidas{
+text-decoration: none;
+color: #986ec0;
+}
+
+#paginaduvidas:hover{
+text-decoration: none;
+color: #815ca5;
 }

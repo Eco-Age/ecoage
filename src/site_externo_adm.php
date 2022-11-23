@@ -79,7 +79,7 @@ if(!isset($_SESSION["id_usuario"])){
                     </div>
                     <div class="modal-body">
                         <fieldset>      
-                            <form action="site_externo_adm.html" method="post">
+                            <form action="site_externo_adm.php" method="post">
                         
                             <div class="form-row">
                                 <div class="form-group col-md-8">

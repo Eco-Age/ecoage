@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-5"></div>
                
-                    <form action="site_externo.html" class="form-inline">
+                    <form action="site_externo.php" class="form-inline">
                         <input class="form-control" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar">
                     </form>
                     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#filtros" aria-expanded="false" aria-controls="collapseExample" id="btn_filtros">

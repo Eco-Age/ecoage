@@ -11,7 +11,6 @@ require("../database/tecidos.php");
 $lista_tipo_tecidos = listarTipoTecidos();
 $lista_tecidos = listarTecidos();
 
-
 ?>
 <div class="container">
 
@@ -108,13 +107,14 @@ $lista_tecidos = listarTecidos();
                 <p>
                     <h5><?= $tecido["nome_tecidos"] ?></h5>
                         <p>Voce conquistou esse tecido!</p>
-                        <?php
-                            $sustentavel = $tecido["sustentavel"] ? "checked='checked'" : "";
-                        ?>
+                       
                         <a class="btn btn-primary" id="" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">
                         Saiba mais..
                         </a>
                         <h4 class="card-title"> 
+                        <?php
+                            $sustentavel = $tecido["sustentavel"] ? "checked='checked'" : "";
+                        ?> 
                             <input type="checkbox" class="form-check-input" name="sustentavel" <?=$sustentavel?> disabled> 
                         </h4>
                 </p>

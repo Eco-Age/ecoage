@@ -27,13 +27,13 @@ function mostrarOcultar_cadastro(){
 
 function confirmarvisaoadm(){
     if(confirm("Esta aplicação web é um protótipo. Ao clicar em Ok você poderá conhecer algumas funcionalidades de administrador.")){
-        window.location="./tecidos_adm.html";
+        window.location="../src/tecidos_adm.php";
     }
 }
 
 function confirmarvisaousu(){
     alert("Você voltará a ver a página como usuário.");
-    window.location="./tecidos.html";
+    window.location="../src/tecidos.php";
 }
 
 function excluirtecido(){
@@ -46,23 +46,23 @@ function editartecido(){
 
 function inserirtecido(){
     alert("Esta aplicação web é um protótipo. Apenas administradores podem cadastrar novos tecidos, isso foi uma simulação.");
-    window.location="./tecidos_adm.html";
+    window.location="../src/tecidos_adm.php";
 }
 
 function confirmarvisaoadm_noticia(){
     if(confirm("Esta aplicação web é um protótipo. Ao clicar em Ok você poderá conhecer algumas funcionalidades de administrador.")){
-        window.location="./site_externo_adm.html";
+        window.location="../src/site_externo_adm.php";
     }
 }
 
 function confirmarvisaousu_noticia(){
     alert("Você voltará a ver a página como usuário.");
-    window.location="./site_externo.html";
+    window.location="../src/site_externo.php";
 }
 
 function voltaratencao(){
     alert("Você voltará a página inicial do portal de notícias como usuário.");
-        window.location="./portal_de_noticias.html";
+        window.location="../src/portal_de_noticias.php";
 }
 
 function excluirnoticia(){
@@ -75,5 +75,5 @@ function editarnoticia(){
 
 function inserirnoticia(){
     alert("Esta aplicação web é um protótipo. Apenas administradores podem cadastrar novas notícias, isso foi uma simulação.");
-    window.location="./site_externo_adm.html";
+    window.location="../src/site_externo_adm.php";
 }

@@ -31,7 +31,7 @@ CREATE TABLE Tecidos(
     id_tecidos INT AUTO_INCREMENT,
     id_tipo_tecidos INT NOT NULL,
     desc_tecidos VARCHAR(255) NOT NULL,
-    sustentavel BOOLEAN NOT NULL,
+    sustentavel BOOLEAN NOT NULL DEFAULT false,
 
     PRIMARY KEY (id_tecidos),
     FOREIGN KEY (id_tipo_tecidos)
