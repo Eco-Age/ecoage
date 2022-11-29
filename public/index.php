@@ -39,6 +39,7 @@ exibirMsg();
                       <div class="col-2"></div>
                       </div>
                   </form>
+                  <div class="text-center text-danger pt-3" id="id_msg">
 
                       <br>
                       <div class="row">
