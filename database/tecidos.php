@@ -71,21 +71,21 @@ function listarTecidos(){
 }
   
 
-function removerSerie($id_serie){
+function removerTecido($id_tecidos){
   
-  $sql = "DELETE FROM Series WHERE id_serie = ?";
+  $sql = "DELETE FROM Tecidos WHERE id_tecidos = ?";
 
   $conexao = obterConexao();
     
   $stmt = $conexao->prepare($sql);
-  $stmt->bind_param("i", $id_serie);
+  $stmt->bind_param("i", $id_tecidos);
   $stmt->execute();
 
   if ($stmt->affected_rows > 0) {
-      $_SESSION["msg"] = "A série foi removida!";
+      $_SESSION["msg"] = "Tecido removido com sucesso!";
       $_SESSION["tipo_msg"] = "alert-danger";
     } else {
-      $_SESSION["msg"] = "A série não foi removida! Erro: " . mysqli_error($conexao);
+      $_SESSION["msg"] = "O tecido não pôde ser removido! Erro: " . mysqli_error($conexao);
       $_SESSION["tipo_msg"] = "alert-danger";
     }
     $stmt->close();
