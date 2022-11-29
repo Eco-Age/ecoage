@@ -24,6 +24,51 @@ function mostrarOcultar_cadastro(){
     }
 }
 
+window.addEventListener("load", setEventos);
+
+function setEventos() {
+  let button = document.getElementById('btnlogin');
+  button.addEventListener("click", validarLogin);
+
+  document.getElementById("apelido_login").addEventListener("focus", limparCampo);
+  document.getElementById("senha_login").addEventListener("focus", limparCampo);
+}
+
+function validarLogin() {
+
+  let apelido = document.getElementById("apelido_login").value;
+  let senha = document.getElementById("senha_login").value;
+  let dados_form = new FormData();
+  dados_form.append("apelido", apelido);
+  dados_form.append("senha", senha);
+
+  fetch("../src/login.php", {
+    method: 'POST',
+    body: dados_form,
+  })
+  .then(function(response) {
+    if (!response.ok) {
+      throw new Error(response.text());
+    }
+    return response.json();
+  })
+  .then(function(objeto) {
+    if (objeto.autenticado){
+      window.location.href = "../src/pagina_inicial.php";
+    } else {
+      document.getElementById("id_msg").innerHTML = objeto.msg;
+    }
+  })
+  .catch(function(erro) { 
+    document.getElementById("id_msg").innerHTML = "Erro na requisição";
+    console.error(erro);
+  });
+}
+
+function limparCampo() {
+  document.getElementById("id_msg").innerHTML = "";
+}
+
 
 function confirmarvisaoadm(){
     if(confirm("Esta aplicação web é um protótipo. Ao clicar em Ok você poderá conhecer algumas funcionalidades de administrador.")){
