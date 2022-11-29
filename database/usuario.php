@@ -34,43 +34,38 @@ if (!isset($_SESSION)) {
 }  
 
 function buscarUsuario($apelido, $senha) {
+  $sql = "SELECT apelido FROM Usuario WHERE apelido = ?"; 
+  $conexao = obterConexao();
+  $stmt = $conexao->prepare($sql);
+  $stmt->bind_param("s", $apelido);
+  $stmt->execute();
+  $resultado = $stmt->get_result();
+  $usuario = mysqli_fetch_assoc($resultado);
 
+  if ($usuario == null) {
+  $_SESSION["msg"] = "Usuário incorreto!";
+  $_SESSION["tipo_msg"] = "alert-warning";
+  } else {
     $senha_md5 = md5($senha);
-    
-     $sql = "SELECT * FROM Usuario
-             WHERE apelido = ? AND senha = ?"; 
-    
-     $conexao = obterConexao();
-    
-     $stmt = $conexao->prepare($sql); 
-     $stmt->bind_param("ss", $apelido, $senha_md5);   
-     $stmt->execute(); 
-     
-     $resultado = $stmt->get_result(); 
-     $login = mysqli_fetch_assoc($resultado);
-    
-     $stmt->close();
-     $conexao->close();
-    
-     return $login;
+    $sql = "SELECT * FROM Usuario
+            WHERE apelido = ? AND senha = ?";  
+    //$conexao = obterConexao();
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("ss", $apelido, $senha_md5);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $usuario = mysqli_fetch_assoc($resultado);
+    if ($usuario == null) {
+      $_SESSION["msg"] = "Senha incorreta!";
+      $_SESSION["tipo_msg"] = "alert-warning";
+    } else {
+      $_SESSION["msg"] =  null;
     }
-
-function fazer_login($apelido, $senha){
-
-    $usuario = buscarUsuario($apelido, $senha);
-    
-         if ($usuario == null){
-            $_SESSION["msg"] = "Usuário ou senha incorretos!";
-            $_SESSION["tipo_msg"] = "alert-danger";
-    
-            return false;
-           } else {
-               $_SESSION["nome_logado"] = $usuario["nome_completo"];
-               $_SESSION["apelido_logado"] = $usuario["apelido"];
-               $_SESSION["id_usuario"] = $usuario["id_usuario"];
-    
-               return true;
-           }   
+  }
+  $stmt->close();
+  $conexao->close();
+  return [$usuario, $_SESSION["msg"]];
+   
 }
 
 function buscarUsuarioLogado($id_usuario){
@@ -117,7 +112,7 @@ $sql = "UPDATE Usuario
   $stmt->close();
   $conexao->close();
 }
-
+    
 
 //------------------------------------------------------------------------------------------------
   
@@ -157,4 +152,5 @@ function removerUsuario($id_usuario) {
   $stmt->close();
   $conexao->close();
 }
+
 ?>
