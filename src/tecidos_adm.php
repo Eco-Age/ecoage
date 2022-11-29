@@ -7,10 +7,11 @@ if(!isset($_SESSION["id_usuario"])){
 include("../include/navegacao.php");
 require("../database/tipo_tecidos.php");
 require("../database/tecidos.php");
+require("../util/mensagens.php");
 
+exibirMsg();
 $lista_tipo_tecidos = listarTipoTecidos();
 $lista_tecidos = listarTecidos();
-
 ?>
 <div class="container">
 
@@ -42,7 +43,7 @@ $lista_tecidos = listarTecidos();
                             <select name="id_tipo_tecidos" id="id_tipo_tecidos" class="form-control">
                                 <?php foreach ($lista_tipo_tecidos as $tipo_tecido) : ?>
                                 <option value='<?=$tipo_tecido["id_tipo_tecidos"]?>'>
-                                <?=$tipo_tecido["nome_tecidos"]?>
+                                    <?=$tipo_tecido["nome_tecidos"]?>
                                 </option>
                                 <?php endforeach ?>
                             </select> 
@@ -111,12 +112,13 @@ $lista_tecidos = listarTecidos();
                         <a class="btn btn-primary" id="" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">
                         Saiba mais..
                         </a>
-                        <h4 class="card-title"> 
-                        <?php
-                            $sustentavel = $tecido["sustentavel"] ? "checked='checked'" : "";
-                        ?> 
-                            <input type="checkbox" class="form-check-input" name="sustentavel" <?=$sustentavel?> disabled> 
-                        </h4>
+                        <h4 class="card-title">
+                        <form action="remover_tecido.php" method="POST">
+                            <input type="hidden" name="id_tecidos" value=<?=$tecido['id_tecidos']?> />
+                                <button class="btndelete" type="submit" name="remover_tecido">
+                                    <span class="material-symbols-outlined" id="btndelete2">delete</span>
+                                </button>
+                        </form>
                 </p>
                   
                 <div class="collapse" id="collapse1">
