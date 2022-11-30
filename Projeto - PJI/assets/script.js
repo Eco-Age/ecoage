@@ -40,6 +40,11 @@ function excluirtecido(){
     alert("Opa! Apenas administradores podem excluir um tecido!");
 }
 
+function excluirtecido2(){
+    if(confirm("Ao clicar em 'Ok' o tecido Lã sera excluido.")){
+        window.location="./tecidos_adm.html";
+    }
+}
 function editartecido(){
     alert("Opa! Apenas administradores podem editar um tecido!");
 }
@@ -66,7 +71,13 @@ function voltaratencao(){
 }
 
 function excluirnoticia(){
-    alert("Opa! Apenas administradores podem excluir uma notícia!");
+    alert("Opa! Apenas administradores podem excluir outras notícias, siga o roteiro!");
+}
+
+function excluirnoticia2(){
+    if(confirm("Ao clicar em 'Ok' a notícia será excluida.")){
+        window.location="./site_externo_adm.html";
+    }
 }
 
 function editarnoticia(){
@@ -74,8 +85,8 @@ function editarnoticia(){
 }
 
 function inserirnoticia(){
-    alert("Esta aplicação web é um protótipo. Apenas administradores podem cadastrar novas notícias, isso foi uma simulação.");
-    window.location="./site_externo_adm.html";
+    alert("Notícia cadastrada com sucesso!");
+    window.location="../src/site_externo_noticiacadastradaAdm.html";
 }
 
 function editar_perfil(){
@@ -89,4 +100,8 @@ function jogo(){
 function esqueciminhasenha(){
     alert('Esta aplicação web é um protótipo. Esta função ainda não foi implementada.');
     window.location="./index.html";
+}
+
+function duvida_enviar(){
+    alert('Esta aplicação web é um protótipo, essa função ainda não foi implementada. Para nos enviar sua dúvida acesse o formulário disponibilizado ao final do Roteiro.');
 }

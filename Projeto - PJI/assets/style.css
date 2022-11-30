@@ -190,15 +190,15 @@
 }
 
 #botao_editar_usuario{
-    background-color: #efff14;    
+    background-color: #623f80;    
     border: none;
-    color: #9e00b3;
+    color: #efff14;
     width: 100%;
 }
 
 #botao_editar_usuario:hover{
-    background-color: #00eeff;
-    color: #9e00b3;
+    background-color: #4a3061;
+    color: #efff14;
 }
 
 #modal_tecidos{
@@ -273,6 +273,11 @@ nav{
 
 
 /* PÁGINA TECIDOS */
+
+#menu_tecidos_of{
+    background-color: #240f36;
+    color: #efff14;
+}
 
 .card{
     align-items: center;
@@ -390,6 +395,7 @@ nav{
 
 #row_cadastrar{
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .btndelete, .btnedit{
@@ -426,6 +432,26 @@ nav{
 }
 
 /* PORTAL DE NOTÍCIAS */
+
+#menu_portal_of{
+    background-color: #240f36;
+    color: #efff14;
+}
+
+#game_of{
+    background-color: #240f36;
+    color: #efff14;
+}
+
+#ajuda_of{
+    background-color: #240f36;
+    color: #efff14;
+}
+
+#icone_sobrenos_of{
+    background-color: #240f36;
+    color: #efff14;
+}
 
 #carrosel{
     margin-top: 20px;
@@ -484,8 +510,8 @@ nav{
 
 /* rodapé */
 #rodape {
-    background-color: #580f6e;
-    color: #fafafa;
+    background-color: #623f80;
+    color: #b3d39e;
     clear: both;
     position: relative;
     margin-top: auto;
@@ -494,6 +520,7 @@ nav{
     width: 100%;        
     padding-top: 20px;   
     text-decoration: none;
+    box-shadow: 3px 3px 5px 3px #1b1025;
 }
 
 #sobre_nos{
@@ -506,9 +533,14 @@ nav{
 }
 
 #copy-area{
-    background-color: #350046;
+    background-color: #4e3266;
     text-decoration: none;
     padding-top: 20px;
+}
+
+#icone_gmail{
+    width: 2%;
+    margin-bottom: 3px;
 }
 
 
@@ -655,7 +687,21 @@ nav{
 
 /* Imagens página incial */
 
+.nosso_nominho{
+    color: #350046;
+    text-decoration: none;
+    font-size: 14pt;
+    font-weight: 500;
+}
 
+.nosso_nominho:hover{
+    color: #350046;
+    text-decoration: none;
+}
+#menu_home_paginaI{
+    background-color: #240f36;
+    color: #efff14;
+}
 
 #Ana_img, #Edu_img, #Gabi_img{
     width: 150px;

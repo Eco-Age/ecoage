@@ -40,7 +40,7 @@
                    </li>
                    
                    <li class="navbar-text" id="menu_ajuda">
-                       <a class="nav-link" href="ajuda.html" id="ajuda"><span class="material-symbols-outlined">help</span></a>
+                       <a class="nav-link" href="ajuda.html" id="ajuda_of"><span class="material-symbols-outlined">help</span></a>
                    </li>
        
                    <li class="navbar-text" id="menu_sobre_nos">
@@ -149,18 +149,18 @@
         <div class="row">
             <div class="col-4"></div>
                 <div class="col-4">
-                <form action="" method="POST">
+                <form action="ajuda.html" method="POST">
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="E-mail" name="email_ajuda">
+                        <input type="email" class="form-control" placeholder="E-mail" name="email_ajuda" required>
                         <small id="emailHelp" class="form-text text-muted">Seu e-mail não será compartilhado com ninguém.</small>
                     </div>
                     <div class="form-group"> 
-                        <input type="text" class="form-control" placeholder="Assunto" name="assunto_ajuda">
+                        <input type="text" class="form-control" placeholder="Assunto" name="assunto_ajuda" required>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" rows="3" placeholder="Sua dúvida..." name="duvida"></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Sua dúvida..." name="duvida" required></textarea>
                     </div>
-                    <input type="submit" class="main-btn btn btn-primary" id="enviarDuvida" value="Enviar">
+                    <button type="submit" value="Enviar" class="btn btn-primary" id="enviarDuvida" onclick="duvida_enviar()">Enviar</button> 
                 </form>
                 </div>
             <div class="col-4"></div>
@@ -192,5 +192,6 @@
         </div>
     </div>
 </footer>
+<script src="assets/script.js"></script>
 </body>
 </html>

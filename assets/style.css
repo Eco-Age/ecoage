@@ -640,7 +640,10 @@ nav{
 
 /* Imagens página incial */
 
-
+#menu_home_paginaI{
+    background-color: #422758;
+    color: #efff14;
+}
 
 
 #Ana_img, #Edu_img, #Gabi_img{
