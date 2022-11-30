@@ -19,8 +19,7 @@ $lista_tecidos = listarTecidos();
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
-        <button type="button" class="btn btn-primary col-8" id="btnnovaconta"> 
-        <a href="inserir_tecido.php">Cadastrar Tecido</a>
+        <a class="btn col-8" id="btncadastrartecido" href="inserir_tecido.php">Cadastrar Tecido</a>
         </button>        
         </div>
         <div class="col-4"></div>
@@ -64,14 +63,16 @@ $lista_tecidos = listarTecidos();
                    </div>
                  </div>
                </div> -->
-        <?php
-            foreach ($lista_tecidos as $tecido) :
-        ?>
 
         <div class="row" id="tecidos">
-            <div id="tecido1_usu">
+        
+        <?php
+            foreach ($lista_tecidos as $tecido) :
+        ?>  
+        <div id="tecido1_usu">
+ 
             <p>
-            <img id="imgtecido1"class="card-img-top" src="../assets/tecido.png" alt="Poliéster">
+            <img id="imgtecido1" class="card-img-top" src="../assets/tecido.png" alt="Poliéster">
                 <p>
                     <h5><?= $tecido["nome_tecidos"] ?></h5>
                         <p>Voce conquistou esse tecido!</p>
@@ -79,36 +80,38 @@ $lista_tecidos = listarTecidos();
                         <a class="btn btn-primary" id="" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">
                         Saiba mais..
                         </a>
-
-                        <?php
-                            $sustentavel = $tecido["sustentavel"] ? "checked='checked'" : "";
-                        ?>
-                        <p class="text-center">
+                          <?php
+                              $sustentavel = $tecido["sustentavel"] ? "checked='checked'" : "";
+                          ?>
+                      <div style="text-center; margin-left: 30px;">
                         <input type="checkbox" class="form-check-input" name="sustentavel" <?=$sustentavel?> disabled>    
-                        </p>
+                      </div>
+                      <br>
                         <h4 class="card-title">
-                        <form action="remover_tecido.php" method="POST">
+                        <form action="editando_tecido.php" method="get" style="display: inline-block;">
+                            <input type="hidden" name="id_tecidos" value="<?=$tecido["id_tecidos"]?>">
+                            <button type="submit" class="btnedit" value="edit" ><span class="material-icons" id="btneditTecido">edit</span></button>
+                        </form>
+                        <form action="remover_tecido.php" method="POST" style="display: inline-block;">
                             <input type="hidden" name="id_tecidos" value=<?=$tecido['id_tecidos']?> />
                                 <button class="btndelete" type="submit" name="remover_tecido">
                                     <span class="material-symbols-outlined" id="btndelete2">delete</span>
                                 </button>
                         </form>
-                        <form action="editando_tecido.php" method="get">
-                            <input type="hidden" name="id_tecidos" value="<?=$tecido["id_tecidos"]?>">
-                            <button type="submit" class="btnedit" value="edit"><span class="material-icons" id="btneditTecido">edit</span></button>
-                        </form>
+                
 
     
                 </p>  
-                <div class="collapse" id="collapse">
+                <div class="collapse" id="collapse1">
                     <div class="card card-body"  id="card1">
-                        <?= $tecido["desc_tecidos"] ?>          
+                        <?=$tecido["desc_tecidos"] ?>          
                     </div>
                 </div>
             </p>
             </div>
         <?php endforeach ?>    
     </div>
+    <script src="../assets/script.js"></script>
 </div>
 <?php
     include ("../include/rodape.php");
