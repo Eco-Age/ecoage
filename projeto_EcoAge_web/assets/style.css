@@ -410,6 +410,7 @@ nav{
     border: none;
 }
 
+
 /* PORTAL DE NOTÍCIAS */
 
 #carrosel{
@@ -789,3 +790,60 @@ color: #986ec0;
 text-decoration: none;
 color: #815ca5;
 }
+
+/* tabelaaaaaa testandoooo */
+
+#tecidotabela{
+    width: 55%;
+}
+
+#tabelaTecidos{
+    margin: 80px auto;
+}
+
+table{
+    background-color: #60006d1b;
+    border-radius: 30px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    font-size: 14px;
+}
+
+thead{
+    background-color: #623f80;
+    color: #ffffff;    
+    font-size: 15px;
+
+}
+
+td,th{
+    border:none;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 14px;
+}
+
+
+th{
+    border: none;
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    #checkbox, #lancamento2{
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+
+    /*  edição tecidos */
+
+
+    #formEditarTecido{
+        width: ;
+    }

@@ -51,7 +51,7 @@ function listarTecidos(){
   
   $lista_tecidos = [];
 
-  $sql = "SELECT t.id_tecidos, tt.nome_tecidos, t.desc_tecidos
+  $sql = "SELECT t.id_tecidos, tt.nome_tecidos, t.desc_tecidos, t.sustentavel
           FROM Tipo_Tecidos tt, Tecidos t
           WHERE tt.id_tipo_tecidos = t.id_tipo_tecidos"; 
     
@@ -92,23 +92,24 @@ function removerTecido($id_tecidos){
     $conexao->close();
 }
 
-function editarSerie($id_serie, $id_categoria, $nome_serie, $qtd_temporadas, $ano_lancamento, $resumo, $data_cadastro,  $lancamento) {
-  
-  $sql = "UPDATE Series 
-          SET id_categoria = ?, nome_serie = ?, qtd_temporadas = ?, ano_lancamento = ?, resumo = ?, data_cadastro = ?, lancamento = ? 
-          WHERE id_serie = ?";
-  
+function editarTecido($id_tecidos, $id_tipo_tecidos, $desc_tecidos,  $sustentavel) {
+   
   $conexao = obterConexao();
+ 
+  $sql = "UPDATE Tecidos 
+          SET id_tipo_tecidos = ?, desc_tecidos = ?, sustentavel = ?
+          WHERE id_tecidos = ?";
+  
 
   $stmt = $conexao->prepare($sql);
-  $stmt->bind_param("isiissii", $id_categoria, $nome_serie, $qtd_temporadas, $ano_lancamento, $resumo, $data_cadastro,  $lancamento, $id_serie);
+  $stmt->bind_param("isii", $id_tipo_tecidos, $desc_tecidos, $sustentavel, $id_tecidos);
   $stmt->execute();
 
   if ($stmt->affected_rows > 0) {
-    $_SESSION["msg"] = "Os dados da série {$nome_serie} foram alterados!";
+    $_SESSION["msg"] = "Os dados do tecido foram alterados!";
     $_SESSION["tipo_msg"] = "alert-warning";
   } else {
-    $_SESSION["msg"] = "Os dados da série {$nome_serie} não foram alterados! Erro: " . mysqli_error($conexao);
+    $_SESSION["msg"] = "Os dados do tecido não foram alterados! Erro: " . mysqli_error($conexao);
     $_SESSION["tipo_msg"] = "alert-danger";
   }  
 
