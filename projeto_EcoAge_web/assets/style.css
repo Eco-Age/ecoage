@@ -469,8 +469,8 @@ nav{
 
 /* rodapé */
 #rodape {
-    background-color: #580f6e;
-    color: #fafafa;
+    background-color: #623f80;
+    color: #b3d39e;
     clear: both;
     position: relative;
     margin-top: auto;
@@ -479,6 +479,7 @@ nav{
     width: 100%;        
     padding-top: 20px;   
     text-decoration: none;
+    box-shadow: 3px 3px 5px 3px #1b1025;
 }
 
 #sobre_nos{

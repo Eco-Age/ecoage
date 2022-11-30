@@ -49,12 +49,13 @@ function buscarUsuario($apelido, $senha) {
     $senha_md5 = md5($senha);
     $sql = "SELECT * FROM Usuario
             WHERE apelido = ? AND senha = ?";  
-    //$conexao = obterConexao();
+
     $stmt = $conexao->prepare($sql);
     $stmt->bind_param("ss", $apelido, $senha_md5);
     $stmt->execute();
     $resultado = $stmt->get_result();
     $usuario = mysqli_fetch_assoc($resultado);
+    
     if ($usuario == null) {
       $_SESSION["msg"] = "Senha incorreta!";
       $_SESSION["tipo_msg"] = "alert-warning";
