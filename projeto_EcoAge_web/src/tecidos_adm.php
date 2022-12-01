@@ -83,8 +83,8 @@ $lista_tecidos = listarTecidos();
                           <?php
                               $sustentavel = $tecido["sustentavel"] ? "checked='checked'" : "";
                           ?>
-                      <div style="text-center; margin-left: 30px;">
-                        <input type="checkbox" class="form-check-input" name="sustentavel" <?=$sustentavel?> disabled>    
+                      <div style="text-center; margin-left: 30px; margin-top: 20px;">
+                        <input type="checkbox" class="form-check-input" name="sustentavel" <?=$sustentavel?> disabled>Sustentável?
                       </div>
                       <br>
                         <h4 class="card-title">
