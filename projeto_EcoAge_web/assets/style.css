@@ -198,6 +198,14 @@
 }
 /* NAVEGAÇÃO */
 
+#btnmeuperfil{
+    cursor: pointer;
+}
+
+.btnmeuperfil:hover{
+    color: black;
+}
+
 #icone_game, #icone_perfil, #icone_sair{
     vertical-align: middle;
 }
@@ -221,7 +229,7 @@
 }
 
 
-#menu_home:hover, #icone_home:hover, #menu_portal:hover, #menu_tecidos:hover, #game:hover, #icone_game:hover, #icone_menu:hover, #menu_m:hover, #ajuda:hover, #icone_ajuda:hover{
+#icone_sobrenos:hover, #menu_home:hover, #icone_home:hover, #menu_portal:hover, #menu_tecidos:hover, #game:hover, #icone_game:hover, #icone_menu:hover, #menu_m:hover, #ajuda:hover, #icone_ajuda:hover{
         background-color: #240f36;
         color: #efff14;
 }
@@ -844,6 +852,6 @@ th{
     /*  edição tecidos */
 
 
-    #formEditarTecido{
-        width: ;
-    }
+   /* #formEditarTecido{
+      
+    }*/
