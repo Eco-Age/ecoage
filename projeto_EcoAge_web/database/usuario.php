@@ -5,6 +5,24 @@ if (!isset($_SESSION)) {
   require_once("conexao.php");
 
 
+  function verificarUsuarioCadastrado($apelido, $email){
+    $sql = "SELECT * FROM Usuario WHERE apelido = ? OR email = ?";
+    $conexao = obterConexao();
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("ss", $apelido, $email);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $cadastrado = mysqli_num_rows($resultado);
+    if (0 < $cadastrado) {
+       return true;
+    }else {
+      return false;
+    }
+  
+    $stmt->close();
+    $conexao->close();
+  
+  }
   
   function inserirUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha){
 
