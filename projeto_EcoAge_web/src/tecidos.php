@@ -13,10 +13,7 @@ include("../include/navegacao.php");
     <div class="container">
         <div class="row">
             <div class="col-8"></div>
-            <div class="col-4">
-                <button class="btn" onclick="confirmarvisaoadm()" id="visaoadm">
-                    Visualizar como administrador<span class="material-symbols-outlined" id="visao_usu">visibility</span>
-                </button>            </div>
+           
             <div class="col-0"></div>
         </div>
 
