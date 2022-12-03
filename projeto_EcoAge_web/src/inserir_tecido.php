@@ -1,7 +1,6 @@
 <?php
 require("../database/tipo_tecidos.php");
 require("../database/usuario.php");
-include("../include/cabecalho.php");
 include("../include/navegacao.php");
 
 $lista_tipo_tecidos = listarTipoTecidos();
@@ -52,7 +51,5 @@ $lista_tipo_tecidos = listarTipoTecidos();
     <?php
       include("../include/rodape.php");  
     ?>
-    <script src="../assets/script.js"></script>
-</body>
-</html>
+<script src="../assets/script.js"></script>
     
