@@ -14,6 +14,7 @@ exibirMsg();
 $lista_tipo_tecidos = listarTipoTecidos();
 $lista_tecidos = listarTecidos();
 ?>
+
 <div class="container">
 
     <div class="row">
@@ -75,32 +76,47 @@ $lista_tecidos = listarTecidos();
             <img id="imgtecido1" class="card-img-top" src="../assets/tecido.png" alt="Poliéster">
                 <p>
                     <h5><?= $tecido["nome_tecidos"] ?></h5>
-                        <p>Voce conquistou esse tecido!</p>
-                       
-                        <a class="btn btn-primary" id="" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">
-                        Saiba mais..
-                        </a>
-                          <?php
-                              $sustentavel = $tecido["sustentavel"] ? "checked='checked'" : "";
-                          ?>
-                      <div style="text-center; margin-left: 30px; margin-top: 20px;">
-                        <input type="checkbox" class="form-check-input" name="sustentavel" <?=$sustentavel?> disabled>Sustentável?
-                      </div>
-                      <br>
-                        <h4 class="card-title">
-                        <form action="editando_tecido.php" method="get" style="display: inline-block;">
-                            <input type="hidden" name="id_tecidos" value="<?=$tecido["id_tecidos"]?>">
-                            <button type="submit" class="btnedit" value="edit" ><span class="material-icons" id="btneditTecido">edit</span></button>
-                        </form>
-                        <form action="remover_tecido.php" method="POST" style="display: inline-block;">
-                            <input type="hidden" name="id_tecidos" value=<?=$tecido['id_tecidos']?> />
-                                <button class="btndelete" type="submit" name="remover_tecido">
-                                    <span class="material-symbols-outlined" id="btndelete2">delete</span>
-                                </button>
-                        </form>
-                
+                      <p>Voce conquistou esse tecido!</p>
+                      
+                      <a class="btn btn-primary" id="" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">
+                      Saiba mais..
+                      </a>
+                        <?php
+                            $sustentavel = $tecido["sustentavel"] ? "checked='checked'" : "";
+                        ?>
+                    <div style="text-center; margin-left: 30px; margin-top: 20px;">
+                      <input type="checkbox" class="form-check-input" name="sustentavel" <?=$sustentavel?> disabled>Sustentável?
+                    </div>
+                    <br>
+                    <h4 class="card-title">
+                    <form action="editando_tecido.php" method="get" style="display: inline-block;">
+                        <input type="hidden" name="id_tecidos" value="<?=$tecido["id_tecidos"]?>">
+                        <button style="cursor: pointer;" type="submit" class="btnedit" value="edit" ><span class="material-icons" id="btneditTecido">edit</span></button>
+                    </form>
+                    
+                    <button style="cursor: pointer;" class="btndelete" data-toggle="modal" data-target="#confirm" >
+                        <span class="material-symbols-outlined" id="btndelete2">delete</span>
+                    </button>
+  
+                    <div class="modal fade" id="confirm" role="dialog">
+                      <div class="modal-dialog modal-md">
 
-    
+                        <div class="modal-content">
+                          <div class="modal-body">
+                                <p style="font-variant: small-caps; font-size: 22px; font-family: Arial">Deseja mesmo excluir o tecido? Cuidado: Esta ação não pode ser desfeita.</p>
+                          </div>
+                
+                          <div class="modal-footer">
+                            <form action="remover_tecido.php" method="POST" style="display: inline-block;">
+                              <input type="hidden" name="id_tecidos" value=<?=$tecido['id_tecidos']?> />
+                                <button type="submit" class="btn btn-danger" id="delete" name="remover_tecido">Apagar Tecido</button>
+                                <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+                            </form>   
+                          </div> 
+                        </div>
+                        
+                      </div>
+                    </div>
                 </p>  
                 <div class="collapse" id="collapse1">
                     <div class="card card-body"  id="card1">
