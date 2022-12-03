@@ -6,7 +6,7 @@ session_start();
    header("Location: ../public/index.php");
  }
  
-  include("../include/cabecalho.php");
+
   include("../include/navegacao.php");
 ?>
 
@@ -78,9 +78,7 @@ session_start();
         </div>
         <div class="col-3"></div>
 </div>
-</main>
+
 <?php
     include("../include/rodape.php");  
 ?>
-</body>
-</html>
