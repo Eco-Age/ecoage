@@ -38,6 +38,11 @@ exibirMsg();
                       <button type="submit" class="btn btn-primary col-8" id="btnlogin">Entrar</button>
                       <div class="col-2"></div>
                       </div>
+                      <div class="row">
+                      <div class="col-3"></div>
+                      <a href="../src/esqueceu_senha.php" data-toggle="modal" data-target="#moda2">Esqueceu a senha?</a>
+                      <div class="col-3"></div>
+                      </div>
                   </form>
                   <div class="text-center text-danger pt-3" id="id_msg">
 
@@ -111,8 +116,43 @@ exibirMsg();
                    </div>
                  </div>
                </div>
+               </div>
+    </div>
+ 
+         <!-- Modal Esqueci a senha --> 
+ 
+       <div class="modal fade" id="moda2" tabindex="-1" role="dialog" aria-labelledby="recupere_senha" aria-hidden="true">
+                 <div class="modal-dialog modal-dialog-centered" role="document">
+                   <div class="modal-content">
+                     <div class="modal-header">
+                       <h5 class="modal-title" id="recupere_senha">Recupe sua senha:</h5>
+                       <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                         <span aria-hidden="true">&times;</span>
+                       </button>
+                     </div>
+                     <div class="modal-body">
+                       <fieldset>      
+                           <form action="../src/esqueceu_senha.php" method="post">
+                             
+                           <div class="form-group">
+                               <label for="email_recuperar" id="email_recuperar">Email:</label> 
+                               <input type="text" id="email_recuperar" name="email_recuperar" class="form-control" placeholder="Informe o seu email..." required>
+                           </div>
+
+                           <div class="form-group">    
+                               <button type="submit" value="enviar" class="btn btn-primary" id="botao_inserir">Eviar</button> 
+                             </div>   
+                           </form>
+                       </fieldset>       
+                     </div>
+                   </div>
+                 </div>
+               </div>
           </div>
        </div>
+     
+       
+
   <footer class="footer navbar-fixed bottom" id="rodape">
         <div id="copy-area">
             <div class="container">
@@ -129,3 +169,4 @@ exibirMsg();
       <script src="../assets/script.js"></script>
       </body>
 </html>
+
