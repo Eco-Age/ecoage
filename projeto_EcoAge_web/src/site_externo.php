@@ -5,8 +5,9 @@ session_start();
  if(!isset($_SESSION["id_usuario"])){
    header("Location: ../public/index.php");
  }
- 
-
+ if ($_SESSION["id_usuario"] == 1){
+    header("Location: ../src/site_externo_adm.php");
+}
     include("../include/navegacao.php");
 ?>
 <body> 
@@ -16,13 +17,7 @@ session_start();
             <div class="col-1">
                 <a class="btn" href="portal_de_noticias.php"><span class="material-icons" id="icone_voltar_noticias">reply</span></a>
             </div>
-            <div class="col-7"></div>
-            <div class="col-4">
-                <button class="btn" onclick="confirmarvisaoadm_noticia()" id="visaoadm_noticias">
-                    Visualizar como administrador<span class="material-symbols-outlined" id="visao_usu">visibility</span>
-                </button>            
-            </div>
-            <div class="col-0"></div>
+            <div class="col-11"></div>
         </div>
 
         <div class="row">    

@@ -101,7 +101,7 @@ function confirmarvisaoadm_noticia(){
 }
 
 function confirmarvisaousu_noticia(){
-    alert("Você voltará a ver a página como usuário.");
+    alert("Você verá a página como usuário.");
     window.location="../src/site_externo.php";
 }
 
