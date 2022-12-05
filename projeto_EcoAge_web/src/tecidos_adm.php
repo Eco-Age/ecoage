@@ -17,11 +17,18 @@ $lista_tecidos = listarTecidos();
 
 <div class="container">
 
+<div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h1 id="txt_tecidos">Tecidos:</h1>
+        </div>
+        <div class="col-4"></div>
+    </div>
+
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
-        <a class="btn col-8" id="btncadastrartecido" href="inserir_tecido.php">Cadastrar Tecido</a>
-        </button>        
+          <a class="btn" id="btncadastrartecido" href="inserir_tecido.php">Cadastrar Tecido</a>
         </div>
         <div class="col-4"></div>
     </div>
@@ -54,7 +61,7 @@ $lista_tecidos = listarTecidos();
                         <input type="hidden" name="id_tecidos" value="<?=$tecido["id_tecidos"]?>">
                         <button style="cursor: pointer;" type="submit" class="btnedit" value="edit" ><span class="material-icons" id="btneditTecido">edit</span></button>
                     </form>
-                    
+                  
                     <button style="cursor: pointer;" class="btndelete" data-toggle="modal" data-target="#confirm" >
                         <span class="material-symbols-outlined" id="btndelete2">delete</span>
                     </button>
@@ -74,8 +81,8 @@ $lista_tecidos = listarTecidos();
                                 <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
                             </form>   
                           </div> 
-                        </div>
-                        
+
+                        </div>  
                       </div>
                     </div>
                 </p>  

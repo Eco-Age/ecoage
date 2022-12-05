@@ -39,27 +39,26 @@ exibirMsg();
                       <div class="col-2"></div>
                       </div>
                   </form>
-                  <div class="text-center text-danger pt-3" id="id_msg">
-
-                      <br>
+                  
                       <div class="row">
                       <div class="col-2"></div>
-                      <button type="button" class="btn btn-primary col-8" id="btnnovaconta" data-toggle="modal" data-target="#modal"> 
+                      <button type="button" class="btn btn-primary col-8" id="btnnovaconta" data-toggle="modal" data-target="#modalNovoUsuario"> 
                           Criar nova conta
                       </button>
                       <div class="col-2"></div>
                     </div>
+                    <div class="text-center text-danger pt-3" id="id_msg"></div>
                 </fieldset>
              </div>
             
        
                <!-- Modal Cadastro do Usuário -->
        
-               <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="cadastroUsuario" aria-hidden="true">
+               <div class="modal fade" id="modalNovoUsuario" tabindex="-1" role="dialog" aria-labelledby="cadastroUsuario" aria-hidden="true">
                  <div class="modal-dialog modal-dialog-centered" role="document">
                    <div class="modal-content">
                      <div class="modal-header">
-                       <h5 class="modal-title" id="cadastroUsuario">Novo usuário:</h5>
+                       <h5 class="modal-title" id="cadastroUsuario">Nova conta:</h5>
                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                          <span aria-hidden="true">&times;</span>
                        </button>
@@ -76,11 +75,13 @@ exibirMsg();
                            <div class="form-row">
                            <div class="form-group col-md-6">
                                <label for="data_nasc" id="data_nasc">Data de Nascimento:</label> 
-                               <input type="date" id="data_nasc" name="data_nasc" class="form-control" required>
+                               <input type="date" id="data_nasc" name="data_nasc" class="form-control" max="2022-12-31" required maxlength="10">
+                               <small id="" class="form-text text-muted">Atenção: Insira uma data válida.</small>
                            </div> 
                            <div class="form-group col-md-6">
                                <label for="tel">Telefone:</label>
-                               <input type="text" class="form-control" name="tel" id="">
+                               <input type="text" class="form-control phone-mask" name="tel" id="tel" pattern="([0-9]{2}\)\s+9+[0-9]{4}\-[0-9]{4}" maxlength="16" minlenght="15" placeholder="(DDD) 00000-0000">
+                               <small id="" class="form-text text-muted">Exemplo: (16) 91212-3456</small>
                            </div>
                            </div>
        
@@ -91,14 +92,15 @@ exibirMsg();
                            
                            <div class="form-group">
                                <label for="email_cadastro" id="email_cadastro">Email:</label> 
-                               <input type="text" id="email_cadastro" name="email_cadastro" class="form-control" placeholder="Informe o seu email..." required>
+                               <input type="text" id="email" name="email_cadastro" class="form-control" placeholder="Informe o seu email..." pattern="[a-z0-9]+@[a-z0-9]+\.[a-z0-9]{3}" required>
+                               <small id="" class="form-text text-muted">Exemplo: example@gmail.com</small>
                            </div> 
        
                            <div class="form-group">
                              <label for="senha_cadastro">Senha:</label>
-                             <input type="password" name="senha_cadastro" class="form-control" id="senha_cadastro" placeholder="Digite sua senha...">
+                             <input type="password" name="senha_cadastro" class="form-control" id="senha_cadastro" placeholder="Digite sua senha..." pattern="[A-Za-z0-9]{8}" minleght="8" maxlenght="8" required >
                              <div id="icon_cadastro" onclick="mostrarOcultar_cadastro()"></div>
-                             <small id="emailHelp" class="form-text text-muted">Máx.: 8 caracteres.</small>
+                             <small id="" class="form-text text-muted">A senha deve conter 8 caracteres, incluindo letras maiúsculas e minúsculas e números.</small>
                            </div>
        
                              
@@ -113,19 +115,22 @@ exibirMsg();
                </div>
           </div>
        </div>
-  <footer class="footer navbar-fixed bottom" id="rodape">
+  <footer class="footer navbar-fixed bottom" id="rodape_login">
         <div id="copy-area">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <p>Desenvolvido por <a href="">Ana Beatriz, Eduardo e Gabrielle</a> &copy; ecoage.com.br 2022</p>
+                        <p>Desenvolvido por <a href="" id="sobre_nos_login">Ana Beatriz, Eduardo e Gabrielle</a> &copy; ecoage.com.br 2022</p>
                         <!-- colocar no link uma página de contato para nós -->
                     </div>
                 </div>
             </div>
         </div>
       </footer>
+      <script src="../assets/script.js">
+          function criaMascara(){
 
-      <script src="../assets/script.js"></script>
+          }
+      </script>
       </body>
 </html>

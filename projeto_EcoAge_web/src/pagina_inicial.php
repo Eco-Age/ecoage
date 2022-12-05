@@ -18,7 +18,7 @@
                     <img src="../assets/Ana_avatar.png" id="Ana_img">
             </div>
             <div class="col-4" id="texto_inicial_ana">
-                <p >Oiii, bem vindo(a) <?= $_SESSION["nome_logado"] ?>! Eu sou a Ana!
+                <p >Oiii, bem vindo(a) <?= $_SESSION["nome_logado"] ?>! Eu sou a <a href="" class="nosso_nominho">Ana</a>!
                     Este site foi desenvolvido como Trabalho de Conclusão de Curso do IFSP - Câmpus Araraquara.
                 </p>
             </div>
@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-3"></div>
             <div class="col-4" id="texto_inicial_edu">     
-                <p >Olá, eu sou o Edu! 
+                <p >Olá, eu sou o <a href="" class="nosso_nominho">Edu</a>! 
                     O Eco Age busca a conscientização quanto aos impactos dos tecidos no meio ambiente.
                 </p>
             </div>
@@ -44,7 +44,7 @@
                     <img src="../assets/Gabi_avatar.png" id="Gabi_img">
             </div>
             <div class="col-4" id="texto_inicial_gabi">
-                <p >Eai, eu sou a Gabi! 
+                <p >Eai, eu sou a <a href="" class="nosso_nominho">Gabi</a>! 
                     Aqui você poderá estar antenado nas últimas notícias sustentáveis do mundo fashion, se divertir jogando e muito mais!
                 </p>
             </div>   
@@ -56,6 +56,6 @@
 <?php
         include("../include/rodape.php");
   ?>
-<script src="assets/script.js"></script>
+<script src="../assets/script.js"></script>
 </body>
 </html>

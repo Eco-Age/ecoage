@@ -12,15 +12,9 @@ if(!isset($_SESSION["id_usuario"])){
 
         <div class="row">
             <div class="col-1">
-                <button class="btn" onclick="voltaratencao()" id="voltar_adm"><span class="material-icons" id="icone_voltar_noticias">reply</span></button>
+                <a href="../src/portal_de_noticias.php" class="btn" id="voltar_adm"><span class="material-icons" id="icone_voltar_noticias">reply</span></a>
             </div>
-            <div class="col-7"></div>
-            <div class="col-4">
-                <button class="btn" onclick="confirmarvisaousu_noticia()" id="visaousu_noticias">
-                    Visualizar como usuário<span class="material-symbols-outlined" id="visao_usu">visibility</span>
-                </button>            
-            </div>
-            <div class="col-0"></div>
+            <div class="col-11"></div>
         </div>
 
         <div class="row">    
@@ -210,7 +204,7 @@ if(!isset($_SESSION["id_usuario"])){
         </div>
     </div>
         </div>
-    <script src="../assets/script.js"></script>
 <?php
     include("../include/rodape.php");  
 ?>
+ <script src="../assets/script.js"></script>

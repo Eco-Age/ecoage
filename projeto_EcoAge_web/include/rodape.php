@@ -3,12 +3,12 @@
         <div class="container">
             <div id="row">
                 <div class="col-md-12">
-                    <h5 class="main-title">Entre em contato conosco:</h5>
+                    <h6 class="main-title">Entre em contato conosco:</h6>
                 </div>
-            <div class="col-md-12 contact-box">
-                <span class="contact-title material-symbols-outlined">mail</span><p>Envie um e-mail: ecoage@gmail.com</p>
             </div>
-            </div>  
+            <div class="col-md-12 contact-box"><img src="" alt="">
+                <img class="contact-title" src="../assets/icone_gmail.png" id="icone_gmail"><p>Envie um e-mail: ecoage@gmail.com</p>
+            </div>
         </div>
     </div>
 
@@ -17,8 +17,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>Desenvolvido por <a href="">Ana Beatriz, Eduardo e Gabrielle</a> &copy; ecoage.com.br 2022</p>
-                    <!-- colocar no link uma página de contato para nós -->
+                    <p>Desenvolvido por <a href="sobre_nos.html" id="sobre_nos">Ana Beatriz, Eduardo e Gabrielle</a> &copy; ecoage.com.br 2022</p>
                 </div>
             </div>
         </div>

@@ -18,10 +18,9 @@
 
         <div class="row">
             <div class="col-5"></div>
-               
                     <form action="site_externo.php" class="form-inline">
                         <input class="form-control" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar">
-                    </form>
+                    </form> 
                     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#filtros" aria-expanded="false" aria-controls="collapseExample" id="btn_filtros">
                     Filtros<span class="material-symbols-outlined" id="seta_filtro">arrow_drop_down</span>
                     </button> 
@@ -35,12 +34,12 @@
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="filtros_" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Em qualquer data
                     </button>
-                        <div class="dropdown-menu" aria-labelledby="filtros_">
-                            <a class="dropdown-item" href="site_externo.html">Na última hora</a>
-                            <a class="dropdown-item" href="site_externo.html">Nas últimas 24 horas</a>
-                            <a class="dropdown-item" href="site_externo.html">Na última semana</a>
-                            <a class="dropdown-item" href="site_externo.html">No último mês</a>
-                            <a class="dropdown-item" href="site_externo.html">No último ano</a>
+                        <div class="dropdown-menu" id="filtros_menu"aria-labelledby="filtros_">
+                            <a class="dropdown-item" href="site_externo.php">Na última hora</a>
+                            <a class="dropdown-item" href="site_externo.php">Nas últimas 24 horas</a>
+                            <a class="dropdown-item" href="site_externo.php">Na última semana</a>
+                            <a class="dropdown-item" href="site_externo.php">No último mês</a>
+                            <a class="dropdown-item" href="site_externo.php">No último ano</a>
                         </div>
                 </div>
             </div>
