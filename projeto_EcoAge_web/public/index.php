@@ -164,11 +164,7 @@ exibirMsg();
             </div>
         </div>
       </footer>
-      <script src="../assets/script.js">
-          function criaMascara(){
-
-          }
-      </script>
+      <script src="../assets/script.js"></script>
       </body>
 </html>
 
