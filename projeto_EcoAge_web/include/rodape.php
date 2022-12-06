@@ -6,8 +6,8 @@
                     <h6 class="main-title">Entre em contato conosco:</h6>
                 </div>
             </div>
-            <div class="col-md-12 contact-box"><img src="" alt="">
-                <img class="contact-title" src="../assets/icone_gmail.png" id="icone_gmail"><p>Envie um e-mail: ecoage@gmail.com</p>
+            <div class="col-md-12 contact-box" id="divenviarEmail">
+                <a href="mailto:ecoage@gmail.com" id="enviarEmail"><img class="contact-title" src="../assets/icone_gmail.png" id="icone_gmail"></a>
             </div>
         </div>
     </div>

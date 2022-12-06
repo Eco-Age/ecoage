@@ -25,24 +25,25 @@ exibirMsg();
                   <form action="../src/login.php" method="post">
                       <div class="form-group">
                           <label for="apelido_login" id="apelido_login">Apelido:</label>
-                          <input type="text" name="apelido_login" class="form-control" id="apelido_login" placeholder="Digite seu apelido...">
+                          <input type="text" name="apelido_login" class="form-control" id="apelido_login" placeholder="Informe seu apelido...">
                       </div>
                       <div class="form-group">
                           <label for="senha_login" id="email_l">Senha:</label>
-                          <input type="password" name="senha_login" class="form-control" id="senha_login" placeholder="Digite sua senha...">
+                          <input type="password" name="senha_login" class="form-control" id="senha_login" placeholder="Informe sua senha...">
                           <div id="icon" onclick="mostrarOcultar_login()"></div>
-                          <small id="senhahelp" class="form-text">Máx.: 8 caracteres.</small>
                       </div>
+
                       <div class="row">
-                      <div class="col-2"></div>
-                      <button type="submit" class="btn btn-primary col-8" id="btnlogin">Entrar</button>
-                      <div class="col-2"></div>
+                        <div class="col-4"></div>
+                          <a href="../src/esqueceu_senha.php" data-toggle="modal" data-target="#modalesqueceuSenha" id="esqueceuSenha">Esqueceu a senha?</a>
+                        <div class="col-4"></div>
                       </div>
+
                       <div class="row">
-                      <div class="col-3"></div>
-                      <a href="../src/esqueceu_senha.php" data-toggle="modal" data-target="#moda2">Esqueceu a senha?</a>
-                      <div class="col-3"></div>
-                      </div>
+                        <div class="col-2"></div>
+                          <button type="submit" class="btn btn-primary col-8" id="btnlogin">Entrar</button>
+                        <div class="col-2"></div>
+                        </div>
                   </form>
                   
                       <div class="row">
@@ -60,7 +61,7 @@ exibirMsg();
                <!-- Modal Cadastro do Usuário -->
        
                <div class="modal fade" id="modalNovoUsuario" tabindex="-1" role="dialog" aria-labelledby="cadastroUsuario" aria-hidden="true">
-                 <div class="modal-dialog modal-dialog-centered" role="document">
+                 <div class="modal-dialog modal-lg" role="document">
                    <div class="modal-content">
                      <div class="modal-header">
                        <h5 class="modal-title" id="cadastroUsuario">Nova conta:</h5>
@@ -103,7 +104,7 @@ exibirMsg();
        
                            <div class="form-group">
                              <label for="senha_cadastro">Senha:</label>
-                             <input type="password" name="senha_cadastro" class="form-control" id="senha_cadastro" placeholder="Digite sua senha..." pattern="[A-Za-z0-9]{8}" minleght="8" maxlenght="8" required >
+                             <input type="password" name="senha_cadastro" class="form-control" id="senha_cadastro" placeholder="Informe sua senha..." pattern="[A-Za-z0-9]{8}"  maxlenght="8"  required >
                              <div id="icon_cadastro" onclick="mostrarOcultar_cadastro()"></div>
                              <small id="" class="form-text text-muted">A senha deve conter 8 caracteres, incluindo letras maiúsculas e minúsculas e números.</small>
                            </div>
@@ -123,11 +124,11 @@ exibirMsg();
  
          <!-- Modal Esqueci a senha --> 
  
-       <div class="modal fade" id="moda2" tabindex="-1" role="dialog" aria-labelledby="recupere_senha" aria-hidden="true">
-                 <div class="modal-dialog modal-dialog-centered" role="document">
+       <div class="modal fade" id="modalesqueceuSenha" tabindex="-1" role="dialog" aria-labelledby="recupere_senha" aria-hidden="true">
+                 <div class="modal-dialog modal-md" role="document">
                    <div class="modal-content">
                      <div class="modal-header">
-                       <h5 class="modal-title" id="recupere_senha">Recupe sua senha:</h5>
+                       <h5 class="modal-title" id="recupere_senha">Recupere sua senha:</h5>
                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                          <span aria-hidden="true">&times;</span>
                        </button>
@@ -142,7 +143,7 @@ exibirMsg();
                            </div>
 
                            <div class="form-group">    
-                               <button type="submit" value="enviar" class="btn btn-primary" id="botao_inserir">Eviar</button> 
+                               <button type="submit" value="enviar" class="btn btn-primary" id="botao_inserir">Enviar</button> 
                              </div>   
                            </form>
                        </fieldset>       

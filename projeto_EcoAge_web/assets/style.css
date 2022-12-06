@@ -2,6 +2,14 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#esqueceuSenha{
+    text-decoration: none;
+    color: #350046;
+    font-size: 10pt;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
 #body_login{
     background-image: url("fundo_login.jpg");
     background-repeat: no-repeat;
@@ -28,6 +36,7 @@
     color: #364230;
     margin-top: 5px;
     margin-left: 20px;
+    padding-bottom: 0px;
 }
 .forms{
     border-radius: 20px;
@@ -207,6 +216,10 @@
 #checkbox{
     text-align: center;
 }
+
+#txt_tecidos{
+    color: #350046;
+}
 /* NAVEGAÇÃO */
 
 #btnmeuperfil{
@@ -377,6 +390,7 @@ nav{
     background-color: #623f80;
     color: #f0f8e5;
     border: none;
+    margin-top: 5%;
 }
 
 #botao_inserir_tecido{
@@ -495,6 +509,20 @@ align-items: right;
 
 /* rodapé */
 
+#divenviarEmail{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#enviarEmail{
+    background-color: #4b0b69;
+    padding: 12px;
+    border-radius: 50px;
+}
+
+#enviarEmail:hover{
+    background-color: #370a4d;
+}
 #icone_gmail{
     width: 2%;
     margin-bottom: 3px;
@@ -675,6 +703,38 @@ align-items: right;
 
 /* Imagens página incial */
 
+.carousel-indicators li {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50%;
+  }
+  .carousel-indicators li {
+    color: #efff14 !important; 
+  }
+  .indicador{
+    color: #efff14;
+  }
+
+#carroselIntrod{
+    background-image: url("fundo_login.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;    
+    background-color: #67b16d00;
+    display: inline-block;
+    border-radius: 300px;
+    width: auto;
+    margin: auto;
+    height: auto;
+    width: 1000px;
+    height: 500px; 
+    box-shadow: 2px 2px 6px #00000018;
+}
+#ecoAge_inicial{
+    font-size: 14pt;
+    color: #580f6e;
+    font-weight: bold;
+}
 .nosso_nominho{
     color: #350046;
     text-decoration: none;
@@ -694,30 +754,40 @@ align-items: right;
 
 
 #Ana_img, #Edu_img, #Gabi_img{
-    width: 150px;
+    width: 200px;
     margin: auto;
+    margin-top: 20%;
+    background-color: #eef8efdb;
+    border-radius: 200px;
+    padding: 0px;
 }
-
-#Ana_img:hover, #Edu_img:hover, #Gabi_img:hover{
-    width: 160px;
-}
-
-#texto_inicial_ana, #texto_inicial_gabi{
-    display: block;
-    text-align: left;
-    margin: auto;  
-    width: auto; 
+.carroselInicial{
     height: auto;
-    font-size: 13pt;
+    width: auto;
+    margin: 8% auto;
+    vertical-align: middle;
+    align-items: center;    
+    display: flex;
 }
 
-#texto_inicial_edu{
-    display: block;
-    text-align: right;
+.destaque{
+    color: #6f3295;
+    font-size: 14pt;
+    font-weight: 500;
+}
+
+#texto_inicial_edu, #texto_inicial_ana, #texto_inicial_gabi{
+    text-align: center;
     margin: auto;  
-    width: auto; 
-    height: auto;
+    margin-left: 4%;
     font-size: 13pt;
+    background-color: #eef8ef;
+    color: #653292;
+    padding-top: 40px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 40px;
+    border-radius: 200px;
 }
 
 #apresentacao_home{

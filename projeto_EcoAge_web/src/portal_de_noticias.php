@@ -50,28 +50,28 @@
             <div class="col-2"></div>
             <div id="carrosel" class="carousel slide col-8 " data-ride="carousel">
                 <ol class="carousel-indicators">
-                <li data-target="#carrosel" data-slide-to="0" class="active"></li>
-                <li data-target="#carrosel" data-slide-to="1"></li>
-                <li data-target="#carrosel" data-slide-to="2"></li>
+                    <li data-target="#carrosel" data-slide-to="0" class="active"></li>
+                    <li data-target="#carrosel" data-slide-to="1"></li>
+                    <li data-target="#carrosel" data-slide-to="2"></li>
                 </ol>
 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <a href="https://g1.globo.com/pop-arte/moda-e-beleza/noticia/2022/02/24/lixoes-texteis-as-imagens-que-mostram-como-a-industria-pode-ser-toxica-ao-meio-ambiente.ghtml"><img class="img_carrosel d-block w-100" src="../assets/noticia1.jpg" alt="Primeiro Slide"></a>
+                        <a href="https://g1.globo.com/pop-arte/moda-e-beleza/noticia/2022/02/24/lixoes-texteis-as-imagens-que-mostram-como-a-industria-pode-ser-toxica-ao-meio-ambiente.ghtml" target="blank"><img class="img_carrosel d-block w-100" src="../assets/noticia1.jpg" alt="Primeiro Slide"></a>
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Lixões textêis</h5>
                             <p>As imagens que mostram como a indústria pode ser tóxica ao meio ambiente...</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <a href="https://blog.etiquetaunica.com.br/o-impacto-da-industria-da-moda-no-meio-ambiente/"><img class="img_carrosel d-block w-100" src="../assets/noticia2.jpeg" alt="Segundo Slide"></a>
+                        <a href="https://blog.etiquetaunica.com.br/o-impacto-da-industria-da-moda-no-meio-ambiente/" target="blank"><img class="img_carrosel d-block w-100" src="../assets/noticia2.jpeg" alt="Segundo Slide"></a>
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Meio Ambiente</h5>
                             <p>O Impacto da Indústria da Moda na nossa atmosfera...</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <a href="https://blogfca.pucminas.br/colab/fast-fashion-meio-ambiente/"><img class="img_carrosel d-block w-100" src="../assets/noticia3.jpg" alt="Terceiro Slide"></a>
+                        <a href="https://blogfca.pucminas.br/colab/fast-fashion-meio-ambiente/" target="blank"><img class="img_carrosel d-block w-100" src="../assets/noticia3.jpg" alt="Terceiro Slide"></a>
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Fast fashion</h5>
                             <p>Fast fashion e os impactos no meio ambiente...</p>
