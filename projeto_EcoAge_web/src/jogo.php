@@ -19,11 +19,11 @@ session_start();
     
   <div class="row">
         <div class="col-2"></div>
-        <div id="carrosel" class="carousel slide carousel-fade col-8 " data-ride="carousel">
+        <div id="carrosel_jogo" class="carousel slide carousel-fade col-8 " data-ride="carousel">
             <ol class="carousel-indicators">
-            <li data-target="#carrosel" data-slide-to="0" class="active"></li>
-            <li data-target="#carrosel" data-slide-to="1"></li>
-            <li data-target="#carrosel" data-slide-to="2"></li>
+            <li data-target="#carrosel_jogo" data-slide-to="0" class="active"></li>
+            <li data-target="#carrosel_jogo" data-slide-to="1"></li>
+            <li data-target="#carrosel_jogo" data-slide-to="2"></li>
             </ol>
 
             <div class="carousel-inner">
@@ -53,12 +53,12 @@ session_start();
                 </div>
             </div>
         
-                <a class="carousel-control-prev" href="#carrosel" role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#carrosel_jogo" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Anterior</span>
                 </a>
 
-                <a class="carousel-control-next" href="#carrosel" role="button" data-slide="next">
+                <a class="carousel-control-next" href="#carrosel_jogo" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Próximo</span>
                 </a>
@@ -67,30 +67,8 @@ session_start();
     </div>  
 </div>
 </main>
-<footer class="footer navbar-fixed bottom" id="rodape">
-<div class="area_contato">
-    <div class="container">
-        <div id="row">
-            <div class="col-md-12">
-                <h5 class="main-title">Entre em contato conosco:</h5>
-            </div>
-        </div>
-        <div class="col-md-12 contact-box">
-            <span class="contact-title material-symbols-outlined">mail</span><p>Envie um e-mail: ecoage@gmail.com</p>
-        </div>
-    </div>
-</div>
-
-</div>
-<div id="copy-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <p>Desenvolvido por <a href="sobre_nos.html" id="sobre_nos">Ana Beatriz, Eduardo e Gabrielle</a> &copy; ecoage.com.br 2022</p>
-            </div>
-        </div>
-    </div>
-</div>
-</footer>
+<?php
+ include("../include/rodape.php");
+?>
 </body>
 </html>
