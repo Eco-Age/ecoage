@@ -123,9 +123,7 @@
 }
 
 #modalNovoUsuario{
-    height: auto;
-    margin-bottom: 5%;
-    margin-top: 15%;
+    margin-top: 5%;
 }
 
 #rodape_login{
@@ -186,6 +184,8 @@
 #meus_dados{
     margin-top: 20px;
     margin-bottom: 20px;
+    color: #350046;
+    font-size: 24pt;
 }
 #field_edicao_usuario{
     text-align: left;
@@ -197,7 +197,7 @@
     margin-bottom: 100px;
 }
 
-#botao_editar_usuario{
+#botao_editar_usuario, #botao_editar{
     background-color: #623f80;    
     border: none;
     color: #efff14;
@@ -386,7 +386,7 @@ nav{
 }
 
 #btncadastrartecido{
-    width: 100%;
+    width: 15%;
     background-color: #623f80;
     color: #f0f8e5;
     border: none;
@@ -916,6 +916,10 @@ text-decoration: none;
 color: #815ca5;
 }
 
+#jogo{
+    margin-bottom: 200px;
+}
+
 /* tabelaaaaaa testandoooo */
 
 #tecidotabela{
@@ -969,6 +973,18 @@ th{
     /*  edição tecidos */
 
 
-   /* #formEditarTecido{
-      
-    }*/
+    #formEditarTecido{
+        text-align: left;
+        background-color: #e9e2f0;
+        padding: 20px;
+        border-radius: 20px;
+        color: #60006d;
+        box-shadow:  2px 2px 5px #a18eaaa9;
+        margin-bottom: 100px;
+        margin-bottom: 200px;
+    }
+
+    #tituloTecido{
+        margin-bottom: 3%;
+        color: #411964;
+    }
