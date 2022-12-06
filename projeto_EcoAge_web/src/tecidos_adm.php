@@ -28,10 +28,62 @@ $lista_tecidos = listarTecidos();
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
-          <a class="btn" id="btncadastrartecido" href="inserir_tecido.php">Cadastrar Tecido</a>
+        <button type="button" class="btn btn-primary col-8" id="btncadastrartecido" data-toggle="modal" data-target="#modalCadastrarTecido"> 
+            <span class="material-symbols-outlined">
+            post_add
+            </span>        
+        </button>
         </div>
         <div class="col-4"></div>
     </div>
+
+    <!-- Modal Cadastro de Tecidos -->
+
+    <div class="modal fade" id="modalCadastrarTecido" tabindex="-1" role="dialog" aria-labelledby="cadastroTecido" aria-hidden="true">
+                 <div class="modal-dialog modal-lg" role="document">
+                   <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="cadastroTecido">Cadastro de tecido:</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                        <div class="modal-body">
+                        <fieldset id="formCadastrarTecido">      
+                          <form action="../src/cadastrar_tecido.php" method="post">                 
+                              <div class="form-group">
+                                  <label for="id_tipo_tecidos">Tecido:</label>
+                                      <select name="id_tipo_tecidos" id="id_tipo_tecidos" class="form-control">
+                                          <?php foreach ($lista_tipo_tecidos as $tipo_tecido) : ?>
+                                              <option value='<?=$tipo_tecido["id_tipo_tecidos"]?>'>
+                                                  <?=$tipo_tecido["nome_tecidos"]?>
+                                              </option>
+                                          <?php endforeach ?>
+                                      </select> 
+                              </div>                         
+                  
+                              <div class="form-group">
+                                  <label for="desc_tecidos">Descrição do Tecido:</label>  
+                                  <textarea class="form-control" rows="5" id="desc_tecidos" name="desc_tecidos" placeholder="Descreva o tecido..."></textarea>
+                              </div> 
+
+                              <div class="form-group" id="checkbox"> 
+                                  <input type="checkbox" class="form-check-input" id="sustentavel" name="sustentavel">
+                                  <label class="form-check-label" for="sustentavel">Sustentável?</label> 
+                              </div>                    
+                              
+                              <div class="form-group">    
+                                  <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserir">Inserir</button>  
+                              </div>   
+                          </form>
+                      </fieldset>       
+                        </div>
+                   </div>
+                </div>
+        </div>
+
+
+
 
         <div class="row" id="tecidos">
         
