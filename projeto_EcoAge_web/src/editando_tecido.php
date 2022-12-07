@@ -37,7 +37,7 @@ $lista_tipo_tecidos = listarTipoTecidos();
                                 <label for="id_tipo_tecidos"></label>
                                 <select name="id_tipo_tecidos" id="id_tipo_tecidos" class="form-control">                                    
                                     <?php foreach ($lista_tipo_tecidos as $tipo_tecido) : 
-                                        $estaSelecionado = $tecido["id_tecidos"] == $tipo_tecido["id_tipo_tecidos"];
+                                        $estaSelecionado = $tecido["id_tipo_tecidos"] == $tipo_tecido["id_tipo_tecidos"];
                                         $atributoSelected = $estaSelecionado ? "selected='selected'" : ""; 
                                     ?>
                                     <option value="<?=$tipo_tecido["id_tipo_tecidos"]?>" <?=$atributoSelected?>>
