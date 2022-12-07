@@ -86,3 +86,60 @@ function inserirnoticia(){
     window.location="../src/site_externo_adm.php";
 }
 
+function confirmar_edicao_tecido(form){
+
+swal.fire({
+  title: "Deseja realmente alterar o tecido?",
+  text: "Cuidado! Em caso de arrependimento, seus dados deverão novamente ser editados.",
+  icon: "warning",
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#8A2BE2',
+  showCancelButton: true,
+  cancelButtonText: 'Cancelar',
+  confirmButtonText: 'Sim, editar',
+  allowOutsideClick: true,
+  closeOnConfirm: false,
+  closeOnCancel: false
+})
+.then((result) => {
+  if (result.value) {
+     form.submit();
+  }else if (result.dismiss === Swal.DismissReason.cancel){
+    swal.fire(
+      'Edição cancelada.',
+      'O Tecido não foi editado',
+      'info'
+    )
+  }
+});
+return false;
+}
+
+function confirmar_edicao_usuario(form){
+
+  swal.fire({
+    title: "Deseja realmente alterar seus dados?",
+    text: "Cuidado! Em caso de arrependimento, seus dados deverão novamente ser editados.",
+    icon: "warning",
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#8A2BE2',
+    showCancelButton: true,
+    cancelButtonText: 'Cancelar',
+    confirmButtonText: 'Sim, editar',
+    allowOutsideClick: true,
+    closeOnConfirm: false,
+    closeOnCancel: false
+  })
+  .then((result) => {
+    if (result.value) {
+       form.submit();
+    }else if (result.dismiss === Swal.DismissReason.cancel){
+      swal.fire(
+        'Edição cancelada.',
+        'Seus dados permanecem inalterados',
+        'info'
+      )
+    }
+  });
+  return false;
+  }
