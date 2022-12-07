@@ -21,7 +21,7 @@ exibirMsg();
     <div class="row">
         <div class="col-3"></div>
                 <fieldset class="col-6"id="field_edicao_usuario">      
-                    <form action="editar_usuario.php" method="post">
+                    <form action="editar_usuario.php" method="post" onsubmit="return confirmar_edicao_usuario(this)">
                         <input type="hidden" name="id_usuario" value="<?=$id_usuario?>">
 
                         <div class="form-group">
@@ -61,10 +61,9 @@ exibirMsg();
                     </form>
                 </fieldset>  
         <div class="col-3"></div>
+        <script src="../assets/script.js"></script>
     </div>
 </div>
 <?php
       include("../include/rodape.php");
 ?>
-</body>
-</html>
