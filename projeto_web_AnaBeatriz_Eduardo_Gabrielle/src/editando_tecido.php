@@ -20,6 +20,12 @@ $lista_tipo_tecidos = listarTipoTecidos();
 
 <div class="container">
     <div class="row">
+    <div class="col-1">
+      <a class="btn" href="tecidos_adm.php"><span class="material-icons" id="icone_voltar_noticias">reply</span></a>
+    </div>
+    <div class="col-11"></div>
+  </div>
+    <div class="row">
         <div class="col-4"></div>
             <div class="col-4">
                 <h1  id="tituloTecido" >Edição:</h1>
