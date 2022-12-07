@@ -36,10 +36,10 @@ function inserirTecido($id_tipo_tecidos, $desc_tecidos, $sustentavel) {
   $stmt->execute();
 
   if ($stmt->affected_rows > 0) {
-    $_SESSION["msg"] = "O tecido {$desc_tecidos} foi adicionado!";
+    $_SESSION["msg"] = "O tecido foi adicionado!";
     $_SESSION["tipo_msg"] = "alert-success";  
   } else {
-    $_SESSION["msg"] = "O tecido {$desc_tecidos} não foi adicionada! Erro: " . mysqli_error($conexao);
+    $_SESSION["msg"] = "O tecido não foi adicionado! Erro: " . mysqli_error($conexao);
     $_SESSION["tipo_msg"] = "alert-danger";
   }
 

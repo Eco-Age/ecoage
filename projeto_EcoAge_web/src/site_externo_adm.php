@@ -207,4 +207,6 @@ if(!isset($_SESSION["id_usuario"])){
 <?php
     include("../include/rodape.php");  
 ?>
- <script src="../assets/script.js"></script>
+<script src="../assets/script.js"></script>
+</body>
+</html>

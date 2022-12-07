@@ -108,7 +108,6 @@ function buscarUsuarioLogado($id_usuario){
 }
    
 function editarUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $id_usuario){
-$senha_md5 = md5($senha); 
   
 $sql = "UPDATE Usuario 
         SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?, senha = ?
@@ -117,7 +116,7 @@ $sql = "UPDATE Usuario
   $conexao = obterConexao();
 
   $stmt = $conexao->prepare($sql);
-  $stmt->bind_param("ssssssi", $nome_completo, $data_nasc, $tel, $apelido, $email, $senha_md5, $id_usuario);
+  $stmt->bind_param("ssssssi", $nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $id_usuario);
   $stmt->execute();
 
   if ($stmt->affected_rows > 0) {

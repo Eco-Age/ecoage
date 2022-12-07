@@ -53,6 +53,7 @@ exibirMsg();
                         <div class="form-group">
                             <label for="senha_cadastro">Senha:</label>
                             <input type="password" name="senha_cadastro" class="form-control" id="senha_cadastro" value="<?=$usuario["senha"]?>">
+                            <div id="icon_edicao" onclick="mostrarOcultar_edicao()"></div>
                         </div>
                             
                         <div class="form-group">    
@@ -61,9 +62,11 @@ exibirMsg();
                     </form>
                 </fieldset>  
         <div class="col-3"></div>
-        <script src="../assets/script.js"></script>
     </div>
 </div>
 <?php
       include("../include/rodape.php");
 ?>
+<script src="../assets/script.js"></script>
+</body> 
+</html>

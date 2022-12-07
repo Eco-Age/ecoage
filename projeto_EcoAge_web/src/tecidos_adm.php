@@ -147,8 +147,10 @@ $lista_tecidos = listarTecidos();
             </div>
         <?php endforeach ?>    
     </div>
-    <script src="../assets/script.js"></script>
 </div>
 <?php
     include ("../include/rodape.php");
 ?>
+<script src="../assets/script.js"></script>
+</body>
+</html>

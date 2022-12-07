@@ -63,8 +63,13 @@ $lista_tipo_tecidos = listarTipoTecidos();
                         </form>
                 </fieldset>                                       
             </div>
-        <div class="col-4"></div>
-        <script src="../assets/script.js"></script> 
-        
+        <div class="col-4"></div>         
     </div>
+      
 </div>
+<?php
+    include("../include/rodape.php");  
+?>
+    <script src="../assets/script.js"></script> 
+</body>
+</html>

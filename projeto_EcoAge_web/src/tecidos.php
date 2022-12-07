@@ -63,7 +63,9 @@ include("../include/navegacao.php");
             </div>
         </div>    
     </div>
-    <script src="../assets/script.js"></script>
 <?php
         include("../include/rodape.php");
 ?>
+<script src="../assets/script.js"></script>
+</body>
+</html>

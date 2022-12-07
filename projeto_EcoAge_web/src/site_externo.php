@@ -89,8 +89,10 @@ session_start();
             <div class="col-0"></div>
         </div>
     </div>
-        </div>
-    <script src="../assets/script.js"></script>
+</div>
 <?php
     include("../include/rodape.php");  
 ?>
+<script src="../assets/script.js"></script>
+</body>
+</html>

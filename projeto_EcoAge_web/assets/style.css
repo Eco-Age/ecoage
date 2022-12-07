@@ -162,6 +162,23 @@
     background-size: cover;
 }
 
+#icon_edicao{
+    position: absolute;
+    top: 79%;
+    right: 30px;
+    transform: translateY(-50%);
+    background: URL('mostrar.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+#icon_edicao.ocultar{
+    background: URL('ocultar.png');
+    background-size: cover;
+}
+
 #icon_cadastro {
     position: absolute;
     top: 458px;
