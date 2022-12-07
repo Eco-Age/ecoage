@@ -30,7 +30,7 @@ $lista_tipo_tecidos = listarTipoTecidos();
         <div class="col-4"></div>
             <div class="col-4">
                 <fieldset id="formEditarTecido">      
-                        <form action="editar_tecido.php" method="post">
+                        <form action="editar_tecido.php" method="post" onsubmit="return confirmar_edicao_tecido(this)">
                             <input type="hidden" name="id_tecidos" value="<?=$id_tecidos?>">                             
                             
                             <div class="form-group">        
@@ -64,5 +64,7 @@ $lista_tipo_tecidos = listarTipoTecidos();
                 </fieldset>                                       
             </div>
         <div class="col-4"></div>
+        <script src="../assets/script.js"></script> 
+        
     </div>
 </div>
