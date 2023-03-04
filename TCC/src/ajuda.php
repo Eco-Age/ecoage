@@ -6,6 +6,8 @@ session_start();
  }
  
     include("../include/navegacao.php");
+    include ("../util/mensagens.php");
+    exibirMsg();
 ?>
 <body>
 <main class="container">
@@ -92,19 +94,22 @@ session_start();
         <div class="row">
             <div class="col-4"></div>
                 <div class="col-4">
-                <form action="" method="POST">
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="E-mail" name="email_ajuda">
-                        <small id="emailHelp" class="form-text text-muted">Seu e-mail não será compartilhado com ninguém.</small>
-                    </div>
-                    <div class="form-group"> 
-                        <input type="text" class="form-control" placeholder="Assunto" name="assunto_ajuda">
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" rows="3" placeholder="Sua dúvida..." name="duvida"></textarea>
-                    </div>
-                    <input type="submit" class="main-btn btn btn-primary" id="enviarDuvida" value="Enviar">
-                </form>
+                    <form action="recebe_duvidas.php" method="POST">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="E-mail" name="email_ajuda" required>
+                            <small id="emailHelp" class="form-text text-muted">Seu e-mail não será compartilhado com ninguém.</small>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Nome: " name="nome" required>
+                        </div>
+                        <div class="form-group"> 
+                            <input type="text" class="form-control" placeholder="Assunto" name="assunto_ajuda" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3" placeholder="Sua dúvida..." name="duvida" required></textarea>
+                        </div>
+                        <input type="submit" class="main-btn btn btn-primary" id="enviarDuvida" value="Enviar">
+                    </form>
                 </div>
             <div class="col-4"></div>
         </div>  
