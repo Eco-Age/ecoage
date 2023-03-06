@@ -909,7 +909,12 @@ align-items: right;
 #txt_sobre_nos{
     padding-bottom: 25px;
     font-style:normal;
+    margin-top: 25px;
     /*font-variant:small-caps;*/
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #f7eeff;
+    font-weight: bold;
+    text-align: center;
 }
 
 #sobre_nos_ana, #sobre_nos_edu, #sobre_nos_gabi{
@@ -923,6 +928,28 @@ align-items: right;
     
 }
 
+#sobre_nos_pgn{
+    background-color: #703b7f;
+}
+
+#caixas_sobre_nos{
+    margin-bottom: 50px;
+}
+
+#carrosel_sobrenos{
+
+        object-fit: cover; 
+        padding: 30px;
+        border-radius: 100px;
+        width: 100%;
+        height: 505px;
+        background-color: #aeca9346;
+        box-shadow: 2px 2px 6px #00000018;
+}
+
+#avatar_ana{
+    margin-bottom: 10px;
+}
 /* jogo */
 .img_carrosel_jogo{
     width: 100%;
