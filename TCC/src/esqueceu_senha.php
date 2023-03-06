@@ -23,6 +23,12 @@
       $mail->Password = 'rdapzocicdqxyqba'; 
       $mail->Port = 587;
       $mail->CharSet = 'UTF-8';
+      $mail->SMTPOptions = array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        ));
 
       $mail->isHTML(true);
       $mail->ContentType = 'text/html';
