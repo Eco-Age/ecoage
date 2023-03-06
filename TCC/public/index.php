@@ -126,8 +126,7 @@ if (isset($_SESSION["email_recuperar"]) && (time() - intval($_SESSION['email_rec
       </div>
 
     </div>
-
-  </div>
+  
  
          <!-- Modal Esqueci a senha --> 
  
@@ -159,7 +158,106 @@ if (isset($_SESSION["email_recuperar"]) && (time() - intval($_SESSION['email_rec
           </div>
         </div>
       </div>
-  
+  </div>
+
+  <div class="row" id="sobre_nos_pgn">
+      <div class="col-12">
+
+        <div class="row" id="txt_sobre_nos">
+          <div class="col-4"></div>
+            <div class="col-4">
+                      <h1 id="txt_sobre_nos">DESENVOLVEDORES:</h1>
+            </div>
+          <div class="col-4"></div>
+        </div>
+
+        <div class="row" id="caixas_sobre_nos">
+            <div class="col-3"></div>
+              <div class="col-6">
+            
+                <div id="carrosel_sobrenos" class="carousel slide" data-ride="carousel">
+              
+                        <ol class="carousel-indicators">
+                          <li data-target="#carrosel_sobrenos" data-slide-to="0" class="indicador active"></li>
+                          <li data-target="#carrosel_sobrenos" data-slide-to="1" class="indicador"></li>
+                          <li data-target="#carrosel_sobrenos" data-slide-to="2" class="indicador"></li>
+                      </ol>
+
+                        <div class="carousel-inner">
+                            
+                            <div class="carousel-item active">
+                              <div class="row" id="avatar_ana">
+                                <div class="col-4"></div>
+                                <div class="col-4">
+                                        <img src="../assets/Ana_avatar.png" id="Edu_img">                                             
+                                </div>
+                                <div class="col-4"></div>
+                              </div>
+                              <div class="row">
+                              <div class="col-3"></div>
+                                <div class="col-6" id="texto_ana">
+                                <p>Oi galera! Sou a Ana, estudo no Instituto Federal de São Paulo - Câmpus Araraquara.
+                                    Amo ouvir música e conversar com os meus amigos. Fiz parte do desenvolvimento do site ecoage como Trabalho
+                                    de Conclusão de Curso.
+                                    Vocês podem conhecer mais sobre mim me seguindo nas redes sociais:<br>
+
+                                <a href="https://www.facebook.com/anabeatriz.rochaduarte.1" target="_blank"><img src="../assets/facebook.png"></a>
+                                <a href="https://www.instagram.com/ana_rocha_duarte_/" target="_blank"><img src="../assets/instagram.png"></a>
+                                </p>
+                                </div>                                
+                                <div class="col-3"></div>
+                              </div>  
+                            </div> 
+
+                            <div class="carousel-item">
+                              <div class="row" id="">
+                                <div class="col-1"></div>
+                                <div class="col-3">
+                                        <img src="../assets/edu_aplauso.png" id="Edu_img">                                             
+                                </div>
+                                <div class="col-6" id="texto_inicial_ana">
+                                    <p >Oi, eu sou a Ana.    
+                                    <br><span  class="destaque">EcoAge</span> 
+                                </div>
+                                <div class="col-2"></div>
+                              </div> 
+                            </div>
+
+                            <div class="carousel-item">
+                              <div class="row" id="">
+                                <div class="col-1"></div>
+                                <div class="col-3">
+                                        <img src="../assets/edu_aplauso.png" id="Edu_img">                                             
+                                </div>
+                                <div class="col-6" id="texto_inicial_ana">
+                                    <p >Oi, eu sou a Ana.    
+                                    <br><span  class="destaque">EcoAge</span> 
+                                </div>
+                                <div class="col-2"></div>
+                              </div> 
+                            </div>
+
+        
+
+                        </div>
+                    
+                        <a class="carousel-control-prev" href="#carrosel_sobrenos" role="button" data-slide="prev">
+                            <span class="carousel-control material-icons" aria-hidden="true" id="ante">
+                                chevron_left
+                            </span>    
+                        </a>
+                        <a class="carousel-control-next" href="#carrosel_sobrenos" role="button" data-slide="next">
+                            <span class="carousel-control material-icons" aria-hidden="true" id="next">
+                                navigate_next
+                            </span>            
+                        </a>
+                  </div>
+              </div>
+            <div class="col-3"></div>  
+          </div>      </div>
+  </div>
+     
+ </body> 
   <footer class="footer navbar-fixed bottom" id="rodape">
     <div id="copy-area">
       <div class="container">
@@ -172,6 +270,4 @@ if (isset($_SESSION["email_recuperar"]) && (time() - intval($_SESSION['email_rec
     </div>
   </footer>
   <script src="../assets/script.js"></script>
-  </body>
 </html>
-
