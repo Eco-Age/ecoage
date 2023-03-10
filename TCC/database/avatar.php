@@ -55,6 +55,8 @@ function avatar_atual($id_usuario){
 }
 
 
+//função não funcionando!!!!
+
    function edicao_avatar(){
 
     $conexao = obterConexao();
