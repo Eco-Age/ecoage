@@ -16,8 +16,8 @@ if ($usuario == null) {
   $_SESSION["nome_logado"] = $usuario["nome_completo"];
   $_SESSION["apelido_logado"] = $usuario["apelido"];
   $_SESSION["id_usuario"] = $usuario["id_usuario"];
-  header("Location: ../src/pagina_inicial.php");
 
+  header("Location: ../src/pagina_inicial.php");
 }
 
 $json = json_encode($saida);

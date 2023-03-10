@@ -164,7 +164,7 @@
 
 #icon_edicao{
     position: absolute;
-    top: 79%;
+    margin-top: -4%;
     right: 30px;
     transform: translateY(-50%);
     background: URL('mostrar.png');
@@ -237,6 +237,12 @@
 #txt_tecidos{
     color: #350046;
 }
+
+#avatarRadio{
+    width: 20%;
+}
+
+
 /* NAVEGAÇÃO */
 
 #btnmeuperfil{
@@ -247,21 +253,23 @@
     color: black;
 }
 
-#icone_game, #icone_perfil, #icone_sair{
+#icone_game, #icone_perfil, #avatarMenu, #icone_sair{
     vertical-align: middle;
 }
 
-#icone_perfil, #icone_sair{
+#icone_perfil, #avatarMenu, #icone_sair{
     margin-right: 10px;
 }
+
 
 
 #icone_sair{
     color: #2c5300;
 }
-
-#icone_perfil{
-    color: #623f80;
+ #avatarMenu{
+    width: 40%;
+    margin-right: 10px;
+    margin-left: 0px;
 }
 
 

@@ -113,13 +113,13 @@ function editarUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senh
 $conexao = obterConexao();
 $senha_md5 = md5($senha); 
   
-$sql = "UPDATE Usuario 
-        SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?, senha = ?, id_avatar = ?,
+$sql = "UPDATE Usuario
+        SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?, senha = ?, id_avatar = ?
         WHERE id_usuario = ?";
 
 
   $stmt = $conexao->prepare($sql);
-  $stmt->bind_param("ssssssii", $nome_completo, $data_nasc, $tel, $apelido, $email, $senha_md5, $id_usuario, $id_avatar);
+  $stmt->bind_param("ssssssii", $nome_completo, $data_nasc, $tel, $apelido, $email, $senha_md5, $id_avatar, $id_usuario);
   $stmt->execute();
 
 

@@ -2,6 +2,12 @@
 include_once('../database/avatar.php');
 include("cabecalho.php");
 
+if(isset($_SESSION["id_usuario"])){
+    $id_usuario = $_SESSION["id_usuario"];
+  }
+
+$avatar_atual = buscarAvatarUsado($id_usuario);
+
 ?>
  <header id="navegacao">
     <nav class="navbar navbar-expand-lg sticky-top">
@@ -32,10 +38,6 @@ include("cabecalho.php");
                    <li class="navbar-text" id="menu_ajuda">
                        <a class="nav-link" href="../src/ajuda.php" id="ajuda"><span class="material-symbols-outlined">help</span></a>
                    </li>
-       
-                    <li class="navbar-text" id="menu_sobre_nos">
-                       <a class="nav-link" href="../src/sobre_nos.php"  id="icone_sobrenos"><span class="material-symbols-outlined">groups</span></a>
-                    </li>
 
 
                     <li class="navbar-text dropdown" id="menu">
@@ -43,10 +45,10 @@ include("cabecalho.php");
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-item">
                             <?php 
-                                    if (isset($_SESSION["id_usuario"])) { ?>
+                                if(isset($_SESSION["id_usuario"])){?>
                                     <form action="../src/edicao_usuario.php" method="get">
                                         <input type="hidden"  name="id_usuario" value="<?=$_SESSION["id_usuario"]?>"/>
-                                        <button id="btnmeuperfil" type="submit" class="dropdown-item"><?php avatar_atual($id_usuario) ;?>Meu perfil</button>
+                                        <button id="btnmeuperfil" type="submit" class="dropdown-item"><img id="avatarMenu" src="<?=$avatar_atual['caminho']?>" alt="<?=$_SESSION['idAvatar']?>">Meu perfil</button>
                                     </form>
                                 <?php } ?>  
                             </div>

@@ -78,5 +78,10 @@ CREATE TABLE avatars (
     PRIMARY KEY (id_avatar)
 );
 
-INSERT INTO avatars (nome, caminho) VALUES ('Avatar 1', '../avatars/Ana_avatar.png');
-INSERT INTO avatars (nome, caminho) VALUES ('Avatar 2', '../avatars/bibi_desconfiada.png');
+INSERT INTO avatars (nome, caminho) 
+VALUES  ('Avatar 1', '../avatars/avatar1.png'),
+        ('Avatar 2', '../avatars/avatar2.png'),
+        ('Avatar 3', '../avatars/avatar3.png'),
+        ('Avatar 4', '../avatars/avatar4.png');
+        
+

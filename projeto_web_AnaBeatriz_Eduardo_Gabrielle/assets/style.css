@@ -247,12 +247,16 @@
     color: black;
 }
 
-#icone_game, #icone_perfil, #icone_sair{
+#icone_game, #avatarMenu, #icone_sair{
     vertical-align: middle;
 }
 
-#icone_perfil, #icone_sair{
+#avatarMenu, #icone_sair{
     margin-right: 10px;
+}
+
+#avatarMenu{
+    width: 70%;
 }
 
 

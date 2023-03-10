@@ -13,7 +13,7 @@ if (isset($_SESSION["email_recuperar"]) && (time() - intval($_SESSION['email_rec
   unset($_SESSION["email_recuperar"]);
 }
 
-
+$lista_avatar = listarAvatar();
 
 ?>
 <body id="body_login">
@@ -117,7 +117,22 @@ if (isset($_SESSION["email_recuperar"]) && (time() - intval($_SESSION['email_rec
                   </div>       
 
                   <div>
-                                <?php escolha_avatar()  ?>                                                             
+                  <label for="avatar">Selecione seu avatar:</label>
+                   <p>  
+                  <?php foreach ($lista_avatar as $avatar) : ?>
+                        <input type="radio" name="id_avatar" value="<?=$avatar["id_avatar"]?>">
+                        <img id="avatarRadio" src="<?=$avatar["caminho"]?>" alt="<?=$avatar["nome"]?>">
+                  <?php endforeach ?>
+                  <?php
+                      $avatarEscolhido = $avatar["id_avatar"];
+                      $caminhoEscolhido = $avatar["caminho"];
+
+                      $_SESSION["caminhoAvatar"] = $caminhoEscolhido;
+                      $_SESSION["idAvatar"] = $avatarEscolhido;
+                  ?>
+                  
+
+                  </p>             <!-- < ? php escolha_avatar()  ?>                                                             -->
                   </div>         
                   
                   <div class="form-group">    

@@ -7,10 +7,12 @@
 
 exibirMsg();
 
-    if(isset($_SESSION["id_usuario"])){
+    if(isset($_SESSION["id_usuario"]) && isset($_SESSION["idAvatar"])){
     $id_usuario = $_SESSION["id_usuario"];
+    $id_avatar = $_SESSION["idAvatar"];
   }
-
+    $lista_avatar = listarAvatar();
+    $avatar = buscarAvatar($id_avatar);
     $usuario = buscarUsuarioLogado($id_usuario);
 ?>
 <div class="container">
@@ -58,12 +60,40 @@ exibirMsg();
                         </div>
                           
                            <div class="form-group">
-                             <label>Selecione o seu avatar:</label><br>         
-                               <?php 
-                                    edicao_avatar( $id_usuario) ;                                   
+                             <label>Selecione o seu avatar:</label><br>    
+                              
+                                <?php foreach ($lista_avatar as $avatar) : 
+                                    $estaSelecionado = $usuario["id_avatar"] == $avatar["id_avatar"] ;
+                                    $atributoSelected = $estaSelecionado ? "checked='checked'" : ""; 
                                 ?>
+
+                                 <input type="radio" name="id_avatar" value="<?=$avatar["id_avatar"]?>"<?=$atributoSelected?>>
+                                 <img id="avatarRadio" src="<?=$avatar["caminho"]?>" alt="<?=$avatar["nome"]?>">
+
+                                <?php endforeach ?> 
+                                
+                                <?php
+                              
+                               $avatarEditado =  $avatar["id_avatar"];
+                               $caminhoEditado =  $avatar["caminho"];
+
+
+                                $_SESSION["caminhoAvatar"] =   $caminhoEditado;
+                                $_SESSION["idAvatar"] = $avatarEditado;
+                                
+                                    
+                                ?>
+                  
                            </div>
-                            
+                           <div>
+
+                 
+                       
+                        
+                 
+
+                                <!-- < ? php escolha_avatar()  ?>                                                             -->
+                  </div>   
                         <div class="form-group">    
                             <button type="submit" value="inserir" class="btn btn-primary" id="botao_editar_usuario">Editar</button> 
                         </div>   
