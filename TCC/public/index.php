@@ -116,7 +116,7 @@ if (isset($_SESSION["email_recuperar"]) && (time() - intval($_SESSION['email_rec
                     <small id="" class="form-text text-muted">A senha deve conter mais de 8 caracteres, ao menos 1 letra maiúscula e 1 número.</small>
                   </div>       
 
-                  <div class="form-group">
+                  <div>
                                 <?php escolha_avatar()  ?>                                                             
                   </div>         
                   
