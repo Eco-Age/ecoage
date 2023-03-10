@@ -8,7 +8,9 @@ $tel = $_POST["tel"];
 $apelido = $_POST["apelido"];
 $email = $_POST["email_cadastro"];
 $senha = $_POST["senha_cadastro"];
+$id_avatar = $_POST["id_avatar"];
 
-editarUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $id_usuario);
+editarUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $id_usuario, $id_avatar);
 header("Location: edicao_usuario.php");
+
 ?>
