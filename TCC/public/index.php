@@ -3,6 +3,7 @@
     session_start();
   }
 
+require("../database/avatar.php");
 include("../include/cabecalho.php");
 include("../util/mensagens.php");
 include("../util/formatacoes.php");  
@@ -115,6 +116,10 @@ if (isset($_SESSION["email_recuperar"]) && (time() - intval($_SESSION['email_rec
                     <small id="" class="form-text text-muted">A senha deve conter mais de 8 caracteres, ao menos 1 letra maiúscula e 1 número.</small>
                   </div>       
 
+                  <div class="form-group">
+                                <?php escolha_avatar()  ?>                                                             
+                  </div>         
+                  
                   <div class="form-group">    
                     <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserir">Inserir</button> 
                   </div>   
