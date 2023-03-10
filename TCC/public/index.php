@@ -236,8 +236,14 @@ $lista_avatar = listarAvatar();
                                         <img src="../assets/edu_aplauso.png" id="Edu_img">                                             
                                 </div>
                                 <div class="col-6" id="texto_inicial_ana">
-                                    <p >Oi, eu sou a Ana.    
-                                    <br><span  class="destaque">EcoAge</span> 
+                                <p>E aí, pessoal! Sou o Edu, estudo no Instituto Federal de São Paulo - Câmpus Araraquara.
+                                  Amo ler e escrever. Fiz parte do desenvolvimento do site ecoage como Trabalho
+                                  de Conclusão de Curso.
+                                  Vocês podem conhecer mais sobre mim me seguindo nas redes sociais:<br>
+
+                                  <a href="https://www.facebook.com/eduardo.bonifacio.3511" target="_blank"><img src="../assets/facebook.png"></a>
+                                  <a href="https://www.instagram.com/eduu_bonifacio/" target="_blank"><img src="../assets/instagram.png"></a>
+                              </p>
                                 </div>
                                 <div class="col-2"></div>
                               </div> 
@@ -247,11 +253,18 @@ $lista_avatar = listarAvatar();
                               <div class="row" id="">
                                 <div class="col-1"></div>
                                 <div class="col-3">
-                                        <img src="../assets/edu_aplauso.png" id="Edu_img">                                             
+                                        <img src="../assets/bibi_grata.png" id="Edu_img">                                             
                                 </div>
                                 <div class="col-6" id="texto_inicial_ana">
-                                    <p >Oi, eu sou a Ana.    
-                                    <br><span  class="destaque">EcoAge</span> 
+                                <p> Oiii gentee! Sou a Gabi, estudo no Instituto Federal de São Paulo - Câmpus Araraquara.
+                                    Amo dançar e ouvir música. Fiz parte do desenvolvimento do site ecoage como Trabalho
+                                    de Conclusão de Curso.
+                                    Vocês podem conhecer mais sobre mim me seguindo nas redes sociais:<br>
+
+                                    <a href="https://www.facebook.com/gabrielle.silva.5055" target="_blank"><img src="../assets/facebook.png"></a>
+                                    <a href="https://www.instagram.com/_gabiulisses/" target="_blank"><img src="../assets/instagram.png"></a>
+                                    
+                                </p>
                                 </div>
                                 <div class="col-2"></div>
                               </div> 
