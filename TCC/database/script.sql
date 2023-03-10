@@ -15,8 +15,11 @@ CREATE TABLE Usuario(
     apelido VARCHAR(30) NOT NULL,
     email VARCHAR(255) NOT NULL,
     senha VARCHAR(255) NOT NULL,
+    id_avatar INT NOT NULL,
     
-    PRIMARY KEY(id_usuario)
+     PRIMARY KEY(id_usuario),
+     FOREIGN KEY (id_avatar)
+        REFERENCES avatars(id_avatar)
 );
 
 CREATE TABLE tokens (
@@ -29,8 +32,8 @@ CREATE TABLE tokens (
 );
 
 
-INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha) 
-VALUES ('ecoage', '2022-02-02','123456789' , 'ecoage', 'ecoage@gmail.com', '21232f297a57a5a743894a0e4a801fc3'); -- senha: admin
+INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, id_avatar) 
+VALUES ('ecoage', '2022-02-02','123456789' , 'ecoage', 'ecoage@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1); -- senha: admin
 
 
 CREATE TABLE Tipo_Tecidos (
