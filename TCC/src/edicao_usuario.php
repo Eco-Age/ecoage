@@ -1,5 +1,6 @@
 <?php
       require("../database/usuario.php");
+      include_once('../database/avatar.php');
       include("../include/navegacao.php");
       include("../util/mensagens.php");
       include("../util/formatacoes.php");  
@@ -55,6 +56,13 @@ exibirMsg();
                             <input type="password" name="senha_cadastro" class="form-control" id="senha_cadastro" value="<?=$usuario["senha"]?>">
                             <div id="icon_edicao" onclick="mostrarOcultar_edicao()"></div>
                         </div>
+                          
+                           <div class="form-group">
+                             <label>Selecione o seu avatar:</label><br>         
+                               <?php 
+                                    edicao_avatar( $id_usuario) ;                                   
+                                ?>
+                           </div>
                             
                         <div class="form-group">    
                             <button type="submit" value="inserir" class="btn btn-primary" id="botao_editar_usuario">Editar</button> 
