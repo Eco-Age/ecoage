@@ -1,5 +1,5 @@
 <?php
-
+include_once('../database/avatar.php');
 include("cabecalho.php");
 
 ?>
@@ -46,7 +46,7 @@ include("cabecalho.php");
                                     if (isset($_SESSION["id_usuario"])) { ?>
                                     <form action="../src/edicao_usuario.php" method="get">
                                         <input type="hidden"  name="id_usuario" value="<?=$_SESSION["id_usuario"]?>"/>
-                                        <button id="btnmeuperfil" type="submit" class="dropdown-item"><span class="material-icons" id="icone_perfil">account_circle</span>Meu perfil</button>
+                                        <button id="btnmeuperfil" type="submit" class="dropdown-item"><?php avatar_atual($id_usuario) ;?>Meu perfil</button>
                                     </form>
                                 <?php } ?>  
                             </div>
