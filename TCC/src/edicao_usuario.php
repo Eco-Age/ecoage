@@ -14,6 +14,7 @@ exibirMsg();
     $lista_avatar = listarAvatar();
     $avatar = buscarAvatar($id_avatar);
     $usuario = buscarUsuarioLogado($id_usuario);
+    $avatar_atual = buscarAvatarUsado($id_usuario);
 ?>
 <div class="container">
     <div class="row">
@@ -24,6 +25,7 @@ exibirMsg();
     <div class="row">
         <div class="col-3"></div>
                 <fieldset class="col-6"id="field_edicao_usuario">      
+                <legend id="legend_avatar" ><img id="avatarMenu" src="<?=$avatar_atual['caminho']?>" alt="<?=$_SESSION['idAvatar']?>"></legend>
                     <form action="../src/editar_usuario.php" method="post">
                         <input type="hidden" name="id_usuario" value="<?=$id_usuario?>">
 
