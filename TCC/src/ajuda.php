@@ -49,8 +49,8 @@ session_start();
                                 <div class="d-block w-100" id="duvida3">
                                     <h5>Como altero minha senha?</h5>
                                     <p>
-                                        Para modificar sua senha basta ir ao seu perfil na barra de navegação, 
-                                        alterar sua senha e salvar as alterações.
+                                        Para modificar sua senha basta ir no menu no canto superior direito na
+                                        barra de navegação e clicar em "Alterar senha".
                                     </p>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@ session_start();
                                 <div class="d-block w-100" id="duvida4">
                                     <h5>Esqueci a senha, e agora?</h5>
                                     <p>
-                                        Clique na opção "esqueci minha senha" no formulário de login.
+                                        Clique na opção "Esqueceu sua senha?" no formulário de login.
                                     </p>
                                 </div>
                             </div>
