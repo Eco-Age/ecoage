@@ -20,6 +20,11 @@
     width: 100%;
 }
 
+.navbar-toggler:focus {
+    outline: none;
+  }
+  
+
 #escurecendo-body{
     background-color: #00000091;
     margin-top: 0%;
@@ -250,6 +255,10 @@
     cursor: pointer;
 }
 
+.navbar-brand img{
+    margin-top: 7px;
+}
+
 .btnmeuperfil:hover{
     color: black;
 }
@@ -262,11 +271,10 @@
     margin-right: 10px;
 }
 
-
-
 #icone_sair{
     color: #2c5300;
 }
+
  #avatarMenu{
     width: 30%;
     margin-right: 10px;
@@ -289,14 +297,17 @@
     color: #2d4931;
     margin-right: 15px;
     border-radius: 55px;
-    border: none;
+    border: 0.5px solid #ddd;
     align-items: center;  
     height: 45px;
+    min-width: 65px;
 }
 
-.navbar-text, .navbar-brand{
+.dropdown-item{
+    border: 1px solid black;
+}
+.navbar-brand{
     height: 75px;     
- 
 }
 
 .container{
