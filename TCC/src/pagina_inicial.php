@@ -5,6 +5,8 @@
     header("Location: ../public/index.php");
   }
   include("../include/navegacao.php");  
+  include ("../util/mensagens.php");
+  exibirMsg();
 ?>  
   <main class="container">
   <?php 
