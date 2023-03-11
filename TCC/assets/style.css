@@ -75,11 +75,12 @@
     margin-bottom: 30%;
 }
 
-#legend_login{
+#legend_login, #legend_avatar{
     margin: auto;
     text-align: center;
     
 }
+
 #logo{
     width: 40%;
 }
@@ -267,9 +268,9 @@
     color: #2c5300;
 }
  #avatarMenu{
-    width: 40%;
+    width: 30%;
     margin-right: 10px;
-    margin-left: 0px;
+    margin-left: -5px;
 }
 
 
@@ -559,6 +560,7 @@ align-items: right;
     background-color: #370a4d;
 }
 #icone_gmail{
+    
     width: 2%;
     margin-bottom: 3px;
 }
