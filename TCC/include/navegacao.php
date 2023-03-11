@@ -53,34 +53,67 @@ $avatar_atual = buscarAvatarUsado($id_usuario);
                                 <?php } ?>  
                             </div>
                             <div class="dropdown-item"> 
+                                <button style="cursor: pointer;" class="dropdown-item" data-toggle="modal" data-target="#modalalterarSenha">
+                                    <span class="material-icons"  id="icone_sair">lock</span>Alterar senha
+                                </button>
+                            </div>  
+                            <div class="dropdown-item"> 
                                 <button style="cursor: pointer;" class="dropdown-item" data-toggle="modal" data-target="#confirmSair">
                                     <span class="material-icons"  id="icone_sair">logout</span>Sair
                                 </button>
-                            </div>
+                            </div>  
                         </div>
                     </li>
                 </ul>            
             </div>
         </div>
     </nav>
-                        <div class="modal fade" id="confirmSair" role="dialog">
-                            <div class="modal-dialog modal-md">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                            <p style="font-size: 15px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Deseja mesmo sair da sua conta?</p>
-                                    </div>
-                        
-                                    <div class="modal-footer">
-                                        <form action="../src/sair.php" method="POST" style="display: inline-block;">
-                                            <button type="submit" class="btn btn-danger" id="" name="sair">Sair</button>
-                                            <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
-                                        </form>   
-                                    </div> 
-                                </div>  
-                            </div>
-                        </div>
-                    
+
+    <div class="modal fade" id="confirmSair" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-body">
+                        <p style="font-size: 15px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Deseja mesmo sair da sua conta?</p>
+                </div>
+    
+                <div class="modal-footer">
+                    <form action="../src/sair.php" method="POST" style="display: inline-block;">
+                        <button type="submit" class="btn btn-danger" id="" name="sair">Sair</button>
+                        <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+                    </form>   
+                </div> 
+            </div>  
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalalterarSenha" tabindex="-1" role="dialog" aria-labelledby="altere_senha" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+            <h5 class="modal-title" id="altere_senha">Confirme sua senha atual:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+            <fieldset>      
+                <form action="../src/confirma_senha.php" method="post">                             
+                <div class="form-group">
+                    <label for="alterar_senha" id="alterar_senha">Senha:</label> 
+                    <input type="password" id="alterar_senha" name="alterar_senha" class="form-control" placeholder="Digite a senha aqui" required>
+                </div>
+                <div class="form-group">    
+                    <button type="submit" value="enviar" class="btn btn-primary" id="botao_inserir">Confirmar</button> 
+                </div>   
+                </form>
+            </fieldset>       
+            </div>
+
+        </div>
+        </div>
+    </div>
                                     
 </header> 
 <body>
-
