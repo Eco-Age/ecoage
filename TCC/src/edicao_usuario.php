@@ -24,7 +24,7 @@ exibirMsg();
     <div class="row">
         <div class="col-3"></div>
                 <fieldset class="col-6"id="field_edicao_usuario">      
-                    <form action="editar_usuario.php" method="post" onsubmit="return confirmar_edicao_usuario(this)">
+                    <form action="../src/editar_usuario.php" method="post">
                         <input type="hidden" name="id_usuario" value="<?=$id_usuario?>">
 
                         <div class="form-group">
@@ -53,11 +53,6 @@ exibirMsg();
                             <input type="text" id="email_cadastro" name="email_cadastro" class="form-control" value="<?=$usuario["email"]?>">
                         </div> 
 
-                        <div class="form-group">
-                            <label for="senha_cadastro">Senha:</label>
-                            <input type="password" name="senha_cadastro" class="form-control" id="senha_cadastro" value="<?=$usuario["senha"]?>">
-                            <div id="icon_edicao" onclick="mostrarOcultar_edicao()"></div>
-                        </div>
                           
                            <div class="form-group">
                              <label>Selecione o seu avatar:</label><br>    
@@ -74,32 +69,57 @@ exibirMsg();
                                 
                                 <?php
                               
-                               $avatarEditado =  $avatar["id_avatar"];
-                               $caminhoEditado =  $avatar["caminho"];
+                                    $avatarEditado =  $avatar["id_avatar"];
+                                    $caminhoEditado =  $avatar["caminho"];
 
 
-                                $_SESSION["caminhoAvatar"] =   $caminhoEditado;
-                                $_SESSION["idAvatar"] = $avatarEditado;
+                                    $_SESSION["caminhoAvatar"] =   $caminhoEditado;
+                                    $_SESSION["idAvatar"] = $avatarEditado;
                                 
                                     
                                 ?>
                   
                            </div>
                            <div>
-
-                 
+                          
+                           <div class="modal fade" id="modalconfirmarSenha" tabindex="-1" role="dialog" aria-labelledby="confirme_senha" aria-hidden="true">
+                            <div class="modal-dialog modal-md" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="confirme_senha">Confirme sua senha atual:</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="../src/editar_usuario.php" method="post">                             
+                                    <div class="form-group">
+                                        <label for="confirmar_senha" id="confirmar_senha">Senha:</label> 
+                                        <input type="password" id="confirmar_senha" name="confirmar_senha" class="form-control" placeholder="Digite a senha aqui" required>
+                                    </div>
+                                    <div class="form-group">    
+                                        <button type="submit" value="enviar" class="btn btn-primary" id="botao_inserir">Confirmar</button> 
+                                    </div>   
+                                    </form>
+                                </div>
+                                </div>
+                             </div>
+                            </div>
                        
                         
-                 
+                        <div class="form-group">    
+                            <button type="submit" value="inserir" class="btn btn-primary" onclick="botao_Editar(event)" id="botao_editar_usuario">Editar</button> 
+                        </div> 
 
                                 <!-- < ? php escolha_avatar()  ?>                                                             -->
                   </div>   
-                        <div class="form-group">    
-                            <button type="submit" value="inserir" class="btn btn-primary" id="botao_editar_usuario">Editar</button> 
-                        </div>   
+                          
                     </form>
                 </fieldset>  
         <div class="col-3"></div>
+
+       
+
     </div>
 </div>
 <?php
