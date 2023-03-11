@@ -10,38 +10,35 @@ $avatar_atual = buscarAvatarUsado($id_usuario);
 
 ?>
  <header id="navegacao">
-    <nav class="navbar navbar-expand-lg sticky-top">
-        <div class="container">
-            
-           <div class="row">
-                <ul class="navbar nav">
-                   <li class="navbar-brand col-1">
-                       <a href="../src/pagina_inicial.php" id=""> <img src="../assets/logo.png" width="50" height="50" alt="Eco Age"></a>
-                   </li>
-           
-                   <li class="navbar-text active" >
-                       <a class="nav-link " href="../src/pagina_inicial.php" id="menu_home" autocomplete="off" checked><span class="material-icons" id="icone_home">home</span></a>
-                   </li>
-       
-                   <li class="navbar-text" >
-                       <a class="nav-link" href="../src/portal_de_noticias.php" id="menu_portal"><span >Portal de Notícias</span></a>
-                   </li>
-       
-                   <li class="navbar-text">
-                       <a class="nav-link" href="../src/tecidos.php" id="menu_tecidos">Tecidos</a>
-                   </li>
-                 
-                   <li class="navbar-text">
-                       <a class="nav-link" href="../src/jogo.php" id="game"><span class="material-symbols-outlined" id="icone_game">stadia_controller</span></a>
-                   </li>
-                   
-                   <li class="navbar-text" id="menu_ajuda">
-                       <a class="nav-link" href="../src/ajuda.php" id="ajuda"><span class="material-symbols-outlined">help</span></a>
-                   </li>
-
-
-                    <li class="navbar-text dropdown" id="menu">
-                        <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="menu_m"><span class="material-icons" id="icone_menu">menu</span></a>
+ <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="../src/pagina_inicial.php">
+            <img src="../assets/logo.png" width="50" height="50" alt="Eco Age">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="material-icons nav-link" id="icone_menu">menu</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="../src/pagina_inicial.php" id="menu_home" autocomplete="off" checked><span class="material-icons" id="icone_home">home</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../src/portal_de_noticias.php"  id="menu_portal"><span>Portal de Notícias</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../src/tecidos.php" id="menu_tecidos">Tecidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../src/jogo.php" id="game"><span class="material-symbols-outlined" id="icone_game">stadia_controller</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../src/ajuda.php" id="ajuda"><span class="material-symbols-outlined">help</span></a>
+                </li>
+                <li class="navbar-item dropdown" id="menu">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="menu_m"><span class="material-icons" id="icone_menu">edit</span></a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-item">
                             <?php 
@@ -64,7 +61,7 @@ $avatar_atual = buscarAvatarUsado($id_usuario);
                             </div>  
                         </div>
                     </li>
-                </ul>            
+                </ul>
             </div>
         </div>
     </nav>
