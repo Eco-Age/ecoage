@@ -2,7 +2,6 @@
 include ("../include/cabecalho.php");
 require ("../database/usuario.php");
 
-
 ?>
 <script src="../assets/script.js"></script>
 
@@ -25,6 +24,7 @@ require ("../database/usuario.php");
                             <span id="resultado"></span>
                         </div>
                         <div class="form-group">
+                            <input type="hidden" name="funcao" value="<?= $_GET['executar']; ?>"/>
                             <input type="submit" class="main-btn btn btn-primary" id="submit" value="Alterar senha" disabled>
                         </div>
                     </form>
