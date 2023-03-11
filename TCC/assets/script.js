@@ -128,9 +128,12 @@ swal.fire({
 return false;
 }
 
-function confirmar_edicao_usuario(form){
+function botao_Editar(event){
+// Adiciona um event listener no botão de submit
 
-  swal.fire({
+  event.preventDefault();
+
+  Swal.fire({
     title: "Deseja realmente alterar seus dados?",
     text: "Cuidado! Em caso de arrependimento, seus dados deverão novamente ser editados.",
     icon: "warning",
@@ -142,20 +145,20 @@ function confirmar_edicao_usuario(form){
     allowOutsideClick: true,
     closeOnConfirm: false,
     closeOnCancel: false
-  })
-  .then((result) => {
-    if (result.value) {
-       form.submit();
-    }else if (result.dismiss === Swal.DismissReason.cancel){
-      swal.fire(
-        'Edição cancelada.',
-        'Seus dados permanecem inalterados',
-        'info'
-      )
-    }
-  });
-  return false;
-  }
+  }).then((result) => {
+      if (result.value) {
+          $('#modalconfirmarSenha').modal('show');
+          return false;
+        } else if (result.dismiss === Swal.DismissReason.cancel){
+          Swal.fire(
+            'Edição cancelada.',
+            'Seus dados permanecem inalterados',
+            'info'
+          )
+        }
+      });
+
+}
 
   function duvida_token(){
     Swal.fire({
@@ -183,7 +186,3 @@ function confirmar_edicao_usuario(form){
         document.getElementById("submit").disabled = true;
       }
     }
-  
-    
-
-
