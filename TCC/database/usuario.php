@@ -19,9 +19,6 @@ if (!isset($_SESSION)) {
       return false;
     }
   
-    $stmt->close();
-    $conexao->close();
-  
   }
   
   function inserirUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $id_avatar){
@@ -109,32 +106,37 @@ function buscarUsuarioLogado($id_usuario){
       return $usuario;  
 }
    
-function editarUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $id_usuario, $id_avatar){
-$conexao = obterConexao();
-$senha_md5 = md5($senha); 
-  
-$sql = "UPDATE Usuario
-        SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?, senha = ?, id_avatar = ?
-        WHERE id_usuario = ?";
-
-
+function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar){
+  $conexao = obterConexao();
+  $sql = "SELECT senha FROM Usuario WHERE id_usuario = ?";
   $stmt = $conexao->prepare($sql);
-  $stmt->bind_param("ssssssii", $nome_completo, $data_nasc, $tel, $apelido, $email, $senha_md5, $id_avatar, $id_usuario);
+  $stmt->bind_param("i",$id_usuario);
   $stmt->execute();
-
-
-  if ($stmt->affected_rows > 0) {
-    $_SESSION["msg"] = "Seus dados foram alterados!";
-    $_SESSION["tipo_msg"] = "alert-warning";
-  } else {
-    $_SESSION["msg"] = "Seus dados não foram alterados! Erro: " . mysqli_error($conexao);
-    $_SESSION["tipo_msg"] = "alert-danger";
-  }  
-
+  $stmt->bind_result($senhaCadastrada);
+  $stmt->fetch();
   $stmt->close();
-  $conexao->close();
-}
+  $senhaDigitada_md5 = md5($senhaDigitada);
 
+  if ($senhaCadastrada === $senhaDigitada_md5){
+      $sql = "UPDATE Usuario
+      SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?,  id_avatar = ?
+      WHERE id_usuario = ?";
+      $stmt = $conexao->prepare($sql);
+      $stmt->bind_param("sssssii", $nome_completo, $data_nasc, $tel, $apelido, $email, $id_avatar, $id_usuario);
+      $stmt->execute();
+
+      if ($stmt->affected_rows > 0) {
+          $_SESSION["msg"] = "Seus dados foram alterados!";
+          $_SESSION["tipo_msg"] = "alert-success";
+      } else {
+          $_SESSION["msg"] = "Nenhuma alteração foi realizada. Favor, editar algum campo.";
+          $_SESSION["tipo_msg"] = "alert-warning";
+      }  
+  } else {
+      $_SESSION["msg"] = "Senha incorreta, dados inalterados. Caso tenha esquecido sua senha, recupere-a na tela de login.";
+      $_SESSION["tipo_msg"] = "alert-danger";
+  }
+}
 
 
 //------------------------------------------------------------------------------------------------
@@ -203,7 +205,7 @@ function verificatoken($email, $token_digitado){
   $diferenca_minutos = (time() - strtotime($data_expiracao)) / 60;
   
   if ($token_digitado === $token_armazenado && $diferenca_minutos < 5) {
-  header('Location: form_nova_senha.php');
+  header("Location: ../src/form_nova_senha.php?executar=recuperasenha");
   exit;
   } else {
     include ("../include/cabecalho.php");
@@ -235,10 +237,24 @@ function verificatoken($email, $token_digitado){
   }
   
   function recuperaSenha($email, $nova_senha){
-      $conexao = obterConexao();
+    $conexao = obterConexao();
+    $sql = "SELECT senha FROM Usuario WHERE email = ?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $senha_atual = $row['senha'];
+    $nova_senha_md5 = md5($nova_senha);
+   
+    if ($nova_senha_md5 == $senha_atual){
+      $_SESSION["msg"] = "Erro: A nova senha é igual à senha atual. Por favor, escolha uma nova senha.";
+      $_SESSION["tipo_msg"] = "alert-danger";
+      header("Location: ../public/index.php");
+      exit;
+    } else {
       $sql = "UPDATE Usuario SET senha = ? WHERE email = ?";
       $stmt = $conexao->prepare($sql);
-      $nova_senha_md5 = md5($nova_senha);
       $stmt->bind_param("ss", $nova_senha_md5, $email);
       $stmt->execute();
       if ($stmt->affected_rows > 0) {
@@ -248,10 +264,12 @@ function verificatoken($email, $token_digitado){
         $_SESSION["msg"] = "Seus dados não foram alterados! Erro: " . mysqli_error($conexao);
         $_SESSION["tipo_msg"] = "alert-danger";
       }  
-    
+      
       $stmt->close();
       $conexao->close();
-  } 
+    }
+  }
+  
   
   function verificaEmail($email_recuperar){
     $conexao = obterConexao();
@@ -274,6 +292,62 @@ function verificatoken($email, $token_digitado){
   }
 
   // - FIM DA SEÇÃO RECUPERAR SENHA 
+
+  function confirmaSenha($id_usuario, $senhaDigitada){
+    $conexao = obterConexao();
+    $sql = "SELECT senha FROM Usuario WHERE id_usuario = ?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("i",$id_usuario);
+    $stmt->execute();
+    $stmt->bind_result($senhaCadastrada);
+    $stmt->fetch();
+    $stmt->close();
+
+    $senhaDigitada_md5 = md5($senhaDigitada);
+
+    if ($senhaCadastrada === $senhaDigitada_md5){
+      header("Location: ../src/form_nova_senha.php?executar=alterarsenha");
+    }else {
+      $_SESSION["msg"] = "Senha incorreta. Caso tenha esquecido sua senha, recupere-a na tela de login.";
+      $_SESSION["tipo_msg"] = "alert-danger";
+      header("Location: ../src/pagina_inicial.php");
+    }
+  }
+
+  function alteraSenha($id_usuario, $nova_senha) {
+    $conexao = obterConexao();
+    $sql = "SELECT senha FROM Usuario WHERE id_usuario = ?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("i", $id_usuario);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $senha_atual = $row['senha'];
+
+    $sql = "UPDATE Usuario SET senha = ? WHERE id_usuario = ?";
+    $stmt = $conexao->prepare($sql);
+    $nova_senha_md5 = md5($nova_senha);
+    if ($nova_senha_md5 == $senha_atual){
+      $_SESSION["msg"] = "Erro: A nova senha é igual à senha atual. Por favor, escolha uma nova senha.";
+      $_SESSION["tipo_msg"] = "alert-danger";
+      header("Location: ../src/pagina_inicial.php");
+      exit;
+    }else{
+    $stmt->bind_param("si", $nova_senha_md5, $id_usuario);
+    $stmt->execute();
+    if ($stmt->affected_rows > 0) {
+        $_SESSION["msg"] = "Sua senha foi atualizada com sucesso!";
+        $_SESSION["tipo_msg"] = "alert-success";
+    } else {
+        $_SESSION["msg"] = "Seus dados não foram alterados! Erro: " . mysqli_error($conexao);
+        $_SESSION["tipo_msg"] = "alert-danger";
+    }
+
+  
+    $stmt->close();
+    $conexao->close();
+  }
+}
 
 
 ?>
