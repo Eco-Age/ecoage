@@ -13,9 +13,10 @@
             if (isset($_SESSION["apelido_logado"])) { ?>
               <p class="alert-success nav-link" id="logado">Logado como <?= $_SESSION["apelido_logado"] ?></p>
   <?php } ?>
-    <div id="apresentacao_home">
-
-        <div id="carroselIntrod" class="carousel slide" data-ride="carousel">
+    <div class="container-fluid" id="apresentacao_home">
+    <div class="row">
+        <div class="col-1"></div>
+        <div id="carroselIntrod" class="carousel slide col-10" data-ride="carousel">
             
             <ol class="carousel-indicators">
                 <li data-target="#carroselIntrod" data-slide-to="0" class="indicador active"></li>
@@ -163,7 +164,9 @@
                 <span class="sr-only">Próximo</span>
             </a>
         </div>
-    </div>  
+        <div class="col-1"></div>
+    </div>
+</div>  
 </main>
 
 <?php

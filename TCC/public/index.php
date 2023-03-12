@@ -17,16 +17,20 @@ $lista_avatar = listarAvatar();
 
 ?>
 <body id="body_login">
-  <div class="container">
-    <div class="row" id="login_i">
-      <div class="col-6" class="texto_inicial" >            
+  <div class="container-fluid" id="login_i">
+    <div class="row">
+    <div class="col-sm-2 col-md-3 col-lg-4 col-xl-4"></div>
+     <!--<div class="col-sm-1 col-md-2 col-lg-3 col-xl-2"></div>
+     <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4" class="texto_inicial" >            
         <h2 class="texto_inicial">Olá! Você faz ideia do impacto ambiental que a peça que você está vestindo pode causar? 
-         Não?! Então realize o login ao lado, ou crie uma nova conta e embarque no nosso universo!</h2>
-      </div>
-      <div class="col-1"></div>
-      <div class="col-4">
-        <fieldset id="forms_login" class="col-12">             
-          <legend id="legend_login"><img id="logo" src="../assets/logo.png" alt="logo"></legend>
+         Não?! Então realize o login ao lado, ou crie uma nova conta e embarque no nosso universo!</h2> 
+         <div class="col-sm-1 col-md-2 col-lg-3 col-xl-1"></div>      
+         <div class="col-sm-2 col-md-2 col-lg-2"></div>
+      </div>-->
+     
+      <div class="col-sm-8 col-md-6 col-lg-4 col-xl-4">
+        <fieldset id="forms_login" class="">             
+          <legend id="legend_login" class=""><img id="logo" src="../assets/logo.png" alt="logo"></legend>
             <form action="../src/login.php" method="post">
 
               <div class="form-group">
@@ -63,19 +67,22 @@ $lista_avatar = listarAvatar();
               <div class="text-center text-danger pt-3" id="id_msg"></div>
         </fieldset>
       </div>
-            
-       
+      <div class="col-sm-2 col-md-3 col-lg-4 col-xl-4"></div>
+    </div>        
+  </div>      
                <!-- Modal Cadastro do Usuário -->
        
       <div class="modal fade" id="modalNovoUsuario" tabindex="-1" role="dialog" aria-labelledby="cadastroUsuario" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
+
             <div class="modal-header">
               <h5 class="modal-title" id="cadastroUsuario">Nova conta:</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+
             <div class="modal-body">
               <fieldset>      
                 <form action="../src/cadastrar_usuario.php" method="post">
@@ -141,11 +148,12 @@ $lista_avatar = listarAvatar();
                 </form>
               </fieldset>       
             </div>
+
           </div>
         </div>
       </div>
 
-    </div>
+    
   
  
          <!-- Modal Esqueci a senha --> 
@@ -155,7 +163,7 @@ $lista_avatar = listarAvatar();
           <div class="modal-content">
 
             <div class="modal-header">
-              <h5 class="modal-title" id="recupere_senha">Recupere sua senha:</h5>
+              <h5 class="modal-title" id="recupere_senha">Recuperação de senha:</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -178,129 +186,149 @@ $lista_avatar = listarAvatar();
           </div>
         </div>
       </div>
-  </div>
+                  
+ 
+  <div class="container-fluid" id="sobre_nos_pgn">
 
-  <div class="row" id="sobre_nos_pgn">
-      <div class="col-12">
-
-        <div class="row" id="txt_sobre_nos">
-          <div class="col-4"></div>
-            <div class="col-4">
-                      <h1 id="txt_sobre_nos">DESENVOLVEDORES:</h1>
+   <div class="row" id="txt_sobre_nos">
+      <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+              <h1  id="txt_sobre_nos">DESENVOLVEDORES:</h1>
             </div>
-          <div class="col-4"></div>
-        </div>
+      <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
+    </div>
+    
+      <div  class="carousel slide" id="carrosel_sobrenos" data-ride="carousel">    
+        <div class="row" id="row_sobre_nos">
+        <div class="col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+          <div class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
 
-        <div class="row" id="caixas_sobre_nos">
-            <div class="col-3"></div>
-              <div class="col-6">
-            
-                <div id="carrosel_sobrenos" class="carousel slide" data-ride="carousel">
-              
-                        <ol class="carousel-indicators">
-                          <li data-target="#carrosel_sobrenos" data-slide-to="0" class="indicador active"></li>
-                          <li data-target="#carrosel_sobrenos" data-slide-to="1" class="indicador"></li>
-                          <li data-target="#carrosel_sobrenos" data-slide-to="2" class="indicador"></li>
-                      </ol>
+            <ol class="carousel-indicators">
+              <li data-target="#carrosel_sobrenos" data-slide-to="0" class="indicador active"></li>
+              <li data-target="#carrosel_sobrenos" data-slide-to="1" class="indicador"></li>
+              <li data-target="#carrosel_sobrenos" data-slide-to="2" class="indicador"></li>
+              <li data-target="#carrosel_sobrenos" data-slide-to="3" class="indicador"></li>
+              <li data-target="#carrosel_sobrenos" data-slide-to="4" class="indicador"></li>
+            </ol>
 
-                        <div class="carousel-inner">
-                            
-                            <div class="carousel-item active">
-                              <div class="row" id="avatar_ana">
-                                <div class="col-4"></div>
-                                <div class="col-4">
-                                        <img src="../assets/Ana_avatar.png" id="Edu_img">                                             
-                                </div>
-                                <div class="col-4"></div>
-                              </div>
-                              <div class="row">
-                              <div class="col-3"></div>
-                                <div class="col-6" id="texto_ana">
-                                <p>Oi galera! Sou a Ana, estudo no Instituto Federal de São Paulo - Câmpus Araraquara.
-                                    Amo ouvir música e conversar com os meus amigos. Fiz parte do desenvolvimento do site ecoage como Trabalho
-                                    de Conclusão de Curso.
-                                    Vocês podem conhecer mais sobre mim me seguindo nas redes sociais:<br>
+            <div class="carousel-inner" id="corpo_carrosel">  
 
-                                <a href="https://www.facebook.com/anabeatriz.rochaduarte.1" target="_blank"><img src="../assets/facebook.png"></a>
-                                <a href="https://www.instagram.com/ana_rocha_duarte_/" target="_blank"><img src="../assets/instagram.png"></a>
-                                </p>
-                                </div>                                
-                                <div class="col-3"></div>
-                              </div>  
-                            </div> 
-
-                            <div class="carousel-item">
-                              <div class="row" id="">
-                                <div class="col-1"></div>
-                                <div class="col-3">
-                                        <img src="../assets/edu_aplauso.png" id="Edu_img">                                             
-                                </div>
-                                <div class="col-6" id="texto_inicial_ana">
-                                <p>E aí, pessoal! Sou o Edu, estudo no Instituto Federal de São Paulo - Câmpus Araraquara.
-                                  Amo ler e escrever. Fiz parte do desenvolvimento do site ecoage como Trabalho
-                                  de Conclusão de Curso.
-                                  Vocês podem conhecer mais sobre mim me seguindo nas redes sociais:<br>
-
-                                  <a href="https://www.facebook.com/eduardo.bonifacio.3511" target="_blank"><img src="../assets/facebook.png"></a>
-                                  <a href="https://www.instagram.com/eduu_bonifacio/" target="_blank"><img src="../assets/instagram.png"></a>
-                              </p>
-                                </div>
-                                <div class="col-2"></div>
-                              </div> 
-                            </div>
-
-                            <div class="carousel-item">
-                              <div class="row" id="">
-                                <div class="col-1"></div>
-                                <div class="col-3">
-                                        <img src="../assets/bibi_grata.png" id="Edu_img">                                             
-                                </div>
-                                <div class="col-6" id="texto_inicial_ana">
-                                <p> Oiii gentee! Sou a Gabi, estudo no Instituto Federal de São Paulo - Câmpus Araraquara.
-                                    Amo dançar e ouvir música. Fiz parte do desenvolvimento do site ecoage como Trabalho
-                                    de Conclusão de Curso.
-                                    Vocês podem conhecer mais sobre mim me seguindo nas redes sociais:<br>
-
-                                    <a href="https://www.facebook.com/gabrielle.silva.5055" target="_blank"><img src="../assets/facebook.png"></a>
-                                    <a href="https://www.instagram.com/_gabiulisses/" target="_blank"><img src="../assets/instagram.png"></a>
-                                    
-                                </p>
-                                </div>
-                                <div class="col-2"></div>
-                              </div> 
-                            </div>
-
-        
-
-                        </div>
-                    
-                        <a class="carousel-control-prev" href="#carrosel_sobrenos" role="button" data-slide="prev">
-                            <span class="carousel-control material-icons" aria-hidden="true" id="ante">
-                                chevron_left
-                            </span>    
-                        </a>
-                        <a class="carousel-control-next" href="#carrosel_sobrenos" role="button" data-slide="next">
-                            <span class="carousel-control material-icons" aria-hidden="true" id="next">
-                                navigate_next
-                            </span>            
-                        </a>
+              <div class="carousel-item active">
+                <div class="row" id="avatar_nois">
+                  <div class="col"></div>
+                  <div class="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                    <img src="../assets/nois.png" id="nois">                                             
                   </div>
+                  <div class="col"></div>
+                </div>
+                <div class="row">
+                  <div class="col"></div>
+                  <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" id="texto_inicial_nois">
+                      <p>Olá! Somos formandos do curso <span class="negrito">Técnico em Informática Integrado ao Ensino Médio (IFSP - Câmpus Araraquara)</span> e
+                          desenvolvemos o site <span class="negrito">Eco Age</span> como <span class="negrito">Trabalho de Conclusão de Curso</span> durante o ano de <span class="negrito">2023</span>!
+                      </p>
+                  </div>                                
+                  <div class="col"></div>
+                </div>  
+              </div> 
+
+              <div class="carousel-item">
+                <div class="row" id="">
+                  <div class="col"></div>
+                    <div class="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <img src="../assets/edu_aplauso.png" id="Edu_img2">                                             
+                    </div>
+                    <div class="col"></div>
+                </div>  
+                <div class="row">
+                  <div class="col"></div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4" id="texto_inicial_edu2">
+                      <p>E aí, pessoal! 
+                      Sou o <span class="negrito">Edu</span>!
+                      Amo <span class="negrito">ler</span> e <span class="negrito">escrever</span>, vocês podem conhecer mais sobre mim me seguindo nas <span class="negrito">redes sociais</span>:<br>
+
+                        <a href="https://www.facebook.com/eduardo.bonifacio.3511" target="_blank"><img src="../assets/facebook.png" class="iconeRedeSocial"></a>
+                        <a href="https://www.instagram.com/eduu_bonifacio/" target="_blank"><img src="../assets/instagram.png" class="iconeRedeSocial"></a>
+                      </p>
+                    </div>
+                  <div class="col"></div>
+                </div> 
               </div>
-            <div class="col-3"></div>  
-          </div>      </div>
-  </div>
-     
- </body> 
-  <footer class="footer navbar-fixed bottom" id="rodape">
-    <div id="copy-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <p>Desenvolvido por <span id="sobre_nos_login">Ana Beatriz, Eduardo e Gabrielle</span> &copy; ecoage.com.br 2023</p>
-          </div>
-        </div>
+
+              <div class="carousel-item">
+                <div class="row" id="">
+                  <div class="col"></div>
+                    <div class="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                      <img src="../assets/Ana_avatar.png" id="Ana_img2">                                             
+                    </div>
+                  <div class="col"></div>
+                </div>
+                <div class="row">
+                  <div class="col"></div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4" id="texto_inicial_ana2">
+                      <p>E aí, pessoal!
+                      Sou a <span class="negrito">Ana!</span>
+                        Amo <span class="negrito">ouvir música</span> e <span class="negrito">conversar com os meus amigos</span>,
+                        vocês podem conhecer mais sobre mim me seguindo nas <span class="negrito">redes sociais:</span><br>
+
+                        <a href="https://www.facebook.com/anabeatriz.rochaduarte.1" target="_blank" ><img src="../assets/facebook.png" class="iconeRedeSocial"></a>
+                        <a href="https://www.instagram.com/ana_rocha_duarte_/" target="_blank" ><img src="../assets/instagram.png" class="iconeRedeSocial"></a>
+                      </p>    
+                    </div>
+                  <div class="col"></div>
+                </div> 
+              </div>
+
+              <div class="carousel-item">
+                <div class="row" id="">
+                  <div class="col"></div>
+                    <div class="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                      <img src="../assets/bibi_grata.png" id="Gabi_img2">                                             
+                    </div>
+                  <div class="col"></div>
+                </div>
+                <div class="row">
+                  <div class="col"></div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4" id="texto_inicial_gabi2">
+                      <p> Oiii gentee! 
+                        Sou a <span class="negrito">Gabi!</span>
+                          Amo <span class="negrito">dançar</span> e <span class="negrito">ouvir música</span>, 
+                          vocês podem conhecer mais sobre mim me seguindo nas <span class="negrito">redes sociais:</span><br>
+
+                          <a href="https://www.facebook.com/gabrielle.silva.5055" target="_blank"><img src="../assets/facebook.png" class="iconeRedeSocial"></a>
+                          <a href="https://www.instagram.com/_gabiulisses/" target="_blank"><img src="../assets/instagram.png" class="iconeRedeSocial"></a>            
+                      </p>
+                    </div>
+                  <div class="col"></div>
+              </div> 
+
+              
+            
+            </div>
+                    
+            <a class="carousel-control-prev" href="#carrosel_sobrenos" role="button" data-slide="prev">
+              <span class="carousel-control material-icons" aria-hidden="true" id="ante">
+                chevron_left
+              </span>    
+            </a>
+            <a class="carousel-control-next" href="#carrosel_sobrenos" role="button" data-slide="next">
+              <span class="carousel-control material-icons" aria-hidden="true" id="next">
+                navigate_next
+              </span>            
+            </a>
+        </div>       
+        <div class="col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>  
       </div>
     </div>
+  </div>    
+ </body> 
+
+  <footer class="">
+            <div class="row" id="rodape_login">
+                <div class="col-md-12">
+                    <p>Desenvolvido por <a href="sobre_nos.html" id="sobre_nos">Ana Beatriz, Eduardo e Gabrielle</a> &copy; ecoage.com.br 2023</p>
+                </div>
+            </div>
   </footer>
   <script src="../assets/script.js"></script>
 </html>

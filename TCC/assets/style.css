@@ -2,6 +2,9 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
+
+
 #esqueceuSenha{
     text-decoration: none;
     color: #350046;
@@ -11,13 +14,7 @@
 }
 
 #body_login{
-    background-image: url("fundo_login.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;    
-    backdrop-filter: brightness(25%);
-    display: inline-block;
-    width: 100%;
+    background-color: #703b7f;
 }
 
 .navbar-toggler:focus {
@@ -48,7 +45,10 @@
 }
 
 #forms_login{
-    margin: auto;
+    margin-top:50px;
+    margin-bottom: 60px;
+    margin-left: 20px;
+    margin-right: 20px;
     border-radius: 40px;
     background-color:#b3d39e ;
     padding: 25px;
@@ -60,6 +60,7 @@
     font-size: clamp(0.8em, 0.8em + 1vw, 1.2em);
     font-weight: 500;
     padding-bottom: 45px;
+
 }
 
 #apelido_login, #senha_login{
@@ -75,9 +76,13 @@
 
 
 #login_i{
+    background-image: url("fundo_login.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;    
+    backdrop-filter: brightness(25%);
     background-color: #83000000;
-    margin-top: 10%;
-    margin-bottom: 30%;
+    width: auto;
 }
 
 #legend_login, #legend_avatar{
@@ -136,13 +141,14 @@
     background-color: #623f80;
     color: #67b16d;
     clear: both;
-    position: absolute;
+    position: relative;
     margin-top: auto;
-    bottom: 0;
-    left: 0;
-    width: 100%; 
     padding-top: 20px;   
     text-decoration: none;
+    z-index: 999;
+    text-align: center;
+    height: auto;
+    width: auto;
 }
 
 #sobre_nos_login{
@@ -152,8 +158,8 @@
 
 #icon{
     position: absolute;
-    top: 42%;
-    right: 30px;
+    top: 335px;
+    right: 70px;
     transform: translateY(-50%);
     background: URL('mostrar.png');
     background-size: cover;
@@ -201,6 +207,103 @@
     background: URL('ocultar.png');
     background-size: cover;
 }
+
+/* sobre nós */
+
+#txt_sobre_nos{
+    padding-bottom: 25px;
+    font-style:normal;
+    /*font-variant:small-caps;*/
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #f7eeff;
+    font-weight: bold;
+    text-align: center;
+    font-size: auto;
+    padding-top: 40px;
+    width: auto;
+    margin: auto;
+}
+
+.iconeRedeSocial{
+   margin-top: 10px;
+}
+
+#texto_inicial_edu2, #texto_inicial_ana2, #texto_inicial_gabi2,#texto_inicial_nois{
+    text-align: center;
+    margin: auto;  
+    font-size: clamp(0.8em, 0.8em + 1vw, 1.2em);
+    width: auto;
+    background-color: #f5edffdb;
+    color: #653292;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 30px;
+    border-radius: 200px;
+}
+
+#texto_inicial_edu2, #texto_inicial_ana2, #texto_inicial_gabi2{
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 30px;
+    border-radius: 200px;
+}
+
+#Ana_img2, #Edu_img2, #Gabi_img2{
+    width: 100%;
+    margin: auto;
+    margin-bottom: 50px;
+    background-image: url("fundo_login.jpg");
+    border-radius: 100%;
+    padding: 0px;
+}
+
+#nois{
+    width: 100%;
+    margin-bottom: 50px;
+    background-image: url("fundo_login.jpg");
+    border-radius: 200px;
+    padding: 0px;
+}
+
+#sobre_nos_ana, #sobre_nos_edu, #sobre_nos_gabi{
+   
+    display: inline-block;
+   
+}
+
+#sobre_nos_pgn{
+    background-color: #703b7f;
+}
+
+#row_sobre_nos{
+    margin-bottom: 50px;
+}
+
+#carrosel_sobrenos{
+    
+        display: block;
+        object-fit: cover; 
+        padding: 30px;
+        border-radius: 100px;
+        margin: auto;
+        width: auto;
+        height: auto;
+}
+
+#corpo_carrosel{
+    height: auto;
+    padding-bottom: 120px;
+}
+
+.negrito{
+    font-weight: bold;
+}
+
+/*#avatar_ana{
+    margin-bottom: 10px;
+}*/
 
 /* EDIÇÃO USUÁRIO */
 
@@ -590,7 +693,6 @@ align-items: right;
 #rodape {
     background-color: #623f80;
     color: #b3d39e;
-    clear: both;
     position: relative;
     margin-top: auto;
     clear: both;
@@ -783,14 +885,14 @@ align-items: right;
     background-position: center;    
     background-color: #67b16d00;
     display: inline-block;
-    border-radius: 300px;
-    width: auto;
+    border-radius: 300px;    
     margin: auto;
-    height: auto;
     width: 1000px;
-    height: 500px; 
+    height: auto;
     box-shadow: 2px 2px 6px #00000018;
+    object-fit: cover;
 }
+
 #ecoAge_inicial{
     font-size: 14pt;
     color: #580f6e;
@@ -925,52 +1027,7 @@ align-items: right;
     background-color: #6e4a8d ;
 }
 
-/* sobre nós */
 
-#txt_sobre_nos{
-    padding-bottom: 25px;
-    font-style:normal;
-    margin-top: 25px;
-    /*font-variant:small-caps;*/
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #f7eeff;
-    font-weight: bold;
-    text-align: center;
-}
-
-#sobre_nos_ana, #sobre_nos_edu, #sobre_nos_gabi{
-   
-    display: inline-block;
-   
-}
-
-#txt_apresentacao{
-    display: flex;
-    
-}
-
-#sobre_nos_pgn{
-    background-color: #703b7f;
-}
-
-#caixas_sobre_nos{
-    margin-bottom: 50px;
-}
-
-#carrosel_sobrenos{
-
-        object-fit: cover; 
-        padding: 30px;
-        border-radius: 100px;
-        width: 100%;
-        height: 505px;
-        background-color: #aeca9346;
-        box-shadow: 2px 2px 6px #00000018;
-}
-
-#avatar_ana{
-    margin-bottom: 10px;
-}
 /* jogo */
 .img_carrosel_jogo{
     width: 100%;
@@ -1015,6 +1072,7 @@ table{
     text-align: center;
     position: relative;
     font-size: 14px;
+    display: inline;
 }
 
 thead{
