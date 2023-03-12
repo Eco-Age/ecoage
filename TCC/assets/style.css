@@ -157,16 +157,14 @@
 }
 
 #icon{
-    position: absolute;
-    top: 335px;
-    right: 70px;
-    transform: translateY(-50%);
+    position: relative;
+    left: 88%;
+    transform: translateY(-120%);
     background: URL('mostrar.png');
     background-size: cover;
     width: 25px;
     height: 25px;
     cursor: pointer;
-    margin-right: 8px;
 }
 
 #icon.ocultar {
