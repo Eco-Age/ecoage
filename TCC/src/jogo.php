@@ -8,6 +8,7 @@ session_start();
  
     include("../include/navegacao.php");
 ?>
+<div id="conteudo">
 <main class="container">
 <div id="jogo">
 
@@ -67,6 +68,7 @@ session_start();
     </div>  
 </div>
 </main>
+</div>
 <?php
  include("../include/rodape.php");
 ?>

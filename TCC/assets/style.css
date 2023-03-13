@@ -601,7 +601,11 @@ nav{
 }
 
 #portal_de_noticias{
+    min-height: calc(100vh - 100px);
     margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #filtros_menu{
@@ -679,6 +683,9 @@ align-items: right;
 
 #conteudo {
     min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #conteudo_token_novasenha {

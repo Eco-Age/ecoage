@@ -7,7 +7,8 @@
   include("../include/navegacao.php");  
   include ("../util/mensagens.php");
   exibirMsg();
-?>  
+?> 
+<div id="conteudo">
   <main class="container">
   <?php 
             if (isset($_SESSION["apelido_logado"])) { ?>
@@ -168,7 +169,7 @@
     </div>
 </div>  
 </main>
-
+</div>
 <?php
         include("../include/rodape.php");
   ?>

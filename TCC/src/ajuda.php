@@ -10,6 +10,7 @@ session_start();
     exibirMsg();
 ?>
 <body>
+<div id="conteudo">
 <main class="container">
     <div id="pagina_de_duvidas">
         <div class="row">
@@ -115,6 +116,7 @@ session_start();
         </div>  
     </div>
 </main>
+</div>
 <?php
     include("../include/rodape.php");  
 ?>

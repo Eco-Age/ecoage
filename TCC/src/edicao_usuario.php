@@ -16,7 +16,7 @@ exibirMsg();
     $usuario = buscarUsuarioLogado($id_usuario);
     $avatar_atual = buscarAvatarUsado($id_usuario);
 ?>
-<div class="container">
+<div class="container" id="conteudo">
     <div class="row">
         <div class="col-4"></div>
             <h4 class="col-4" id="meus_dados">Meus dados:</h4>

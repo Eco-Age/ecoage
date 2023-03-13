@@ -15,7 +15,7 @@ $lista_tipo_tecidos = listarTipoTecidos();
 $lista_tecidos = listarTecidos();
 ?>
 
-<div class="container">
+<div class="container" id="conteudo">
 
 <div class="row">
         <div class="col-4"></div>
