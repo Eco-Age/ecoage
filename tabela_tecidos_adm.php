@@ -16,7 +16,7 @@
           <tr>
             <th></th> 
             <th></th> 
-            <th>Nome</th>
+            <th></th>
             <th>Descrição</th>
             <th>Sustentável?</th>
             <th></th> 
