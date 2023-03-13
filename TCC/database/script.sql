@@ -6,6 +6,18 @@ DROP TABLE IF EXISTS Tipo_Tecidos;
 DROP TABLE IF EXISTS tokens;
 DROP TABLE IF EXISTS avatars;
 
+CREATE TABLE avatars (
+    id_avatar INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    caminho VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id_avatar)
+);
+
+INSERT INTO avatars (nome, caminho) 
+VALUES  ('Avatar 1', '../avatars/avatar1.png'),
+        ('Avatar 2', '../avatars/avatar2.png'),
+        ('Avatar 3', '../avatars/avatar3.png'),
+        ('Avatar 4', '../avatars/avatar4.png');
 
 CREATE TABLE Usuario(
     id_usuario INT AUTO_INCREMENT,
@@ -70,18 +82,4 @@ VALUES (1, 'Os tecidos de algodão são de fibra natural macia e por isso são c
 -- Para adicionar o campo checkbox: 
 ALTER TABLE Tecidos 
 ADD sustentavel BOOLEAN NOT NULL DEFAULT false;
-
-CREATE TABLE avatars (
-    id_avatar INT NOT NULL AUTO_INCREMENT,
-    nome VARCHAR(255) NOT NULL,
-    caminho VARCHAR(255) NOT NULL,
-    PRIMARY KEY (id_avatar)
-);
-
-INSERT INTO avatars (nome, caminho) 
-VALUES  ('Avatar 1', '../avatars/avatar1.png'),
-        ('Avatar 2', '../avatars/avatar2.png'),
-        ('Avatar 3', '../avatars/avatar3.png'),
-        ('Avatar 4', '../avatars/avatar4.png');
-        
 
