@@ -12,7 +12,7 @@ exibirMsg();
     $id_avatar = $_SESSION["idAvatar"];
   }
     $lista_avatar = listarAvatar();
-    $avatar = buscarAvatar($id_avatar);
+    $avatar = buscarAvatar();
     $usuario = buscarUsuarioLogado($id_usuario);
     $avatar_atual = buscarAvatarUsado($id_usuario);
 ?>
@@ -58,16 +58,19 @@ exibirMsg();
                           
                            <div class="form-group">
                              <label>Selecione o seu avatar:</label><br>    
-                              
+                                <div class="avatar-container">
                                 <?php foreach ($lista_avatar as $avatar) : 
-                                    $estaSelecionado = $usuario["id_avatar"] == $avatar["id_avatar"] ;
+                                    $estaSelecionado = $usuario["id_avatar"] == $avatar["id_avatar"];
                                     $atributoSelected = $estaSelecionado ? "checked='checked'" : ""; 
                                 ?>
-
-                                 <input type="radio" name="id_avatar" value="<?=$avatar["id_avatar"]?>"<?=$atributoSelected?>>
-                                 <img id="avatarRadio" src="<?=$avatar["caminho"]?>" alt="<?=$avatar["nome"]?>">
+                                    <input class="avatar-radio" type="radio" id="avatar<?=$avatar["id_avatar"]?>" name="id_avatar" value="<?=$avatar["id_avatar"]?>" <?=$atributoSelected?>>
+                                    <label for="avatar<?=$avatar["id_avatar"]?>">
+                                        <img src="<?=$avatar["caminho"]?>" alt="<?=$avatar["nome"]?>">
+                                    </label>
 
                                 <?php endforeach ?> 
+
+
                                 
                                 <?php
                               
@@ -82,6 +85,7 @@ exibirMsg();
                                 ?>
                   
                            </div>
+                            </div>
                            <div>
                           
                            <div class="modal fade" id="modalconfirmarSenha" tabindex="-1" role="dialog" aria-labelledby="confirme_senha" aria-hidden="true">

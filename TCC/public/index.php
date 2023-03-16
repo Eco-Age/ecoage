@@ -125,22 +125,23 @@ $lista_avatar = listarAvatar();
 
                   <div>
                   <label for="avatar">Selecione seu avatar:</label>
-                   <p>  
-                  <?php foreach ($lista_avatar as $avatar) : ?>
-                        <input type="radio" name="id_avatar" value="<?=$avatar["id_avatar"]?>">
-                        <img id="avatarRadio" src="<?=$avatar["caminho"]?>" alt="<?=$avatar["nome"]?>">
-                  <?php endforeach ?>
-                  <?php
-                      $avatarEscolhido = $avatar["id_avatar"];
-                      $caminhoEscolhido = $avatar["caminho"];
+                  <div class="avatar-container">
+                                <?php foreach ($lista_avatar as $avatar) : ?>
+                                   <input class="avatar-radio" type="radio" id="avatar<?=$avatar["id_avatar"]?>" name="id_avatar" value="<?=$avatar["id_avatar"]?>">
+                                    <label for="avatar<?=$avatar["id_avatar"]?>">
+                                      <img src="<?=$avatar["caminho"]?>" alt="<?=$avatar["nome"]?>">
+                                    </label>
+                                    <?php endforeach ?> 
+                                    <?php
+                                      $avatarEscolhido = $avatar["id_avatar"];
+                                      $caminhoEscolhido = $avatar["caminho"];
 
-                      $_SESSION["caminhoAvatar"] = $caminhoEscolhido;
-                      $_SESSION["idAvatar"] = $avatarEscolhido;
-                  ?>
+                                      $_SESSION["caminhoAvatar"] = $caminhoEscolhido;
+                                      $_SESSION["idAvatar"] = $avatarEscolhido;
+                                    ?>
                   
-
-                  </p>             <!-- < ? php escolha_avatar()  ?>                                                             -->
-                  </div>         
+                           </div>  
+                </div>         
                   
                   <div class="form-group">    
                     <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserir">Inserir</button> 
