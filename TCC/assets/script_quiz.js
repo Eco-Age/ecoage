@@ -8,7 +8,8 @@ function quiz() {
   if (sessionStorage.getItem('quizCompleto_' + id_usuario) === 'true'){
     Swal.fire({
         title: 'Você já finalizou esse quiz. Gostaria de jogar outra vez?',
-        text: `Sua pontuação anterior foi de ${pontuacao_quiz} de 4`,
+        html: `<p>Sua pontuação anterior foi de ${pontuacao_quiz} de 4</p>
+               <p style="font-size: 15px;">Seus pontos são resetados ao sair da conta</p>`,
         icon: 'question',
         showCancelButton: true,
         confirmButtonText: 'Sim, vamos jogar!',
