@@ -433,7 +433,7 @@
     color: #2d4931;
     margin-right: 15px;
     border-radius: 55px;
-    border: 0.5px solid #ddd;
+    border: 0.5px solid rgba(221, 221, 221, 0);
     align-items: center;  
     height: 45px;
     min-width: 65px;
@@ -1191,8 +1191,8 @@ th{
         left: 50%;
         transform: translateX(-50%);
         padding: 5px 10px;
-        background-color: #147cb6;
-        border: 1px solid rgba(0, 0, 0, 0.308);
+        background-color: #126ea0;
+        border: 0.5px solid #147cb6;
         border-radius: 5px;
         box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
         opacity: 1;

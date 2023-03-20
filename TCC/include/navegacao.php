@@ -24,7 +24,7 @@ $avatar_atual = buscarAvatarUsado($id_usuario);
                     <a class="nav-link" href="../src/pagina_inicial.php" id="menu_home" autocomplete="off" checked><span class="material-icons" id="icone_home">home</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../src/portal_de_noticias.php"  id="menu_portal"><span>Portal de Notícias</span></a>
+                    <a class="nav-link" href="../src/portal_de_noticias.php"  id="menu_portal"><i class="fa-solid fa-paperclip"></i> <span>Notícias</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../src/tecidos.php" id="menu_tecidos"><i class="fas fa-tshirt"></i> Tecidos</a>
