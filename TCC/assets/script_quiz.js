@@ -9,7 +9,7 @@ function quiz() {
     Swal.fire({
         title: 'Você já finalizou esse quiz. Gostaria de jogar outra vez?',
         html: `<p>Sua pontuação anterior foi de ${pontuacao_quiz} de 4</p>
-               <p style="font-size: 15px;">Seus pontos são resetados ao sair da conta</p>`,
+               <p style="font-size: 15px;">OBS: Seus pontos são resetados ao sair da conta</p>`,
         icon: 'question',
         showCancelButton: true,
         confirmButtonText: 'Sim, vamos jogar!',
