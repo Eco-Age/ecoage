@@ -481,7 +481,7 @@ nav{
     border-color: #6f42c1;
   }
 .btn-purple:hover{
-    color: #F8BBD0;
+    color: #eedeff;
 }
 
 .btn-purple-circulo{
@@ -501,7 +501,7 @@ nav{
 
 
 .btn-purple-circulo:hover{
-    color: #F8BBD0;
+    color: #eedeff;
     cursor: pointer;
 }
   
@@ -1203,15 +1203,15 @@ th{
       }
       
       .quiz-btn::before {
-        content: "Clique Aqui!";
+        content: "Iniciar quiz!";
         display: block;
         position: absolute;
         top: -60px;
         left: 50%;
         transform: translateX(-50%);
         padding: 5px 10px;
-        background-color: #ff7676;
-        border: 1px solid #000;
+        background-color: #147cb6;
+        border: 1px solid rgba(0, 0, 0, 0.308);
         border-radius: 5px;
         box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
         opacity: 1;
@@ -1230,7 +1230,7 @@ th{
         border-style: solid;
         border-width: 20px 10px 0 10px;
         border-color: #000000 transparent transparent transparent;
-        border-top-color: #ff7676;
+        border-top-color: #147cb6;
         z-index: -1;
       }
       
