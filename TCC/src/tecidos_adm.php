@@ -38,23 +38,24 @@ $lista_tecidos = listarTecidos();
   <div class="col-md-4 col-lg-4"></div>
 </div>
 
-<div class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8"></div>
-            <div class="col-md-4">
-            <div class="d-flex justify-content-end">
-                <button type="button" class="btn-purple-circulo" onclick="ajudaTecido()">
-                  <i class="fa fa-1x fa-question-circle"></i>
+            <div class="col-4 col-md-4 d-flex justify-content-left">
+                <button type="button" class="btn-purple-circulo quiz-btn" onclick="quiz()">
+                <i class="fa fa-1x fa-gamepad"></i>
                 </button>
             </div>
-            </div>
+            <div class="col-4 col-md-4"></div>
+            <div class="col-4 col-md-4">
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn-purple-circulo" onclick="ajudaTecido()">
+                    <i class="fa fa-1x fa-question-circle"></i>
+                    </button>
+                </div>
+            </div>           
         </div>
     </div>
-    <div class="d-flex justify-content-left">
-        <button type="button" class="btn-purple-circulo quiz-btn" onclick="quiz()">
-          <i class="fa fa-1x fa-gamepad"></i>
-        </button>
-    </div>
+   
   <!-- Modal Cadastro de Tecidos -->
   <div class="modal fade" id="modalCadastrarTecido" tabindex="-1" role="dialog" aria-labelledby="cadastroTecido" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -111,7 +112,7 @@ $lista_tecidos = listarTecidos();
           <img id="imgtecido1" class="card-img-top" src="data:image/jpeg;base64,<?=$tecido["caminho_imagem"]?>" alt="<?=$tecido["nome_tecidos"]?>">
           <h5><?= $tecido["nome_tecidos"] ?></h5>
           <p>Vamos aprender sobre o tecido?</p>
-          <a class="btn btn-purple" data-toggle="collapse" href="#collapse<?= $tecido["id_tecidos"] ?>" role="button" aria-expanded="false" aria-controls="collapse<?= $tecido["id_tecidos"] ?>">
+          <a class="btn" id="saibamais" data-toggle="collapse" href="#collapse<?= $tecido["id_tecidos"] ?>" role="button" aria-expanded="false" aria-controls="collapse<?= $tecido["id_tecidos"] ?>">
             Saiba mais..
           </a>
           <?php
