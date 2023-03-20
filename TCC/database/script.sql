@@ -5,6 +5,8 @@ DROP TABLE IF EXISTS Tecidos;
 DROP TABLE IF EXISTS Tipo_Tecidos;
 DROP TABLE IF EXISTS tokens;
 DROP TABLE IF EXISTS avatars;
+DROP TABLE IF EXISTS Noticias;
+
 
 CREATE TABLE avatars (
     id_avatar INT NOT NULL AUTO_INCREMENT,
@@ -168,3 +170,13 @@ O poliéster é resistente e durável, além de possuir uma secagem rápida. No 
 o meio ambiente e a saúde humana. Além disso, quando descartado, o poliéster demora centenas de anos 
 para se decompor na natureza, agravando ainda mais os problemas ambientais. Por esses motivos, 
 o poliéster é considerado um tecido não sustentável.', '../assets/tecido_bloqueado.png', 0);
+
+Create table Noticias(
+    id_noticia INT AUTO_INCREMENT,
+    titulo_noticia VARCHAR(255) NOT NULL,
+    data_noticia DATETIME NOT NULL,
+    url_noticia VARCHAR(255) NOT NULL,
+    descricao_noticia VARCHAR(255) NOT NULL,
+
+       PRIMARY KEY (id_noticia)
+);
