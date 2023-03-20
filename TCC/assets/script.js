@@ -25,7 +25,6 @@ function mostrarOcultar_cadastro(){
 }
 
 const password_edicao = document.getElementById('senha_cadastro');
-const icon_edicao = document.getElemenById('icon_edicao');
 
 function mostrarOcultar_edicao(){
     if (password_edicao.type === 'password'){
@@ -37,16 +36,7 @@ function mostrarOcultar_edicao(){
     }
 }
 
-window.addEventListener("load", setEventos);
-
-function setEventos() {
-  let button = document.getElementById('btnlogin');
-  button.addEventListener("click", validarLogin);
-
-  document.getElementById("apelido_login").addEventListener("focus", limparCampo);
-  document.getElementById("senha_login").addEventListener("focus", limparCampo);
-}
-
+/* eu acho que essa função é removível porque não estamos validando na página login.php?
 function validarLogin() {
 
   let apelido = document.getElementById("apelido_login").value;
@@ -81,23 +71,7 @@ function validarLogin() {
 function limparCampo() {
   document.getElementById("id_msg").innerHTML = "";
 }
-
-
-function confirmarvisaousu(){
-    alert("Você verá a página como usuário.");
-    window.location="../src/tecidos.php";
-}
-
-function confirmarvisaousu_noticia(){
-    alert("Você verá a página como usuário.");
-    window.location="../src/site_externo.php";
-}
-
-
-function inserirnoticia(){
-    alert("Esta aplicação web é um protótipo. Essa função ainda não foi implementada.");
-    window.location="../src/site_externo_adm.php";
-}
+*/
 
 function confirmar_edicao_tecido(form){
 
@@ -106,7 +80,7 @@ swal.fire({
   text: "Cuidado! Em caso de arrependimento, seus dados deverão novamente ser editados.",
   icon: "warning",
   confirmButtonColor: '#3085d6',
-  cancelButtonColor: '#8A2BE2',
+  cancelButtonColor: '#9370DB', // cor antiga : #8A2BE2
   showCancelButton: true,
   cancelButtonText: 'Cancelar',
   confirmButtonText: 'Sim, editar',
@@ -121,7 +95,7 @@ swal.fire({
     swal.fire(
       'Edição cancelada.',
       'O Tecido não foi editado',
-      'info'
+      'success'
     )
   }
 });
@@ -136,9 +110,9 @@ function botao_Editar(event){
   Swal.fire({
     title: "Deseja realmente alterar seus dados?",
     text: "Cuidado! Em caso de arrependimento, seus dados deverão novamente ser editados.",
-    icon: "warning",
+    icon: "question",
     confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#8A2BE2',
+    cancelButtonColor: '#9370DB', // cor antiga : #8A2BE2
     showCancelButton: true,
     cancelButtonText: 'Cancelar',
     confirmButtonText: 'Sim, editar',
@@ -153,7 +127,7 @@ function botao_Editar(event){
           Swal.fire(
             'Edição cancelada.',
             'Seus dados permanecem inalterados',
-            'info'
+            'success'
           )
         }
       });
@@ -186,3 +160,130 @@ function botao_Editar(event){
         document.getElementById("submit").disabled = true;
       }
     }
+
+    function deletarTecido(id_tecidos){
+      Swal.fire({
+        title: "Deseja deletar este tecido?",
+        text: "Cuidado! Não é possível recuperar após a exclusão.",
+        icon: "error",
+        confirmButtonColor: '#DC3545',
+        cancelButtonColor: '#9370DB', // cor antiga : #8A2BE2
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Excluir',
+        allowOutsideClick: true,
+        closeOnConfirm: false,
+        closeOnCancel: false
+      }).then((result) => {
+          if (result.value) {
+             window.location.href='../src/remover_tecido.php?id_tecidos=' + id_tecidos;
+            } else if (result.dismiss === Swal.DismissReason.cancel){
+              Swal.fire(
+                'Exclusão cancelada.',
+                'Seus dados permanecem salvos',
+                'success'
+              )
+            }
+          });
+    }
+
+    function ajudaTecido(){
+      Swal.fire({
+        title: "Bem vindo!",
+        html: `<div class="container">
+                  <p>
+                    Essa é a página de tecidos!<br><br> É importante lembrarmos que 
+                    ela tem relação direta com as patentes do nosso 
+                    <a href="#" class="popover-link" data-placement="top" data-content="Guess the Tissue, disponível na barra de navegação!" data-container="body">Jogo</a>
+                    , portanto, para melhor experiência, jogue primeiro e depois nos acesse!
+                  </p>
+                </div>`,
+        icon: "info",
+        confirmButtonText: 'Entendi!',
+        allowOutsideClick: true
+      });
+    
+      $(document).ready(function(){
+        $('.popover-link').popover({ trigger: 'focus' });
+      });
+    };
+    
+
+  // SESSÃO DO INFERNO DO ALERT DE TECIDOS QUE FINALMENTE ESTA PRONTO INFERNO  
+
+  $(document).ready(function() {
+    var currentPage = window.location.pathname.split("/").pop();
+    if (currentPage == 'tecidos.php' || currentPage == 'tecidos_adm.php'){
+    let id_usuario = chave_sessao
+    sessionStorage.setItem('id_usuario', id_usuario);
+    let showAlert = localStorage.getItem('showAlert_' + id_usuario);
+    if (showAlert !== 'false') {
+      Swal.fire({
+        title: 'Bem-vindo!',
+        html: `<div class="container">
+                <p>
+                  Essa é a página de tecidos!<br><br> É importante lembrarmos que 
+                  ela tem relação direta com as patentes do nosso 
+                  <a href="#" class="popover-link" data-placement="top" data-content="Guess the Tissue, disponível na barra de navegação!" data-container="body">Jogo</a>
+                  , portanto, para melhor experiência, jogue primeiro e depois nos acesse!
+                </p>
+                
+                <input type="checkbox" class="form-check-input" id="checkbox-avisar" />
+                <label class="form-check-label" for="checkbox-avisar"> Não me avisar novamente</label>
+              </div>`,
+        icon: 'info',
+        showCloseButton: true,
+        confirmButtonText: 'Entendi!',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          if ($('#checkbox-avisar').is(':checked')) {
+            localStorage.setItem('showAlert_' + id_usuario, 'false');
+          } else {
+            localStorage.setItem('showAlert_' + id_usuario, 'true');
+          }
+        }
+      });
+      
+      $('.swal2-close').on('click', function() {
+        if ($('#checkbox-avisar').is(':checked')) {
+          localStorage.setItem('showAlert_' + id_usuario, 'false');
+        }
+      });
+
+      $(document).ready(function(){
+        $('.popover-link').popover({ trigger: 'focus' });
+      });
+
+    }
+
+  }
+  });
+
+  function logout(){
+    Swal.fire({
+      title: "Deseja mesmo sair da sua conta?",
+      icon: "question",
+      confirmButtonColor: '#DC3545',
+      cancelButtonColor: '#BEBEBE', // cor antiga : #8A2BE2
+      showCancelButton: true,
+      cancelButtonText: 'Continuar navegando',
+      confirmButtonText: 'Sair',
+      allowOutsideClick: true,
+      closeOnConfirm: false,
+      closeOnCancel: false
+    }).then((result) => {
+        if (result.value) {
+           window.location.href='../src/sair.php';
+          } else if (result.dismiss === Swal.DismissReason.cancel){
+            Swal.fire(
+              'Boa navegação!',
+              'Você continua logado em nosso sistema',
+              'success'
+            )
+          }
+        });
+  }
+  
+
+  
+ 

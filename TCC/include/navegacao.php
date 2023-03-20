@@ -27,7 +27,7 @@ $avatar_atual = buscarAvatarUsado($id_usuario);
                     <a class="nav-link" href="../src/portal_de_noticias.php"  id="menu_portal"><span>Portal de Notícias</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../src/tecidos.php" id="menu_tecidos">Tecidos</a>
+                    <a class="nav-link" href="../src/tecidos.php" id="menu_tecidos"><i class="fas fa-tshirt"></i> Tecidos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../src/jogo.php" id="game"><span class="material-symbols-outlined" id="icone_game">stadia_controller</span></a>
@@ -55,7 +55,7 @@ $avatar_atual = buscarAvatarUsado($id_usuario);
                                 </button>
                             </div>  
                             <div class="dropdown-item"> 
-                                <button style="cursor: pointer;" class="dropdown-item" data-toggle="modal" data-target="#confirmSair">
+                                <button style="cursor: pointer;" class="dropdown-item" onclick="logout()">
                                     <span class="material-icons"  id="icone_sair">logout</span>Sair
                                 </button>
                             </div>  
@@ -65,23 +65,6 @@ $avatar_atual = buscarAvatarUsado($id_usuario);
             </div>
         </div>
     </nav>
-
-    <div class="modal fade" id="confirmSair" role="dialog">
-        <div class="modal-dialog modal-md">
-            <div class="modal-content">
-                <div class="modal-body">
-                        <p style="font-size: 15px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Deseja mesmo sair da sua conta?</p>
-                </div>
-    
-                <div class="modal-footer">
-                    <form action="../src/sair.php" method="POST" style="display: inline-block;">
-                        <button type="submit" class="btn btn-danger" id="" name="sair">Sair</button>
-                        <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
-                    </form>   
-                </div> 
-            </div>  
-        </div>
-    </div>
 
     <div class="modal fade" id="modalalterarSenha" tabindex="-1" role="dialog" aria-labelledby="altere_senha" aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">

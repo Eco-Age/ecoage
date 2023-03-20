@@ -113,7 +113,7 @@ $lista_avatar = listarAvatar();
                   <div class="form-group">
                     <label for="email_cadastro" id="email_cadastro">Email:</label> 
                     <input type="text" id="email" name="email_cadastro" class="form-control" placeholder="Informe o seu email..." pattern="[a-z0-9]+@[a-z0-9]+\.[a-z0-9]{3}" required>
-                    <small id="" class="form-text text-muted">Exemplo: example@gmail.com</small>
+                    <small id="" class="form-text text-muted">Exemplo: exemplo@gmail.com</small>
                   </div> 
        
                   <div class="form-group">

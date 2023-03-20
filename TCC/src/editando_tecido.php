@@ -36,7 +36,7 @@ $lista_tipo_tecidos = listarTipoTecidos();
         <div class="col-4"></div>
             <div class="col-4">
                 <fieldset id="formEditarTecido">      
-                        <form action="editar_tecido.php" method="post" onsubmit="return confirmar_edicao_tecido(this)">
+                        <form action="editar_tecido.php" method="post" enctype="multipart/form-data" onsubmit="return confirmar_edicao_tecido(this)">
                             <input type="hidden" name="id_tecidos" value="<?=$id_tecidos?>">                             
                             
                             <div class="form-group">        
@@ -53,6 +53,22 @@ $lista_tipo_tecidos = listarTipoTecidos();
                                 </select> 
                             </div>                         
                                         
+                            <div class="form-group text-center">
+                                <label>Imagem ATUAL do Tecido:</label><br>
+                                <?php if ($tecido['caminho_imagem']): ?>
+                                    <img class="mx-auto" src="<?=$tecido['caminho_imagem']?>" alt="Imagem do tecido" width="150">
+                                    <small style="font-variant:small-caps; " class="form-text text-muted">Esteja ciente de que caso não adicione uma nova imagem, a anterior NÃO será mantida.</small>
+                                <?php endif; ?>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="imagem_tecido" name="imagem_tecido" aria-describedby="inputGroupFileAddon">
+                                        <label class="custom-file-label file-selected" for="imagem_tecido" id="inputGroupFileAddon">Escolha uma nova imagem</label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label for="desc_tecidos">Descrição do Tecido:</label>  
                                 <textarea class="form-control" rows="5" id="desc_tecidos" name="desc_tecidos"><?=$tecido["desc_tecidos"]?></textarea>
@@ -64,7 +80,7 @@ $lista_tipo_tecidos = listarTipoTecidos();
                             </div>  
                                                                 
                             <div class="form-group">    
-                                <button type="submit" value="Editar" class="btn btn-primary" id="botao_editar">Editar</button> 
+                                <button type="submit" value="Editar" class="btn btn-purple" id="botao_editar">Editar</button> 
                             </div>   
                         </form>
                 </fieldset>                                       
@@ -77,5 +93,13 @@ $lista_tipo_tecidos = listarTipoTecidos();
     include("../include/rodape.php");  
 ?>
     <script src="../assets/script.js"></script> 
+<script>
+  document.querySelector('#imagem_tecido').addEventListener('change', function(e) {
+    var fileName = e.target.files[0].name;
+    var label = document.querySelector('.file-selected');
+    label.innerText = fileName;
+  });
+</script>
+
 </body>
 </html>

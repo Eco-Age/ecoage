@@ -188,12 +188,11 @@
     background: URL('ocultar.png');
     background-size: cover;
 }
-
+  
 #icon_cadastro {
-    position: absolute;
-    top: 458px;
-    right: 30px;
-    transform: translateY(-50%);
+    position: relative;
+    left: 92%;
+    transform: translateY(-120%);
     background: URL('mostrar.png');
     background-size: cover;
     width: 25px;
@@ -322,15 +321,17 @@
 }
 
 #botao_editar_usuario, #botao_editar{
-    background-color: #623f80;    
+    background-color: #6f42c1;
+    border-color: #6f42c1;
     border: none;
-    color: #efff14;
+    color: #fff;
     width: 100%;
 }
 
-#botao_editar_usuario:hover{
-    background-color: #4a3061;
-    color: #efff14;
+#botao_editar_usuario:hover, #botao_editar:hover{
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+    color: #F8BBD0;
 }
 
 #modal_tecidos{
@@ -464,6 +465,7 @@ nav{
 
 /* PÁGINA TECIDOS */
 
+/* Aparenta inutilidade mas vou deixar aq pq né
 .card{
     align-items: center;
     margin-top: 40px;
@@ -472,6 +474,37 @@ nav{
     height: 25rem;
     margin-right: 20px;
 }
+*/
+.btn-purple {
+    color: #fff;
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+  }
+.btn-purple:hover{
+    color: #F8BBD0;
+}
+
+.btn-purple-circulo{
+    color: #fff;
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    line-height: 1;
+    font-size: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn-purple-circulo:hover{
+    color: #F8BBD0;
+    cursor: pointer;
+}
+  
 
 #container-tecidos{
     display: block;
@@ -500,21 +533,17 @@ nav{
 }
 
 
-#tecido1_usu, #tecido2_usu, #tecido3_usu{
+.tecido{
     background-color: #f5eff5;
     padding: 30px;
     border: none;
     border-radius: 30px;
-    height: auto;
+    height: max-content;
     width: 320px;
     margin-left: 20px;
     box-shadow: 3px 3px 5px #31313156;
 }
-
-#tecido2_usu, #tecido3_usu{
-    background-color: #d3d3d3;
-}
-
+ 
 #card1{
     width: auto;
     height: auto;
@@ -529,6 +558,8 @@ nav{
     width: auto;
     height: auto;
 }
+
+/* acho que nao estamos mais usando
 #visao_adm, #visao_usu{
     vertical-align: middle;
     margin-left: 5px;
@@ -546,7 +577,7 @@ nav{
     color: #f0f8e5;
     margin-top: 20px;
     box-shadow: 3px 3px 10px #432b5813;
-}
+}*/
 
 #btncadastrartecido:focus, #botao_inserir_tecido:focus{
     box-shadow: 0 0 0 0;
@@ -559,11 +590,9 @@ nav{
 }
 
 #btncadastrartecido{
-    width: 15%;
     background-color: #623f80;
     color: #f0f8e5;
-    border: none;
-    margin-top: 5%;
+    border: none;  
 }
 
 #botao_inserir_tecido{
@@ -591,6 +620,7 @@ nav{
     padding-bottom: 5px;
     margin-top: 10px;
     margin-left: 5px;
+    color: white;
 }
 
 .btndelete:hover, .btnedit:hover{
@@ -1164,3 +1194,60 @@ th{
         margin-bottom: 3%;
         color: #411964;
     }
+
+    /* botão de quiz */
+
+    .quiz-btn {
+        animation: pulse 1.5s infinite;
+        position: relative;
+      }
+      
+      .quiz-btn::before {
+        content: "Clique Aqui!";
+        display: block;
+        position: absolute;
+        top: -60px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px 10px;
+        background-color: #ff7676;
+        border: 1px solid #000;
+        border-radius: 5px;
+        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+      
+      .quiz-btn::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        margin-left: -10px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 20px 10px 0 10px;
+        border-color: #000000 transparent transparent transparent;
+        border-top-color: #ff7676;
+        z-index: -1;
+      }
+      
+      
+      .quiz-btn::before {
+        opacity: 1;
+      }
+      
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
