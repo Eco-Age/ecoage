@@ -173,10 +173,23 @@ o poliéster é considerado um tecido não sustentável.', '../assets/tecido_blo
 
 Create table Noticias(
     id_noticia INT AUTO_INCREMENT,
-    titulo_noticia VARCHAR(255) NOT NULL,
-    data_noticia DATETIME NOT NULL,
-    url_noticia VARCHAR(255) NOT NULL,
-    descricao_noticia VARCHAR(255) NOT NULL,
+    titulo_noticia VARCHAR(800) NOT NULL,
+    data_noticia DATE NOT NULL,
+    url_noticia VARCHAR(800) NOT NULL,
+    descricao_noticia VARCHAR(800) NOT NULL,
 
        PRIMARY KEY (id_noticia)
 );
+
+INSERT INTO Noticias (titulo_noticia, data_noticia, url_noticia , descricao_noticia) 
+VALUES ('Qual o impacto da moda no meio ambiente?', '2022-02-02',
+'https://santaceciliaresiduos.com.br/moda-meio-ambiente/#:~:text=Nosso%20lixo%20t%C3%AAxtil%2C%20consequ%C3%AAncia%20da,de%20desperd%C3%ADcio%20de%20%C3%A1gua%20globalmente. ' , 
+'Nosso lixo têxtil, consequência da lógica da moda descartável, leva cerca de 200 anos para se desintegrar.
+E as consequência dessa indústria de fast fashion vai além do descarte. 
+De acordo com relatório da ONU responsável por 20% do total de desperdício de água globalmente.'),
+
+('Um efeito borboleta: a indústria da moda e meio-ambiente','2022-02-02','https://wp.ufpel.edu.br/empauta/um-efeito-borboleta-a-industria-da-moda-e-meio-ambiente/',
+'Quando se fala no impacto ambiental da indústria da moda se fala muito mais que apenas na extração de matérias-primas, mas também no consumo de ...'),
+
+('Qual é o impacto que nossas roupas causam ao meio ambiente?','2022-02-02','https://noticias.r7.com/tecnologia-e-ciencia/qual-e-o-impacto-que-nossas-roupas-causam-ao-meio-ambiente-01122021',
+'O consumo excessivo e rápido de peças de roupa, que surge do padrão de produção do fast-fashion (moda rápida), é cada vez mais nocivo para o ...');
