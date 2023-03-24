@@ -18,20 +18,49 @@ if (!isset($_SESSION)) {
     }else {
       return false;
     }
-  
+  }
+
+  function verificarApelidoCadastrado($apelido){
+    $sql = "SELECT * FROM Usuario WHERE apelido = ?";
+    $conexao = obterConexao();
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("s", $apelido);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $cadastrado = mysqli_num_rows($resultado);
+    if (0 < $cadastrado) {
+       return true;
+    }else {
+      return false;
+    }
   }
   
-  function inserirUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $id_avatar){
+  function verificarEmailCadastrado($email){
+    $sql = "SELECT * FROM Usuario WHERE email = ?";
+    $conexao = obterConexao();
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $cadastrado = mysqli_num_rows($resultado);
+    if (0 < $cadastrado) {
+       return true;
+    }else {
+      return false;
+    }
+  }
+
+  function inserirUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $verifica, $id_avatar){
 
     $conexao = obterConexao();
     $senha_md5 = md5($senha);
   
-    $sql = "INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, id_avatar) 
-            VALUES (?, ?, ?, ?, ?, ?, ?)"; 
+    $sql = "INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, verifica, id_avatar) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)"; 
 
     $conexao = obterConexao();
     $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("ssssssi", $nome_completo, $data_nasc, $tel, $apelido, $email, $senha_md5, $id_avatar);   
+    $stmt->bind_param("ssssssii", $nome_completo, $data_nasc, $tel, $apelido, $email, $senha_md5, $verifica, $id_avatar);   
     $stmt->execute();
 
 
@@ -45,9 +74,10 @@ if (!isset($_SESSION)) {
   
       }
 
-
+ 
     $stmt->close();
-    $conexao->close(); 
+    $conexao->close();    
+    header("Location: ../public/index.php");
 }  
 
 function buscarUsuario($apelido, $senha) {
@@ -112,11 +142,13 @@ function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelid
   $stmt = $conexao->prepare($sql);
   $stmt->bind_param("i",$id_usuario);
   $stmt->execute();
-  $stmt->bind_result($senhaCadastrada);
-  $stmt->fetch();
+  $result = $stmt->get_result();
+  $row = $result->fetch_assoc();
+  $senhaCadastrada = $row['senha'];
+
   $stmt->close();
   $senhaDigitada_md5 = md5($senhaDigitada);
-
+  
   if ($senhaCadastrada === $senhaDigitada_md5){
       $sql = "UPDATE Usuario
       SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?,  id_avatar = ?
@@ -133,7 +165,7 @@ function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelid
           $_SESSION["tipo_msg"] = "alert-warning";
       }  
   } else {
-      $_SESSION["msg"] = "Senha incorreta, dados inalterados. Caso tenha esquecido sua senha, recupere-a na tela de login.";
+      $_SESSION["msg"] = 'Senha incorreta, ' . var_dump($senhaCadastrada) .  ' dados inalterados. Caso tenha esquecido sua senha, recupere-a na tela de login.';
       $_SESSION["tipo_msg"] = "alert-danger";
   }
 }
@@ -184,12 +216,32 @@ date_default_timezone_set('America/Sao_Paulo');
 function token($email_recuperar, $token){
   $conexao = obterConexao();
   $data_expiracao = date('Y-m-d H:i:s', strtotime('+5 minutes'));
-  $sql = "INSERT INTO tokens (email, token, data_expiracao) VALUES (?, ?, ?)";
-  $stmt = $conexao->prepare($sql);
-  $stmt->bind_param('sss', $email_recuperar, $token, $data_expiracao);
-  $stmt->execute();
-  $stmt->close();
-  $conexao->close();
+  try {
+    $sql_select_registro = "SELECT token FROM tokens WHERE email = ?";
+    $stmt_select_registro = $conexao->prepare($sql_select_registro);
+    $stmt_select_registro->bind_param('s', $email_recuperar);
+    $stmt_select_registro->execute();
+    $resultado = $stmt_select_registro->get_result();
+
+    if ($resultado->num_rows > 0){
+      $sql_apaga_registro = "DELETE FROM tokens WHERE email = ?";
+      $stmt_apaga_registro = $conexao->prepare($sql_apaga_registro);
+      $stmt_apaga_registro->bind_param('s', $email_recuperar);
+      $stmt_apaga_registro->execute();
+    }
+
+    $sql = "INSERT INTO tokens (email, token, data_expiracao) VALUES (?, ?, ?)";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param('sss', $email_recuperar, $token, $data_expiracao);
+    $stmt->execute();
+  }
+
+  finally{
+    $stmt_select_registro->close();
+    $stmt_apaga_registro->close();
+    $stmt->close();
+    $conexao->close();
+  }
 }
 
 function verificatoken($email, $token_digitado){
@@ -347,6 +399,108 @@ function verificatoken($email, $token_digitado){
     $stmt->close();
     $conexao->close();
   }
+}
+
+function codigo($email, $codigo){
+  $conexao = obterConexao();
+  $data_expiracao = date('Y-m-d H:i:s', strtotime('+5 minutes'));
+
+  try {
+    // aqui vou verificar se esse usuario já pediu um codigo
+    $sql_select_registro = "SELECT codigo FROM Codigos WHERE email = ?";
+    $stmt_select_registro = $conexao->prepare($sql_select_registro);
+    $stmt_select_registro->bind_param('s', $email);
+    $stmt_select_registro->execute();
+    $resultado = $stmt_select_registro->get_result();
+    // se ele ja pediu, vou apagar o anterior que tava salvo antes
+    if ($resultado->num_rows > 0){
+      $sql_apaga_registro = "DELETE FROM Codigos WHERE email = ?";
+      $stmt_apaga_registro = $conexao->prepare($sql_apaga_registro);
+      $stmt_apaga_registro->bind_param('s', $email);
+      $stmt_apaga_registro->execute();
+    }
+    // depois de apagar (caso existisse) vou vir aqui e agora sim, criar um novo
+    $sql = "INSERT INTO Codigos (email, codigo, data_expiracao) VALUES (?, ?, ?)";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param('sss', $email, $codigo, $data_expiracao);
+    $stmt->execute();
+  } finally {
+    // fechando os statement e a conexão
+    $stmt_select_registro->close();
+    $stmt_apaga_registro->close();
+    $stmt->close();
+    $conexao->close();
+  }
+}
+
+
+function confirmaEmail($email, $codigo_digitado){
+  $conexao = obterConexao();
+  $sql = "SELECT codigo, data_expiracao FROM Codigos WHERE email = ?";
+  $stmt = $conexao->prepare($sql);
+  $stmt->bind_param("s", $email);
+  $stmt->execute();
+  $stmt->bind_result($codigo_armazenado, $data_expiracao);
+  $stmt->fetch();
+  
+  $diferenca_minutos = (time() - strtotime($data_expiracao)) / 60;
+  if ($codigo_digitado === ($codigo_armazenado) && $diferenca_minutos < 5) {
+    return true;
+  } else {
+    include ("../include/cabecalho.php");
+    echo '<div id="conteudo">
+            <h1 style="text-align: center; padding: 50px;" class="display-2">
+              Ocorreu um erro
+            </h1>
+            <h3 style="text-align: center;" class="display-4">
+            Para entender melhor o erro que aconteceu, clique no botão de dúvidas!<br>
+            <button class="btn-purple-circulo mx-auto" type="submit" onclick="duvida_codigo()">
+              <i class="fas fa-question"></i>
+            </button> <br>
+            <a href="../src/email.php" class="btn btn-purple mx-auto" type="submit">
+              Voltar
+            </a>
+            </h3>
+          </div>';
+    echo "<script src='../assets/script.js'></script>";
+    include ("../include/rodape.php");
+  }
+}
+
+function excluirEmailExpirado() {
+  $conexao = obterConexao();
+  $sql = "DELETE FROM Codigos WHERE data_expiracao <= NOW()";
+  $stmt = $conexao->prepare($sql);
+  $stmt->execute();
+  $stmt->close();
+  $conexao->close();
+}
+
+function atualizaVerifica($email, $verifica){
+  $conexao = obterConexao();
+  $sql = "UPDATE Usuario SET verifica = ? WHERE email = ?";
+  $stmt = $conexao->prepare($sql);
+  $stmt->bind_param('is', $verifica, $email);
+  $stmt->execute();
+  $conexao->close();
+}
+
+function buscaVerifica($email){
+  $conexao = obterConexao();
+  $sql = "SELECT verifica FROM Usuario WHERE email = ?";
+  $stmt = $conexao->prepare($sql);
+  $stmt->bind_param('s',$email);
+  $stmt->execute();
+  $resultado = $stmt->get_result();
+  $verifica = mysqli_fetch_assoc($resultado);
+  $conexao->close();
+
+  if ($verifica == null) {
+    return array('verifica' => 0);
+  }
+
+  $verifica = intval($verifica['verifica']);
+  return array('verifica' => $verifica);
 }
 
 

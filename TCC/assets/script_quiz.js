@@ -1,8 +1,8 @@
 let pontuacao_quiz = 0;
 
- let id_usuario = chave_sessao;
+let id_usuario = chave_sessao;
 
- sessionStorage.setItem('quizCompleto_', + id_usuario, 'false');
+sessionStorage.setItem('quizCompleto_', + id_usuario, 'false');
 function quiz() {
 
   if (sessionStorage.getItem('quizCompleto_' + id_usuario) === 'true'){

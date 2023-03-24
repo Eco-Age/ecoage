@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS Tipo_Tecidos;
 DROP TABLE IF EXISTS tokens;
 DROP TABLE IF EXISTS avatars;
 DROP TABLE IF EXISTS Noticias;
-
+DROP TABLE IF EXISTS Codigos;
 
 CREATE TABLE avatars (
     id_avatar INT NOT NULL AUTO_INCREMENT,
@@ -25,15 +25,28 @@ CREATE TABLE Usuario(
     id_usuario INT AUTO_INCREMENT,
     nome_completo VARCHAR(50) NOT NULL,
     data_nasc DATE NOT NULL,
-    tel VARCHAR(16) NOT NULL, -- (016) 99603-2341
+    tel VARCHAR(16), -- (016) 99603-2341
     apelido VARCHAR(30) NOT NULL,
     email VARCHAR(255) NOT NULL,
     senha VARCHAR(255) NOT NULL,
+    verifica INT(1) NOT NULL,
     id_avatar INT NOT NULL,
     
      PRIMARY KEY(id_usuario),
      FOREIGN KEY (id_avatar)
         REFERENCES avatars(id_avatar)
+);
+
+INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, verifica, id_avatar) 
+VALUES ('ecoage', '2022-02-02','123456789' , 'ecoage', 'live.ecoage@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1, 1); -- senha: admin
+
+CREATE TABLE Codigos(
+    id_codigo INT AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    codigo INT(6) NOT NULL,
+    data_expiracao DATETIME NOT NULL,
+
+    PRIMARY KEY (id_codigo)
 );
 
 CREATE TABLE tokens (
@@ -44,11 +57,6 @@ CREATE TABLE tokens (
 
   PRIMARY KEY (id_token)
 );
-
-
-INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, id_avatar) 
-VALUES ('ecoage', '2022-02-02','123456789' , 'ecoage', 'live.ecoage@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1); -- senha: admin
-
 
 CREATE TABLE Tipo_Tecidos (
     id_tipo_tecidos INT AUTO_INCREMENT,

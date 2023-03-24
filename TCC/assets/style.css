@@ -1231,4 +1231,50 @@ th{
           transform: scale(1);
         }
       }
+
+    /* aqui é da pagininha de recupera email ta bebes */
+    .input_confirma_email{
+        text-align: center;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+    }
+    .input_confirma_email:focus {
+        border-color: #007bff;
+        box-shadow: none;
+    }
       
+
+    .erro-preencher {
+        color: red;
+        display: none;
+        margin-top: 5px;
+    }
+    
+    .erro-preencher.show {
+        display: block;
+        animation: fade-in 0.3s ease-in-out;
+    }
+
+    .erro-border-preencher:focus {
+        border-color: red !important;
+        box-shadow: none !important; 
+    }
+    
+    .erro-preencher::before {
+        content: "\26A0";
+        color: red;
+        font-size: 18px;
+        margin-right: 5px;
+    }
+    
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
