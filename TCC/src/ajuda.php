@@ -11,7 +11,7 @@
     <div id="pagina_de_duvidas">
         <div class="row">
             <div class="col-3"></div>
-                <div class="col-6" id="duvidas_frequentes">
+                <div class="col-12 col-lg-6 col-xl-4 mx-auto" id="duvidas_frequentes">
                     <h1>Dúvidas frequentes:</h1>
                 </div>
             <div class="col-3"></div>
@@ -20,12 +20,12 @@
 
         <div class="row" id="caixas_duvidas">
             <div class="col-3"></div>
-                <div class="col-6">
+                <div class="col-12 col-lg-6 col-xl-4 mx-auto">
                     <div id="carrosel_duvidas" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             
                             <div class="carousel-item active">
-                                <div class="d-block w-100" id="duvida1">
+                                <div id="duvida1">
                                     <h5>Como acesso o jogo?</h5>
                                     <p>
                                         Basta clicar no ícone de controle na barra de navegação.
@@ -34,7 +34,7 @@
                             </div>  
 
                             <div class="carousel-item">
-                                <div class="d-block w-100" id="duvida2">
+                                <div id="duvida2">
                                     <h5>Como faço para jogar?</h5>
                                     <p>
                                         Verifique o tutorial na página do jogo.
@@ -43,7 +43,7 @@
                             </div>
 
                             <div class="carousel-item">
-                                <div class="d-block w-100" id="duvida3">
+                                <div id="duvida3">
                                     <h5>Como altero minha senha?</h5>
                                     <p>
                                         Para modificar sua senha basta ir no menu no canto superior direito na
@@ -53,7 +53,7 @@
                             </div>
 
                             <div class="carousel-item">
-                                <div class="d-block w-100" id="duvida4">
+                                <div id="duvida4">
                                     <h5>Esqueci a senha, e agora?</h5>
                                     <p>
                                         Clique na opção "Esqueceu sua senha?" no formulário de login.
@@ -79,18 +79,18 @@
           </div>
     
         <div class="row">
-            <div class="col-4"></div>
-                <div class="col-4">
+            <div class="col-3"></div>
+                <div class="col-12 col-lg-6 col-xl-4 mx-auto">
                     <h3>Ainda precisa de ajuda?</h3>
                     <h5>Envie-nos sua dúvida!</h5>
                     <br>
                 </div>
-            <div class="col-4"></div>
+            <div class="col-3"></div>
         </div>
         
         <div class="row">
-            <div class="col-4"></div>
-                <div class="col-4">
+            <div class="col-3"></div>
+                <div class="col-12 col-lg-6 col-xl-4 mx-auto">
                     <form action="recebe_duvidas.php" method="POST">
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder="E-mail" name="email_ajuda" required>
@@ -108,11 +108,12 @@
                         <input type="submit" class="main-btn btn btn-primary" id="enviarDuvida" value="Enviar">
                     </form>
                 </div>
-            <div class="col-4"></div>
+            <div class="col-3"></div>
         </div>  
     </div>
 </main>
 </div>
+<script src="../assets/script.js"></script>
 <?php
     include("../include/rodape.php");  
 ?>

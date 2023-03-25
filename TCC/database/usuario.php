@@ -502,8 +502,20 @@ function buscaVerifica($email){
   $verifica = intval($verifica['verifica']);
   return array('verifica' => $verifica);
 }
-
+// ta vendo se é pra mostrar em modo claro ou escuro
+if (isset($_GET["modo"])){
+    $_SESSION["modo"] = $_GET["modo"];
+  
+  }
 function verificaSessao(){
+  if (isset($_COOKIE["modo"])){
+    $modo = $_COOKIE["modo"];
+    if ($modo === "escuro"){
+      echo '<script>
+              document.getElementsByTagName("body")[0].classList.add("modo-escuro");
+            </script>';
+    }
+  }
   $limite_inatividade = 60 * 60 * 3; // 3h de limite 
   if (isset($_SESSION["apelido_logado"]) && isset($_SESSION["nome_logado"]) && isset($_SESSION["id_usuario"])){
     if (isset($_SESSION['ultima_atividade'])) {

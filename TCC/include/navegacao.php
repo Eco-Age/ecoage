@@ -10,7 +10,7 @@ $avatar_atual = buscarAvatarUsado($id_usuario);
 
 ?>
 <header id="navegacao">
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg sticky-top"> 
         <div class="container">
             <a class="navbar-brand" href="../src/pagina_inicial.php">
                 <img src="../assets/logo.png" width="50" height="50" alt="Eco Age">
@@ -24,7 +24,8 @@ $avatar_atual = buscarAvatarUsado($id_usuario);
                     <li class="nav-item active">
                         <a class="nav-link" href="../src/pagina_inicial.php" id="menu_home" autocomplete="off"
                             checked><span class="material-icons" id="icone_home">home</span></a>
-                    </li>
+                    </li> 
+                   
                     <li class="nav-item">
                         <a class="nav-link" href="../src/portal_de_noticias.php" id="menu_portal"><i
                                 class="fa-solid fa-paperclip"></i> <span>Notícias</span></a>

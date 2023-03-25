@@ -345,6 +345,29 @@ btnAlterarSenha.addEventListener('click', (e) => {
   });
 })
 
+// para fazer o botao de modo escuro funcionar
+
+function setModoCookie(modo){
+  document.cookie = "modo=" + modo + ";path=/"
+}
+
+function alternarModo() {
+  var body = document.getElementsByTagName("body")[0];
+  body.classList.toggle("modo-escuro");
+
+  var modo = body.classList.contains("modo-escuro") ? "escuro" : "claro";
+  setModoCookie(modo);
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '../database/usuario.php?modo=' + modo);
+  xhr.send();
+}
+
+var modoCookie = document.cookie.replace(/(?:(?:^|.*;\s*)modo\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+if (modoCookie === "escuro") {
+  document.getElementById("alternar-modoescuro").checked = true;
+}
+
+// fim do botao de modo escuro
 
 
 

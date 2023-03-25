@@ -30,11 +30,20 @@
     <div class="row">
         <div class="col-4"></div>
             <h4 class="col-4" id="meus_dados">Meus dados:</h4>
+          
         <div class="col-4"></div>
     </div>
     <div class="row">
         <div class="col-3"></div>
-                <fieldset class="col-6"id="field_edicao_usuario">      
+                <fieldset class="col-6"id="field_edicao_usuario">        
+                    <div class="">
+                        <p>Altere o tema de cores: </p>
+                        <input onclick="alternarModo()" type="checkbox" id="alternar-modoescuro"/>
+                        <label id="labelModoEscuro" for="alternar-modoescuro">
+                            <i id="solIcon" class="fa-regular fa-light fa-sun fa-sm"></i>
+                            <i id="luaIcon" class="fas fa-moon fa-sm"></i>
+                        </label>
+                    </div>
                 <legend id="legend_avatar" ><img id="avatarMenu" src="<?=$avatar_atual['caminho']?>" alt="<?=$_SESSION['idAvatar']?>"></legend>
                     <form action="../src/editar_usuario.php" method="post" onsubmit=" return validacao(this)">
                         <input type="hidden" name="id_usuario" value="<?=$id_usuario?>">

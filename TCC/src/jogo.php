@@ -1,12 +1,9 @@
 <?php
-
 require ("../database/usuario.php");
-
+include("../include/navegacao.php");
 verificaSessao();
-
- 
-    include("../include/navegacao.php");
 ?>
+
 <div id="conteudo">
 <main class="container">
 <div id="jogo">
@@ -68,8 +65,10 @@ verificaSessao();
 </div>
 </main>
 </div>
+
 <?php
  include("../include/rodape.php");
 ?>
+<script src="../assets/script.js"></script>
 </body>
 </html>
