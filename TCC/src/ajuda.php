@@ -1,13 +1,9 @@
 <?php
-session_start();
-
- if(!isset($_SESSION["id_usuario"])){
-   header("Location: ../public/index.php");
- }
- 
+    require_once ("../database/usuario.php");
     include("../include/navegacao.php");
     include ("../util/mensagens.php");
     exibirMsg();
+    verificaSessao();
 ?>
 <body>
 <div id="conteudo">

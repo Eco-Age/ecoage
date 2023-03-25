@@ -2,7 +2,7 @@
   if (!isset($_SESSION)){
     session_start();
   }
-
+require("../database/usuario.php");
 require("../database/avatar.php");
 include("../include/cabecalho.php");
 include("../util/mensagens.php");

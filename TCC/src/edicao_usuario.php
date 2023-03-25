@@ -5,7 +5,8 @@
       include("../util/mensagens.php");
       include("../util/formatacoes.php");  
 
-exibirMsg();
+      exibirMsg();
+      verificaSessao();
 
 
   $apelido= $_SESSION["apelido_logado"];

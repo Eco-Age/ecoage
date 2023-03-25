@@ -1,6 +1,5 @@
 <?php
     session_start();
-
-    unset($_SESSION["usuario_logado"]);
+    session_unset();
     header("Location: ../public/index.php" );
 ?>

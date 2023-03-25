@@ -1,20 +1,18 @@
 <?php
-session_start();
+require ("../database/usuario.php");
+include("../include/navegacao.php");
+require("../database/tipo_tecidos.php");
+require("../database/tecidos.php");
+require("../util/mensagens.php");
 
-if (!isset($_SESSION["id_usuario"])) {
-    header("Location: ../public/index.php");
-}
+exibirMsg();
+verificaSessao();
 
 if ($_SESSION["id_usuario"] == 1) {
     header("Location: ../src/tecidos_adm.php");
 }
 
 $chave_sessao = $_SESSION["id_usuario"];
-
-include("../include/navegacao.php");
-require("../database/tipo_tecidos.php");
-require("../database/tecidos.php");
-
 $lista_tipo_tecidos = listarTipoTecidos();
 $lista_tecidos = listarTecidos();
 ?>

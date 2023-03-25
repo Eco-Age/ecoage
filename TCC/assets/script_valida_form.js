@@ -137,7 +137,7 @@ function perguntaVerificacao(form){
     } else if (result.dismiss === Swal.DismissReason.cancel){
       Swal.fire({
         title: "Tem certeza?",
-        text: "Sem verificar, você NÃO será capaz de recuperar a sua senha caso a perca.",
+        text: "Sem verificar, você NÃO será capaz de recuperar a sua senha caso a perda.",
         icon: "warning",
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#9370DB', // cor antiga : #8A2BE2

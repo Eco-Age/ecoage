@@ -503,5 +503,29 @@ function buscaVerifica($email){
   return array('verifica' => $verifica);
 }
 
+function verificaSessao(){
+  $limite_inatividade = 60 * 60 * 3; // 3h de limite 
+  if (isset($_SESSION["apelido_logado"]) && isset($_SESSION["nome_logado"]) && isset($_SESSION["id_usuario"])){
+    if (isset($_SESSION['ultima_atividade'])) {
+        $tempo_desde_ultima_atividade = time() - $_SESSION['ultima_atividade'];
+        if ($tempo_desde_ultima_atividade > $limite_inatividade) {
+            session_unset();
+            $_SESSION["msg"] = "Sua sessão provavelmente expirou. Por favor, entre novamente.";
+            $_SESSION["tipo_msg"] = "alert-warning";
+            header("Location: ../public/index.php");
+            exit;
+        }
+    }
+    $_SESSION['ultima_atividade'] = time();
+  } else if (!isset($_SESSION["apelido_logado"]) || !isset($_SESSION["nome_logado"]) || !isset($_SESSION["id_usuario"])){
+
+    session_unset();
+
+    $_SESSION["msg"] = "Sua sessão provavelmente expirou. Por favor, entre novamente.";
+    $_SESSION["tipo_msg"] = "alert-warning";
+    header("Location: ../public/index.php");
+    exit;
+  }
+}
 
 ?>
