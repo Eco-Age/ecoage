@@ -500,7 +500,11 @@ nav{
 
 
 .btn-purple-circulo:hover{
+<<<<<<< HEAD
+    color: #e9ddff;
+=======
     color: #f3e8ff;
+>>>>>>> c5df1421036bf9ebc1efb91eee8ce69861129b67
     cursor: pointer;
 }
   
@@ -1190,13 +1194,21 @@ th{
         top: -60px;
         left: 50%;
         transform: translateX(-50%);
+<<<<<<< HEAD
+        padding: 5px 15px;
+        background-color: #147cb6;
+        color: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.219);
+=======
         padding: 5px 10px;
         background-color: #126ea0;
         border: 0.5px solid #147cb6;
+>>>>>>> c5df1421036bf9ebc1efb91eee8ce69861129b67
         border-radius: 5px;
         box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
         opacity: 1;
         transition: opacity 0.3s ease;
+        font-size: 20px;
       }
       
       .quiz-btn::after {
