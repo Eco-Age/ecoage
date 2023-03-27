@@ -94,8 +94,12 @@ body.modo-escuro .alert-success{
     background-color: #006609; 
 }
 
-body.modo-escuro #txt_portal, body.modo-escuro #meus_dados{
+body.modo-escuro #txt_portal, body.modo-escuro #meus_dados, body.modo-escuro #duvidas_frequentes{
     color: #69b4f1;   
+}
+
+body.modo-escuro #duvidas{
+  color: white;
 }
 
 body.modo-escuro input[type="text"], body.modo-escuro input[type="date"], body.modo-escuro textarea, body.modo-escuro input[type="email"]{
@@ -108,7 +112,21 @@ body.modo-escuro textarea:focus, body.modo-escuro input::placeholder, body.modo-
   color: #b9b8b8;
 }
 
-body.modo-escuro .swal2-popup{
-  background-color: #2d2d2d;
+body.modo-escuro .swal2-popup, body.modo-escuro .swal2-radio, body.modo-escuro .swal2-range{
+  background-color: #2d2d2d !important;
   color: #fff;
+}
+
+body.modo-escuro #carrosel_duvidas{
+  background-color: #66ff0046;
+  box-shadow: 2px 2px 6px #ffffff18;
+  color: white;
+}
+body.modo-escuro #next, body.modo-escuro #ante{
+  color: #ffffff;
+  background-color: #b35ffd;
+  border-radius: 20px;
+  padding: 8px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
