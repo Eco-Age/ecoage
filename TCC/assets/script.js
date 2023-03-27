@@ -183,10 +183,70 @@ function ajudaTecido() {
                     , portanto, para melhor experiência, jogue primeiro e depois nos acesse!
                   </p>
                 </div>`,
-    icon: "info",
-    confirmButtonText: 'Entendi!',
-    allowOutsideClick: true
-  });
+        icon: "info",
+        confirmButtonText: 'Entendi!',
+        allowOutsideClick: true
+      });
+    
+      $(document).ready(function(){
+        $('.popover-link').popover({ trigger: 'focus' });
+      });
+    };
+    
+    function deletarNoticia(id_noticia){
+      Swal.fire({
+        title: "Deseja deletar essa noticia?",
+        text: "Cuidado! Não é possível recuperar após a exclusão.",
+        icon: "error",
+        confirmButtonColor: '#DC3545',
+        cancelButtonColor: '#9370DB', // cor antiga : #8A2BE2
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Excluir',
+        allowOutsideClick: true,
+        closeOnConfirm: false,
+        closeOnCancel: false
+      }).then((result) => {
+          if (result.value) {
+             window.location.href='../src/remover_noticia.php?id_noticia=' + id_noticia;
+            } else if (result.dismiss === Swal.DismissReason.cancel){
+              Swal.fire(
+                'Exclusão cancelada.',
+                'Seus dados permanecem salvos',
+                'success'
+              )
+            }
+          });
+    }
+
+    function confirmar_edicao_noticia(form){
+
+      swal.fire({
+        title: "Deseja realmente alterar a noticia?",
+        text: "Cuidado! Em caso de arrependimento, seus dados deverão novamente ser editados.",
+        icon: "warning",
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#9370DB', // cor antiga : #8A2BE2
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Sim, editar',
+        allowOutsideClick: true,
+        closeOnConfirm: false,
+        closeOnCancel: false
+      })
+      .then((result) => {
+        if (result.value) {
+           form.submit();
+        }else if (result.dismiss === Swal.DismissReason.cancel){
+          swal.fire(
+            'Edição cancelada.',
+            'A noticia não foi editada',
+            'success'
+          )
+        }
+      });
+      return false;
+      }
 
   $(document).ready(function () {
     $('.popover-link').popover({ trigger: 'focus' });
