@@ -122,4 +122,33 @@ function listarNoticia(){
     $conexao->close();
   }
   
+  function buscarPalavraChave($palavra_chave){
+
+      $resultado = [];
+    // Conectar-se ao banco de dados (substitua com suas credenciais)
+        $conexao = obterConexao(); 
+    
+    // Executar consulta SQL usando as palavras-chave fornecidas
+        $sql = "SELECT * FROM Noticias 
+                WHERE titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%'";
+    
+        $stmt = $conexao->prepare($sql);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+    
+    // Exibir os resultados da pesquisa para o usuário
+    if($resultado->num_rows == 0) {
+      $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\".";
+      $_SESSION["tipo_msg"] = "alert-danger";
+      header("Location: ../src/portal_de_noticias.php");
+    }else{
+      header("Location: ../src/site_externo.php");
+    }
+    
+    // Fechar conexão com o banco de dados
+    $stmt->close();
+    $conexao->close(); 
+
+    return $resultado;
+  }
   ?>
