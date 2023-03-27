@@ -5,6 +5,27 @@ if (!isset($_SESSION)) {
   }
   require_once("conexao.php");
 
+  function buscarNoticia($id_noticia){
+    
+    $sql = "SELECT * FROM Noticias WHERE id_noticia = ?";
+  
+    $conexao = obterConexao(); 
+  
+    $stmt = $conexao->prepare($sql);
+  
+    $stmt->bind_param("i", $id_noticia);
+    $stmt->execute();
+  
+    $resultado = $stmt->get_result();
+    $noticia = mysqli_fetch_assoc($resultado);
+  
+    $stmt->close();
+    $conexao->close();
+  
+    return $noticia;  
+  }
+
+
   function inserirNoticia($titulo_noticia, $data_noticia, $url_noticia, $descricao_noticia){
     $conexao = obterConexao();
   
@@ -13,7 +34,7 @@ if (!isset($_SESSION)) {
 
     $conexao = obterConexao();
     $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("ssssssi", $titulo_noticia, $data_noticia, $url_noticia, $descricao_noticia);   
+    $stmt->bind_param("ssss", $titulo_noticia, $data_noticia, $url_noticia, $descricao_noticia);   
     $stmt->execute();
 
 
@@ -37,26 +58,68 @@ function listarNoticia(){
   
     $lista_noticias = [];
   
-    $sql = "SELECT t.id_tecidos, tt.nome_tecidos, t.desc_tecidos, t.sustentavel, t.caminho_imagem
-            FROM Tipo_Tecidos tt, Tecidos t
-            WHERE tt.id_tipo_tecidos = t.id_tipo_tecidos"; 
+    $sql = "SELECT id_noticia,titulo_noticia, data_noticia, url_noticia, descricao_noticia FROM Noticias";
       
-    $conexao = obterConexao(); 
-  
+    $conexao = obterConexao();
     $stmt = $conexao->prepare($sql);
     $stmt->execute();
     $resultado = $stmt->get_result();
-      
-    while ($tecido = mysqli_fetch_assoc($resultado)){
-      if (!empty($tecido["caminho_imagem"])) {
-        $tecido["caminho_imagem"] = base64_encode(file_get_contents($tecido["caminho_imagem"]));
-      }
-      array_push($lista_tecidos, $tecido);
-    }    
+
+  while ($noticias = mysqli_fetch_assoc($resultado)) {
+    array_push($lista_noticias, $noticias);
+  }
+
+  $stmt->close();
+  $conexao->close();
+
+  return $lista_noticias;
+  }
+
+  function removerNoticia($id_noticia){
+
+    $sql = "DELETE FROM Noticias WHERE id_noticia = ?";
+
+  $conexao = obterConexao();
+    
+  $stmt = $conexao->prepare($sql);
+  $stmt->bind_param("i", $id_noticia);
+  $stmt->execute();
+
+  if ($stmt->affected_rows > 0) {
+      $_SESSION["msg"] = "Noticia removido com sucesso!";
+      $_SESSION["tipo_msg"] = "alert-danger";
+    } else {
+      $_SESSION["msg"] = "A noticia não pôde ser removido! Erro: " . mysqli_error($conexao);
+      $_SESSION["tipo_msg"] = "alert-danger";
+    }
     $stmt->close();
     $conexao->close();
+  }
+
+
+  function editarNoticia($id_noticia, $titulo_noticia, $data_noticia, $url_noticia, $descricao_noticia) {
+   
+    $conexao = obterConexao();
   
-    return $lista_tecidos;
+    $sql = "UPDATE Noticias
+            SET titulo_noticia = ? , data_noticia = ?, url_noticia = ?, descricao_noticia = ?
+            WHERE id_noticia = ?";
+    
+  
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("ssssi", $titulo_noticia, $data_noticia, $url_noticia, $descricao_noticia, $id_noticia);
+    $stmt->execute();
+  
+    if ($stmt->affected_rows > 0) {
+      $_SESSION["msg"] = "Os dados da noticia foram alterados!";
+      $_SESSION["tipo_msg"] = "alert-success";
+    } else {
+      $_SESSION["msg"] = "Os dados da noticia não foram alterados! Erro: " . mysqli_error($conexao);
+      $_SESSION["tipo_msg"] = "alert-danger";
+    }  
+  
+    $stmt->close();
+    $conexao->close();
   }
   
   ?>

@@ -1,14 +1,11 @@
 <?php
-session_start();
 
-if(!isset($_SESSION["id_usuario"])){
-  header("Location: ../public/index.php");
-}
 include("../include/navegacao.php");
+require ("../database/usuario.php");
 require("../database/tipo_tecidos.php");
 require("../database/tecidos.php");
 require("../util/mensagens.php");
-
+verificaSessao();
 exibirMsg();
 
 $id_tecidos = $_GET["id_tecidos"];
