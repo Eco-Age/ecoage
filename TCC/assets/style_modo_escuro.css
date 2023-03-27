@@ -98,7 +98,17 @@ body.modo-escuro #txt_portal, body.modo-escuro #meus_dados{
     color: #69b4f1;   
 }
 
-body.modo-escuro input[type="text"], body.modo-escuro input[type="date"]{
+body.modo-escuro input[type="text"], body.modo-escuro input[type="date"], body.modo-escuro textarea, body.modo-escuro input[type="email"]{
     background-color: #2d2d2d;
     color: #f1f1f1;
+}
+
+body.modo-escuro textarea:focus, body.modo-escuro input::placeholder, body.modo-escuro textarea::placeholder{
+  background-color: #2d2d2d;
+  color: #b9b8b8;
+}
+
+body.modo-escuro .swal2-popup{
+  background-color: #2d2d2d;
+  color: #fff;
 }

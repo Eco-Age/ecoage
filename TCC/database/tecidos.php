@@ -1,6 +1,7 @@
 <?php
 if (!isset($_SESSION)) {
   session_start();
+  ob_start();
 }
 require_once("conexao.php");
 
@@ -23,7 +24,7 @@ function buscarTecido($id_tecidos){
 
   return $tecido;  
 }
-function inserirTecido($id_tipo_tecidos, $desc_tecidos, $sustentavel, $imagem_tecido_binario) {
+function inserirTecido($id_tipo_tecidos, $desc_tecidos, $sustentavel, $imagem_tecido_base64) {
 
   if (!empty($_FILES["imagem_tecido"]) && $_FILES["imagem_tecido"]["error"] == UPLOAD_ERR_OK) {
     $nome_arquivo = $_FILES["imagem_tecido"]["name"];

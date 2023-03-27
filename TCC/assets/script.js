@@ -325,14 +325,15 @@ btnAlterarSenha.addEventListener('click', (e) => {
   Swal.fire({
     title: "Confirme sua senha atual",
     confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#BEBEBE', // cor antiga : #8A2BE2
+    cancelButtonColor: '#9370DB', // cor antiga : #8A2BE2
     icon: "warning",
+    customClass: "alterasenha",
     showCancelButton: true,
     input: 'password',
     confirmButtonText: 'Confirmar',
     cancelButtonText: 'Cancelar',
     allowOutsideClick: true,
-    closeOnConfirm: false,
+
   }).then((result) => {
     if (result.value) {
       const senhaInput = document.createElement('input');
