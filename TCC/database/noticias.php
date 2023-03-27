@@ -121,5 +121,5 @@ function listarNoticia(){
     $stmt->close();
     $conexao->close();
   }
-
+  
   ?>

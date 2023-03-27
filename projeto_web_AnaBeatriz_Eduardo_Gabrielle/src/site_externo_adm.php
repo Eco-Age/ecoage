@@ -203,7 +203,7 @@ if(!isset($_SESSION["id_usuario"])){
             <div class="col-0"></div>
         </div>
     </div>
-        </div>
+</div>
 <?php
     include("../include/rodape.php");  
 ?>
