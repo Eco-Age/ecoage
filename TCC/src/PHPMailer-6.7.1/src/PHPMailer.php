@@ -1356,7 +1356,7 @@ class PHPMailer
      * * `pcre` Use old PCRE implementation;
      * * `php` Use PHP built-in FILTER_VALIDATE_EMAIL;
      * * `html5` Use the pattern given by the HTML5 spec for 'email' type form input elements.
-     * * `noregex` Don't use a regex: super fast, really dumb.
+     * * `nopadrao` Don't use a padrao: super fast, really dumb.
      * Alternatively you may pass in a callable to inject your own validator, for example:
      *
      * ```php
@@ -1389,7 +1389,7 @@ class PHPMailer
             case 'pcre': //Kept for BC
             case 'pcre8':
                 /*
-                 * A more complex and more permissive version of the RFC5322 regex on which FILTER_VALIDATE_EMAIL
+                 * A more complex and more permissive version of the RFC5322 padrao on which FILTER_VALIDATE_EMAIL
                  * is based.
                  * In addition to the addresses allowed by filter_var, also permits:
                  *  * dotless domains: `a@b`

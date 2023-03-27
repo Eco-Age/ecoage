@@ -1,10 +1,10 @@
 <?php
- session_start();
+require_once("../database/usuario.php");
+require_once("../util/mensagens.php");
+include("../include/navegacao.php");  
 
- if(!isset($_SESSION["id_usuario"])){
-   header("Location: ../public/index.php");
- }
-  include("../include/navegacao.php");  
+exibirMsg();
+verificaSessao();
 ?>
 <div id="portal_de_noticias">
 
@@ -95,5 +95,6 @@
     <?php
         include("../include/rodape.php");
     ?>
+    <script src="../assets/script.js"></script>
 </body>
 </html>

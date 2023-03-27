@@ -307,7 +307,7 @@
 #meus_dados{
     margin-top: 20px;
     margin-bottom: 20px;
-    color: #350046;
+    color: #194d69;
     font-size: 24pt;
 }
 #field_edicao_usuario{
@@ -321,17 +321,16 @@
 }
 
 #botao_editar_usuario, #botao_editar{
-    background-color: #6f42c1;
-    border-color: #6f42c1;
+    background-color: #256c92;
+    border-color: #1b5c80;
     border: none;
     color: #fff;
     width: 100%;
 }
 
 #botao_editar_usuario:hover, #botao_editar:hover{
-    background-color: #6f42c1;
-    border-color: #6f42c1;
-    color: #F8BBD0;
+    background-color: #1e5c7e;
+    border-color: #164b68;
 }
 
 #modal_tecidos{
@@ -343,7 +342,7 @@
 }
 
 #txt_tecidos{
-    color: #350046;
+    color: #194d69;
 }
 
 #avatarRadio{
@@ -434,7 +433,7 @@
     color: #2d4931;
     margin-right: 15px;
     border-radius: 55px;
-    border: 0.5px solid #ddd;
+    border: 0.5px solid rgba(221, 221, 221, 0);
     align-items: center;  
     height: 45px;
     min-width: 65px;
@@ -481,13 +480,13 @@ nav{
     border-color: #6f42c1;
   }
 .btn-purple:hover{
-    color: #F8BBD0;
+    color: #eedeff;
 }
 
 .btn-purple-circulo{
     color: #fff;
-    background-color: #6f42c1;
-    border-color: #6f42c1;
+    background-color: #5f2d8d;
+    border-color: #5f2d8d;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -501,7 +500,11 @@ nav{
 
 
 .btn-purple-circulo:hover{
+<<<<<<< HEAD
     color: #e9ddff;
+=======
+    color: #f3e8ff;
+>>>>>>> c5df1421036bf9ebc1efb91eee8ce69861129b67
     cursor: pointer;
 }
   
@@ -559,25 +562,6 @@ nav{
     height: auto;
 }
 
-/* acho que nao estamos mais usando
-#visao_adm, #visao_usu{
-    vertical-align: middle;
-    margin-left: 5px;
-    color: #f0f8e5;
-}
-
-#visaoadm, #visaousu{
-    border-radius: 20px;
-    font-size: 10pt;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 10px;
-    padding-right: 8px;
-    background-color: #623f80;
-    color: #f0f8e5;
-    margin-top: 20px;
-    box-shadow: 3px 3px 10px #432b5813;
-}*/
 
 #btncadastrartecido:focus, #botao_inserir_tecido:focus{
     box-shadow: 0 0 0 0;
@@ -585,12 +569,12 @@ nav{
 }
 
 #btncadastrartecido:hover{
-    background-color: #44265e;
+    background-color: #1e6c96;
     color: #f0f8e5;
 }
 
 #btncadastrartecido{
-    background-color: #623f80;
+    background-color: #175f86;
     color: #f0f8e5;
     border: none;  
 }
@@ -602,8 +586,8 @@ nav{
     border: none;
 }
 
-#saibamais, #saibamais2, #saibamais3, #saibamais4{
-    background-color: #572a80;
+#saibamais{
+    background-color: #5f2d8d;
     color: #ffffff;
     border: none;
 }
@@ -638,7 +622,7 @@ nav{
 }
 
 .btnedit{
-    background-color: #572a80;
+    background-color: #5f2d8d;
 }
 
 #btndelete1, #btndelete2, #btndelete3, #btnedit1, #btnedit2, #btnedit3{
@@ -663,6 +647,7 @@ nav{
     margin-top: 10px;
     margin-bottom: 20px;  
     text-align: center;  
+    color: #194d69;
 }
 
 #portal_de_noticias{
@@ -702,9 +687,9 @@ nav{
     width: 180%;
 }
 #btn_filtros{
-    background-color: #d1f5a1;    
+    background-color: #194d69;    
     border: none;
-    color: #581b69;
+    color: #ffffff;
     margin-left: 10px;
     width: auto;
     left: 0;
@@ -1034,7 +1019,7 @@ align-items: right;
 /* pagina de ajuda/duvidassss */
 #duvidas_frequentes {
     text-align: center;
-    color: #1b1025;
+    color: #164b68;
     margin-top: 20px;
 }
 
@@ -1051,8 +1036,8 @@ align-items: right;
     padding-right: 60px;
     text-align: center;
     display: block;
-    margin: auto;  
-    width: auto; 
+    margin: auto;
+    width: 100%; 
     height: auto;
 }
 
@@ -1076,7 +1061,7 @@ align-items: right;
     padding: 30px;
     border-radius: 100px;
     width: 100%;
-    height: 165px;
+    height: auto;
     background-color: #aeca9346;
     box-shadow: 2px 2px 6px #00000018;
 }
@@ -1209,10 +1194,16 @@ th{
         top: -60px;
         left: 50%;
         transform: translateX(-50%);
+<<<<<<< HEAD
         padding: 5px 15px;
         background-color: #147cb6;
         color: #ffffff;
         border: 1px solid rgba(0, 0, 0, 0.219);
+=======
+        padding: 5px 10px;
+        background-color: #126ea0;
+        border: 0.5px solid #147cb6;
+>>>>>>> c5df1421036bf9ebc1efb91eee8ce69861129b67
         border-radius: 5px;
         box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
         opacity: 1;
@@ -1252,4 +1243,49 @@ th{
           transform: scale(1);
         }
       }
+
+    /* aqui é da pagininha de recupera email ta bebes */
+    .input_confirma_email{
+        text-align: center;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+    }
+    .input_confirma_email:focus {
+        border-color: #007bff;
+        box-shadow: none;
+    }
       
+
+    .erro-preencher {
+        color: red;
+        display: none;
+        margin-top: 5px;
+    }
+    
+    .erro-preencher.show {
+        display: block;
+        animation: fade-in 0.3s ease-in-out;
+    }
+
+    .erro-border-preencher:focus {
+        border-color: red !important;
+        box-shadow: none !important; 
+    }
+    
+    .erro-preencher::before {
+        content: "\26A0";
+        color: red;
+        font-size: 18px;
+        margin-right: 5px;
+    }
+    
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }  

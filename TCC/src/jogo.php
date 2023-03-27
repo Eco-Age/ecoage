@@ -1,13 +1,9 @@
 <?php
-
-session_start();
-
- if(!isset($_SESSION["id_usuario"])){
-   header("Location: ../public/index.php");
- }
- 
-    include("../include/navegacao.php");
+require ("../database/usuario.php");
+include("../include/navegacao.php");
+verificaSessao();
 ?>
+
 <div id="conteudo">
 <main class="container">
 <div id="jogo">
@@ -69,8 +65,10 @@ session_start();
 </div>
 </main>
 </div>
+
 <?php
  include("../include/rodape.php");
 ?>
+<script src="../assets/script.js"></script>
 </body>
 </html>

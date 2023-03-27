@@ -1,20 +1,18 @@
 <?php
-session_start();
+require ("../database/usuario.php");
+include("../include/navegacao.php");
+require("../database/tipo_tecidos.php");
+require("../database/tecidos.php");
+require("../util/mensagens.php");
 
-if (!isset($_SESSION["id_usuario"])) {
-    header("Location: ../public/index.php");
-}
+exibirMsg();
+verificaSessao();
 
 if ($_SESSION["id_usuario"] == 1) {
     header("Location: ../src/tecidos_adm.php");
 }
 
 $chave_sessao = $_SESSION["id_usuario"];
-
-include("../include/navegacao.php");
-require("../database/tipo_tecidos.php");
-require("../database/tecidos.php");
-
 $lista_tipo_tecidos = listarTipoTecidos();
 $lista_tecidos = listarTecidos();
 ?>
@@ -33,21 +31,22 @@ $lista_tecidos = listarTecidos();
     
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8"></div>
-            <div class="col-md-4">
-            <div class="d-flex justify-content-end">
-                <button type="button" class="btn-purple-circulo" onclick="ajudaTecido()">
-                <i class="fa fa-1x fa-question-circle"></i>
+            <div class="col-4 col-md-4 d-flex justify-content-left">
+                <button type="button" class="btn-purple-circulo quiz-btn" onclick="quiz()">
+                <i class="fa fa-1x fa-gamepad"></i>
                 </button>
             </div>
-            </div>
+            <div class="col-4 col-md-4"></div>
+            <div class="col-4 col-md-4">
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn-purple-circulo" onclick="ajudaTecido()">
+                    <i class="fa fa-1x fa-question-circle"></i>
+                    </button>
+                </div>
+            </div>           
         </div>
     </div>
-    <div class="d-flex justify-content-left">
-        <button type="button" class="btn-purple-circulo quiz-btn" onclick="quiz()">
-          <i class="fa fa-1x fa-gamepad"></i>
-        </button>
-    </div>
+    
 
     <div class="row justify-content-center" id="tecidos">
         <?php foreach ($lista_tecidos as $tecido) : ?>

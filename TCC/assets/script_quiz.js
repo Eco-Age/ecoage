@@ -1,14 +1,15 @@
 let pontuacao_quiz = 0;
 
- let id_usuario = chave_sessao;
+let id_usuario = chave_sessao;
 
- sessionStorage.setItem('quizCompleto_', + id_usuario, 'false');
+sessionStorage.setItem('quizCompleto_', + id_usuario, 'false');
 function quiz() {
 
   if (sessionStorage.getItem('quizCompleto_' + id_usuario) === 'true'){
     Swal.fire({
         title: 'Você já finalizou esse quiz. Gostaria de jogar outra vez?',
-        text: `Sua pontuação anterior foi de ${pontuacao_quiz} de 4`,
+        html: `<p>Sua pontuação anterior foi de ${pontuacao_quiz} de 4</p>
+               <p style="font-size: 15px;">OBS: Seus pontos são resetados ao sair da conta</p>`,
         icon: 'question',
         showCancelButton: true,
         confirmButtonText: 'Sim, vamos jogar!',

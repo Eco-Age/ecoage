@@ -5,6 +5,8 @@ DROP TABLE IF EXISTS Tecidos;
 DROP TABLE IF EXISTS Tipo_Tecidos;
 DROP TABLE IF EXISTS tokens;
 DROP TABLE IF EXISTS avatars;
+DROP TABLE IF EXISTS Noticias;
+DROP TABLE IF EXISTS Codigos;
 
 CREATE TABLE avatars (
     id_avatar INT NOT NULL AUTO_INCREMENT,
@@ -23,15 +25,28 @@ CREATE TABLE Usuario(
     id_usuario INT AUTO_INCREMENT,
     nome_completo VARCHAR(50) NOT NULL,
     data_nasc DATE NOT NULL,
-    tel VARCHAR(16) NOT NULL, -- (016) 99603-2341
+    tel VARCHAR(16), -- (016) 99603-2341
     apelido VARCHAR(30) NOT NULL,
     email VARCHAR(255) NOT NULL,
     senha VARCHAR(255) NOT NULL,
+    verifica INT(1) NOT NULL,
     id_avatar INT NOT NULL,
     
      PRIMARY KEY(id_usuario),
      FOREIGN KEY (id_avatar)
         REFERENCES avatars(id_avatar)
+);
+
+INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, verifica, id_avatar) 
+VALUES ('ecoage', '2022-02-02','123456789' , 'ecoage', 'live.ecoage@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1, 1); -- senha: admin
+
+CREATE TABLE Codigos(
+    id_codigo INT AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    codigo INT(6) NOT NULL,
+    data_expiracao DATETIME NOT NULL,
+
+    PRIMARY KEY (id_codigo)
 );
 
 CREATE TABLE tokens (
@@ -42,11 +57,6 @@ CREATE TABLE tokens (
 
   PRIMARY KEY (id_token)
 );
-
-
-INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, id_avatar) 
-VALUES ('ecoage', '2022-02-02','123456789' , 'ecoage', 'live.ecoage@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1); -- senha: admin
-
 
 CREATE TABLE Tipo_Tecidos (
     id_tipo_tecidos INT AUTO_INCREMENT,
@@ -168,3 +178,26 @@ O poliéster é resistente e durável, além de possuir uma secagem rápida. No 
 o meio ambiente e a saúde humana. Além disso, quando descartado, o poliéster demora centenas de anos 
 para se decompor na natureza, agravando ainda mais os problemas ambientais. Por esses motivos, 
 o poliéster é considerado um tecido não sustentável.', '../assets/tecido_bloqueado.png', 0);
+
+Create table Noticias(
+    id_noticia INT AUTO_INCREMENT,
+    titulo_noticia VARCHAR(800) NOT NULL,
+    data_noticia DATE NOT NULL,
+    url_noticia VARCHAR(800) NOT NULL,
+    descricao_noticia VARCHAR(800) NOT NULL,
+
+       PRIMARY KEY (id_noticia)
+);
+
+INSERT INTO Noticias (titulo_noticia, data_noticia, url_noticia , descricao_noticia) 
+VALUES ('Qual o impacto da moda no meio ambiente?', '2022-02-02',
+'https://santaceciliaresiduos.com.br/moda-meio-ambiente/#:~:text=Nosso%20lixo%20t%C3%AAxtil%2C%20consequ%C3%AAncia%20da,de%20desperd%C3%ADcio%20de%20%C3%A1gua%20globalmente. ' , 
+'Nosso lixo têxtil, consequência da lógica da moda descartável, leva cerca de 200 anos para se desintegrar.
+E as consequência dessa indústria de fast fashion vai além do descarte. 
+De acordo com relatório da ONU responsável por 20% do total de desperdício de água globalmente.'),
+
+('Um efeito borboleta: a indústria da moda e meio-ambiente','2022-02-02','https://wp.ufpel.edu.br/empauta/um-efeito-borboleta-a-industria-da-moda-e-meio-ambiente/',
+'Quando se fala no impacto ambiental da indústria da moda se fala muito mais que apenas na extração de matérias-primas, mas também no consumo de ...'),
+
+('Qual é o impacto que nossas roupas causam ao meio ambiente?','2022-02-02','https://noticias.r7.com/tecnologia-e-ciencia/qual-e-o-impacto-que-nossas-roupas-causam-ao-meio-ambiente-01122021',
+'O consumo excessivo e rápido de peças de roupa, que surge do padrão de produção do fast-fashion (moda rápida), é cada vez mais nocivo para o ...');
