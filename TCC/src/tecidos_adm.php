@@ -1,16 +1,13 @@
 <?php
-session_start();
 
-if (!isset($_SESSION["id_usuario"])) {
-  header("Location: ../public/index.php");
-}
-
+require ("../database/usuario.php");
 include("../include/navegacao.php");
 require("../database/tipo_tecidos.php");
 require("../database/tecidos.php");
 require("../util/mensagens.php");
 
 exibirMsg();
+verificaSessao();
 
 $chave_sessao = $_SESSION["id_usuario"];
 

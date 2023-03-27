@@ -1,24 +1,22 @@
 <?php
-  session_start();
-
-  if(!isset($_SESSION["apelido_logado"]) && !isset($_SESSION["nome_logado"]) && !isset($_SESSION["id_usuario"])){
-    header("Location: ../public/index.php");
-  }
-  include("../include/navegacao.php");  
-  include ("../util/mensagens.php");
-  exibirMsg();
+    require_once ("../database/usuario.php");
+    include("../include/navegacao.php");  
+    include ("../util/mensagens.php");
+ 
+    exibirMsg();
+    verificaSessao();
 ?> 
 <div id="conteudo">
   <main class="container">
   <?php 
             if (isset($_SESSION["apelido_logado"])) { ?>
               <p class="alert-success nav-link" id="logado">Logado como <?= $_SESSION["apelido_logado"] ?></p>
-  <?php } ?>
+              <?php } ?>
     <div class="container-fluid" id="apresentacao_home">
     <div class="row">
         <div class="col-1"></div>
         <div id="carroselIntrod" class="carousel slide col-10" data-ride="carousel">
-            
+       
             <ol class="carousel-indicators">
                 <li data-target="#carroselIntrod" data-slide-to="0" class="indicador active"></li>
                 <li data-target="#carroselIntrod" data-slide-to="1" class="indicador"></li>

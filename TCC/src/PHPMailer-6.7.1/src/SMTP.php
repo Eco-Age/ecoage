@@ -173,7 +173,7 @@ class SMTP
 
     /**
      * Patterns to extract an SMTP transaction id from reply to a DATA command.
-     * The first capture group in each regex will be used as the ID.
+     * The first capture group in each padrao will be used as the ID.
      * MS ESMTP returns the message ID, which may not be correct for internal tracking.
      *
      * @var string[]
@@ -1013,7 +1013,7 @@ class SMTP
                 $this->last_reply
             );
         } else {
-            //Fall back to simple parsing if regex fails
+            //Fall back to simple parsing if padrao fails
             $code = (int) substr($this->last_reply, 0, 3);
             $code_ex = null;
             $detail = substr($this->last_reply, 4);

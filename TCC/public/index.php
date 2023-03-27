@@ -2,7 +2,7 @@
   if (!isset($_SESSION)){
     session_start();
   }
-
+require("../database/usuario.php");
 require("../database/avatar.php");
 include("../include/cabecalho.php");
 include("../util/mensagens.php");
@@ -85,42 +85,49 @@ $lista_avatar = listarAvatar();
 
             <div class="modal-body">
               <fieldset>      
-                <form action="../src/cadastrar_usuario.php" method="post">
-                             
+                <form action="../src/cadastrar_usuario.php" method="post" onsubmit="return perguntaVerificacao(this)">
+                  <input type="hidden" name="verifica" value="0"/>
                   <div class="form-group">
                     <label for="nome" id="nome">Nome Completo:</label> 
-                    <input type="text" id="nome" name="nome_completo" class="form-control" placeholder="Informe o nome completo..." required>
+                    <input type="text" id="nome" name="nome_completo" class="form-control" placeholder="Informe o nome completo..." >
+                    <div class="erro-preencher" id="nome_completo_erro"></div>
                   </div>
                            
                  <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="data_nasc" id="data_nasc">Data de Nascimento:</label> 
-                      <input type="date" id="data_nasc" name="data_nasc" class="form-control" max="2022-12-31" required maxlength="10">
+                      <input type="date" id="data_nasc" name="data_nasc" class="form-control" max="2022-12-31"  maxlength="10">
                       <small id="" class="form-text text-muted">Atenção: Insira uma data válida.</small>
+                      <div class="erro-preencher" id="data_nasc_erro"></div>
                     </div> 
+
                     <div class="form-group col-md-6">
                       <label for="tel">Telefone:</label>
-                      <input type="text" class="form-control phone-mask" name="tel" id="tel" pattern="([0-9]{2}\)\s+9+[0-9]{4}\-[0-9]{4}" maxlength="16" minlenght="15" placeholder="(DDD) 00000-0000">
-                      <small id="" class="form-text text-muted">Exemplo: (16) 91212-3456</small>
+                      <input type="text" class="form-control phone-mask" name="tel" id="tel" maxlength="16" minlenght="15" placeholder="(DDD) 00000-0000">
+                      <small id="" class="form-text text-muted">Exemplo: (XX) 9XXXX-XXXX</small>
+                      <div class="erro-preencher" id="tel_erro"></div>
                     </div>
                   </div>
        
                   <div class="form-group">
                     <label for="apelido" id="apelido_cadastro">Apelido:</label> 
-                    <input type="text" id="apelido" name="apelido" class="form-control" placeholder="Informe o seu apelido..." required>
+                    <input type="text" id="apelido" name="apelido" class="form-control" placeholder="Informe o seu apelido..." >
+                    <div class="erro-preencher" id="apelido_erro"></div>
                   </div> 
                            
                   <div class="form-group">
                     <label for="email_cadastro" id="email_cadastro">Email:</label> 
-                    <input type="text" id="email" name="email_cadastro" class="form-control" placeholder="Informe o seu email..." pattern="[a-z0-9]+@[a-z0-9]+\.[a-z0-9]{3}" required>
+                    <input type="email" id="email" name="email_cadastro" class="form-control" placeholder="Informe o seu email..." >
                     <small id="" class="form-text text-muted">Exemplo: exemplo@gmail.com</small>
+                    <div class="erro-preencher" id="email_erro"></div>
                   </div> 
        
                   <div class="form-group">
                     <label for="senha_cadastro">Senha:</label>
-                    <input type="password" name="senha_cadastro" class="form-control" id="senha_cadastro" placeholder="Informe sua senha..." pattern="^(?=.*[A-Z])(?=.*\d).{8,}$"  maxlenght="8"  required >
+                    <input type="password" name="senha_cadastro" class="form-control" id="senha_cadastro" placeholder="Informe sua senha..."  >
                     <div id="icon_cadastro" onclick="mostrarOcultar_cadastro()"></div>
                     <small id="" class="form-text text-muted">A senha deve conter mais de 8 caracteres, ao menos 1 letra maiúscula e 1 número.</small>
+                    <div class="erro-preencher" id="senha_erro"></div>
                   </div>       
 
                   <div>
@@ -132,6 +139,7 @@ $lista_avatar = listarAvatar();
                                       <img src="<?=$avatar["caminho"]?>" alt="<?=$avatar["nome"]?>">
                                     </label>
                                     <?php endforeach ?> 
+                                    <div class="erro-preencher" id="avatar_erro"></div>
                                     <?php
                                       $avatarEscolhido = $avatar["id_avatar"];
                                       $caminhoEscolhido = $avatar["caminho"];
@@ -144,7 +152,7 @@ $lista_avatar = listarAvatar();
                 </div>         
                   
                   <div class="form-group">    
-                    <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserir">Inserir</button> 
+                    <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserir">Cadastrar</button> 
                   </div>   
                 </form>
               </fieldset>       
@@ -332,4 +340,5 @@ $lista_avatar = listarAvatar();
             </div>
   </footer>
   <script src="../assets/script.js"></script>
+  <script src="../assets/script_valida_form.js"></script>
 </html>
