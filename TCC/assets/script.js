@@ -251,7 +251,6 @@ function ajudaTecido() {
   $(document).ready(function () {
     $('.popover-link').popover({ trigger: 'focus' });
   });
-};
 
 
 // SESSÃO DO INFERNO DO ALERT DE TECIDOS QUE FINALMENTE ESTA PRONTO INFERNO  
