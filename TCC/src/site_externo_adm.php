@@ -5,7 +5,14 @@ if(!isset($_SESSION["id_usuario"])){
   header("Location: ../public/index.php");
 }
 
-   include("../include/navegacao.php");
+    include("../include/navegacao.php");
+    require("../database/noticias.php");
+    require("../util/mensagens.php");
+    require("../util/formatacoes.php");
+
+    exibirMsg();
+    $lista_noticias = listarNoticia();
+    
 ?>
         
         <div class="container" id="conteudo">
@@ -107,83 +114,53 @@ if(!isset($_SESSION["id_usuario"])){
         </div>
 
 
-
+    <!-- Listar Noticias -->
     <div class="container">
         <div class="row">
             <div class="col-2"></div>
             <div class="col-10" id="todos_field_adm">
-            
-                <div class="row">
+                <?php foreach ($lista_noticias as $noticias) : ?>
+                <div class="row">  
                     <div class="col-md-10">
-                       
+                        <a href="<?= $noticias["url_noticia"] ?>" target="_blank">
+                            <fieldset class="field_site_externo">
+                                <div>
+                                    <h3 id="titulo_noticia" name="titulo_noticia"><?= $noticias["titulo_noticia"] ?></h3>
+                                </div>
+                                <div>
+                                    <p id="data_noticia" name="data_noticia"><?= formata_data_pagina($noticias["data_noticia"]) ?></p>
+                                </div>
+                                <div>
+                                    <p id="descricao_noticia" name="descricao_noticia"><?= $noticias["descricao_noticia"] ?></p>
+                                </div> 
+                                <div>
+                                    <p id="url_noticia" name="url_noticia">Clique para saber mais...</p>
+                                </div>
+                            </fieldset>    
+                        </a>                    
                     </div>
                     <div class="btns_noticias col-md-2">
                         <p>
-                            <button class="btnedit" onclick="editarnoticia()">
-                                <span class="material-symbols-outlined" id="btnedit1">
-                                    edit
-                                </span>
-                            </button>
+                            <form action="editando_noticia.php" method="post" style="display: inline-block;">
+                                <input type="hidden" name="id_noticia" value="<?=$noticias["id_noticia"]?>">
+                                <button style="cursor: pointer;" type="submit" class="btnedit" value="edit"><span class="material-icons" id="btneditNoticia">edit</span></button>
+                            </form>
                         </p>
                         <p>
-                            <button class="btndelete" onclick="excluirnoticia()">
-                                <span class="material-symbols-outlined" id="btndelete1">
-                                    close
-                                </span>
+                            <button style="cursor: pointer;" class="btndelete" value="<?=$noticias["id_noticia"]?>" onclick="deletarNoticia(<?=$noticias['id_noticia']?>)">
+                                <span class="material-symbols-outlined" id="btndelete2">delete</span>
                             </button>
                         </p>
                     </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-10">
-                       
-                    </div>
-                    <div class="btns_noticias col-md-2">
-                        <p>
-                            <button class="btnedit" onclick="editarnoticia()">
-                                <span class="material-symbols-outlined" id="btnedit1">
-                                    edit
-                                </span>
-                            </button>
-                        </p>
-                        <p>
-                            <button class="btndelete" onclick="excluirnoticia()">
-                                <span class="material-symbols-outlined" id="btndelete1">
-                                    close
-                                </span>
-                            </button>
-                        </p>
-                    </div>
-                </div>
-                
-
-                <div class="row">
-                    <div class="col-md-10">
-                        
-                    </div>
-                    <div class="btns_noticias col-md-2">
-                        <p>
-                            <button class="btnedit" onclick="editarnoticia()">
-                                <span class="material-symbols-outlined" id="btnedit1">
-                                    edit
-                                </span>
-                            </button>
-                        </p>
-                        <p>
-                            <button class="btndelete" onclick="excluirnoticia()">
-                                <span class="material-symbols-outlined" id="btndelete1">
-                                    close
-                                </span>
-                            </button>
-                        </p>
-                    </div>
-                </div>
-            </div>
+               </div>               
+             </div>
             <div class="col-0"></div>
-        </div>
+        </div> 
     </div>
-        </div>
+
+        <?php endforeach ?>    
+    </div>
+
 <?php
     include("../include/rodape.php");  
 ?>

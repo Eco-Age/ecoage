@@ -5,5 +5,3 @@
     removerTecido($id_tecidos);
     header("Location: tecidos_adm.php");
 ?>  
-
-
