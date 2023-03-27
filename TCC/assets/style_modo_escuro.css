@@ -83,18 +83,19 @@
 body.modo-escuro{
     background-color: #1c1c1e;
   }
-
+/* field da pagina de edicao */
 body.modo-escuro #field_edicao_usuario{
 background-color: rgb(118, 61, 146);
 color: #fff;
 }
 
+/* sessao["msg"] */
 body.modo-escuro .alert-success{
     color: #fff;
-    background-color: #006609; 
+    background-color: #006609 !important; 
 }
-
-body.modo-escuro #txt_portal, body.modo-escuro #meus_dados, body.modo-escuro #duvidas_frequentes{
+/* titulos das paginas */
+body.modo-escuro #txt_portal, body.modo-escuro #meus_dados, body.modo-escuro #duvidas_frequentes, body.modo-escuro #txt_tecidos{
     color: #69b4f1;   
 }
 
@@ -102,31 +103,50 @@ body.modo-escuro #duvidas{
   color: white;
 }
 
+/* cor dos cards de tecido */
+body.modo-escuro #tecido_usu{
+  background-color: #c7c7c7;
+}
+
+/* formularios e etc */
 body.modo-escuro input[type="text"], body.modo-escuro input[type="date"], body.modo-escuro textarea, body.modo-escuro input[type="email"]{
     background-color: #2d2d2d;
     color: #f1f1f1;
+    border: solid 2px;
 }
 
 body.modo-escuro textarea:focus, body.modo-escuro input::placeholder, body.modo-escuro textarea::placeholder{
   background-color: #2d2d2d;
   color: #b9b8b8;
 }
-
+/* alerts / modais */
 body.modo-escuro .swal2-popup, body.modo-escuro .swal2-radio, body.modo-escuro .swal2-range{
   background-color: #2d2d2d !important;
   color: #fff;
 }
-
+/* pagina de duvidas */
 body.modo-escuro #carrosel_duvidas{
   background-color: #66ff0046;
   box-shadow: 2px 2px 6px #ffffff18;
   color: white;
 }
+
 body.modo-escuro #next, body.modo-escuro #ante{
   color: #ffffff;
   background-color: #b35ffd;
-  border-radius: 20px;
-  padding: 8px;
-  margin-left: 50px;
-  margin-right: 50px;
+}
+
+/* barra de navegação */
+body.modo-escuro #icone_sobrenos:hover, body.modo-escuro #menu_home:hover, body.modo-escuro #icone_home:hover, body.modo-escuro #menu_portal:hover, body.modo-escuro #menu_tecidos:hover, 
+body.modo-escuro #game:hover,  body.modo-escuro #icone_game:hover,  body.modo-escuro #icone_menu:hover,  body.modo-escuro #menu_m:hover, 
+body.modo-escuro #ajuda:hover, body.modo-escuro #icone_ajuda:hover{
+  background-color: #8d49c9;
+  color: #efff14;
+}
+
+body.modo-escuro .nav-link{
+  background-color: #240f36;
+  color: #ffffff;
+  border: 0.5px solid rgba(221, 221, 221, 0);
+ 
 }
