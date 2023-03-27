@@ -320,7 +320,7 @@
     margin-bottom: 100px;
 }
 
-#botao_editar_usuario, #botao_editar{
+#botao_editar_usuario, #botao_editar, #enviarDuvida{
     background-color: #256c92;
     border-color: #1b5c80;
     border: none;
@@ -328,7 +328,7 @@
     width: 100%;
 }
 
-#botao_editar_usuario:hover, #botao_editar:hover{
+#botao_editar_usuario:hover, #botao_editar:hover, #enviarDuvida:hover{
     background-color: #1e5c7e;
     border-color: #164b68;
 }
@@ -500,6 +500,7 @@ nav{
 
 
 .btn-purple-circulo:hover{
+    color: #e9ddff;
     color: #f3e8ff;
     cursor: pointer;
 }
@@ -1064,18 +1065,6 @@ align-items: right;
 
 #pagina_de_duvidas{
     margin-bottom: 100px;
-}
-
-#enviarDuvida{
-    width: 100%;
-    background-color: #835ba7;
-    color: #bffa87;
-    border: none;
-    font-weight: 400;
-}
-
-#enviarDuvida:hover{
-    background-color: #6e4a8d ;
 }
 
 

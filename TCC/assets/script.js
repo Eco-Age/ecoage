@@ -253,6 +253,7 @@ function ajudaTecido() {
   });
 
 
+
 // SESSÃO DO INFERNO DO ALERT DE TECIDOS QUE FINALMENTE ESTA PRONTO INFERNO  
 
 $(document).ready(function () {

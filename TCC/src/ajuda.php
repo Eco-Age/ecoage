@@ -80,7 +80,7 @@
     
         <div class="row">
             <div class="col-3"></div>
-                <div class="col-12 col-lg-6 col-xl-4 mx-auto">
+                <div id="duvidas" class="col-12 col-lg-6 col-xl-4 mx-auto">
                     <h3>Ainda precisa de ajuda?</h3>
                     <h5>Envie-nos sua dúvida!</h5>
                     <br>
