@@ -58,5 +58,5 @@ function listarNoticia(){
   
     return $lista_tecidos;
   }
-
+  
   ?>
