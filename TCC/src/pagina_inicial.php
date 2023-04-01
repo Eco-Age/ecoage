@@ -15,7 +15,7 @@
     <div class="container-fluid" id="apresentacao_home">
     <div class="row">
         <div class="col-1"></div>
-        <div id="carroselIntrod" class="carousel slide col-10" data-ride="carousel">
+        <div id="carroselIntrod" class="carousel slide col-10" data-interval="7000" data-ride="carousel">
        
             <ol class="carousel-indicators">
                 <li data-target="#carroselIntrod" data-slide-to="0" class="indicador active"></li>
@@ -31,10 +31,10 @@
                 <div class="carousel-item active">
                     <div class="row">
                         <div class="col-1"></div>
-                            <div class="col-3">
+                            <div class="col-12 col-lg-6 col-xl-4 mx-auto">
                                     <img src="../assets/edu_aplauso.png" id="Edu_img">                                             
                             </div>
-                            <div class="col-6" id="texto_inicial_ana">
+                            <div class="col-12 col-lg-6 col-xl-4 mx-auto" id="texto_inicial_ana">
                                 <h3>Olá <?= $_SESSION["nome_logado"] ?>!</h3>
                                 <p >Com o objetivo de auxiliar na diminuição dos 
                                     impactos ambientais gerados pela indústria têxtil, apresentamos: 
@@ -48,10 +48,10 @@
                 <div class="carousel-item">
                     <div class="row ">
                         <div class="col-1"></div>
-                            <div class="col-3">
+                            <div class="col-12 col-lg-6 col-xl-4 mx-auto">
                                 <img src="../assets/bibi_desconfiada.png" id="Edu_img">
                             </div>
-                            <div class="col-6" id="texto_inicial_edu"> 
+                            <div class="col-12 col-lg-6 col-xl-4 mx-auto" id="texto_inicial_edu"> 
                             <h3>Ei, vamos com calma!</h3>
                                 <p >
                                     Antes de navegar pelo nosso site, convidamos você a saber um pouco o que nos motivou a escolha desse tema.
@@ -66,10 +66,10 @@
                 <div class="carousel-item">
                     <div class="row ">
                         <div class="col-1"></div>
-                            <div class="col-3">
+                            <div class="col-12 col-lg-6 col-xl-4 mx-auto">
                                 <img src="../assets/Ana_pensando.png" id="Edu_img">
                             </div>
-                            <div class="col-6" id="texto_inicial_edu"> 
+                            <div class="col-12 col-lg-6 col-xl-4 mx-auto" id="texto_inicial_edu"> 
                             <h3>Onde tudo começa?</h3>
                                 <p >A industria têxtil, responsável pela transformação de <span class="destaque">fibras em fios, fios em tecidos e de tecidos em peças de vestuário, artigos têxteis para o lar e uso doméstico,</span>
                                     constitui uma etapa da estrutura da cadeia produtiva da <span class="destaque">indústria da moda</span> (a qual atinge milhões de pessoas no mundo, além de gerar muitos empregos).
@@ -83,10 +83,10 @@
                 <div class="carousel-item">
                     <div class="row ">
                         <div class="col-1"></div>
-                            <div class="col-3">
+                            <div class="col-12 col-lg-6 col-xl-4 mx-auto">
                                 <img src="../assets/edu_surpreso.png" id="Edu_img">
                             </div>
-                            <div class="col-6" id="texto_inicial_edu"> 
+                            <div class="col-12 col-lg-6 col-xl-4 mx-auto" id="texto_inicial_edu"> 
                             <h3>O que não sabemos sobre?</h3>
                                 <p >Para toda produção é necessária uma grande quantidade de recursos naturais.
                                 Além disso, a indústria têxtil é o terceiro setor mais poluente do mundo, respondendo por até 
@@ -101,10 +101,10 @@
                 <div class="carousel-item">
                     <div class="row ">
                         <div class="col-1"></div>
-                            <div class="col-3">
+                            <div class="col-12 col-lg-6 col-xl-4 mx-auto">
                                 <img src="../assets/bibi_triste.png" id="Edu_img">
                             </div>
-                            <div class="col-6" id="texto_inicial_edu"> 
+                            <div class="col-12 col-lg-6 col-xl-4 mx-auto" id="texto_inicial_edu"> 
                             <h3>Então...</h3>
                                 <p >A indústria da moda no cenário têxtil, <span class="destaque">gera gases de efeito estufa e contribui para o aquecimento global</span>, o que prejudica o mundo a longo prazo. 
                                     Ou seja, têm relação direta com quase
@@ -120,10 +120,10 @@
                 <div class="carousel-item">
                     <div class="row ">
                         <div class="col-1"></div>
-                            <div class="col-3">
+                            <div class="col-12 col-lg-6 col-xl-4 mx-auto">
                                 <img src="../assets/Ana_avatar.png" id="Edu_img">
                             </div>
-                            <div class="col-6" id="texto_inicial_edu"> 
+                            <div class="col-12 col-lg-6 col-xl-4 mx-auto" id="texto_inicial_edu"> 
                             <h3>Temos uma proposta!</h3>
                                 <p >Sabendo do impacto que determinados tecidos têm no meio ambiente, propomos
                                     a vocês conhecer um pouco mais dos <span class="destaque">tecidos sustentáveis</span>! Que geram menos
@@ -138,10 +138,10 @@
                 <div class="carousel-item">
                     <div class="row ">
                         <div class="col-1"></div>
-                            <div class="col-3">
+                            <div class="col-12 col-lg-6 col-xl-4 mx-auto">
                                 <img src="../assets/bibi_grata.png" id="Edu_img">
                             </div>
-                            <div class="col-6" id="texto_inicial_edu"> 
+                            <div class="col-12 col-lg-6 col-xl-4 mx-auto" id="texto_inicial_edu"> 
                             <h3>Agora sim!</h3>
                                 <p >Agora que você já sabe a importância dos tecidos no meio ambiente, navegue no menu acima e tenha acesso 
                                     a um <span class="destaque">portal de notícias</span> para se atualizar quanto ao assunto!
