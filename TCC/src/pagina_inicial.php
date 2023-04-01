@@ -35,7 +35,7 @@
                                     <img src="../assets/edu_aplauso.png" id="Edu_img">                                             
                             </div>
                             <div class="col-12 col-lg-6 col-xl-4 mx-auto" id="texto_inicial_ana">
-                                <h3>Olá <?= $_SESSION["nome_logado"] ?>!</h3>
+                                <h3>Olá, <?= $_SESSION["nome_logado"] ?>!</h3>
                                 <p >Com o objetivo de auxiliar na diminuição dos 
                                     impactos ambientais gerados pela indústria têxtil, apresentamos: 
                                     <br><span  class="destaque">EcoAge</span> - uma aplicação web capaz de 
