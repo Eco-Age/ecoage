@@ -34,11 +34,11 @@ function perguntaVerificacao(form){
     var tel = form.tel.value;
     var telInput = form.tel;
     var telError = document.querySelector('#tel_erro');
-    var padraoTel = /([0-9]{2})\s+9+[0-9]{4}\-[0-9]{4}/;
+    var padraoTel = /^\d{0,15}$/;
     if (tel !== "" && !tel.match(padraoTel)) {
       telInput.classList.add('erro-border-preencher');
       telError.classList.add('show');
-      telError.textContent = 'Seu número de telefone precisa ser como "(XX) 9XXXX-XXXX"';
+      telError.textContent = 'Seu número de telefone pode ter no máximo 15 dígitos!';
       telInput.focus();
       return false;
     }else if (tel !== "" && tel.match(padraoTel)){
@@ -196,7 +196,7 @@ function validacao(form){
     var tel = form.tel.value;
     var telInput = form.tel;
     var telError = document.querySelector('#tel_erro');
-    var padraoTel = /([0-9]{2})\s+9+[0-9]{4}\-[0-9]{4}/;
+    var padraoTel = /^\d{0,15}$/;
     if (tel !== "" && !tel.match(padraoTel)) {
       telInput.classList.add('erro-border-preencher');
       telError.classList.add('show');
