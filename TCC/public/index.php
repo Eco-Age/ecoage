@@ -38,18 +38,18 @@ $lista_avatar = listarAvatar();
                 <input type="text" name="apelido_login" class="form-control" id="apelido_login" placeholder="Informe seu apelido...">
               </div>
 
-              <div class="form-group">
+              <div class="form-group mb-1">
                   <label for="senha_login" id="email_l">Senha:</label>
                   <input type="password" name="senha_login" class="form-control" id="senha_login" placeholder="Informe sua senha...">
                   <div id="icon" onclick="mostrarOcultar_login()"></div>
               </div>
 
-              <div class="row">
-                <div class="col-4"></div>
-                  <a href="../src/esqueceu_senha.php" data-toggle="modal" data-target="#modalesqueceuSenha" id="esqueceuSenha">Esqueceu a senha?</a>
-                <div class="col-4"></div>
+              <div class="row mb-2">
+                <div class="col-md-12 text-center">
+                  <a href="../src/esqueceu_senha.php" data-toggle="modal" data-target="#modalesqueceuSenha" id="esqueceuSenha" >Esqueceu a senha?</a>
+                </div>
               </div>
-
+              
               <div class="row">
                 <div class="col-2"></div>
                   <button type="submit" class="btn btn-primary col-8" id="btnlogin">Entrar</button>
