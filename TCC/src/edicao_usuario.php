@@ -9,7 +9,7 @@
       verificaSessao();
 
 
-  $apelido= $_SESSION["apelido_logado"];
+  //$apelido= $_SESSION["apelido_logado"];
 
   if (isset($_SESSION["email"])){
     $email = $_SESSION["email"];
@@ -47,8 +47,8 @@
                 <legend id="legend_avatar" ><img id="avatarMenu" src="<?=$avatar_atual['caminho']?>" alt="<?=$_SESSION['idAvatar']?>"></legend>
                     <form action="../src/editar_usuario.php" method="post" onsubmit=" return validacao(this)">
                         <input type="hidden" name="id_usuario" value="<?=$id_usuario?>">
-                        <input type="hidden" name="email_atual" value="<?=$email?>">
-                        <input type="hidden" name="apelido_atual" value="<?=$apelido?>">
+                        <input type="hidden" name="email_atual" value="<?=$usuario["email"]?>">
+                        <input type="hidden" name="apelido_atual" value="<?=$usuario["apelido"]?>">
 
                         <div class="form-group">
                             <label for="nome" id="nome">Nome Completo:</label> 

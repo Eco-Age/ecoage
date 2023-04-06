@@ -16,6 +16,7 @@ $id_avatar = $_POST["id_avatar"];
 $email_atual = $_POST["email_atual"];
 $apelido_atual = $_POST["apelido_atual"];
 
+
 if ($apelido == $apelido_atual && $email == $email_atual) {
     editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar);
     header("Location: edicao_usuario.php");
