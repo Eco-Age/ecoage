@@ -104,7 +104,7 @@ $lista_avatar = listarAvatar();
                     <div class="form-group col-md-6">
                       <label for="tel">Telefone:</label>
                       <input type="text" class="form-control phone-mask" name="tel" id="tel" maxlength="16" minlenght="15" placeholder="(DDD) 00000-0000">
-                      <small id="" class="form-text text-muted">Exemplo: (XX) 9XXXX-XXXX</small>
+                      <small id="" class="form-text text-muted">(Opcional)</small>
                       <div class="erro-preencher" id="tel_erro"></div>
                     </div>
                   </div>

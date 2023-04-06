@@ -675,13 +675,10 @@ nav{
     border: none;
     color: #d1f5a1;
     vertical-align: middle;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 180%;
+    width: 100%;
 }
 #filtros_menu{
-    width: 180%;
+    width: 100%;
 }
 #btn_filtros{
     background-color: #194d69;    
@@ -850,8 +847,7 @@ align-items: right;
 
 
 #btncadastrarnoticia{
-    margin-right: 10px;
-    width: 50px;
+    width: 100%;
     background-color: #623f80;
     color: #f0f8e5;
     border: none;
@@ -868,21 +864,20 @@ align-items: right;
     color: #d1f5a1;
     vertical-align: middle;
     margin-top: 10px;
-    width: 310px;
+    width: 100%;
 }
 
 #filtros3_{
     background-color: #581b69;
     border: none;
     color: #d1f5a1;
-    vertical-align: middle;
-    margin-top: 10px;
-    width: 360px;
+    width: 100%;
 }
 
 #filtros_menu3{
-    width: 360px;
+    width: 100%;
 }
+
 .btns_noticias{
     margin-bottom: auto;
     margin-top: auto;
@@ -890,10 +885,7 @@ align-items: right;
     vertical-align: middle;
 }
 
-#todos_field_adm{
-    margin-bottom: 160px;
-    margin-top: 10px;
-}
+
 
 .modal{
     text-align: left;
@@ -915,6 +907,13 @@ align-items: right;
     border: none;
 }
 
+    #buscarNoticia{
+        width: 100%;
+    }
+
+    #btnfiltros{
+        width: 100%;
+    }
 
 /* Imagens página incial */
 
