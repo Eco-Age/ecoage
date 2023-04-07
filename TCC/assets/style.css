@@ -648,7 +648,7 @@ nav{
 }
 
 #portal_de_noticias{
-    min-height: calc(100vh - 100px);
+    min-height: calc(200px);
     margin-top: 30px;
     display: flex;
     flex-direction: column;
