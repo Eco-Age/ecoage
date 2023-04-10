@@ -13,7 +13,7 @@ $lista_noticias = buscarPalavraChave($palavra_chave);
 ?>
 
 
-<div id="conteudo">
+<div class="container" id="conteudo">
 
     <div class="row">
         <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
@@ -23,7 +23,7 @@ $lista_noticias = buscarPalavraChave($palavra_chave);
     </div>
 
     <div class="row">
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
         <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
             <h1 id="txt_portal2">Notícias:</h1>
         </div>
@@ -39,6 +39,25 @@ $lista_noticias = buscarPalavraChave($palavra_chave);
                 </span>
             </button>
         </div>
+        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <form id="form_busca" action="buscarNoticia.php" class="form-inline" method="post">
+                <input class="form-control" name="palavra_chave" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar">
+                <div class="form-group">
+                    <label for="filtro"></label>
+                    <select class="form-control" id="filtro" name="filtro">
+                        <option value="">Em qualquer data</option>
+                        <option value="ultimas_24h">Nas últimas 24 horas</option>
+                        <option value="ultima_semana">Na última semana</option>
+                        <option value="ultimo_mes">No último mês</option>
+                        <option value="ultimo_ano">No último ano</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-primary" type="submit" name="buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
+    </div>
 
        <!-- <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
             <form action="../src/site_externo.php" class="form-inline">
@@ -54,12 +73,8 @@ $lista_noticias = buscarPalavraChave($palavra_chave);
     </div>
 
     <div class="row">
-        <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
-        <div class="collapse col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" id="filtros2">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="filtros3_" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Em qualquer data
-                </button>
+        <div class="col-3 col-sm-3 col-md-3 col-lg<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+    </div>
                 <div class="dropdown-menu" id="filtros_menu3" aria-labelledby="filtros_">
                     <a class="dropdown-item" href="../src/site_externo.php">Na última hora</a>
                     <a class="dropdown-item" href="../src/site_externo.php">Nas últimas 24 horas</a>
@@ -117,28 +132,8 @@ $lista_noticias = buscarPalavraChave($palavra_chave);
         </div>
     </div>
 
-<div class="row">
-    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
-    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <form id="form_busca" action="buscarNoticia.php" class="form-inline" method="post">
-            <input class="form-control" name="palavra_chave" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar">
-            <div class="form-group">
-                <label for="filtro">Filtro:</label>
-                <select class="form-control" id="filtro" name="filtro">
-                    <option value="">Em qualquer data</option>
-                    <option value="ultima_hora">Na última hora</option>
-                    <option value="ultimas_24h">Nas últimas 24 horas</option>
-                    <option value="ultima_semana">Na última semana</option>
-                    <option value="ultimo_mes">No último mês</option>
-                    <option value="ultimo_ano">No último ano</option>
-                    <option value="mais_antigo">Mais antigo</option>
-                </select>
-            </div>
 
-            <button class="btn btn-primary" type="submit" name="buscar">Buscar</button>
-        </form>
-        <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
-    </div>
+    
 
 
     <!-- Listar Noticias -->

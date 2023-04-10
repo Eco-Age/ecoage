@@ -20,10 +20,7 @@ $lista_tecidos = listarTecidos();
 
 
 <div class="container" id="conteudo">
-    <div class="row">
-        <div class="col-lg-8"></div>
-        <div class="col-lg-4"></div>
-    </div>
+    
 
     <div class="row">
         <h1 class="col-lg-12 text-center" id="txt_tecidos">Tecidos:</h1>

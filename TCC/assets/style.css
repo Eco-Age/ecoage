@@ -636,8 +636,8 @@ nav{
     width: 800px;
     height: 500px;
     box-shadow: 2px 2px 6px #00000018;
-    margin-top: 20px;
-    margin-bottom: 7%;
+    margin-top: 0px;
+    margin-bottom: 200px;
 }
 
 #txt_portal, #txt_portal2{
@@ -645,6 +645,8 @@ nav{
     margin-bottom: 20px;  
     text-align: center;  
     color: #194d69;
+    width: 100%;
+    text-align: center;
 }
 
 #portal_de_noticias{
@@ -703,6 +705,21 @@ nav{
     align-items: right;
 }
 
+#buscarnoticia{
+    width: auto;
+    text-align: center;
+    margin-top:;
+}
+
+#form_busca{
+    align-items: center;
+    width: 100%;
+}
+
+#filtro{
+    margin-left: 5px;
+    margin-right: 5px;
+}
 /* rodapé */
 
 #divenviarEmail{
@@ -727,7 +744,8 @@ nav{
 
 #conteudo {
     min-height: calc(100vh - 100px);
-    display: flex;
+    /*display: flex;*/
+    margin-top: 100px;
     flex-direction: column;
     justify-content: center;
 }
@@ -858,21 +876,6 @@ nav{
     outline: 0;
 }
 
-#filtros2_{
-    background-color: #581b69;
-    border: none;
-    color: #d1f5a1;
-    vertical-align: middle;
-    margin-top: 10px;
-    width: 100%;
-}
-
-#filtros3_{
-    background-color: #581b69;
-    border: none;
-    color: #d1f5a1;
-    width: 100%;
-}
 
 #filtros_menu3{
     width: 100%;

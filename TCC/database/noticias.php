@@ -110,9 +110,6 @@ if (!isset($_SESSION)) {
       if(isset($_SESSION["filtro"]) && !empty($_SESSION["filtro"])) {
           $filtro = $_SESSION["filtro"];
           switch($filtro) {
-              case "ultima_hora":
-                  $intervalo = "1 HOUR";
-                  break;
               case "ultimas_24h":
                   $intervalo = "1 DAY";
                   break;
@@ -125,9 +122,6 @@ if (!isset($_SESSION)) {
               case "ultimo_ano":
                   $intervalo = "1 YEAR";
                   break;
-              case "mais_antigo":
-                $intervalo = "100 YEAR";
-                break;
           }
           if(!empty($intervalo)) {
             /* caso o usuário escolher algum filtro que não seja "em qualquer data",

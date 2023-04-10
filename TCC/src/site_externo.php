@@ -16,30 +16,31 @@ if ($_SESSION["id_usuario"] == 1) {
 }
 ?>
 
-<div id="conteudo">
+<div class="container" id="conteudo">
 
+    
+    
     <div class="row">
         <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
             <a class="btn" href="portal_de_noticias.php"><span class="material-icons" id="icone_voltar_noticias">reply</span></a>
         </div>
         <div class="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"></div>
     </div>
-
-    <div class="row">
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+    
+<div class="row">
+        <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
         <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
             <h1 id="txt_portal2">Notícias:</h1>
         </div>
         <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
     </div>
-
     <div class="row">
         <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
         <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
             <form id="form_busca" action="buscarNoticia.php" class="form-inline" method="post">
                 <input class="form-control" name="palavra_chave" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar">
                 <div class="form-group">
-                    <label for="filtro">Filtro:</label>
+                    <label for="filtro"></label>
                     <select class="form-control" id="filtro" name="filtro">
                         <option value="">Em qualquer data</option>
                         <option value="ultima_hora">Na última hora</option>
@@ -51,11 +52,11 @@ if ($_SESSION["id_usuario"] == 1) {
                     </select>
                 </div>
 
-                <button class="btn btn-primary" type="submit" name="buscar">Buscar</button>
+                <button class="btn btn-primary" type="submit" name="buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
             <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
         </div>
-
+    </div>
         <div class="container">
             <div class="row">
                 <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
@@ -82,11 +83,11 @@ if ($_SESSION["id_usuario"] == 1) {
                             </div>
                         </div>
                     <?php endforeach ?>
-                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-                </div>
+                </div>                    
+                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
             </div>
         </div>
-    </div>
+</div>
 <?php
 include("../include/rodape.php");
 ?>
