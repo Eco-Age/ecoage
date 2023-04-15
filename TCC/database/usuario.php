@@ -516,7 +516,7 @@ function verificaSessao(){
             </script>';
     }
   }
-  $limite_inatividade = 60 * 60 * 3; // 3h de limite 
+  $limite_inatividade = 604800; // 1 semana de limite 
   if (isset($_SESSION["apelido_logado"]) && isset($_SESSION["nome_logado"]) && isset($_SESSION["id_usuario"])){
     if (isset($_SESSION['ultima_atividade'])) {
         $tempo_desde_ultima_atividade = time() - $_SESSION['ultima_atividade'];

@@ -36,43 +36,6 @@ function mostrarOcultar_edicao() {
   }
 }
 
-/* eu acho que essa função é removível porque não estamos validando na página login.php?
-function validarLogin() {
-
-  let apelido = document.getElementById("apelido_login").value;
-  let senha = document.getElementById("senha_login").value;
-  let dados_form = new FormData();
-  dados_form.append("apelido", apelido);
-  dados_form.append("senha", senha);
-
-  fetch("../src/login.php", {
-    method: 'POST',
-    body: dados_form,
-  })
-  .then(function(response) {
-    if (!response.ok) {
-      throw new Error(response.text());
-    }
-    return response.json();
-  })
-  .then(function(objeto) {
-    if (objeto.autenticado){
-      window.location.href = "../src/pagina_inicial.php";
-    } else {
-      document.getElementById("id_msg").innerHTML = objeto.msg;
-    }
-  })
-  .catch(function(erro) { 
-    document.getElementById("id_msg").innerHTML = "Erro na requisição";
-    console.error(erro);
-  });
-}
-
-function limparCampo() {
-  document.getElementById("id_msg").innerHTML = "";
-}
-*/
-
 function confirmar_edicao_tecido(form) {
 
   swal.fire({
@@ -430,9 +393,39 @@ if (modoCookie === "escuro") {
 
 // fim do botao de modo escuro
 
+// curtir
 
+function Curtida(id_noticia, id_usuario, qtdLikes){
+  let icone = $('.icone-curtir[data-noticia="' + id_noticia + '"] i');
+  $.ajax({
+    url: '../src/curtidas.php',
+    type: 'POST',
+    data: {id_noticia: id_noticia, id_usuario: id_usuario},
+    success: function(data) {
+      qtdLikes.html(data);
+      if (icone.hasClass('fa-regular')){
+        icone.removeClass('fa-regular').addClass('fa-solid').css('color', '#ff0000');
+        icone.animate({fontSize: '1.5em'}, 200).animate({fontSize: '1em'}, 200, function(){
+          icone.addClass('animate__heartBeat animate__rubberBand');
+          setTimeout(function(){
+            icone.removeClass('animate__heartBeat animate__rubberBand');
+          }, 1000);
+        });
+      }else if (icone.hasClass('fa-solid')){
+        icone.removeClass('fa-solid').addClass('fa-regular').css('color', 'black');
+      }
+    }
+  });
+}
 
-
+$(document).ready(function() {
+  $('.icone-curtir').click(function() {
+    let id_noticia = $(this).data('noticia');
+    let id_usuario = id_usuario_curtida
+    let qtdLikes = $(this).parent().find('.contar-likes');
+    Curtida(id_noticia, id_usuario, qtdLikes);
+  });
+});
 
 
 

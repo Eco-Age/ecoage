@@ -10,6 +10,7 @@ verificaSessao();
 
 $palavra_chave = $_SESSION["palavra_chave"];
 $lista_noticias = buscarPalavraChave($palavra_chave);
+
 ?>
 
 
@@ -58,35 +59,7 @@ $lista_noticias = buscarPalavraChave($palavra_chave);
         </div>
         <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
     </div>
-
-       <!-- <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-            <form action="../src/site_externo.php" class="form-inline">
-                <input class="form-control" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar" id="buscarNoticia">
-        </div>
-        <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#filtros2" aria-expanded="false" aria-controls="collapseExample" id="btn_filtros">
-                Filtros<span class="material-symbols-outlined" id="seta_filtro">arrow_drop_down</span>
-            </button>
-            </form>
-        </div>
-        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-    </div>
-
-    <div class="row">
-        <div class="col-3 col-sm-3 col-md-3 col-lg<div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
-    </div>
-                <div class="dropdown-menu" id="filtros_menu3" aria-labelledby="filtros_">
-                    <a class="dropdown-item" href="../src/site_externo.php">Na última hora</a>
-                    <a class="dropdown-item" href="../src/site_externo.php">Nas últimas 24 horas</a>
-                    <a class="dropdown-item" href="../src/site_externo.php">Na última semana</a>
-                    <a class="dropdown-item" href="../src/site_externo.php">No último mês</a>
-                    <a class="dropdown-item" href="../src/site_externo.php">No último ano</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"></div>
-    </div> -->
-
+    
     <!-- Modal de cadastro das noticias !-->
     <div class="modal fade modal_noticias" id="modal_noticias" tabindex="-1" role="dialog" aria-labelledby="modal_noticias" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -132,10 +105,6 @@ $lista_noticias = buscarPalavraChave($palavra_chave);
         </div>
     </div>
 
-
-    
-
-
     <!-- Listar Noticias -->
     <div class="container mx-auto">
         <div class="row">
@@ -144,8 +113,8 @@ $lista_noticias = buscarPalavraChave($palavra_chave);
                 <?php foreach ($lista_noticias as $noticias) : ?>
                     <div class="row">
                         <div class="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
-                            <a href="<?= $noticias["url_noticia"] ?>" target="_blank" class="link_site_externo">
-                                <fieldset class="field_site_externo">
+                            <fieldset class="field_site_externo">
+                                <a href="<?= $noticias["url_noticia"] ?>" target="_blank" class="link_site_externo">  
                                     <div>
                                         <h3 id="titulo_noticia" name="titulo_noticia"><?= $noticias["titulo_noticia"] ?></h3>
                                     </div>
@@ -156,10 +125,18 @@ $lista_noticias = buscarPalavraChave($palavra_chave);
                                         <p id="descricao_noticia" name="descricao_noticia"><?= $noticias["descricao_noticia"] ?></p>
                                     </div>
                                     <div>
-                                        <p id="url_noticia" name="url_noticia">Clique para saber mais...</p>
+                                        <p id="url_noticia" name="url_noticia">Clique para saber mais...</p>  
                                     </div>
-                                </fieldset>
-                            </a>
+                                </a>
+
+                                <div class="text-right mr-2">
+                                    <?php $curtiu = VerificaCurtida($noticias['id_noticia'], $id_usuario); ?>
+                                    <span class="icone-curtir <?= $curtiu ? 'curtiu' : '' ?>" data-noticia="<?= $noticias['id_noticia'] ?>">
+                                        <i class="fa-heart <?= $curtiu ? 'fa-solid' : 'fa-regular' ?>" style="<?= $curtiu ? 'color: #ff0000;' : '' ?>"></i>
+                                    </span>
+                                    <span class="contar-likes"><?= $noticias["curtidas"] ?></span>
+                                </div>
+                            </fieldset>
                         </div>
                         <div class="btns_noticias col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
                             <p>
@@ -172,7 +149,7 @@ $lista_noticias = buscarPalavraChave($palavra_chave);
                                 <button style="cursor: pointer;" class="btndelete" value="<?= $noticias["id_noticia"] ?>" onclick="deletarNoticia(<?= $noticias['id_noticia'] ?>)">
                                     <span class="material-symbols-outlined" id="btndelete2">delete</span>
                                 </button>
-                            </p>
+                            </p> 
                         </div>
                     </div>
                 <?php endforeach ?>
@@ -186,6 +163,9 @@ $lista_noticias = buscarPalavraChave($palavra_chave);
 include("../include/rodape.php");
 ?>
 <script src="../assets/script.js"></script>
+<script>
+    let id_usuario_curtida = "<?= $_SESSION["id_usuario"]; ?>";
+</script>
 </body>
 
 </html>

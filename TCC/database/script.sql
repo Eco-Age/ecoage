@@ -1,5 +1,6 @@
 USE ecoage;
 
+DROP TABLE IF EXISTS Curtidas;
 DROP TABLE IF EXISTS Usuario;
 DROP TABLE IF EXISTS Tecidos;
 DROP TABLE IF EXISTS Tipo_Tecidos;
@@ -34,7 +35,7 @@ CREATE TABLE Usuario(
     
      PRIMARY KEY(id_usuario),
      FOREIGN KEY (id_avatar)
-        REFERENCES avatars(id_avatar)
+        REFERENCES avatars(id_avatar) 
 );
 
 INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, verifica, id_avatar) 
@@ -179,25 +180,67 @@ o meio ambiente e a saúde humana. Além disso, quando descartado, o poliéster 
 para se decompor na natureza, agravando ainda mais os problemas ambientais. Por esses motivos, 
 o poliéster é considerado um tecido não sustentável.', '../assets/tecido_bloqueado.png', 0);
 
-Create table Noticias(
+CREATE TABLE Noticias(
     id_noticia INT AUTO_INCREMENT,
     titulo_noticia VARCHAR(800) NOT NULL,
     data_noticia DATE NOT NULL,
     url_noticia VARCHAR(800) NOT NULL,
-    descricao_noticia VARCHAR(800) NOT NULL,
-
-       PRIMARY KEY (id_noticia)
+    descricao_noticia VARCHAR(300) NOT NULL,
+    curtidas INT NOT NULL DEFAULT 0,
+    PRIMARY KEY (id_noticia)
 );
 
 INSERT INTO Noticias (titulo_noticia, data_noticia, url_noticia , descricao_noticia) 
-VALUES ('Qual o impacto da moda no meio ambiente?', '2022-02-02',
-'https://santaceciliaresiduos.com.br/moda-meio-ambiente/#:~:text=Nosso%20lixo%20t%C3%AAxtil%2C%20consequ%C3%AAncia%20da,de%20desperd%C3%ADcio%20de%20%C3%A1gua%20globalmente. ' , 
-'Nosso lixo têxtil, consequência da lógica da moda descartável, leva cerca de 200 anos para se desintegrar.
-E as consequência dessa indústria de fast fashion vai além do descarte. 
-De acordo com relatório da ONU responsável por 20% do total de desperdício de água globalmente.'),
+VALUES 
+('Tecidos sustentáveis são apostas da indústria têxtil para reduzir poluição', '2022-10-24',
+'https://oglobo.globo.com/economia/esg/noticia/2022/10/tecidos-sustentaveis-sao-apostas-da-industria-textil-para-reduzir-poluicao.ghtml' , 
+'Produto é alternativa para gerar menos impacto ambiental na produção e no descarte de produtos têxteis.'),
 
-('Um efeito borboleta: a indústria da moda e meio-ambiente','2022-02-02','https://wp.ufpel.edu.br/empauta/um-efeito-borboleta-a-industria-da-moda-e-meio-ambiente/',
-'Quando se fala no impacto ambiental da indústria da moda se fala muito mais que apenas na extração de matérias-primas, mas também no consumo de ...'),
+('Um efeito borboleta: a indústria da moda e meio-ambiente', '2022-02-02',
+'https://wp.ufpel.edu.br/empauta/um-efeito-borboleta-a-industria-da-moda-e-meio-ambiente/',
+'Quando se fala no impacto ambiental da indústria da moda se fala muito mais que apenas na extração de matérias-primas, mas também no consumo de...'),
 
-('Qual é o impacto que nossas roupas causam ao meio ambiente?','2022-02-02','https://noticias.r7.com/tecnologia-e-ciencia/qual-e-o-impacto-que-nossas-roupas-causam-ao-meio-ambiente-01122021',
-'O consumo excessivo e rápido de peças de roupa, que surge do padrão de produção do fast-fashion (moda rápida), é cada vez mais nocivo para o ...');
+('Qual é o impacto que nossas roupas causam ao meio ambiente?','2022-02-02',
+'https://noticias.r7.com/tecnologia-e-ciencia/qual-e-o-impacto-que-nossas-roupas-causam-ao-meio-ambiente-01122021',
+'O consumo excessivo e rápido de peças de roupa, que surge do padrão de produção do fast-fashion (moda rápida), é cada vez mais nocivo para o...'),
+
+('Fast Fashion: como a moda pode ameaçar o meio ambiente?', '2022-12-20',
+'https://exame.com/negocios/fast-fashion-moda-ameacar-meio-ambiente/',
+'Produção em larga escala de roupas baratas e incentivo ao consumismo geram peças descartáveis; 
+modelo também tem denúncias de violação de direitos dos trabalhadores.'),
+
+('Novidades sustentáveis no mundo têxtil: o que vem por aí', '2022-06-7',
+'https://fcem.com.br/noticias/novidades-sustentaveis-no-mundo-textil-o-que-vem-por-ai/',
+'O mundo têxtil é um dos grandes poluidores do planeta, nada de novo nisso. Novidade são as tecnologias que estão sendo desenvolvidas...'),
+
+('Moda sustentável e tecnologia: A transformação já está acontecendo', '2022-01-04',
+'https://harpersbazaar.uol.com.br/bazaar-green/moda-sustentavel-e-tecnologia-a-transformacao-ja-esta-acontecendo/',
+'Tecnologia pode ser chave para transformação sustentável da indústria da moda.'),
+
+('O que a moda sustentável pode aprender com o mundo em 2021', '21-08-30',
+'https://ffw.uol.com.br/noticias/sustentabilidade/o-que-a-moda-sustentavel-pode-aprender-com-o-mundo-em-2021/',
+'Sustentabilidade: Uma mensagem sobre o presente.'),
+
+('Upcycling e Recycling: O que são os termos da moda sustentável', '2023-01-27',
+'https://harpersbazaar.uol.com.br/bazaar-green/upcycling-e-recycling-o-que-sao-os-termos-da-moda-sustentavel/',
+'Conheça qual a diferença entre os dois conceitos e como eles podem ser aplicados.'),
+
+('Chiara Gadaleta, especialista em sustentabilidade aponta destaques da moda sustentável no mundo', '2020-07-11',
+'https://harpersbazaar.uol.com.br/bazaar-green/chiara-gadaleta-especialista-em-sustentabilidade-aponta-destaques-da-moda-sustentavel-no-mundo/',
+'Boas notícias na moda do novo mundo.'),
+
+('Sesc São Paulo realiza feiras e conversas sobre moda sustentável', '2023-03-14',
+'https://orbi.band.uol.com.br/programacao/sesc-sao-paulo-realiza-feiras-e-conversas-sobre-moda-sustentavel-4599',
+'O Sesc São Paulo realizará, a partir do dia 25 de março, diversas ações relacionadas à Moda Sustentável, como feiras de trabalhos autorais e autônomos e conversas sobre a cadeia produtiva da moda alternativa.'),
+
+('Conheça o primeiro museu interativo do mundo para inovação e moda sustentável', '19-06-06',
+'https://ffw.uol.com.br/noticias/sustentabilidade/conheca-o-primeiro-museu-interativo-do-mundo-para-inovacao-e-moda-sustentavel/',
+'Museu interativo inovador promove moda sustentável e conscientização ambiental em todo o mundo.');
+
+CREATE TABLE Curtidas(
+    id_curtida INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_noticia INT, 
+    id_usuario INT,
+    FOREIGN KEY (id_noticia) REFERENCES Noticias(id_noticia),
+    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
+);

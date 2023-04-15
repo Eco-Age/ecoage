@@ -167,4 +167,116 @@ if (!isset($_SESSION)) {
     }
       return $lista_noticias;
   }
+
+  function Curtida($id_noticia, $id_usuario) {
+    $conexao = obterConexao();
+  
+    $sql = "SELECT * FROM Curtidas WHERE id_noticia = ? AND id_usuario = ?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("ii", $id_noticia, $id_usuario);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+  
+    if ($resultado->num_rows == 0) {
+      $sql = "INSERT INTO Curtidas (id_noticia, id_usuario) VALUES (?, ?)";
+      $stmt = $conexao->prepare($sql);
+      $stmt->bind_param("ii", $id_noticia, $id_usuario);
+      $stmt->execute();
+
+      $sql = "UPDATE Noticias SET curtidas = curtidas + 1 WHERE id_noticia = ?";
+      $stmt = $conexao->prepare($sql);
+      $stmt->bind_param("i", $id_noticia);
+      $stmt->execute();
+    }else {
+      $sql = "DELETE FROM Curtidas WHERE id_noticia = ? AND id_usuario = ?";
+      $stmt = $conexao->prepare($sql);
+      $stmt->bind_param("ii", $id_noticia, $id_usuario);
+      $stmt->execute();
+
+      $sql = "UPDATE Noticias SET curtidas = curtidas - 1 WHERE id_noticia = ?";
+      $stmt = $conexao->prepare($sql);
+      $stmt->bind_param("i", $id_noticia);
+      $stmt->execute();
+    }
+
+    $sql = "SELECT curtidas FROM Noticias WHERE id_noticia = ?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("i", $id_noticia);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $curtidas = $resultado->fetch_assoc()['curtidas'];
+  
+    $stmt->close();
+    $conexao->close();
+  
+    echo $curtidas;
+  }
+
+  function VerificaCurtida($id_noticia, $id_usuario){
+    $conexao = obterConexao();
+    $sql = "SELECT * FROM Curtidas WHERE id_noticia = ? AND id_usuario = ?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("ii", $id_noticia, $id_usuario);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+    if ($resultado->num_rows == 0){
+      $curtiu = 0;
+      return $curtiu;
+    }else{
+      $curtiu = 1;
+      return $curtiu;
+    }
+  }
+
+  function maisCurtidas() {
+    $lista_noticias = [];
+    $conexao = obterConexao();
+    
+    // Seleciona as 3 notícias com mais curtidas, ou todas as notícias na ordem mais recente se nenhuma tiver curtidas
+    $sql = "SELECT * FROM Noticias ";
+    if ($resultado = $conexao->query("SELECT COUNT(*) AS total FROM Noticias WHERE curtidas > 0")) {
+      $total_curtidas = $resultado->fetch_assoc()['total'];
+      if ($total_curtidas >= 3) {
+        $sql .= "WHERE curtidas > 0 ORDER BY curtidas DESC, data_noticia DESC LIMIT 3";
+      } else if ($total_curtidas == 2) {
+        $sql .= "WHERE curtidas > 0 ORDER BY curtidas DESC, data_noticia DESC LIMIT 2";
+      } else if ($total_curtidas == 1) {
+        $sql .= "WHERE curtidas > 0 ORDER BY curtidas DESC, data_noticia DESC LIMIT 1";
+      } else {
+        $sql .= "ORDER BY data_noticia DESC LIMIT 3";
+      }
+      $resultado->close();
+    } else {
+      $sql .= "ORDER BY data_noticia DESC LIMIT 3";
+    }
+  
+    // Executa a consulta e adiciona as notícias na lista
+    if ($stmt = $conexao->prepare($sql)) {
+      $stmt->execute();
+      $resultado = $stmt->get_result();
+      while ($noticia = $resultado->fetch_assoc()) {
+        array_push($lista_noticias, $noticia);
+      }
+      $resultado->close();
+      $stmt->close();
+    }
+    
+    // Se a lista não tem 3 notícias, adiciona a notícia não curtida mais recente
+    if (count($lista_noticias) < 3) {
+      $sql = "SELECT * FROM Noticias WHERE curtidas = 0 ORDER BY data_noticia DESC LIMIT " . (3 - count($lista_noticias));
+      if ($stmt = $conexao->prepare($sql)) {
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        while ($noticia = $resultado->fetch_assoc()) {
+          array_push($lista_noticias, $noticia);
+        }
+        $resultado->close();
+        $stmt->close();
+      }
+    }
+  
+    $conexao->close();
+    return $lista_noticias;
+  }
   ?>
