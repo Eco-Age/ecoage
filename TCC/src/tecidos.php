@@ -51,7 +51,7 @@ $lista_tecidos = listarTecidos();
                 <p>
                 <img id="imgtecido1" class="card-img-top" src="data:image/jpeg;base64,<?=$tecido["caminho_imagem"]?>" alt="<?=$tecido["nome_tecidos"]?>">
                     <h5><?= $tecido["nome_tecidos"] ?></h5>
-                    <p>Voce conquistou esse tecido!</p>
+                    <p>Vamos aprender sobre o tecido?</p>
                     <a class="btn btn-purple" data-toggle="collapse" href="#collapse<?= $tecido["id_tecidos"] ?>" role="button" aria-expanded="false" aria-controls="collapse<?= $tecido["id_tecidos"] ?>">
                         Saiba mais..
                     </a>
