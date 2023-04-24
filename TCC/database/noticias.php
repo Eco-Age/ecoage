@@ -92,81 +92,85 @@ if (!isset($_SESSION)) {
       $_SESSION["msg"] = "Os dados da noticia foram alterados!";
       $_SESSION["tipo_msg"] = "alert-success";
     } else {
-      $_SESSION["msg"] = "Os dados da noticia não foram alterados! Erro: " . mysqli_error($conexao);
-      $_SESSION["tipo_msg"] = "alert-danger";
+      $_SESSION["msg"] = "Nenhuma alteração foi realizada. Favor, editar algum campo.";
+      $_SESSION["tipo_msg"] = "alert-warning";
     }  
   
     $stmt->close();
     $conexao->close();
   }
   
-    function buscarPalavraChave($palavra_chave){
+  function buscarPalavraChave($palavra_chave){
 
-      $resultado = [];
-      $lista_noticias = [];
-      $conexao = obterConexao(); 
+    $resultado = [];
+    $lista_noticias = [];
+    $conexao = obterConexao(); 
 
-      // Verifica se o filtro foi selecionado
-      if(isset($_SESSION["filtro"]) && !empty($_SESSION["filtro"])) {
-          $filtro = $_SESSION["filtro"];
-          switch($filtro) {
-              case "ultimas_24h":
-                  $intervalo = "1 DAY";
-                  break;
-              case "ultima_semana":
-                  $intervalo = "1 WEEK";
-                  break;
-              case "ultimo_mes":
-                  $intervalo = "1 MONTH";
-                  break;
-              case "ultimo_ano":
-                  $intervalo = "1 YEAR";
-                  break;
-          }
-          if(!empty($intervalo)) {
-            /* caso o usuário escolher algum filtro que não seja "em qualquer data",
-            ele deve usar ao menos 3 letras na palavra chave ou pediremos mais especificidade */
-            if (strlen($palavra_chave) >= 3){
-              $sql = "SELECT * FROM Noticias 
+    // Verifica se o filtro foi selecionado
+    if(isset($_SESSION["filtro"]) && !empty($_SESSION["filtro"])) {
+        $filtro = $_SESSION["filtro"];
+        switch($filtro) {
+            case "ultimas_24h":
+                $intervalo = "1 DAY";
+                break;
+            case "ultima_semana":
+                $intervalo = "1 WEEK";
+                break;
+            case "ultimo_mes":
+                $intervalo = "1 MONTH";
+                break;
+            case "ultimo_ano":
+                $intervalo = "1 YEAR";
+                break;
+        }
+        if(!empty($intervalo)) {
+          // Verifica se a palavra chave tem pelo menos 3 caracteres
+          if (strlen(trim($palavra_chave)) >= 3){
+            $sql = "SELECT * FROM Noticias 
               WHERE (titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%')
               AND data_noticia >= DATE_SUB(NOW(), INTERVAL $intervalo)";
-            }else{
-              $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
-              $_SESSION["tipo_msg"] = "alert-danger";
-              header("Location: ../src/portal_de_noticias.php");
-            }
-          } 
+          }else if (trim($palavra_chave) == ''){
+            $sql = "SELECT * FROM Noticias WHERE data_noticia >= DATE_SUB(NOW(), INTERVAL $intervalo)";
+          }
+          else {
+            $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
+            $_SESSION["tipo_msg"] = "alert-danger";
+            header("Location: ../src/portal_de_noticias.php");
+            return;
+          }
+        } 
       } else {
-        /* caso o usuário não digitar nada e pesquisar no "em qualquer data", todas aparecem.
-        No entanto, se ele digitar uma única letra no "em qualquer data", pede especificidade
-        e do mesmo jeito o if anterior, precisará de 3 caracteres. */
-            if (strlen($palavra_chave) == 0 || (strlen($palavra_chave) >= 3)){
-            $sql = "SELECT * FROM Noticias 
-                    WHERE titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%'";
-            }else{
-              $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
-              $_SESSION["tipo_msg"] = "alert-danger";
-              header("Location: ../src/portal_de_noticias.php");
-            }
-        }
-      
-
-      $stmt = $conexao->prepare($sql);
-      $stmt->execute();
-      $resultado = $stmt->get_result();
-
-     
-      if($resultado->num_rows == 0) {
-          $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\" com o filtro selecionado.";
+        // Verifica se a palavra chave tem pelo menos 3 caracteres ou se é vazia ou composta apenas de espaços em branco
+        if (strlen(trim($palavra_chave)) >= 3){
+          $sql = "SELECT * FROM Noticias 
+            WHERE titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%'"; 
+        }else if (trim($palavra_chave) == ''){
+              $sql = "SELECT * FROM Noticias";
+        } else {
+          $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
           $_SESSION["tipo_msg"] = "alert-danger";
           header("Location: ../src/portal_de_noticias.php");
-      } else { 
-        while ($noticias = mysqli_fetch_assoc($resultado)) {
-        array_push($lista_noticias, $noticias);
+          return;
+        }
       }
+
+    $stmt = $conexao->prepare($sql);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+   
+    if($resultado->num_rows == 0) {
+        $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\" com o filtro selecionado.";
+        $_SESSION["tipo_msg"] = "alert-danger";
+        header("Location: ../src/portal_de_noticias.php");
+    } else { 
+      while ($noticias = mysqli_fetch_assoc($resultado)) {
+      array_push($lista_noticias, $noticias);
     }
-      return $lista_noticias;
   }
+    return $lista_noticias;
+}
+
 
   function Curtida($id_noticia, $id_usuario) {
     $conexao = obterConexao();

@@ -37,22 +37,20 @@ if ($_SESSION["id_usuario"] == 1) {
         <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
         <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
             <form id="form_busca" action="buscarNoticia.php" class="form-inline" method="post">
-                <input class="form-control" name="palavra_chave" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar">
+                <input class="form-control" name="palavra_chave" id="palavra_chave" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar">
                 <div class="form-group">
                     <label for="filtro"></label>
                     <select class="form-control" id="filtro" name="filtro">
                         <option value="">Em qualquer data</option>
-                        <option value="ultima_hora">Na última hora</option>
                         <option value="ultimas_24h">Nas últimas 24 horas</option>
                         <option value="ultima_semana">Na última semana</option>
                         <option value="ultimo_mes">No último mês</option>
                         <option value="ultimo_ano">No último ano</option>
-                        <option value="mais_antigo">Mais antigo</option>
                     </select>
                 </div>
 
                 <button class="btn btn-primary" type="submit" name="buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
+                <div class="erro-preencher" id="palavra_chave_erro"></div>
             <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
         </div>
     </div>
@@ -98,8 +96,9 @@ if ($_SESSION["id_usuario"] == 1) {
 include("../include/rodape.php");
 ?>
 <script src="../assets/script.js"></script>
+<script src="../assets/script_valida_form.js"></script>
 <script>
-    let id_usuario_curtida = "<?php echo $_SESSION["id_usuario"]; ?>";
+    let id_usuario_curtida = "<?= $_SESSION["id_usuario"]; ?>";
 </script>
 </body>
 

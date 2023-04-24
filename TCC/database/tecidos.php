@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
   ob_start();
 }
 require_once("conexao.php");
-
+date_default_timezone_set('America/Sao_Paulo');
 function buscarTecido($id_tecidos){
     
   $sql = "SELECT * FROM Tecidos WHERE id_tecidos = ?";
@@ -24,17 +24,7 @@ function buscarTecido($id_tecidos){
 
   return $tecido;  
 }
-function inserirTecido($id_tipo_tecidos, $desc_tecidos, $sustentavel, $imagem_tecido_base64) {
-
-  if (!empty($_FILES["imagem_tecido"]) && $_FILES["imagem_tecido"]["error"] == UPLOAD_ERR_OK) {
-    $nome_arquivo = $_FILES["imagem_tecido"]["name"];
-    $caminho_absoluto = $_SERVER['DOCUMENT_ROOT'] . "/assets/" . $nome_arquivo;
-    move_uploaded_file($_FILES["imagem_tecido"]["tmp_name"], $caminho_absoluto);
-    $caminho_imagem = "../assets/" . $nome_arquivo;
-  } else {
-    $caminho_imagem = "";
-  }
-
+function inserirTecido($id_tipo_tecidos, $desc_tecidos, $sustentavel, $caminho_imagem) {
   $sql = "INSERT INTO Tecidos (id_tipo_tecidos, desc_tecidos, sustentavel, caminho_imagem) 
           VALUES (?, ?, ?, ?)"; 
 
@@ -103,18 +93,8 @@ function removerTecido($id_tecidos){
     $conexao->close();
 }
 
-function editarTecido($id_tecidos, $id_tipo_tecidos, $desc_tecidos, $sustentavel, $imagem_tecido_base64) {
-   
+function editarTecido($id_tecidos, $id_tipo_tecidos, $desc_tecidos, $sustentavel, $caminho_imagem) {
   $conexao = obterConexao();
-
-  if (!empty($_FILES["imagem_tecido"]) && $_FILES["imagem_tecido"]["error"] == UPLOAD_ERR_OK) {
-    $nome_arquivo = $_FILES["imagem_tecido"]["name"];
-    $caminho_absoluto = $_SERVER['DOCUMENT_ROOT'] . "/assets/" . $nome_arquivo;
-    move_uploaded_file($_FILES["imagem_tecido"]["tmp_name"], $caminho_absoluto);
-    $caminho_imagem = "../assets/" . $nome_arquivo;
-  } else {
-    $caminho_imagem = "";
-  }
   $sql = "UPDATE Tecidos 
           SET id_tipo_tecidos = ?, desc_tecidos = ?, sustentavel = ?, caminho_imagem = ?
           WHERE id_tecidos = ?";
@@ -128,13 +108,10 @@ function editarTecido($id_tecidos, $id_tipo_tecidos, $desc_tecidos, $sustentavel
     $_SESSION["msg"] = "Os dados do tecido foram alterados!";
     $_SESSION["tipo_msg"] = "alert-success";
   } else {
-    $_SESSION["msg"] = "Os dados do tecido não foram alterados! Erro: " . mysqli_error($conexao);
-    $_SESSION["tipo_msg"] = "alert-danger";
+    $_SESSION["msg"] = "Nenhuma alteração foi realizada. Favor, editar algum campo.";
+    $_SESSION["tipo_msg"] = "alert-warning";
   }  
 
   $stmt->close();
   $conexao->close();
 }
-
-
-?>

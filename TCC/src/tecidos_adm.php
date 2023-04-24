@@ -84,7 +84,7 @@ $lista_tecidos = listarTecidos();
               <div class="form-group">
                 <div class="input-group mb-3">
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="imagem_tecido" name="imagem_tecido" aria-describedby="inputGroupFileAddon">
+                    <input type="file" class="custom-file-input" accept="image/jpg, image/jpeg, image/png, image/bmp, image/webp" id="imagem_tecido" name="imagem_tecido" aria-describedby="inputGroupFileAddon">
                     <label class="custom-file-label file-selected" for="imagem_tecido" id="inputGroupFileAddon">Escolha uma imagem</label>
                   </div>
                 </div>  
