@@ -506,6 +506,14 @@ nav {
     margin-right: 20px;
 }
 */
+
+#paginacao{
+    background-color: #00000000;
+    border: none;
+}
+
+
+
 .btn-purple {
     color: #fff;
     background-color: #6f42c1;
@@ -550,7 +558,7 @@ nav {
 }
 
 #tecidos {
-    margin-bottom: 100px;
+    margin-bottom: 20px;
     margin-top: 50px;
 
 }

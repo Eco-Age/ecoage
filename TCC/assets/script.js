@@ -65,6 +65,35 @@ function confirmar_edicao_tecido(form) {
   return false;
 }
 
+function confirmar_edicao_noticia(form) {
+
+  swal.fire({
+    title: "Deseja realmente alterar a notícia?",
+    text: "Cuidado! Em caso de arrependimento, seus dados deverão novamente ser editados.",
+    icon: "warning",
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#9370DB', // cor antiga : #8A2BE2
+    showCancelButton: true,
+    cancelButtonText: 'Cancelar',
+    confirmButtonText: 'Sim, editar',
+    allowOutsideClick: true,
+    closeOnConfirm: false,
+    closeOnCancel: false
+  })
+    .then((result) => {
+      if (result.value) {
+        form.submit();
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        swal.fire(
+          'Edição cancelada.',
+          'O Tecido não foi editado',
+          'success'
+        )
+      }
+    });
+  return false;
+}
+
 function duvida_token() {
   Swal.fire({
     icon: 'question',

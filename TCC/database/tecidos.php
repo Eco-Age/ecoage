@@ -5,6 +5,7 @@ if (!isset($_SESSION)) {
 }
 require_once("conexao.php");
 date_default_timezone_set('America/Sao_Paulo');
+
 function buscarTecido($id_tecidos){
     
   $sql = "SELECT * FROM Tecidos WHERE id_tecidos = ?";
@@ -46,14 +47,14 @@ function inserirTecido($id_tipo_tecidos, $desc_tecidos, $sustentavel, $caminho_i
   $conexao->close();
 }
 
-function listarTecidos(){
+/*unction listarTecidos(){
   
   $lista_tecidos = [];
 
   $sql = "SELECT t.id_tecidos, tt.nome_tecidos, t.desc_tecidos, t.sustentavel, t.caminho_imagem
           FROM Tipo_Tecidos tt, Tecidos t
-          WHERE tt.id_tipo_tecidos = t.id_tipo_tecidos"; 
-    
+          WHERE tt.id_tipo_tecidos = t.id_tipo_tecidos";
+
   $conexao = obterConexao(); 
 
   $stmt = $conexao->prepare($sql);
@@ -70,7 +71,7 @@ function listarTecidos(){
   $conexao->close();
 
   return $lista_tecidos;
-}
+}*/
 
 function removerTecido($id_tecidos){
   
@@ -114,4 +115,48 @@ function editarTecido($id_tecidos, $id_tipo_tecidos, $desc_tecidos, $sustentavel
 
   $stmt->close();
   $conexao->close();
+}
+
+
+
+function listarTecidosPaginacao($pagina_atual, $itens_por_pagina) {
+  $lista_tecidos = [];
+
+  $sql = "SELECT t.id_tecidos, tt.nome_tecidos, t.desc_tecidos, t.sustentavel, t.caminho_imagem
+          FROM Tipo_Tecidos tt, Tecidos t
+          WHERE tt.id_tipo_tecidos = t.id_tipo_tecidos
+          LIMIT ?, ?";
+
+  $conexao = obterConexao(); 
+
+  $offset = ($pagina_atual - 1) * $itens_por_pagina;
+  $stmt = $conexao->prepare($sql);
+  $stmt->bind_param("ii", $offset, $itens_por_pagina);
+  $stmt->execute();
+  $resultado = $stmt->get_result();
+    
+  while ($tecido = mysqli_fetch_assoc($resultado)){
+    if (!empty($tecido["caminho_imagem"])) {
+      $tecido["caminho_imagem"] = base64_encode(file_get_contents($tecido["caminho_imagem"]));
+    }
+    array_push($lista_tecidos, $tecido);
+  }    
+  $stmt->close();
+  $conexao->close();
+
+  return $lista_tecidos;
+}
+
+function contarTecidos() {
+  $sql = "SELECT COUNT(*) AS qtdelinhas FROM Tecidos";
+  $conexao = obterConexao();
+  $stmt = $conexao->prepare($sql);
+  $stmt->execute();
+  $resultado = $stmt->get_result();
+  $linha = mysqli_fetch_assoc($resultado);
+  $qtde = $linha["qtdelinhas"];
+ 
+  $stmt->close();
+  $conexao->close();
+  return $qtde;
 }

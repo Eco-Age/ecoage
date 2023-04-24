@@ -34,7 +34,7 @@ $noticias = buscarNoticia($id_noticia);
             <div class="col-4">
 
             <fieldset>      
-                  <form action="../src/editar_noticia.php" method="post">
+                  <form action="../src/editar_noticia.php" method="post" onsubmit="return confirmar_edicao_noticia(this)">
                   <input type="hidden" name="id_noticia" value="<?=$id_noticia?>">                             
 
                             <div class="form-row">

@@ -12,8 +12,25 @@ verificaSessao();
 $chave_sessao = $_SESSION["id_usuario"];
 
 $lista_tipo_tecidos = listarTipoTecidos();
-$lista_tecidos = listarTecidos();
+
+// Define o número de itens por página
+$itens_por_pagina = 3;
+
+// Obtém o número total de tecidos
+$total_tecidos = contarTecidos();
+
+// Obtém o número total de páginas
+$paginas = ceil($total_tecidos / $itens_por_pagina);
+
+// Obtém o número da página atual
+$pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+
+// Obtém os tecidos da página atual
+$lista_tecidos = listarTecidosPaginacao($pagina_atual, $itens_por_pagina);
+
 ?>
+
+
 
 <div class="container" id="conteudo">
   <div class="row">
@@ -102,6 +119,7 @@ $lista_tecidos = listarTecidos();
     </div>
   </div>
 
+  
   <div class="row justify-content-center" id="tecidos">
     <?php foreach ($lista_tecidos as $tecido) : ?>
       <div id="tecido_usu" class="tecido col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
@@ -150,8 +168,35 @@ $lista_tecidos = listarTecidos();
       </div> 
     <?php endforeach ?>    
   </div>
-</div>
+  
+        <ul class="pagination justify-content-center">
+            <?php if ($pagina_atual > 1) : ?>
+                <li class="page-item">
+                    <a class="btn btn-primary page-link" href="?pagina=<?= $pagina_atual - 1 ?>" aria-label="Anterior">
+                        <span aria-hidden="true">&#8249;</span>
+                        <span class="sr-only">Anterior</span>
+                    </a>
+                </li>
+            <?php endif ?>
 
+            <?php for ($i = 1; $i <= $paginas; $i++) : ?>
+                <li class="page-item <?php if ($pagina_atual == $i) echo 'active' ?>">
+                    <a class="btn btn-primary page-link" href="?pagina=<?= $i ?>"><?= $i ?></a>
+                </li>
+            <?php endfor ?>
+
+            <?php if ($pagina_atual < $paginas) : ?>
+                <li class="page-item">
+                    <a class="btn btn-primary page-link" href="?pagina=<?= $pagina_atual + 1 ?>" aria-label="Próximo">
+                        <span aria-hidden="true">&#8250;</span>
+                        <span class="sr-only">Próximo</span>
+                    </a>
+                </li>
+            <?php endif ?>
+        </ul>
+
+        
+</div>
 <?php
     include ("../include/rodape.php");
 ?>
