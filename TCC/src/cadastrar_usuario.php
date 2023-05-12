@@ -65,7 +65,7 @@ if (verificarUsuarioCadastrado($apelido, $email) == true) {
 
         $mail->AddEmbeddedImage('../assets/logo.png', 'logo_ref');
 
-        $mail->Subject = '[Recuperação de Senha]';
+        $mail->Subject = '[Verificação de Email]';
         $mail->Body = '<h2 style="text-align: center;">Confirmação de Email</h2>
                         <p>Olá!</p>
                         <p>Você está recebendo este email porque tentou criar uma conta em nosso website. </p>
