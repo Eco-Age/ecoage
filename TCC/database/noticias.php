@@ -100,76 +100,7 @@ if (!isset($_SESSION)) {
     $conexao->close();
   }
   
-  function buscarPalavraChave($palavra_chave){
-
-    $resultado = [];
-    $lista_noticias = [];
-    $conexao = obterConexao(); 
-
-    // Verifica se o filtro foi selecionado
-    if(isset($_SESSION["filtro"]) && !empty($_SESSION["filtro"])) {
-        $filtro = $_SESSION["filtro"];
-        switch($filtro) {
-            case "ultimas_24h":
-                $intervalo = "1 DAY";
-                break;
-            case "ultima_semana":
-                $intervalo = "1 WEEK";
-                break;
-            case "ultimo_mes":
-                $intervalo = "1 MONTH";
-                break;
-            case "ultimo_ano":
-                $intervalo = "1 YEAR";
-                break;
-        }
-        if(!empty($intervalo)) {
-          // Verifica se a palavra chave tem pelo menos 3 caracteres
-          if (strlen(trim($palavra_chave)) >= 3){
-            $sql = "SELECT * FROM Noticias 
-              WHERE (titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%')
-              AND data_noticia >= DATE_SUB(NOW(), INTERVAL $intervalo)";
-          }else if (trim($palavra_chave) == ''){
-            $sql = "SELECT * FROM Noticias WHERE data_noticia >= DATE_SUB(NOW(), INTERVAL $intervalo)";
-          }
-          else {
-            $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
-            $_SESSION["tipo_msg"] = "alert-danger";
-            header("Location: ../src/portal_de_noticias.php");
-            return;
-          }
-        } 
-      } else {
-        // Verifica se a palavra chave tem pelo menos 3 caracteres ou se é vazia ou composta apenas de espaços em branco
-        if (strlen(trim($palavra_chave)) >= 3){
-          $sql = "SELECT * FROM Noticias 
-            WHERE titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%'"; 
-        }else if (trim($palavra_chave) == ''){
-              $sql = "SELECT * FROM Noticias";
-        } else {
-          $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
-          $_SESSION["tipo_msg"] = "alert-danger";
-          header("Location: ../src/portal_de_noticias.php");
-          return;
-        }
-      }
-
-    $stmt = $conexao->prepare($sql);
-    $stmt->execute();
-    $resultado = $stmt->get_result();
-
-   
-    if($resultado->num_rows == 0) {
-        $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\" com o filtro selecionado.";
-        $_SESSION["tipo_msg"] = "alert-danger";
-        header("Location: ../src/portal_de_noticias.php");
-    } else { 
-      while ($noticias = mysqli_fetch_assoc($resultado)) {
-      array_push($lista_noticias, $noticias);
-    }
-  }
-    return $lista_noticias;
-}
+  
 
 
   function Curtida($id_noticia, $id_usuario) {
@@ -282,5 +213,179 @@ if (!isset($_SESSION)) {
   
     $conexao->close();
     return $lista_noticias;
+  }
+
+
+  function buscarPalavraChave($palavra_chave){
+
+    $resultado = [];
+    $lista_noticias = [];
+    $conexao = obterConexao(); 
+
+    // Verifica se o filtro foi selecionado
+    if(isset($_SESSION["filtro"]) && !empty($_SESSION["filtro"])) {
+        $filtro = $_SESSION["filtro"];
+        switch($filtro) {
+            case "ultimas_24h":
+                $intervalo = "1 DAY";
+                break;
+            case "ultima_semana":
+                $intervalo = "1 WEEK";
+                break;
+            case "ultimo_mes":
+                $intervalo = "1 MONTH";
+                break;
+            case "ultimo_ano":
+                $intervalo = "1 YEAR";
+                break;
+        }
+        if(!empty($intervalo)) {
+          // Verifica se a palavra chave tem pelo menos 3 caracteres
+          if (strlen(trim($palavra_chave)) >= 3){
+            $sql = "SELECT * FROM Noticias 
+              WHERE (titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%')
+              AND data_noticia >= DATE_SUB(NOW(), INTERVAL $intervalo)";
+          }else if (trim($palavra_chave) == ''){
+            $sql = "SELECT * FROM Noticias WHERE data_noticia >= DATE_SUB(NOW(), INTERVAL $intervalo)";
+          }
+          else {
+            $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
+            $_SESSION["tipo_msg"] = "alert-danger";
+            header("Location: ../src/portal_de_noticias.php");
+            return;
+          }
+        } 
+      } else {
+        // Verifica se a palavra chave tem pelo menos 3 caracteres ou se é vazia ou composta apenas de espaços em branco
+        if (strlen(trim($palavra_chave)) >= 3){
+          $sql = "SELECT * FROM Noticias 
+            WHERE titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%'"; 
+        }else if (trim($palavra_chave) == ''){
+              $sql = "SELECT * FROM Noticias";
+        } else {
+          $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
+          $_SESSION["tipo_msg"] = "alert-danger";
+          header("Location: ../src/portal_de_noticias.php");
+          return;
+        }
+      }
+
+    $stmt = $conexao->prepare($sql);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+   
+    if($resultado->num_rows == 0) {
+        $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\" com o filtro selecionado.";
+        $_SESSION["tipo_msg"] = "alert-danger";
+        header("Location: ../src/portal_de_noticias.php");
+    } else { 
+      while ($noticias = mysqli_fetch_assoc($resultado)) {
+      array_push($lista_noticias, $noticias);
+    }
+  }
+    return $lista_noticias;
+}
+
+  function listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_por_pagina) {
+    $lista_noticias = [];
+    $resultado = [];
+    $conexao = obterConexao(); 
+
+    // Verifica se o filtro foi selecionado
+    if(isset($_SESSION["filtro"]) && !empty($_SESSION["filtro"])) {
+      $filtro = $_SESSION["filtro"];
+      switch($filtro) {
+          case "ultimas_24h":
+              $intervalo = "1 DAY";
+              break;
+          case "ultima_semana":
+              $intervalo = "1 WEEK";
+              break;
+          case "ultimo_mes":
+              $intervalo = "1 MONTH";
+              break;
+          case "ultimo_ano":
+              $intervalo = "1 YEAR";
+              break;
+      }
+      if(!empty($intervalo)) {
+        // Verifica se a palavra chave tem pelo menos 3 caracteres
+        if (strlen(trim($palavra_chave)) >= 3){
+          $sql = "SELECT * FROM Noticias 
+            WHERE (titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%')
+            AND data_noticia >= DATE_SUB(NOW(), INTERVAL $intervalo)
+            LIMIT ?, ?";
+
+        }else if (trim($palavra_chave) == ''){
+          $sql = "SELECT * FROM Noticias WHERE data_noticia >= DATE_SUB(NOW(), INTERVAL $intervalo)
+                  LIMIT ?, ?";
+        }
+        else {
+          $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
+          $_SESSION["tipo_msg"] = "alert-danger";
+          header("Location: ../src/portal_de_noticias.php");
+          return;
+        }
+      } 
+    } else {
+      // Verifica se a palavra chave tem pelo menos 3 caracteres ou se é vazia ou composta apenas de espaços em branco
+
+    
+    if (strlen(trim($palavra_chave)) >= 3){
+        $sql = "SELECT * FROM Noticias 
+          WHERE titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%'
+          LIMIT ?, ?";
+
+      }else if (trim($palavra_chave) == ''){
+            $sql = "SELECT * FROM Noticias            
+                    LIMIT ?, ?";
+            
+
+      } else {
+        $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
+        $_SESSION["tipo_msg"] = "alert-danger";
+        header("Location: ../src/portal_de_noticias.php");
+        return;
+      }
+    }
+           
+      $offset = ($pagina_atual - 1) * $itens_por_pagina;
+      $stmt = $conexao->prepare($sql);
+      $stmt->bind_param("ii", $offset, $itens_por_pagina);
+      $stmt->execute();
+      $resultado = $stmt->get_result();
+   
+      //$sql = "SELECT * FROM Noticias
+
+   
+
+    if($resultado->num_rows == 0) {
+      $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\" com o filtro selecionado.";
+      $_SESSION["tipo_msg"] = "alert-danger";
+      header("Location: ../src/portal_de_noticias.php");
+    } else { 
+      while ($noticias = mysqli_fetch_assoc($resultado)) {
+      array_push($lista_noticias, $noticias);
+      }
+    }    
+    $stmt->close();
+    $conexao->close();
+  
+    return $lista_noticias;
+  }
+
+  function contarNoticias() {
+    $sql = "SELECT COUNT(*) AS qtdelinhas FROM Noticias";
+    $conexao = obterConexao();
+    $stmt = $conexao->prepare($sql);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $linha = mysqli_fetch_assoc($resultado);
+    $qtde = $linha["qtdelinhas"];
+   
+    $stmt->close();
+    $conexao->close();
+    return $qtde;
   }
   ?>
