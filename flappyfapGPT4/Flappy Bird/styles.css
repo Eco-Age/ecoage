@@ -1,0 +1,14 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #d0f0ff;
+    background-image: linear-gradient(to bottom, #4CA1AF, #E0FFFF);
+}
+
+#gameCanvas {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
