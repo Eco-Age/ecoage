@@ -150,7 +150,7 @@ function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelid
   $senhaDigitada_md5 = md5($senhaDigitada);
   
   if ($senhaCadastrada === $senhaDigitada_md5){
-      $sql = "UPDATE Usuario
+      $sql = "atualizar Usuario
       SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?,  id_avatar = ?
       WHERE id_usuario = ?";
       $stmt = $conexao->prepare($sql);
@@ -305,7 +305,7 @@ function verificatoken($email, $token_digitado){
       header("Location: ../public/index.php");
       exit;
     } else {
-      $sql = "UPDATE Usuario SET senha = ? WHERE email = ?";
+      $sql = "atualizar Usuario SET senha = ? WHERE email = ?";
       $stmt = $conexao->prepare($sql);
       $stmt->bind_param("ss", $nova_senha_md5, $email);
       $stmt->execute();
@@ -376,7 +376,7 @@ function verificatoken($email, $token_digitado){
     $row = $result->fetch_assoc();
     $senha_atual = $row['senha'];
 
-    $sql = "UPDATE Usuario SET senha = ? WHERE id_usuario = ?";
+    $sql = "atualizar Usuario SET senha = ? WHERE id_usuario = ?";
     $stmt = $conexao->prepare($sql);
     $nova_senha_md5 = md5($nova_senha);
     if ($nova_senha_md5 == $senha_atual){
@@ -478,7 +478,7 @@ function excluirEmailExpirado() {
 
 function atualizaVerifica($email, $verifica){
   $conexao = obterConexao();
-  $sql = "UPDATE Usuario SET verifica = ? WHERE email = ?";
+  $sql = "atualizar Usuario SET verifica = ? WHERE email = ?";
   $stmt = $conexao->prepare($sql);
   $stmt->bind_param('is', $verifica, $email);
   $stmt->execute();

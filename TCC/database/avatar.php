@@ -120,7 +120,7 @@ function buscarAvatar(){
         $id_novo_avatar = mysqli_real_escape_string($conexao, $_POST['avatar']);
 
         // Atualizar o avatar do usuário
-        mysqli_query($conexao, "UPDATE Usuario SET id_avatar = '$id_novo_avatar' WHERE id_usuario = '$id_usuario'");
+        mysqli_query($conexao, "atualizar Usuario SET id_avatar = '$id_novo_avatar' WHERE id_usuario = '$id_usuario'");
     }
     }*/
     

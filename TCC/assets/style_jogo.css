@@ -1,0 +1,12 @@
+body {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#jogoCanvas {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;    
+    background-image: url('../assets/fundo.png'); 
+}

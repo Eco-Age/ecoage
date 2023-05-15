@@ -79,7 +79,7 @@ if (!isset($_SESSION)) {
    
     $conexao = obterConexao();
   
-    $sql = "UPDATE Noticias
+    $sql = "atualizar Noticias
             SET titulo_noticia = ? , data_noticia = ?, url_noticia = ?, descricao_noticia = ?
             WHERE id_noticia = ?";
     
@@ -118,7 +118,7 @@ if (!isset($_SESSION)) {
       $stmt->bind_param("ii", $id_noticia, $id_usuario);
       $stmt->execute();
 
-      $sql = "UPDATE Noticias SET curtidas = curtidas + 1 WHERE id_noticia = ?";
+      $sql = "atualizar Noticias SET curtidas = curtidas + 1 WHERE id_noticia = ?";
       $stmt = $conexao->prepare($sql);
       $stmt->bind_param("i", $id_noticia);
       $stmt->execute();
@@ -128,7 +128,7 @@ if (!isset($_SESSION)) {
       $stmt->bind_param("ii", $id_noticia, $id_usuario);
       $stmt->execute();
 
-      $sql = "UPDATE Noticias SET curtidas = curtidas - 1 WHERE id_noticia = ?";
+      $sql = "atualizar Noticias SET curtidas = curtidas - 1 WHERE id_noticia = ?";
       $stmt = $conexao->prepare($sql);
       $stmt->bind_param("i", $id_noticia);
       $stmt->execute();

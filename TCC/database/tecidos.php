@@ -96,7 +96,7 @@ function removerTecido($id_tecidos){
 
 function editarTecido($id_tecidos, $id_tipo_tecidos, $desc_tecidos, $sustentavel, $caminho_imagem) {
   $conexao = obterConexao();
-  $sql = "UPDATE Tecidos 
+  $sql = "atualizar Tecidos 
           SET id_tipo_tecidos = ?, desc_tecidos = ?, sustentavel = ?, caminho_imagem = ?
           WHERE id_tecidos = ?";
   
