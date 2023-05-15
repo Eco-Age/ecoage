@@ -33,7 +33,7 @@
 }
 
 #senhahelp {
-    color: #364230;
+    color: #432b58;
     margin-top: 5px;
     margin-left: 20px;
     padding-bottom: 0px;
@@ -429,7 +429,7 @@
 }
 
 #icone_sair {
-    color: #2c5300;
+    color: #175f86;
 }
 
 #avatarMenu {
@@ -910,21 +910,6 @@ nav {
 
 
 
-#visaoadm_noticias,
-#visaousu_noticias {
-    border-radius: 20px;
-    font-size: 10pt;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 10px;
-    padding-right: 8px;
-    background-color: #623f80;
-    color: #f0f8e5;
-    margin-top: 20px;
-    box-shadow: 3px 3px 10px #432b5813;
-}
-
-
 #btncadastrarnoticia {
     width: 100%;
     background-color: #623f80;
@@ -977,6 +962,22 @@ nav {
 
 #btnfiltros {
     width: 100%;
+}
+
+.active .numeracao{
+    background-color: #623f80 !important; /* Cor de fundo quando o botão está ativo */
+    color: #ffffff !important; /* Cor do texto quando o botão está ativo */
+    border: none;
+}
+.numeracao{
+    border: none;
+    margin: 3px;
+    color: #623f80 !important;
+}
+.pagination{
+    margin-bottom: 100px;
+    margin-top: 20px;    
+
 }
 
 /* Imagens página incial */

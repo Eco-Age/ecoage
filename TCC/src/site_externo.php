@@ -111,7 +111,7 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
         <ul class="pagination justify-content-center">
             <?php if ($pagina_atual > 1) : ?>
                 <li class="page-item">
-                    <a class="btn btn-primary page-link" href="?pagina=<?= $pagina_atual - 1 ?>" aria-label="Anterior">
+                    <a class="numeracao btn page-link" href="?pagina=<?= $pagina_atual - 1 ?>" aria-label="Anterior">
                         <span aria-hidden="true">&#8249;</span>
                         <span class="sr-only">Anterior</span>
                     </a>
@@ -120,13 +120,13 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
 
             <?php for ($i = 1; $i <= $paginas; $i++) : ?>
                 <li class="page-item <?php if ($pagina_atual == $i) echo 'active' ?>">
-                    <a class="btn btn-primary page-link" href="?pagina=<?= $i ?>"><?= $i ?></a>
+                    <a class="numeracao btn page-link" href="?pagina=<?= $i ?>"><?= $i ?></a>
                 </li>
             <?php endfor ?>
 
             <?php if ($pagina_atual < $paginas) : ?>
                 <li class="page-item">
-                    <a class="btn btn-primary page-link" href="?pagina=<?= $pagina_atual + 1 ?>" aria-label="Próximo">
+                    <a class="numeracao btn page-link" href="?pagina=<?= $pagina_atual + 1 ?>" aria-label="Próximo">
                         <span aria-hidden="true">&#8250;</span>
                         <span class="sr-only">Próximo</span>
                     </a>
