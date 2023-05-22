@@ -107,6 +107,8 @@ const carreteis = {
 let carreteisColetados = 0;
 let tempoInicial = null; // Variável para armazenar o tempo de início
 let tempoDecorrido = 0; // Variável para armazenar o tempo decorrido em segundos
+let jogoFinalizado = false; // Variável de controle para verificar se o jogo finalizou
+let tempoPausado = 0; // Variável para armazenar o tempo pausado
 
 
 // função para ver se ocorreu uma colisão entre o personagem e o tubo
@@ -143,8 +145,14 @@ function desenharPontuacao() {
   ctx.fillText(`Itens coletados: ${carreteisColetados}`, 10, 30);
   ctx.fillText(`Tempo decorrido: ${formatarTempo(tempoDecorrido)}`, 10, 60);
 
-  requestAnimationFrame(desenharPontuacao);
+  function pausarTempo() {
+    if (!jogoFinalizado && tempoInicial) { // jogoFinalizado é falso, tempoInicial não é nulo, garante que o tempo só será pausado se o jogo estiver em andamento
+      tempoPausado = performance.now() - tempoInicial; //tempo percorrido até a pausa , performance.now() retorna o tempo atual,  ex: 10-0 = 10 segundos
+      jogoFinalizado = true; //jogo finalizado
+    }
+  }
 }
+
 
 function formatarTempo(tempo) {
   const horas = Math.floor(tempo / 3600);
@@ -159,14 +167,19 @@ function formatarTempo(tempo) {
 }
 
 function atualizarTempoDecorrido(timestamp) {
-  if (!tempoInicial) tempoInicial = timestamp;
+  if (!tempoInicial) tempoInicial = timestamp - tempoPausado;
+
   const tempoPassado = Math.floor((timestamp - tempoInicial) / 1000); // Calcula o tempo passado em segundos
   tempoDecorrido = tempoPassado;
-  requestAnimationFrame(atualizarTempoDecorrido);
+
+  if (!jogoFinalizado) {
+    requestAnimationFrame(atualizarTempoDecorrido);
+  }
 }
 
-
 requestAnimationFrame(atualizarTempoDecorrido);
+
+
 
 let keys = {};
 const SPACE_BAR_KEY_CODE = 32; // Código da tecla de espaço
