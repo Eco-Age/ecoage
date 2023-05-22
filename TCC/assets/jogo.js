@@ -203,39 +203,111 @@ window.addEventListener("keyup", (event) => {
 
 
 function gameLoop() {
+    
+    ctx.font = "40px Arial";
+    ctx.fillStyle = "#8614e9";
+    const titleText = "Guess the Tissue";
+    const titleX = canvas.width / 2 - ctx.measureText(titleText).width / 2;
+    const titleY = canvas.height / 2 - 20;
+    ctx.fillText(titleText, titleX, titleY);
+    
+    const buttonWidth = 300;
+    const buttonHeight = 50;
+    const buttonX = canvas.width / 2 - buttonWidth / 2;
+    const buttonY = canvas.height / 2 + 110;
+    
+    ctx.fillStyle = "#8614e9";
+    ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
+    
+    ctx.fillStyle = "black";
+    ctx.font = "30px Arial";
+    const buttonText = "Iniciar jogo";
+    const buttonTextX = buttonX + buttonWidth / 2 - ctx.measureText(buttonText).width / 2;
+    const buttonTextY = buttonY + buttonHeight / 2 + 10;
+    ctx.fillText(buttonText, buttonTextX, buttonTextY);
+    
+    canvas.addEventListener("click", handleClick);
+    
+    function handleClick(event) {
+      const rect = canvas.getBoundingClientRect();
+      const clickX = event.clientX - rect.left;
+      const clickY = event.clientY - rect.top;
+    
+      if (
+        clickX >= buttonX &&
+        clickX <= buttonX + buttonWidth &&
+        clickY >= buttonY &&
+        clickY <= buttonY + buttonHeight
+      ) {
+        canvas.removeEventListener("click", handleClick);
+        startGameLoop();
+      }
+    }
+}
+  
+  function startGameLoop() {    
+    
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     personagem.atualizar();
     tubos.atualizar();
     carreteis.atualizar();
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+  
+  
     personagem.desenhar();
     tubos.desenhar();
     carreteis.desenhar();
     desenharPontuacao();
-
+  
     if (keys[SPACE_BAR_KEY_CODE] || keys[UP_ARROW_KEY_CODE]) {
-        personagem.velocidade = -personagem.pulo;
-      }
-
-    
-    const colisaoComtubo = detectCollisions();
-    if (colisaoComtubo) {
-        gameOver();
-        return;
+      personagem.velocidade = -personagem.pulo;
     }
-
+  
+    const colisaoComTubo = detectCollisions();
+    if (colisaoComTubo) {
+      gameOver();
+      return;
+    }
+  
     for (const carretel of carreteis.list) {
-        if (collision(personagem, carretel)) {
-            carreteisColetados++;
-            const index = carreteis.list.indexOf(carretel);
-            carreteis.list.splice(index, 1);
-        }
+      if (collision(personagem, carretel)) {
+        carreteisColetados++;
+        const index = carreteis.list.indexOf(carretel);
+        carreteis.list.splice(index, 1);
+      }
     }
-
+  
     frames++;
-    requestAnimationFrame(gameLoop);
-}
+    requestAnimationFrame(startGameLoop);
+  }
+
+  gameLoop();
+  
+
+  
+    /*if (frames == 0) {
+      Swal.fire({ 
+        title: "Inicio de jogo!",  
+        icon: "success",
+        html: 
+          "<img src='../assets/nois.png' width='200' height='200'>" +
+          "<br>",  
+        confirmButtonColor: '#8614e9',
+        confirmButtonText: 'Iniciar',
+        allowOutsideClick: true,
+        allowEscapeKey: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          startGameLoop();
+        }
+      });
+    } else {
+      startGameLoop();
+    }
+  } */
+  
+    
+
 function gameOver() {
     Swal.fire({ 
       title: "Fim de jogo!",  
@@ -259,6 +331,7 @@ function gameOver() {
   }
   
 function restartGame() {
+        
     frames = 0;
     personagem.y = canvas.height / 2;
     personagem.velocidade = 0;
@@ -268,16 +341,13 @@ function restartGame() {
     tempoDecorrido = 0;
     tempoInicial = null;
 
+    startGameLoop(); 
+ }
 
-    gameLoop();
-}
-
-function atualizartempoDecorrido() {
+    function atualizartempoDecorrido() {
     tempoDecorrido++;
     setTimeout(atualizartempoDecorrido, 1000);
-}
-
-
+} 
 
 gameLoop();
 
