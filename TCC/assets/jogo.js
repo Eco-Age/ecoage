@@ -140,30 +140,42 @@ function detectCollisions() {
 
 
 function desenharPontuacao() {
-  ctx.font = "20px Arial";
-  ctx.fillStyle = "black";
-  ctx.fillText(`Itens coletados: ${carreteisColetados}`, 10, 30);
-  ctx.fillText(`Tempo decorrido: ${formatarTempo(tempoDecorrido)}`, 10, 60);
+    //quadrado branco atrás do relógio
+    ctx.fillStyle = "white";
+    ctx.fillRect(800, 0, -120, 65);
 
-  function pausarTempo() {
-    if (!jogoFinalizado && tempoInicial) { // jogoFinalizado é falso, tempoInicial não é nulo, garante que o tempo só será pausado se o jogo estiver em andamento
-      tempoPausado = performance.now() - tempoInicial; //tempo percorrido até a pausa , performance.now() retorna o tempo atual,  ex: 10-0 = 10 segundos
-      jogoFinalizado = true; //jogo finalizado
+    // Desenhar imagem de um carretel
+    const carretelImg = new Image();
+    carretelImg.src = "../assets/carretel.png";
+    ctx.drawImage(carretelImg, 10, 10, 20, 20);
+
+    // Desenhar imagem de um relógio
+    const relogioImg = new Image();
+    relogioImg.src = "../assets/relogio.png";
+    ctx.drawImage(relogioImg, 750, 15, 40, 40);
+
+    ctx.font = "20px Arial";
+    ctx.fillStyle = "black";
+    ctx.fillText(`${carreteisColetados}`, 40, 30);
+    ctx.fillText(`${formatarTempo(tempoDecorrido)}`, 700, 45);
+
+    function pausarTempo() {
+        if (!jogoFinalizado && tempoInicial) { // jogoFinalizado é falso, tempoInicial não é nulo, garante que o tempo só será pausado se o jogo estiver em andamento
+            tempoPausado = performance.now() - tempoInicial; //tempo percorrido até a pausa , performance.now() retorna o tempo atual,  ex: 10-0 = 10 segundos
+            jogoFinalizado = true; //jogo finalizado
+        }
     }
-  }
 }
 
 
 function formatarTempo(tempo) {
-  const horas = Math.floor(tempo / 3600);
   const minutos = Math.floor((tempo % 3600) / 60);
   const segundos = tempo % 60;
 
-  const formatoHoras = horas.toString().padStart(2, '0');
   const formatoMinutos = minutos.toString().padStart(2, '0');
   const formatoSegundos = segundos.toString().padStart(2, '0');
 
-  return `${formatoHoras}:${formatoMinutos}:${formatoSegundos}`;
+  return `${formatoMinutos}:${formatoSegundos}`;
 }
 
 function atualizarTempoDecorrido(timestamp) {
@@ -178,8 +190,6 @@ function atualizarTempoDecorrido(timestamp) {
 }
 
 requestAnimationFrame(atualizarTempoDecorrido);
-
-
 
 let keys = {};
 const SPACE_BAR_KEY_CODE = 32; // Código da tecla de espaço
