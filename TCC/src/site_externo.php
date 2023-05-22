@@ -8,8 +8,6 @@ require("../util/formatacoes.php");
 exibirMsg();
 verificaSessao();
 
-$palavra_chave = $_SESSION["palavra_chave"];
-
 if ($_SESSION["id_usuario"] == 1) {
     header("Location: ../src/site_externo_adm.php");
 }
@@ -19,18 +17,29 @@ $chave_sessao = $_SESSION["id_usuario"];
 // Define o número de itens por página
 $itens_por_pagina = 3;
 
-// Obtém o número total de tecidos
-$total_noticias = contarNoticias();
+// Obtem a palavra-chave da sessão
+$palavra_chave = isset($_SESSION["palavra_chave"]) ? $_SESSION["palavra_chave"] : '';
+if (isset($_GET['palavra_chave'])) {
+    $palavra_chave = $_GET['palavra_chave'];
+}
+// Obtém o número total de resultados da pesquisa
+$total_resultados = contarNoticias($palavra_chave);
 
 // Obtém o número total de páginas
-$paginas = ceil($total_noticias / $itens_por_pagina);
+$paginas = ceil($total_resultados / $itens_por_pagina);
 
 // Obtém o número da página atual
 $pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 
-// Obtém os tecidos da página atual
 
-//$lista_noticias_palavraChave = buscarPalavraChave($palavra_chave);
+// Verifique se a página atual está dentro dos limites
+if ($pagina_atual < 1) {
+    $pagina_atual = 1;
+} elseif ($pagina_atual > $paginas) {
+    $pagina_atual = $paginas;
+}
+
+// Busque as notícias com base na palavra-chvae e nos limites
 $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_por_pagina);
 
 ?>
@@ -67,7 +76,7 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
                     </select>
                 </div>
 
-                <button class="btn btn-primary" type="submit" name="buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="btn btn-primary" type="submit" name="buscar" id="btnBusca"><i class="fa-solid fa-magnifying-glass"></i></button>
                 <div class="erro-preencher" id="palavra_chave_erro"></div>
             <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
         </div>
@@ -111,7 +120,7 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
         <ul class="pagination justify-content-center">
             <?php if ($pagina_atual > 1) : ?>
                 <li class="page-item">
-                    <a class="numeracao btn page-link" href="?pagina=<?= $pagina_atual - 1 ?>" aria-label="Anterior">
+                    <a class="numeracao btn page-link" href="?pagina=<?= $pagina_atual - 1 ?>&palavra_chave=<?= urlencode($palavra_chave) ?>" aria-label="Anterior">
                         <span aria-hidden="true">&#8249;</span>
                         <span class="sr-only">Anterior</span>
                     </a>
@@ -120,19 +129,21 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
 
             <?php for ($i = 1; $i <= $paginas; $i++) : ?>
                 <li class="page-item <?php if ($pagina_atual == $i) echo 'active' ?>">
-                    <a class="numeracao btn page-link" href="?pagina=<?= $i ?>"><?= $i ?></a>
+                    <a class="numeracao btn page-link" href="?pagina=<?= $i ?>&palavra_chave=<?= urlencode($palavra_chave) ?>">
+                        <?= $i ?>
+                    </a>
                 </li>
             <?php endfor ?>
 
             <?php if ($pagina_atual < $paginas) : ?>
                 <li class="page-item">
-                    <a class="numeracao btn page-link" href="?pagina=<?= $pagina_atual + 1 ?>" aria-label="Próximo">
+                    <a class="numeracao btn page-link" href="?pagina=<?= $pagina_atual + 1 ?>&palavra_chave=<?= urlencode($palavra_chave) ?>" aria-label="Próximo">
                         <span aria-hidden="true">&#8250;</span>
                         <span class="sr-only">Próximo</span>
                     </a>
                 </li>
             <?php endif ?>
-        </ul> 
+        </ul>
     </div>
 </div>
 <?php

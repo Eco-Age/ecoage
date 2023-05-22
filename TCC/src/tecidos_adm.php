@@ -33,41 +33,38 @@ $lista_tecidos = listarTecidosPaginacao($pagina_atual, $itens_por_pagina);
 
 
 <div class="container" id="conteudo">
-  <div class="row">
-    <div class="col-lg-8"></div>
-    <div class="col-lg-4"></div>
-  </div>
 
-  <div class="row">
-    <h1 class="col-lg-12 text-center" id="txt_tecidos">Tecidos:</h1>
-  </div>
-
-  <div class="row">
-  <div class="col-md-4 col-lg-4"></div>
-  <div class="col-md-4 col-lg-4 col-xs-12">
-    <button type="button" class="btn btn-primary" id="btncadastrartecido" data-toggle="modal" data-target="#modalCadastrarTecido">
-      <span class="material-symbols-outlined">post_add</span>
-    </button>
-  </div>
-  <div class="col-md-4 col-lg-4"></div>
-</div>
-
+    <div class="row">
+      <h1 class="col-lg-12 text-center" id="txt_tecidos">Tecidos:</h1>
+    </div>
+    
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-4 col-md-4 d-flex justify-content-left">
-                <button type="button" class="btn-purple-circulo quiz-btn" onclick="quiz()">
-                <i class="fa fa-1x fa-gamepad"></i>
-                </button>
-            </div>
-            <div class="col-4 col-md-4"></div>
-            <div class="col-4 col-md-4">
-                <div class="d-flex justify-content-end">
-                    <button type="button" class="btn-purple-circulo" onclick="ajudaTecido()">
-                    <i class="fa fa-1x fa-question-circle"></i>
-                    </button>
-                </div>
-            </div>           
-        </div>
+    
+    <div class="row">
+      <div class="col-md-4 col-lg-4"></div>
+      <div class="col-md-4 col-lg-4 col-xs-12">
+        <button type="button" class="btn btn-primary" id="btncadastrartecido" data-toggle="modal" data-target="#modalCadastrarTecido">
+          <span class="material-symbols-outlined">post_add</span>
+        </button>
+      </div>
+      <div class="col-md-4 col-lg-4"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 col-md-4 d-flex justify-content-left">
+        <button type="button" class="btn-purple-circulo quiz-btn" onclick="quiz()">
+          <i class="fa fa-1x fa-gamepad"></i>
+        </button>
+      </div>
+      <div class="col-4 col-md-4"></div>
+      <div class="col-4 col-md-4">
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn-purple-circulo" onclick="ajudaTecido()">
+            <i class="fa fa-1x fa-question-circle"></i>
+          </button>
+         </div>
+        </div>           
+      </div>
     </div>
    
   <!-- Modal Cadastro de Tecidos -->

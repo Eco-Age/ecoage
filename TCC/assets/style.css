@@ -417,13 +417,13 @@
 
 #icone_game,
 #icone_perfil,
-#avatarMenu,
+#avatarMenu, #avatarEdicao
 #icone_sair {
     vertical-align: middle;
 }
 
 #icone_perfil,
-#avatarMenu,
+#avatarMenu, #avatarEdicao
 #icone_sair {
     margin-right: 10px;
 }
@@ -432,11 +432,12 @@
     color: #175f86;
 }
 
-#avatarMenu {
+#avatarMenu, #avatarEdicao{
     width: 30%;
     margin-right: 10px;
     margin-left: -5px;
 }
+
 
 
 #button_perfil {
@@ -778,6 +779,10 @@ nav {
     margin-right: 5px;
 }
 
+#btnBusca{
+    background-color: #623f80;
+    border: none;
+}
 /* rodapé */
 
 #divenviarEmail {
@@ -803,7 +808,7 @@ nav {
 
 #conteudo {
     min-height: calc(100vh - 100px);
-    /*display: flex;*/
+    display: flex;
     margin-top: 100px;
     flex-direction: column;
     justify-content: center;
@@ -911,10 +916,13 @@ nav {
 
 
 #btncadastrarnoticia {
-    width: 100%;
+    width: 80%;
+    height: 90%;
     background-color: #623f80;
     color: #f0f8e5;
     border: none;
+    text-align: center;
+    margin-left: 35px;
 }
 
 #btncadastrarnoticia:focus {
@@ -970,6 +978,18 @@ nav {
     border: none;
 }
 .numeracao{
+    border: none;
+    margin: 3px;
+    color: #623f80 !important;
+}
+
+
+.active .numeracao_adm{
+    background-color: #623f80 !important; /* Cor de fundo quando o botão está ativo */
+    color: #ffffff !important; /* Cor do texto quando o botão está ativo */
+    border: none;
+}
+.numeracao_adm{
     border: none;
     margin: 3px;
     color: #623f80 !important;

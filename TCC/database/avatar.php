@@ -100,29 +100,6 @@ function buscarAvatar(){
     return $avatar;  
 }
 
-
-//função não funcionando!!!!
-
-/*   function edicao_avatar($id_usuario){
-
-    $conexao = obterConexao();
-    
-        // Exibir os avatares em um formulário HTML
-    $consulta = mysqli_query($conexao, "SELECT id_avatar, nome, caminho FROM avatars");
-
-    while ($avatar = mysqli_fetch_assoc($consulta)) {
-        echo "<input type='radio' name='id_avatar' id='id_avatar' value='" . $avatar['id_avatar'] . "'><img src='" . $avatar['caminho'] . "' alt='" . $avatar['nome'] . "'><br>";
-    }
-
-    // Verificar se o usuário escolheu um novo avatar
-    if (isset($_POST['escolha_avatar'])) {
-        // Obter o id do novo avatar selecionado
-        $id_novo_avatar = mysqli_real_escape_string($conexao, $_POST['avatar']);
-
-        // Atualizar o avatar do usuário
-        mysqli_query($conexao, "atualizar Usuario SET id_avatar = '$id_novo_avatar' WHERE id_usuario = '$id_usuario'");
-    }
-    }*/
     
 function buscarAvatarUsado($id_usuario){
     

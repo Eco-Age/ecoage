@@ -79,7 +79,7 @@ if (!isset($_SESSION)) {
    
     $conexao = obterConexao();
   
-    $sql = "atualizar Noticias
+    $sql = "UPDATE Noticias
             SET titulo_noticia = ? , data_noticia = ?, url_noticia = ?, descricao_noticia = ?
             WHERE id_noticia = ?";
     
@@ -118,7 +118,7 @@ if (!isset($_SESSION)) {
       $stmt->bind_param("ii", $id_noticia, $id_usuario);
       $stmt->execute();
 
-      $sql = "atualizar Noticias SET curtidas = curtidas + 1 WHERE id_noticia = ?";
+      $sql = "UPDATE Noticias SET curtidas = curtidas + 1 WHERE id_noticia = ?";
       $stmt = $conexao->prepare($sql);
       $stmt->bind_param("i", $id_noticia);
       $stmt->execute();
@@ -128,7 +128,7 @@ if (!isset($_SESSION)) {
       $stmt->bind_param("ii", $id_noticia, $id_usuario);
       $stmt->execute();
 
-      $sql = "atualizar Noticias SET curtidas = curtidas - 1 WHERE id_noticia = ?";
+      $sql = "UPDATE Noticias SET curtidas = curtidas - 1 WHERE id_noticia = ?";
       $stmt = $conexao->prepare($sql);
       $stmt->bind_param("i", $id_noticia);
       $stmt->execute();
@@ -375,9 +375,16 @@ if (!isset($_SESSION)) {
     return $lista_noticias;
   }
 
-  function contarNoticias() {
-    $sql = "SELECT COUNT(*) AS qtdelinhas FROM Noticias";
+  function contarNoticias($palavra_chave = '') {
     $conexao = obterConexao();
+
+    if(!empty($palavra_chave)){
+          $sql = "SELECT COUNT(*) AS qtdelinhas FROM Noticias
+          WHERE titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%'";
+    }else{
+          $sql = "SELECT COUNT(*) AS qtdelinhas FROM Noticias";
+    }
+
     $stmt = $conexao->prepare($sql);
     $stmt->execute();
     $resultado = $stmt->get_result();
@@ -386,6 +393,7 @@ if (!isset($_SESSION)) {
    
     $stmt->close();
     $conexao->close();
+
     return $qtde;
   }
   ?>

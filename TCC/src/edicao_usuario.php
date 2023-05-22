@@ -44,7 +44,7 @@
                             <i id="luaIcon" class="fas fa-moon fa-sm"></i>
                         </label>
                     </div>
-                <legend id="legend_avatar" ><img id="avatarMenu" src="<?=$avatar_atual['caminho']?>" alt="<?=$_SESSION['idAvatar']?>"></legend>
+                <legend id="legend_avatar" ><img id="avatarEdicao" src="<?=$avatar_atual['caminho']?>" alt="<?=$_SESSION['idAvatar']?>"></legend>
                     <form action="../src/editar_usuario.php" method="post" onsubmit=" return validacao(this)">
                         <input type="hidden" name="id_usuario" value="<?=$id_usuario?>">
                         <input type="hidden" name="email_atual" value="<?=$usuario["email"]?>">
