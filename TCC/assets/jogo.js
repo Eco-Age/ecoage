@@ -168,27 +168,27 @@ function atualizarTempoDecorrido(timestamp) {
 
 requestAnimationFrame(atualizarTempoDecorrido);
 
-
-// Adicione essas variáveis no início do seu código para controlar as teclas pressionadas
 let keys = {};
 const SPACE_BAR_KEY_CODE = 32; // Código da tecla de espaço
 const UP_ARROW_KEY_CODE = 38; // Código da seta para cima
 
 // Adicione o evento de teclado global para capturar as teclas pressionadas
 window.addEventListener("keydown", (event) => {
-    keys[event.keyCode] = true;
-  
-    // Verifique se o elemento com foco é o canvas do jogo antes de executar a ação de pulo
-    if (document.activeElement === canvas && ([SPACE_BAR_KEY_CODE, UP_ARROW_KEY_CODE].includes(event.keyCode))) {
-      event.preventDefault();
-      personagem.velocidade = -personagem.pulo;
-    }
-  });
-  
-  window.addEventListener("keyup", (event) => {
-    delete keys[event.keyCode];
-  });
-  
+  keys[event.keyCode] = true;
+
+  // Verifique se o evento ocorreu dentro do canvas do jogo antes de executar a ação de pulo
+  if (canvas && ([SPACE_BAR_KEY_CODE, UP_ARROW_KEY_CODE].includes(event.keyCode))) {
+    event.preventDefault();
+    personagem.velocidade = -personagem.pulo;
+  }
+});
+
+window.addEventListener("keyup", (event) => {
+  delete keys[event.keyCode];
+});
+
+
+
 function gameLoop() {
     personagem.atualizar();
     tubos.atualizar();
