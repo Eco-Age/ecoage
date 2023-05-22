@@ -223,48 +223,28 @@ function gameLoop() {
     frames++;
     requestAnimationFrame(gameLoop);
 }
-
 function gameOver() {
-    ctx.font = "40px Arial";
-    ctx.fillStyle = "black";
-    ctx.fillText("Fim de jogo", canvas.width / 2 - 80, canvas.height / 2 - 20);
-    ctx.font = "20px Arial";
-    ctx.fillText(`Itens coletados: ${carreteisColetados}`, canvas.width / 2 - 55, canvas.height / 2 + 50);
-    ctx.fillText(`Tempo decorrido: ${formatarTempo(tempoDecorrido)}`, canvas.width / 2 - 75, canvas.height / 2 + 80);
-
-    // Adicionando o botão "Jogar Novamente"
-    const buttonWidth = 200;
-    const buttonHeight = 40;
-    const buttonX = canvas.width / 2 - buttonWidth / 2;
-    const buttonY = canvas.height / 2 + 110;
-
-    ctx.fillStyle = "green";
-    ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
-
-    ctx.fillStyle = "white";
-    ctx.font = "20px Arial";
-    ctx.fillText("Jogar Novamente", buttonX + 20, buttonY + buttonHeight / 2 + 7);
-
-    // Adicionando o evento de clique no botão "Jogar Novamente"
-    canvas.addEventListener("click", handleClick);
-}
-
-function handleClick(event) {
-    const rect = canvas.getBoundingClientRect();
-    const mouseX = event.clientX - rect.left;
-    const mouseY = event.clientY - rect.top;
-
-    const buttonWidth = 200;
-    const buttonHeight = 40;
-    const buttonX = canvas.width / 2 - buttonWidth / 2;
-    const buttonY = canvas.height / 2 + 110;
-
-    // Verificando se o clique ocorreu dentro das coordenadas do botão
-    if (mouseX >= buttonX && mouseX <= buttonX + buttonWidth && mouseY >= buttonY && mouseY <= buttonY + buttonHeight) {
-        restartGame();
-    }
-}
-
+    Swal.fire({ 
+      title: "Fim de jogo!",  
+      icon: "success",
+      html: 
+        "<img src='../assets/nois.png' width='200' height='200'>" +
+        "<p>Carretéis coletados: " + carreteisColetados + "</p>" +
+        "<p>Tempo decorrido: " + formatarTempo(tempoDecorrido) + "</p>" +
+        "<br>",  
+      confirmButtonColor: '#8614e9',
+      showCancelButton: false,
+      confirmButtonText: 'Jogar Novamente',
+      allowOutsideClick: false,
+      focusConfirm: false
+    })
+      .then((result) => {
+        if (result.value) {
+          restartGame();
+        }
+      });
+  }
+  
 function restartGame() {
     frames = 0;
     personagem.y = canvas.height / 2;
@@ -275,8 +255,6 @@ function restartGame() {
     tempoDecorrido = 0;
     tempoInicial = null;
 
-    // Removendo o evento de clique do botão "Jogar Novamente"
-    canvas.removeEventListener("click", handleClick);
 
     gameLoop();
 }
