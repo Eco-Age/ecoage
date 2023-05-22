@@ -236,7 +236,7 @@ function gameOver() {
       showCancelButton: false,
       confirmButtonText: 'Jogar Novamente',
       allowOutsideClick: false,
-      focusConfirm: false
+      allowEscapeKey: false
     })
       .then((result) => {
         if (result.value) {
