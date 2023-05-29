@@ -34,7 +34,7 @@ function atualizarJogo() {
 
 const tubos = {
     width: 80,
-    espaco: 200,
+    espaco: 220,
     maxHeight: canvas.height / 2,
     minHeight: 100,
     velocidade: 2,
@@ -127,10 +127,19 @@ let tempoPausado = 0; // Variável para armazenar o tempo pausado
 // função para ver se ocorreu uma colisão entre o personagem e o tubo
 
 function collision(personagem, tubo) {
-    return personagem.x < tubo.x + tubos.width &&
-        personagem.x + personagem.width > tubo.x &&
-        personagem.y < tubo.y + tubo.height &&
-        personagem.y + personagem.height > tubo.y;
+  const margemPermitida = 20; // margem para a imagem poder entrar um pouco antes de colidir
+
+  const limiteEsquerdo = tubo.x + margemPermitida;
+  const limiteDireito = tubo.x + tubos.width - margemPermitida;
+  const limiteSuperior = tubo.y + margemPermitida;
+  const limiteInferior = tubo.y + tubo.height - margemPermitida;
+  // verificando se o personagem ta dentro da area permitida
+  return (
+    personagem.x + personagem.width > limiteEsquerdo &&
+    personagem.x < limiteDireito &&
+    personagem.y + personagem.height > limiteSuperior &&
+    personagem.y < limiteInferior
+  );
 }
 
 
