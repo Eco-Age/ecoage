@@ -278,7 +278,6 @@ function contagemRegressiva() {
       if (frames == 0) {
         Swal.fire({
           title: "Inicio de jogo!",
-          icon: "success",
           html:
             "<img src='../assets/personageminicio.png' width='200' height='200'>" +
             "<br>",
@@ -367,7 +366,6 @@ function contagemRegressiva() {
 function gameOver() {
     Swal.fire({ 
       title: "Fim de jogo!",  
-      icon: "success",
       html: 
         "<img id='imgpersonagem' src='../assets/personagemtriste.png'>" +
         "<p>Carretéis coletados: " + carreteisColetados + "</p>" +
