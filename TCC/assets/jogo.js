@@ -31,23 +31,27 @@ function atualizarJogo() {
     requestAnimationFrame(atualizarJogo);
 }
 
+
 const tubos = {
     width: 80,
     espaco: 200,
     maxHeight: canvas.height / 2,
     minHeight: 100,
     velocidade: 2,
+    espacamentoEntreTubos: 300,
     list: [],
     atualizar() {
         if (frames % 100 === 0) {
             const height = Math.floor(Math.random() * (this.maxHeight - this.minHeight) + this.minHeight);
+            const tuboAnterior = this.list[this.list.length - 1];
+            const novaDistancia = tuboAnterior ? tuboAnterior.x + this.espacamentoEntreTubos : canvas.width;
             this.list.push({
-                x: canvas.width,
+                x: novaDistancia,
                 y: 0,
                 height,
             });
             this.list.push({
-                x: canvas.width,
+                x: novaDistancia,
                 y: height + this.espaco,
                 height: canvas.height - height - this.espaco,
             });
