@@ -86,23 +86,32 @@ const tubos = {
 };
 
 const carreteis = {
-    width: 40,
-    height: 40,
-    list: [],
-    atualizar() {
-        for (const carretel of this.list) {
-            carretel.x -= tubos.velocidade;
-            if (carretel.x + this.width < 0) this.list.shift();
-        }
-    },
-    desenhar() {
-        const imagemCarretel = new Image();
-        imagemCarretel.src = '../assets/carretel.png';
-        for (const carretel of this.list) {
-            ctx.drawImage(imagemCarretel, carretel.x, carretel.y, this.width, this.height);
-        }
-    },
+  width: 40,
+  height: 40,
+  list: [],
+  
+  atualizar() {
+      for (const carretel of this.list) {
+          carretel.x -= tubos.velocidade;
+          if (carretel.x + this.width < 0) this.list.shift();
+      }
+  },
+  desenhar() {
+      const imagemCarretel = new Image();
+      imagemCarretel.src = '../assets/carretel.png';
+      
+      // Calcular o deslocamento horizontal necessário para centralizar os carretéis
+      const deslocamentoHorizontal = (tubos.width - this.width) / 2;
+
+      for (const carretel of this.list) {
+          // Definir a posição x do carretel com o deslocamento horizontal
+          const x = carretel.x + deslocamentoHorizontal;
+          
+          ctx.drawImage(imagemCarretel, x, carretel.y, this.width, this.height);
+      }
+  },
 };
+
 
 let carreteisColetados = 0;
 let tempoInicial = null; // Variável para armazenar o tempo de início
@@ -291,7 +300,6 @@ function gameLoop() {
     requestAnimationFrame(startGameLoop);
   }
 
-  gameLoop();
   
 
   
