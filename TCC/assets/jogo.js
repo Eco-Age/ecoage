@@ -1,3 +1,4 @@
+
 const canvas = document.getElementById("jogoCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -232,11 +233,26 @@ window.addEventListener("keyup", (event) => {
   delete keys[event.keyCode];
 });
 
+function contagemRegressiva() {
+  let contador = 3;
+
+  const intervalo = setInterval(() => {
+    if (contador > 0) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.font = "80px Arial";
+      ctx.fillStyle = "#8614e9";
+      ctx.fillText(contador.toString(), canvas.width / 2 - 20, canvas.height / 2 + 20);
+      contador--;
+    } else {
+      clearInterval(intervalo);
+      startGameLoop();
+    }
+  }, 1000);
+}
 
 
-function gameLoop() {
     
-    ctx.font = "40px Arial";
+    /*ctx.font = "40px Arial";
     ctx.fillStyle = "#8614e9";
     const titleText = "Guess the Tissue";
     const titleX = canvas.width / 2 - ctx.measureText(titleText).width / 2;
@@ -256,27 +272,36 @@ function gameLoop() {
     const buttonText = "Iniciar jogo";
     const buttonTextX = buttonX + buttonWidth / 2 - ctx.measureText(buttonText).width / 2;
     const buttonTextY = buttonY + buttonHeight / 2 + 10;
-    ctx.fillText(buttonText, buttonTextX, buttonTextY);
-    
-    canvas.addEventListener("click", handleClick);
-    
-    function handleClick(event) {
-      const rect = canvas.getBoundingClientRect();
-      const clickX = event.clientX - rect.left;
-      const clickY = event.clientY - rect.top;
-    
-      if (
-        clickX >= buttonX &&
-        clickX <= buttonX + buttonWidth &&
-        clickY >= buttonY &&
-        clickY <= buttonY + buttonHeight
-      ) {
-        canvas.removeEventListener("click", handleClick);
-        startGameLoop();
+    ctx.fillText(buttonText, buttonTextX, buttonTextY);*/
+
+    function gameLoop() {
+      if (frames == 0) {
+        Swal.fire({
+          title: "Inicio de jogo!",
+          icon: "success",
+          html:
+            "<img src='../assets/personageminicio.png' width='200' height='200'>" +
+            "<br>",
+          confirmButtonColor: '#8614e9',
+          confirmButtonText: 'Iniciar',
+          allowOutsideClick: true,
+          allowEscapeKey: true,
+          onBeforeOpen: () => {
+            document.body.classList.add("disable-scroll");
+          },
+          onClose: () => {
+            document.body.classList.remove("disable-scroll");
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            contagemRegressiva();
+          }
+        });
+      } else {
+        contagemRegressiva();
       }
     }
-}
-  
+
   function startGameLoop() {    
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -344,7 +369,7 @@ function gameOver() {
       title: "Fim de jogo!",  
       icon: "success",
       html: 
-        "<img src='../assets/nois.png' width='200' height='200'>" +
+        "<img id='imgpersonagem' src='../assets/personagemtriste.png'>" +
         "<p>Carretéis coletados: " + carreteisColetados + "</p>" +
         "<p>Tempo decorrido: " + formatarTempo(tempoDecorrido) + "</p>" +
         "<br>",  
@@ -372,7 +397,7 @@ function restartGame() {
     tempoDecorrido = 0;
     tempoInicial = null;
 
-    startGameLoop(); 
+    contagemRegressiva(); 
  }
 
     function atualizartempoDecorrido() {

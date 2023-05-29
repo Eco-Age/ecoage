@@ -8,5 +8,42 @@ body {
 #jogoCanvas {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     border-radius: 10px;    
-    background-image: url('../assets/fundo.png'); 
+    background-image: url('../assets/fundo.png');     
+    position: relative;
+
 }
+
+p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#imgpersonagem{
+    width: 200px;
+    height: 200px;
+}
+
+#guessTitulo{
+    color: #000000;
+    margin: auto 0px;
+}
+
+  #gameContainer {
+    position: relative;
+  }
+  
+  #jogoCanvas {
+    width: 800px; /* Ajuste conforme necessário */
+    height: 600px; /* Ajuste conforme necessário */
+  }
+  
+  #htmlContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Ajuste as coordenadas de posicionamento conforme necessário */
+  }
+
+  .disable-scroll {
+    overflow: hidden;
+  }

@@ -13,7 +13,9 @@ verificaSessao();
                 <h1 class="col-4" id="txt_portal">Guess the Tissue:</h1>
         <div class="col-4"></div>
     </div>
-    <canvas id="jogoCanvas" width="800" height="600"></canvas>
+    <canvas id="jogoCanvas" width="800" height="600">
+        
+    </canvas>
 
 </main>
 </div>
