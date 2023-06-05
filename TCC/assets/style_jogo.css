@@ -48,3 +48,23 @@ p{
   .disable-scroll {
     overflow: hidden;
   }
+
+
+  /* Carrosel instruções: */
+
+
+  #instrucoes{
+  }
+
+  #indicadoresCarrosel{
+    margin-top: 20px;
+    background-color: #8050b1ab;
+    padding: 8px;
+    border-radius: 20px;
+  }
+    
+.carousel-item  {
+  margin-bottom: 80px;
+}
+
+

@@ -297,76 +297,95 @@ function contagemRegressiva() {
   }, frameRate);
 }
 
-    
-    /*ctx.font = "40px Arial";
-    ctx.fillStyle = "#8614e9";
-    const titleText = "Guess the Tissue";
-    const titleX = canvas.width / 2 - ctx.measureText(titleText).width / 2;
-    const titleY = canvas.height / 2 - 20;
-    ctx.fillText(titleText, titleX, titleY);
-    
-    const buttonWidth = 300;
-    const buttonHeight = 50;
-    const buttonX = canvas.width / 2 - buttonWidth / 2;
-    const buttonY = canvas.height / 2 + 110;
-    
-    ctx.fillStyle = "#8614e9";
-    ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
-    
-    ctx.fillStyle = "black";
-    ctx.font = "30px Arial";
-    const buttonText = "Iniciar jogo";
-    const buttonTextX = buttonX + buttonWidth / 2 - ctx.measureText(buttonText).width / 2;
-    const buttonTextY = buttonY + buttonHeight / 2 + 10;
-    ctx.fillText(buttonText, buttonTextX, buttonTextY);*/
 
-    $(document).ready(function () {
-      var currentPage = window.location.pathname.split("/").pop();
-      if (currentPage == 'jogo.php') {
-        let id_usuario = chave_sessao
-        sessionStorage.setItem('id_usuario', id_usuario);
-        let showAlert = localStorage.getItem('showAlert_' + id_usuario);
-        if (showAlert !== 'false') {
-          Swal.fire({
-            title: 'Bem-vindo!',
-            html: `<div class="container">
-                    <p>
-                      Essa é a página de tecidos!<br><br> É importante lembrarmos que 
-                      ela tem relação direta com as patentes do nosso 
-                      <a href="#" class="popover-link" data-placement="top" data-content="Guess the Tissue, disponível na barra de navegação!" data-container="body">Jogo</a>
-                      , portanto para melhor experiência, jogue primeiro e depois nos acesse!
-                    </p>
+$(document).ready(function () {
+  var currentPage = window.location.pathname.split("/").pop();
+  if (currentPage == 'jogo.php') {
+    let id_usuario = chave_sessao;
+    sessionStorage.setItem('id_usuario', id_usuario);
+    let showAlert = localStorage.getItem('showAlert_' + id_usuario);
+    if (showAlert !== 'false') {
+      Swal.fire({
+        title: 'Bem-vindo!',
+        html: `<div class="container">
+                <div class="row">
+                    <div class="col-12">
+                      <h3>Instruções de Jogo:</h3>
+                    </div>
+                </div>
+                
+                <div class="row">
+                <div class="col-12">
+                  <div id="instrucoes" class="carousel slide" data-ride="carousel">
+                    <ol id="indicadoresCarrosel" class="carousel-indicators">
+                      <li data-target="#instrucoes" data-slide-to="0" class="indicador active"></li>
+                      <li data-target="#instrucoes" data-slide-to="1" class="indicador"></li>
+                      <li data-target="#instrucoes" data-slide-to="2" class="indicador"></li>
+                    </ol>
+                  <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <h3>Instrução 1</h3>
+                        <img src="../assets/personageminicio.png" alt="">
+                        <p>blaaaaaaaaaaaaaaaaaaa</p>
+                      </div>
+                      <div class="carousel-item">
+                        <h3>Instrução 2</h3>
+                        <img src="../assets/personageminicio.png" alt="">
+                        <p>blaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                      </div>
+                      <div class="carousel-item">
+                        <h3>Instrução 3</h3>
+                        <img src="../assets/personageminicio.png" alt="">
+                        <p>blaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                      </div>
+                    </div>
                     
-                    <input type="checkbox" class="form-check-input" id="checkbox-avisar" />
-                    <label class="form-check-label" for="checkbox-avisar"> Não me avisar novamente</label>
-                  </div>`,
-            icon: 'info',
-            showCloseButton: true,
-            confirmButtonText: 'Entendi!',
-          }).then((result) => {
-            if (result.isConfirmed) {
-              if ($('#checkbox-avisar').is(':checked')) {
-                localStorage.setItem('showAlert_' + id_usuario, 'false');
-              } else {
-                localStorage.setItem('showAlert_' + id_usuario, 'true');
-              }
-            }
-          });
-    
-          $('.swal2-close').on('click', function () {
-            if ($('#checkbox-avisar').is(':checked')) {
-              localStorage.setItem('showAlert_' + id_usuario, 'false');
-            }
-          });
-    
-          $(document).ready(function () {
-            $('.popover-link').popover({ trigger: 'focus' });
-          });
-    
+                    <a class="carousel-control-prev" href="#instrucoes" role="button" data-slide="prev">
+                      <span class="carousel-control  material-icons" aria-hidden="true" id="ante">
+                        chevron_left
+                      </span>
+                    </a>
+                    <a class="carousel-control-next" href="#instrucoes" role="button" data-slide="next">
+                      <span class="carousel-control  material-icons" aria-hidden="true" id="next">
+                        chevron_right                     
+                      </span>
+                    </a>
+                  </div>                 
+                </div>
+              </div>
+              
+                  <input type="checkbox" class="form-check-input" id="checkbox-avisar" />
+                  <label class="form-check-label" for="checkbox-avisar"> Não me avisar novamente</label>
+          </div>`,
+        icon: 'info',
+        showCloseButton: true,
+        confirmButtonText: 'Entendi!',
+        didRender: () => {
+          $('.carousel').carousel();
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          if ($('#checkbox-avisar').is(':checked')) {
+            localStorage.setItem('showAlert_' + id_usuario, 'false');
+          } else {
+            localStorage.setItem('showAlert_' + id_usuario, 'true');
+          }
         }
-    
-      }
-    });
+      });
+
+      $('.swal2-close').on('click', function () {
+        if ($('#checkbox-avisar').is(':checked')) {
+          localStorage.setItem('showAlert_' + id_usuario, 'false');
+        }
+      });
+
+      $('.popover-link').popover({ trigger: 'focus' });
+    }
+  }
+});
+
+
+
 
     function gameLoop() {
       const buttonWidth = 300;
