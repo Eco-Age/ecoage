@@ -392,8 +392,6 @@ function contagemRegressiva() {
         // Verifica se o clique ocorreu dentro dos limites do botão
         if (mouseX >= buttonX && mouseX <= buttonX + buttonWidth &&
             mouseY >= buttonY && mouseY <= buttonY + buttonHeight) {
-          // Código para o que acontece quando o botão é clicado
-          console.log("Botão Iniciar jogo clicado!");
           contagemRegressiva();
         }
       });
@@ -438,11 +436,6 @@ function contagemRegressiva() {
     requestAnimationFrame(startGameLoop);
   }
 
-  
-
-  
-    
-
 function gameOver() {
     Swal.fire({ 
       title: "Fim de jogo!",  
@@ -462,7 +455,7 @@ function gameOver() {
         if (result.value) {
           restartGame();
         }
-        if (result.dismiss === Swal.DismissReason.cancel){
+       else{
           gameLoop();
         }
       });
