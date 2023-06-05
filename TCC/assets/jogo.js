@@ -306,34 +306,87 @@ function contagemRegressiva() {
     const buttonTextY = buttonY + buttonHeight / 2 + 10;
     ctx.fillText(buttonText, buttonTextX, buttonTextY);*/
 
-  function gameLoop() {
-      if (frames == 0) {
-        Swal.fire({
-          title: "Inicio de jogo!",
-          html:
-            "<img src='../assets/personageminicio.png' width='200' height='200'>" +
-            "<br>",
-          confirmButtonColor: '#8614e9',
-          confirmButtonText: 'Iniciar',
-          allowOutsideClick: true,
-          allowEscapeKey: true,
-          showCloseButton: true, // Adiciona o botão de fechar
-          onBeforeOpen: () => {
-            document.body.classList.add("disable-scroll");
-          },
-          onClose: () => {
-            document.body.classList.remove("disable-scroll");
-
-          }
-        }).then((result) => {
-          if (result.isConfirmed) {
-            contagemRegressiva();
-          }
-        });
-      } else {
-        contagemRegressiva();
+    $(document).ready(function () {
+      var currentPage = window.location.pathname.split("/").pop();
+      if (currentPage == 'jogo.php') {
+        let id_usuario = chave_sessao
+        sessionStorage.setItem('id_usuario', id_usuario);
+        let showAlert = localStorage.getItem('showAlert_' + id_usuario);
+        if (showAlert !== 'false') {
+          Swal.fire({
+            title: 'Bem-vindo!',
+            html: `<div class="container">
+                    <p>
+                      Essa é a página de tecidos!<br><br> É importante lembrarmos que 
+                      ela tem relação direta com as patentes do nosso 
+                      <a href="#" class="popover-link" data-placement="top" data-content="Guess the Tissue, disponível na barra de navegação!" data-container="body">Jogo</a>
+                      , portanto para melhor experiência, jogue primeiro e depois nos acesse!
+                    </p>
+                    
+                    <input type="checkbox" class="form-check-input" id="checkbox-avisar" />
+                    <label class="form-check-label" for="checkbox-avisar"> Não me avisar novamente</label>
+                  </div>`,
+            icon: 'info',
+            showCloseButton: true,
+            confirmButtonText: 'Entendi!',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              if ($('#checkbox-avisar').is(':checked')) {
+                localStorage.setItem('showAlert_' + id_usuario, 'false');
+              } else {
+                localStorage.setItem('showAlert_' + id_usuario, 'true');
+              }
+            }
+          });
+    
+          $('.swal2-close').on('click', function () {
+            if ($('#checkbox-avisar').is(':checked')) {
+              localStorage.setItem('showAlert_' + id_usuario, 'false');
+            }
+          });
+    
+          $(document).ready(function () {
+            $('.popover-link').popover({ trigger: 'focus' });
+          });
+    
+        }
+    
       }
+    });
+
+    function gameLoop() {
+      const buttonWidth = 300;
+      const buttonHeight = 50;
+      const buttonX = canvas.width / 2 - buttonWidth / 2;
+      const buttonY = canvas.height / 2 - buttonHeight / 2; // Centralizado verticalmente
+    
+      ctx.fillStyle = "#8614e9";
+      ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
+    
+      ctx.fillStyle = "black";
+      ctx.font = "30px Arial";
+      const buttonText = "Iniciar";
+      const buttonTextX = buttonX + buttonWidth / 2 - ctx.measureText(buttonText).width / 2;
+      const buttonTextY = buttonY + buttonHeight / 2 + 10;
+      ctx.fillText(buttonText, buttonTextX, buttonTextY);
+    
+      canvas.addEventListener('click', function(event) {
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = event.clientX - rect.left;
+        const mouseY = event.clientY - rect.top;
+    
+        // Verifica se o clique ocorreu dentro dos limites do botão
+        if (mouseX >= buttonX && mouseX <= buttonX + buttonWidth &&
+            mouseY >= buttonY && mouseY <= buttonY + buttonHeight) {
+          // Código para o que acontece quando o botão é clicado
+          console.log("Botão Iniciar jogo clicado!");
+          contagemRegressiva();
+        }
+      });
     }
+
+
+    
 
   function startGameLoop() {    
     

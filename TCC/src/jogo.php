@@ -2,6 +2,9 @@
 require ("../database/usuario.php");
 include("../include/navegacao.php");
 verificaSessao();
+
+$chave_sessao = $_SESSION["id_usuario"];
+
 ?>
 
 <div id="conteudo">
