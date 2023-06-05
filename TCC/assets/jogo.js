@@ -1,3 +1,5 @@
+window.addEventListener('DOMContentLoaded', function() {
+
 
 const canvas = document.getElementById("jogoCanvas");
 const ctx = canvas.getContext("2d");
@@ -59,13 +61,28 @@ const tubos = {
             
             const existeCarretel = Math.random() < 0.5;
             if (existeCarretel) {
-                carreteis.list.push({
-                    x: canvas.width,
-                    y: height + this.espaco / 2 - carreteis.height / 2,
-                    width: carreteis.width,
-                    height: carreteis.height,
-                });
-            }
+              const carretelY = height + this.espaco / 2 - carreteis.height / 2;
+              let carretelSobreposto = false;
+              for (const tubo of this.list) {
+                  if (
+                      tubo.x <= canvas.width &&
+                      tubo.x + this.width >= canvas.width &&
+                      (tubo.y > carretelY || tubo.y + tubo.height < carretelY + carreteis.height)
+                  ) {
+                      carretelSobreposto = true;
+                      break;
+                  }
+              }
+              if (!carretelSobreposto) {
+                  carreteis.list.push({
+                      x: canvas.width,
+                      y: carretelY,
+                      width: carreteis.width,
+                      height: carreteis.height,
+                  });
+              }
+          }
+          
         }
 
         for (const tubo of this.list) {
@@ -471,3 +488,5 @@ function restartGame() {
 } 
 
 gameLoop();
+
+});
