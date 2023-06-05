@@ -202,7 +202,9 @@ function formatarTempo(tempo) {
 }
 
 function atualizarTempoDecorrido(timestamp) {
-  if (!tempoInicial) tempoInicial = timestamp - tempoPausado;
+  if (!tempoInicial){
+    tempoInicial = timestamp - tempoPausado;
+  } 
 
   const tempoPassado = Math.floor((timestamp - tempoInicial) / 1000); // Calcula o tempo passado em segundos
   tempoDecorrido = tempoPassado;
@@ -211,8 +213,6 @@ function atualizarTempoDecorrido(timestamp) {
     requestAnimationFrame(atualizarTempoDecorrido);
   }
 }
-
-requestAnimationFrame(atualizarTempoDecorrido);
 
 let keys = {};
 const SPACE_BAR_KEY_CODE = 32; // Código da tecla de espaço
@@ -235,21 +235,53 @@ window.addEventListener("keyup", (event) => {
 
 function contagemRegressiva() {
   let contador = 3;
+  let scale = 1;
+
+  const frameRate = 20; // Taxa de atualização dos frames (em milissegundos)
+  const duration = 1000; // Duração de cada animação (em milissegundos)
+  const numFrames = Math.floor(duration / frameRate); // Número de frames da animação
+  let currentFrame = 0;
 
   const intervalo = setInterval(() => {
     if (contador > 0) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.font = "80px Arial";
-      ctx.fillStyle = "#8614e9";
-      ctx.fillText(contador.toString(), canvas.width / 2 - 20, canvas.height / 2 + 20);
-      contador--;
+
+      if (currentFrame < numFrames / 2) {
+        scale += 0.1; // Aumenta a escala na primeira metade da animação
+      } else {
+        scale -= 0.1; // Diminui a escala na segunda metade da animação
+      }
+
+      ctx.save();
+      ctx.translate(canvas.width / 2, canvas.height / 2);
+      ctx.scale(scale, scale);
+      ctx.fillStyle = "#910ba3";
+      ctx.fillText(contador.toString(), -20, 20); // Desenha o número no ponto central deslocado (-20, 20)
+      ctx.restore();
+
+      currentFrame++;
+
+      if (currentFrame >= numFrames) {
+        currentFrame = 0;
+        contador--;
+      }
     } else {
       clearInterval(intervalo);
+
+      // Redefinir as variáveis relacionadas ao tempo
+      tempoInicial = null;
+      tempoPausado = 0;
+      jogoFinalizado = false;
+
+      // Iniciar o cronômetro
+      requestAnimationFrame(atualizarTempoDecorrido);
+
+      // Iniciar o loop do jogo
       startGameLoop();
     }
-  }, 1000);
+  }, frameRate);
 }
-
 
     
     /*ctx.font = "40px Arial";
@@ -274,7 +306,7 @@ function contagemRegressiva() {
     const buttonTextY = buttonY + buttonHeight / 2 + 10;
     ctx.fillText(buttonText, buttonTextX, buttonTextY);*/
 
-    function gameLoop() {
+  function gameLoop() {
       if (frames == 0) {
         Swal.fire({
           title: "Inicio de jogo!",
@@ -285,11 +317,13 @@ function contagemRegressiva() {
           confirmButtonText: 'Iniciar',
           allowOutsideClick: true,
           allowEscapeKey: true,
+          showCloseButton: true, // Adiciona o botão de fechar
           onBeforeOpen: () => {
             document.body.classList.add("disable-scroll");
           },
           onClose: () => {
             document.body.classList.remove("disable-scroll");
+
           }
         }).then((result) => {
           if (result.isConfirmed) {
@@ -340,27 +374,6 @@ function contagemRegressiva() {
   
 
   
-    /*if (frames == 0) {
-      Swal.fire({ 
-        title: "Inicio de jogo!",  
-        icon: "success",
-        html: 
-          "<img src='../assets/nois.png' width='200' height='200'>" +
-          "<br>",  
-        confirmButtonColor: '#8614e9',
-        confirmButtonText: 'Iniciar',
-        allowOutsideClick: true,
-        allowEscapeKey: true
-      }).then((result) => {
-        if (result.isConfirmed) {
-          startGameLoop();
-        }
-      });
-    } else {
-      startGameLoop();
-    }
-  } */
-  
     
 
 function gameOver() {
@@ -375,7 +388,8 @@ function gameOver() {
       showCancelButton: false,
       confirmButtonText: 'Jogar Novamente',
       allowOutsideClick: false,
-      allowEscapeKey: false
+      allowEscapeKey: false,
+      showCloseButton: true, // Adiciona o botão de fechar
     })
       .then((result) => {
         if (result.value) {
@@ -404,4 +418,3 @@ function restartGame() {
 } 
 
 gameLoop();
-
