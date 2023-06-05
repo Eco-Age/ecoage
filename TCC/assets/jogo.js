@@ -462,6 +462,9 @@ function gameOver() {
         if (result.value) {
           restartGame();
         }
+        if (result.dismiss === Swal.DismissReason.cancel){
+          gameLoop();
+        }
       });
   }
   

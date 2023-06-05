@@ -26,6 +26,9 @@ $chave_sessao = $_SESSION["id_usuario"];
 <?php
  include("../include/rodape.php");
 ?>    
+<script>
+    var chave_sessao = "<?php echo $chave_sessao; ?>";
+</script>
 <script src="../assets/jogo.js"></script>
 <script src="../assets/script.js"></script>
 </body>
