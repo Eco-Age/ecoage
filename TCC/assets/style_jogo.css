@@ -95,3 +95,14 @@ p{
     color: #efff14;
     background-color: #623f80;
 }
+
+#txt_jogo{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Bebas Neue' ;
+  font-size: 60px;
+  color: #194d69;
+  width: 100%;
+  text-align: center;
+}
