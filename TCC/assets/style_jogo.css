@@ -98,11 +98,15 @@ p{
 
 #txt_jogo{
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   text-align: center;
   font-family: 'Noto Sans Nag Mundari' ;
-  font-size: 60px;
+  font-size: 50px;
   color: #194d69;
   width: 100%;
   text-align: center;
+}
+
+#botaoajudajogo{
+  margin-top: 40px;
 }
