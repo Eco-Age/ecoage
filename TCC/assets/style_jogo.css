@@ -65,11 +65,11 @@ p{
     border-radius: 20px;
   }
     
-.carousel-item  {
-  margin-bottom: 80px;
-  margin-left: 20px;
-  margin-right: 500px;
-}
+  /*.carousel-item  {
+    margin-bottom: 80px;
+    margin-left: 20px;
+    margin-right: 500px;
+  }*/
 
 .instrucao{
   width: 90% !important;
