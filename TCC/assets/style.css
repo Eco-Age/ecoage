@@ -247,19 +247,16 @@
 #texto_inicial_edu2,
 #texto_inicial_ana2,
 #texto_inicial_gabi2 {
-    padding-top: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 30px;
+
     border-radius: 200px;
+    width: 100%;
 }
 
 #Ana_img2,
 #Edu_img2,
 #Gabi_img2 {
     width: 100%;
-    margin: auto;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
     background-image: url("fundo_login.jpg");
     border-radius: 100%;
     padding: 0px;
