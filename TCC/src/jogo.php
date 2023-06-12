@@ -7,6 +7,11 @@ $chave_sessao = $_SESSION["id_usuario"];
 
 ?>
 
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Silkscreen');
+    @import url('https://fonts.googleapis.com/css2?family=Noto Sans Nag Mundari');
+</style>
+
 <div id="conteudo">
 <main class="container">
 <div id="jogo">
