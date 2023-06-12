@@ -327,7 +327,7 @@ $(document).ready(function () {
                   <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="../assets/personageminicio.png" alt="" id="instrucao1">
-                        <p>Este é um manual</p>
+                        <p>Olá!Para jogar o Guess The Tissue siga as intruções a seguir</p>
                       </div>
                       <div class="carousel-item">
                         <img src="../assets/instrucao1.gif" alt="" class="instrucao">
@@ -394,6 +394,78 @@ $(document).ready(function () {
     }
   }
 });
+
+function ajudaJogo() {
+  Swal.fire({
+    title: 'Bem vindo(a)!',
+        html: `<div class="container" id="popup_instrucoes">
+                <div class="row">
+                    <div class="col-12">
+                      <h3></h3>
+                    </div>
+                </div>
+                
+                <div class="row">
+                <div class="col-12">
+                  <div id="instrucoes" class="carousel slide" data-ride="carousel">
+                    <ol id="indicadoresCarrosel" class="carousel-indicators">
+                      <li data-target="#instrucoes" data-slide-to="0" class="indicador active"></li>
+                      <li data-target="#instrucoes" data-slide-to="1" class="indicador"></li>
+                      <li data-target="#instrucoes" data-slide-to="2" class="indicador"></li>
+                      <li data-target="#instrucoes" data-slide-to="3" class="indicador"></li>
+                      <li data-target="#instrucoes" data-slide-to="4" class="indicador"></li>
+                    </ol>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../assets/personageminicio.png" alt="" id="instrucao1">
+                        <p>Olá!Para jogar o Guess The Tissue siga as intruções a seguir</p>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../assets/instrucao1.gif" alt="" class="instrucao">
+                        <p></p>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../assets/instrucao5.gif" alt="" class="instrucao">
+                        <p></p>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../assets/instrucao2.gif" alt="" class="instrucao">
+                        <p></p>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../assets/instrucao3.gif" alt="" class="instrucao">
+                        <p></p>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../assets/instrucao4.gif" alt="" class="instrucao">
+                        <p></p>
+                      </div>
+                    </div>
+                    
+                    <a class="carousel-control-prev" href="#instrucoes" role="button" data-slide="prev">
+                      <span class="carousel-control  material-icons" aria-hidden="true" id="ante_jogo">
+                        chevron_left
+                      </span>
+                    </a>
+                    <a class="carousel-control-next" href="#instrucoes" role="button" data-slide="next">
+                      <span class="carousel-control  material-icons" aria-hidden="true" id="next_jogo">
+                        chevron_right                     
+                      </span>
+                    </a>
+                  </div>                 
+                </div>
+              </div>
+          </div>`,
+        icon: "info",
+        confirmButtonText: 'Entendi!',
+        allowOutsideClick: true
+      });
+    
+      $(document).ready(function(){
+        $('.popover-link').popover({ trigger: 'focus' });
+      });
+    };
+    
 
 function gameLoop() {
   let jogoIniciado = false;
