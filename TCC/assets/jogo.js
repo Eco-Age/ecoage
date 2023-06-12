@@ -425,8 +425,8 @@ function gameLoop() {
     ctx.fillStyle = button.isHovered ? "#a45ceb" : "#8614e9";
     ctx.fillRect(button.x, button.y, button.width, button.height);
 
-    ctx.fillStyle = "black";
-    ctx.font = "30px Arial";
+    ctx.fillStyle = "#FFFFFF";
+    ctx.font = "30px Silkscreen";
     const buttonText = "Iniciar";
     const buttonTextX = button.x + button.width / 2 - ctx.measureText(buttonText).width / 2;
     const buttonTextY = button.y + button.height / 2 + 10;

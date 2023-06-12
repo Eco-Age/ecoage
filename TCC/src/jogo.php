@@ -12,9 +12,9 @@ $chave_sessao = $_SESSION["id_usuario"];
 <div id="jogo">
 
     <div class="row">
-        <div class="col-4"></div>
-                <h1 class="col-4" id="txt_portal">Guess the Tissue:</h1>
-        <div class="col-4"></div>
+        <div class="col-3"></div>
+                <h1 class="col-6" id="txt_jogo">Guess the Tissue:</h1>
+        <div class="col-3"></div>
     </div>
     <canvas id="jogoCanvas" width="800" height="600">
         
