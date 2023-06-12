@@ -325,27 +325,27 @@ $(document).ready(function () {
                       <li data-target="#instrucoes" data-slide-to="4" class="indicador"></li>
                     </ol>
                   <div class="carousel-inner">
-                    <div class="carousel-item active">
+                    <div class="carrosel_item carousel-item active">
                         <img src="../assets/personageminicio.png" alt="" id="instrucao1">
                         <p>Este é um manual</p>
                       </div>
-                      <div class="carousel-item">
+                      <div class="carrosel_item carousel-item">
                         <img src="../assets/instrucao1.gif" alt="" class="instrucao">
                         <p></p>
                       </div>
-                      <div class="carousel-item">
+                      <div class="carrosel_item carousel-item">
                         <img src="../assets/instrucao5.gif" alt="" class="instrucao">
                         <p></p>
                       </div>
-                      <div class="carousel-item">
+                      <div class="carrosel_item carousel-item">
                         <img src="../assets/instrucao2.gif" alt="" class="instrucao">
                         <p></p>
                       </div>
-                      <div class="carousel-item">
+                      <div class="carrosel_item carousel-item">
                         <img src="../assets/instrucao3.gif" alt="" class="instrucao">
                         <p></p>
                       </div>
-                      <div class="carousel-item">
+                      <div class="carrosel_item carousel-item">
                         <img src="../assets/instrucao4.gif" alt="" class="instrucao">
                         <p></p>
                       </div>

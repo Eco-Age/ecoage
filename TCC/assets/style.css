@@ -802,13 +802,17 @@ nav {
     width: 2%;
     margin-bottom: 3px;
 }
-
+#logado{
+    height: auto;
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
 #conteudo {
-    min-height: calc(100vh - 100px);
-    display: flex;
-    margin-top: 100px;
-    flex-direction: column;
+    flex-direction: column;   
     justify-content: center;
+    min-height: calc(100vh - 300px);
+    display: flex;
+    margin-bottom: 100px;
 }
 
 #conteudo_token_novasenha {
@@ -1020,9 +1024,9 @@ nav {
     background-position: center;
     background-color: #67b16d00;
     display: inline-block;
-    border-radius: 300px;
+    border-radius: 380px;
     margin: auto;
-    width: 1000px;
+    width: 950px;
     height: auto;
     box-shadow: 2px 2px 6px #00000018;
     object-fit: cover;
@@ -1057,7 +1061,6 @@ nav {
 #Gabi_img {
     width: 200px;
     margin: auto;
-    margin-top: 20%;
     background-color: #eef8efdb;
     border-radius: 200px;
     padding: 0px;
@@ -1074,7 +1077,7 @@ nav {
 
 .destaque {
     color: #6f3295;
-    font-size: 14pt;
+    font-size: 15pt;
     font-weight: 500;
 }
 
@@ -1082,14 +1085,14 @@ nav {
 #texto_inicial_ana,
 #texto_inicial_gabi {
     text-align: center;
-    margin: auto;
-    margin-left: 4%;
+    margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 13pt;
     background-color: #eef8ef;
     color: #653292;
     padding-top: 40px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 80px;
+    padding-right: 80px;
     padding-bottom: 40px;
     border-radius: 200px;
 }
