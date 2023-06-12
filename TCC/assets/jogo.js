@@ -306,11 +306,11 @@ $(document).ready(function () {
     let showAlert = localStorage.getItem('showAlert_' + id_usuario);
     if (showAlert !== 'false') {
       Swal.fire({
-        title: 'Bem-vindo!',
-        html: `<div class="container">
+        title: 'Bem vindo(a)!',
+        html: `<div class="container" id="popup_instrucoes">
                 <div class="row">
                     <div class="col-12">
-                      <h3>Instruções de Jogo:</h3>
+                      <h3></h3>
                     </div>
                 </div>
                 
@@ -321,32 +321,43 @@ $(document).ready(function () {
                       <li data-target="#instrucoes" data-slide-to="0" class="indicador active"></li>
                       <li data-target="#instrucoes" data-slide-to="1" class="indicador"></li>
                       <li data-target="#instrucoes" data-slide-to="2" class="indicador"></li>
+                      <li data-target="#instrucoes" data-slide-to="3" class="indicador"></li>
+                      <li data-target="#instrucoes" data-slide-to="4" class="indicador"></li>
                     </ol>
                   <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <h3>Instrução 1</h3>
-                        <img src="../assets/personageminicio.png" alt="">
-                        <p>blaaaaaaaaaaaaaaaaaaa</p>
+                    <div class="carousel-item active">
+                        <img src="../assets/personageminicio.png" alt="" id="instrucao1">
+                        <p>Este é um manual</p>
                       </div>
                       <div class="carousel-item">
-                        <h3>Instrução 2</h3>
-                        <img src="../assets/personageminicio.png" alt="">
-                        <p>blaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                        <img src="../assets/instrucao1.gif" alt="" class="instrucao">
+                        <p></p>
                       </div>
                       <div class="carousel-item">
-                        <h3>Instrução 3</h3>
-                        <img src="../assets/personageminicio.png" alt="">
-                        <p>blaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                        <img src="../assets/instrucao5.gif" alt="" class="instrucao">
+                        <p></p>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../assets/instrucao2.gif" alt="" class="instrucao">
+                        <p></p>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../assets/instrucao3.gif" alt="" class="instrucao">
+                        <p></p>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../assets/instrucao4.gif" alt="" class="instrucao">
+                        <p></p>
                       </div>
                     </div>
                     
                     <a class="carousel-control-prev" href="#instrucoes" role="button" data-slide="prev">
-                      <span class="carousel-control  material-icons" aria-hidden="true" id="ante">
+                      <span class="carousel-control  material-icons" aria-hidden="true" id="ante_jogo">
                         chevron_left
                       </span>
                     </a>
                     <a class="carousel-control-next" href="#instrucoes" role="button" data-slide="next">
-                      <span class="carousel-control  material-icons" aria-hidden="true" id="next">
+                      <span class="carousel-control  material-icons" aria-hidden="true" id="next_jogo">
                         chevron_right                     
                       </span>
                     </a>
@@ -355,11 +366,11 @@ $(document).ready(function () {
               </div>
               
                   <input type="checkbox" class="form-check-input" id="checkbox-avisar" />
-                  <label class="form-check-label" for="checkbox-avisar"> Não me avisar novamente</label>
+                  <label class="form-check-label" for="checkbox-avisar">Não ver novamente</label>
           </div>`,
         icon: 'info',
         showCloseButton: true,
-        confirmButtonText: 'Entendi!',
+        confirmButtonText: 'Estou preparado!',
         didRender: () => {
           $('.carousel').carousel();
         },

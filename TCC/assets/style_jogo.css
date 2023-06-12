@@ -56,6 +56,8 @@ p{
   #instrucoes{
   }
 
+  #popup_instrucoes{
+  }
   #indicadoresCarrosel{
     margin-top: 20px;
     background-color: #8050b1ab;
@@ -65,6 +67,31 @@ p{
     
 .carousel-item  {
   margin-bottom: 80px;
+  margin-left: 20px;
+  margin-right: 500px;
 }
 
+.instrucao{
+  width: 90% !important;
+  align-items: center !important;
+}
 
+#instrucao1{
+  width: 40%;
+  margin: auto;
+}
+
+#next_jogo,
+#ante_jogo {
+    color: #ffffff;
+    background-color: #623f80;
+    border-radius: 20px;
+    padding: 8px;
+
+}
+
+#next_jogo:hover,
+#ante_jogo:hover {
+    color: #efff14;
+    background-color: #623f80;
+}
