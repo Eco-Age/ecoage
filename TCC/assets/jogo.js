@@ -4,34 +4,130 @@ const ctx = canvas.getContext("2d");
 // Variáveis do jogo
 let frames = 0;
 const gravidade = 0.25;
+const tempoInvencibilidade = 5000; // Tempo em milissegundos para o personagem ficar invencível
+const tempoFramesRapidos = 5000; // Tempo em milissegundos para os frames passarem mais rápido
+let framesRapidos = false;
+let contador = 5; // tempo restante qnd ta imortal
+let intervaloContagemRegressiva;
+const imgPersonagemImortal = [
+  '../assets/personagemImortal1.png',
+  '../assets/personagemImortal2.png',
+  '../assets/personagemImortal3.png'
+];
+
+let quadroAtual = 0;
+let tempoUltimoQuadro = 0;
+let quadroIntervalo = 300;
+let personagemImortalImages = [];
+// fazendo isso pra carregar as imagens antes da animacao
+// pq carregando na hora, qnd trocava de uma pra outra, ficava piscando
+
+function carregarImagens() {
+  for (let i = 0; i < imgPersonagemImortal.length; i++) {
+    const imagem = new Image();
+    imagem.src = imgPersonagemImortal[i];
+    personagemImortalImages.push(imagem);
+  }
+}
+
+function desenharPersonagem() {
+  if (personagem.estaImortal && personagemImortalImages.length > 0) {
+    const animacaoPersonagemImortal = personagemImortalImages[quadroAtual];
+    ctx.drawImage(animacaoPersonagemImortal, personagem.x, personagem.y, personagem.imortalWidth, personagem.imortalHeight);
+  } else {
+    const imagemPersonagem = new Image();
+    imagemPersonagem.src = '../assets/personagem.png';
+    ctx.drawImage(imagemPersonagem, personagem.x, personagem.y, personagem.width, personagem.height);
+  }
+}
+
+// Carregar as imagens antes de iniciar a animação
+let velocidadeNormalTubo = 2;
+carregarImagens();
 const personagem = {
   x: 50,
   y: canvas.height / 2,
   width: 90,
   height: 90,
+  imortalWidth: 120,
+  imortalHeight: 120,
   velocidade: 0,
   pulo: 4.6,
+  estaImortal: false,
   atualizar() {
     this.velocidade += gravidade;
     this.y += this.velocidade;
+
+    if (framesRapidos) {
+      if (tubos.velocidade < 5.3) {
+        velocidadeNormalTubo = tubos.velocidade;
+        tubos.velocidade = 5.3;
+      } else if (tubos.velocidade > 5.3 && tubos.velocidade < 6.5) {
+        velocidadeNormalTubo = tubos.velocidade;
+        tubos.velocidade += 1;
+      }
+    } else {
+      tubos.velocidade = velocidadeNormalTubo;
+    }
   },
   desenhar() {
+    const animacaoPersonagemImortal = new Image();
     const imagemPersonagem = new Image();
-    imagemPersonagem.src = '../assets/personagem.png';
-    ctx.drawImage(imagemPersonagem, this.x, this.y, this.width, this.height);
+    if (personagem.estaImortal) {
+      animacaoPersonagemImortal.src = imgPersonagemImortal[quadroAtual];
+      ctx.drawImage(animacaoPersonagemImortal, this.x, this.y, this.imortalWidth, this.imortalHeight);
+    } else {
+      imagemPersonagem.src = '../assets/personagem.png';
+      ctx.drawImage(imagemPersonagem, this.x, this.y, this.width, this.height);
+    }
+  },
+  pegarEstrela() {
+    this.estaImortal = true;
+
+    framesRapidos = true;
+
+    // Inicializa o contador e o intervalo
+    contador = 5;
+    intervaloContagemRegressiva = setInterval(() => {
+      if (contador > 0) {
+        contador--;
+      } else {
+        // Se o contador atingir 0, limpe o intervalo
+        clearInterval(intervaloContagemRegressiva);
+      }
+    }, 1000);
+
+    setTimeout(() => {
+      this.estaImortal = false;
+      framesRapidos = false;
+      // Limpa o intervalo quando a imortalidade acaba
+      clearInterval(intervaloContagemRegressiva);
+    }, tempoInvencibilidade);
   },
 };
 
+function atualizarQuadro(tempoAtual) {
+  const deltaTempo = tempoAtual - tempoUltimoQuadro;
+
+  if (deltaTempo > quadroIntervalo) {
+    quadroAtual = (quadroAtual + 1) % imgPersonagemImortal.length;
+    tempoUltimoQuadro = tempoAtual;
+  }
+
+  requestAnimationFrame(atualizarQuadro);
+}
+
 // Função de atualização do jogo
-function atualizarJogo() {
+/*function atualizarJogo() {
   frames++;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+
   personagem.atualizar();
   personagem.desenhar();
   requestAnimationFrame(atualizarJogo);
-}
+}*/ // parece inutil 
 
-
+// aqui começa a gerar os tubos
 const tubos = {
   width: 80,
   espaco: 220,
@@ -40,11 +136,16 @@ const tubos = {
   velocidade: 2,
   espacamentoEntreTubos: 300,
   list: [],
+
   atualizar() {
-    if (frames % 100 === 0) {
+    if (frames % 50 === 0) {
       const height = Math.floor(Math.random() * (this.maxHeight - this.minHeight) + this.minHeight);
       const tuboAnterior = this.list[this.list.length - 1];
       const novaDistancia = tuboAnterior ? tuboAnterior.x + this.espacamentoEntreTubos : canvas.width;
+      if (this.velocidade < 7 && !framesRapidos) {
+        this.velocidade += 0.2;
+        velocidadeNormalTubo = this.velocidade;
+      }
       this.list.push({
         x: novaDistancia,
         y: 0,
@@ -55,51 +156,105 @@ const tubos = {
         y: height + this.espaco,
         height: canvas.height - height - this.espaco,
       });
+    }
 
-      const existeCarretel = Math.random() < 0.5;
-      if (existeCarretel) {
-        const carretelY = height + this.espaco / 2 - carreteis.height / 2;
-        let carretelSobreposto = false;
+    if (frames % 75 === 0) {
+      const randomValue = Math.random();
+      let tipoItem;
+      if (randomValue <= 0.2) {
+        tipoItem = 'estrela';
+      } else if (randomValue <= 0.8) {
+        tipoItem = 'carretel';
+      }
+
+      if (tipoItem) {
+        const height = Math.floor(Math.random() * (this.maxHeight - this.minHeight) + this.minHeight);
+        const tuboAnterior = this.list[this.list.length - 1];
+        const novaDistancia = tuboAnterior ? tuboAnterior.x + this.espacamentoEntreTubos : canvas.width;
+        this.list.push({
+          x: novaDistancia,
+          y: 0,
+          height,
+        });
+        this.list.push({
+          x: novaDistancia,
+          y: height + this.espaco,
+          height: canvas.height - height - this.espaco,
+        });
+
+        const itemY = height + this.espaco / 2 - (tipoItem === 'estrela' ? estrelas.height : carreteis.height) / 2;
+        let itemSobreposto = false;
         for (const tubo of this.list) {
           if (
             tubo.x <= canvas.width &&
             tubo.x + this.width >= canvas.width &&
-            (tubo.y > carretelY || tubo.y + tubo.height < carretelY + carreteis.height)
+            (tubo.y > itemY || tubo.y + tubo.height < itemY + (tipoItem === 'estrela' ? estrelas.height : carreteis.height))
           ) {
-            carretelSobreposto = true;
+            itemSobreposto = true;
             break;
           }
         }
-        if (!carretelSobreposto) {
-          carreteis.list.push({
-            x: canvas.width,
-            y: carretelY,
-            width: carreteis.width,
-            height: carreteis.height,
-          });
+
+        if (!itemSobreposto) {
+          if (tipoItem === 'estrela') {
+            estrelas.list.push({
+              x: canvas.width,
+              y: itemY,
+              width: estrelas.width,
+              height: estrelas.height,
+            });
+          } else if (tipoItem === 'carretel') {
+            carreteis.list.push({
+              x: canvas.width,
+              y: itemY,
+              width: carreteis.width,
+              height: carreteis.height,
+            });
+          }
         }
       }
-
     }
-
     for (const tubo of this.list) {
       tubo.x -= this.velocidade;
       if (tubo.x + this.width < 0) this.list.shift();
     }
   },
+
   desenhar() {
     const imagemTubo = new Image();
     imagemTubo.src = '../assets/tubo.png';
     for (const tubo of this.list) {
-      ctx.save(); // Salva o estado atual do contexto
+      ctx.save();
       if (tubo.y === 0) {
-        // Inverte a imagem verticalmente se o tubo estiver no topo
         ctx.scale(1, -1);
         ctx.drawImage(imagemTubo, tubo.x, -tubo.y - tubo.height, this.width, tubo.height);
       } else {
         ctx.drawImage(imagemTubo, tubo.x, tubo.y, this.width, tubo.height);
       }
-      ctx.restore(); // Restaura o estado anterior do contexto
+      ctx.restore();
+    }
+  },
+};
+
+const estrelas = {
+  width: 40,
+  height: 40,
+  list: [],
+
+  atualizar() {
+    for (const estrela of this.list) {
+      estrela.x -= tubos.velocidade;
+      if (estrela.x + this.width < 0) this.list.shift();
+    }
+  },
+
+  desenhar() {
+    const imagemEstrela = new Image();
+    imagemEstrela.src = '../assets/estrela.png';
+    const deslocamentoHorizontal = (tubos.width - this.width) / 2;
+    for (const estrela of this.list) {
+      const x = estrela.x + deslocamentoHorizontal;
+      ctx.drawImage(imagemEstrela, x, estrela.y, this.width, this.height);
     }
   },
 };
@@ -115,17 +270,13 @@ const carreteis = {
       if (carretel.x + this.width < 0) this.list.shift();
     }
   },
+
   desenhar() {
     const imagemCarretel = new Image();
     imagemCarretel.src = '../assets/carretel.png';
-
-    // Calcular o deslocamento horizontal necessário para centralizar os carretéis
     const deslocamentoHorizontal = (tubos.width - this.width) / 2;
-
     for (const carretel of this.list) {
-      // Definir a posição x do carretel com o deslocamento horizontal
       const x = carretel.x + deslocamentoHorizontal;
-
       ctx.drawImage(imagemCarretel, x, carretel.y, this.width, this.height);
     }
   },
@@ -140,15 +291,15 @@ let tempoPausado = 0; // Variável para armazenar o tempo pausado
 
 
 // função para ver se ocorreu uma colisão entre o personagem e o tubo
-
-function collision(personagem, tubo) {
+function collision(personagem, objeto) {
   const margemPermitida = 20; // margem para a imagem poder entrar um pouco antes de colidir
 
-  const limiteEsquerdo = tubo.x + margemPermitida;
-  const limiteDireito = tubo.x + tubos.width - margemPermitida;
-  const limiteSuperior = tubo.y + margemPermitida;
-  const limiteInferior = tubo.y + tubo.height - margemPermitida;
-  // verificando se o personagem ta dentro da area permitida
+  const limiteEsquerdo = objeto.x + margemPermitida;
+  const limiteDireito = objeto.x + tubos.width - margemPermitida;
+  const limiteSuperior = objeto.y + margemPermitida;
+  const limiteInferior = objeto.y + objeto.height - margemPermitida;
+
+  // verificando se o personagem está dentro da área permitida
   return (
     personagem.x + personagem.width > limiteEsquerdo &&
     personagem.x < limiteDireito &&
@@ -156,19 +307,37 @@ function collision(personagem, tubo) {
     personagem.y < limiteInferior
   );
 }
-
-
 function detectCollisions() {
-  for (const tubo of tubos.list) {
-    if (collision(personagem, tubo)) {
-      return true;
+  // Verifica a colisão com os tubos somente quando o personagem não está imortal
+  if (!personagem.estaImortal) {
+    for (const tubo of tubos.list) {
+      if (collision(personagem, tubo)) {
+        return true;
+      }
     }
   }
+
+  // Verifica a colisão com as estrelas somente quando o personagem não está imortal
+  if (!personagem.estaImortal) {
+    for (const estrela of estrelas.list) {
+      if (collision(personagem, estrela)) {
+        personagem.pegarEstrela();
+        const index = estrelas.list.indexOf(estrela);
+        if (index > -1) {
+          estrelas.list.splice(index, 1);
+        }
+      }
+    }
+  }
+
+  // Permitindo que o personagem colete carretéis enquanto está imortal
   for (const carretel of carreteis.list) {
-    if (collision(personagem, carretel)) { // se ocorrer uma "colisão" entre o personagem e o carretel,retorna true e adiciona a pontuação de carreteis coletados
-      carreteisColetados++;
+    if (collision(personagem, carretel)) {
+      carreteisColetados += 1;
       const index = carreteis.list.indexOf(carretel);
-      carreteis.list.splice(index, 1); // remove o carretel com o indice correto apenas 1 vez
+      if (index > -1) {
+        carreteis.list.splice(index, 1);
+      }
     }
   }
 
@@ -180,6 +349,28 @@ function desenharPontuacao() {
   //quadrado branco atrás do relógio
   ctx.fillStyle = "white";
   ctx.fillRect(800, 0, -120, 65);
+  if (personagem.estaImortal) {
+    const textoPrincipal = "VOCÊ ESTÁ IMORTAL!";
+    const textoContador = "Tempo restante: " + contador;
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 3.8;
+
+    ctx.font = "24px Silkscreen";
+    const metricsPrincipal = ctx.measureText(textoPrincipal);
+    const textWidthPrincipal = metricsPrincipal.width;
+    const textXPrincipal = centerX - textWidthPrincipal / 2;
+
+    ctx.fillStyle = "yellow";
+    ctx.fillText(textoPrincipal, textXPrincipal, centerY);
+
+    ctx.font = "18px Silkscreen";
+    const metricsContador = ctx.measureText(textoContador);
+    const textWidthContador = metricsContador.width;
+    const textXContador = centerX - textWidthContador / 2;
+
+    ctx.fillText(textoContador, textXContador, centerY + 30);
+  }
+
 
   // Desenhar imagem de um carretel
   const carretelImg = new Image();
@@ -195,15 +386,7 @@ function desenharPontuacao() {
   ctx.fillStyle = "black";
   ctx.fillText(`${carreteisColetados}`, 40, 30);
   ctx.fillText(`${formatarTempo(tempoDecorrido)}`, 700, 45);
-
-  function pausarTempo() {
-    if (!jogoFinalizado && tempoInicial) { // jogoFinalizado é falso, tempoInicial não é nulo, garante que o tempo só será pausado se o jogo estiver em andamento
-      tempoPausado = performance.now() - tempoInicial; //tempo percorrido até a pausa , performance.now() retorna o tempo atual,  ex: 10-0 = 10 segundos
-      jogoFinalizado = true; //jogo finalizado
-    }
-  }
 }
-
 
 function formatarTempo(tempo) {
   const minutos = Math.floor((tempo % 3600) / 60);
@@ -398,7 +581,7 @@ $(document).ready(function () {
 function ajudaJogo() {
   Swal.fire({
     title: 'Bem vindo(a)!',
-        html: `<div class="container" id="popup_instrucoes">
+    html: `<div class="container" id="popup_instrucoes">
                 <div class="row">
                     <div class="col-12">
                       <h3></h3>
@@ -456,16 +639,15 @@ function ajudaJogo() {
                 </div>
               </div>
           </div>`,
-        icon: "info",
-        confirmButtonText: 'Entendi!',
-        allowOutsideClick: true
-      });
-    
-      $(document).ready(function(){
-        $('.popover-link').popover({ trigger: 'focus' });
-      });
-    };
-    
+    icon: "info",
+    confirmButtonText: 'Entendi!',
+    allowOutsideClick: true
+  });
+
+  $(document).ready(function () {
+    $('.popover-link').popover({ trigger: 'focus' });
+  });
+};
 
 function gameLoop() {
   let jogoIniciado = false;
@@ -474,7 +656,10 @@ function gameLoop() {
   frames = 0;
   personagem.y = canvas.height / 2;
   personagem.velocidade = 0;
+  personagem.x = 50;
   tubos.list = [];
+  tubos.velocidade = 2;
+  velocidadeNormalTubo = 2;
   carreteis.list = [];
   carreteisColetados = 0;
   tempoDecorrido = 0;
@@ -483,9 +668,9 @@ function gameLoop() {
   const buttonWidth = 300;
   const buttonHeight = 50;
   const buttonX = canvas.width / 2 - buttonWidth / 2;
-  const buttonY = canvas.height / 2 - buttonHeight / 2; // Centralizado verticalmente
+  const buttonY = canvas.height / 2 - buttonHeight; // Centralizado verticalmente
 
-  const button = {
+  const iniciarButton = {
     x: buttonX,
     y: buttonY,
     width: buttonWidth,
@@ -493,16 +678,38 @@ function gameLoop() {
     isHovered: false
   };
 
-  function drawButton() {
+  const duvidaButton = {
+    x: buttonX,
+    y: buttonY + buttonHeight + 20,
+    width: buttonWidth,
+    height: buttonHeight,
+    isHovered: false
+  };
+ // feito pq a fonte nao tava carregando ao entrar na pagina 
+  async function checkFontsReady() {
+    return document.fonts.ready.then(function() {
+      // Todas as fontes estão prontas
+      drawButtons();
+    });
+  }
+
+  // Verifica se as fontes estão carregadas antes de desenhar os botões
+  checkFontsReady();
+
+  function drawButton(button, buttonText) {
     ctx.fillStyle = button.isHovered ? "#a45ceb" : "#8614e9";
     ctx.fillRect(button.x, button.y, button.width, button.height);
 
     ctx.fillStyle = "#FFFFFF";
     ctx.font = "30px Silkscreen";
-    const buttonText = "Iniciar";
     const buttonTextX = button.x + button.width / 2 - ctx.measureText(buttonText).width / 2;
     const buttonTextY = button.y + button.height / 2 + 10;
     ctx.fillText(buttonText, buttonTextX, buttonTextY);
+  }
+
+  function drawButtons() {
+    drawButton(iniciarButton, "Iniciar");
+    drawButton(duvidaButton, "TUTORIAL");
   }
 
   // Função para verificar se o mouse está sobre o botão
@@ -511,28 +718,33 @@ function gameLoop() {
     const mouseX = event.clientX - rect.left;
     const mouseY = event.clientY - rect.top;
 
-    button.isHovered = (mouseX >= button.x && mouseX <= button.x + button.width &&
-      mouseY >= button.y && mouseY <= button.y + button.height);
-    canvas.style.cursor = button.isHovered ? "pointer" : "default";
-    drawButton();
+    iniciarButton.isHovered = (mouseX >= iniciarButton.x && mouseX <= iniciarButton.x + iniciarButton.width &&
+      mouseY >= iniciarButton.y && mouseY <= iniciarButton.y + iniciarButton.height);
+    duvidaButton.isHovered = (mouseX >= duvidaButton.x && mouseX <= duvidaButton.x + duvidaButton.width &&
+      mouseY >= duvidaButton.y && mouseY <= duvidaButton.y + duvidaButton.height);
+    canvas.style.cursor = iniciarButton.isHovered || duvidaButton.isHovered ? "pointer" : "default";
+    drawButtons();
   }
 
-  // Evento de quando o mouse entra no botão
+  // Evento de quando o mouse entra nos botões
   canvas.addEventListener('mousemove', checkHover);
 
-  // Evento de quando o mouse sai de cima do botão
+  // Evento de quando o mouse sai de cima dos botões
   canvas.addEventListener('mouseout', function (event) {
-    button.isHovered = false;
+    iniciarButton.isHovered = false;
+    duvidaButton.isHovered = false;
     canvas.style.cursor = "default";
+    drawButtons();
   });
 
+  // Evento de clique nos botões
   canvas.addEventListener('click', function (event) {
     const rect = canvas.getBoundingClientRect();
     const mouseX = event.clientX - rect.left;
     const mouseY = event.clientY - rect.top;
 
-    if (mouseX >= button.x && mouseX <= button.x + button.width &&
-      mouseY >= button.y && mouseY <= button.y + button.height &&
+    if (mouseX >= iniciarButton.x && mouseX <= iniciarButton.x + iniciarButton.width &&
+      mouseY >= iniciarButton.y && mouseY <= iniciarButton.y + iniciarButton.height &&
       !jogoIniciado) {
       jogoIniciado = true;
       canvas.removeEventListener('mousemove', checkHover);
@@ -541,23 +753,33 @@ function gameLoop() {
       canvas.style.cursor = "default";
       contagemRegressiva();
     }
+
+    if (mouseX >= duvidaButton.x && mouseX <= duvidaButton.x + duvidaButton.width &&
+      mouseY >= duvidaButton.y && mouseY <= duvidaButton.y + duvidaButton.height) {
+      ajudaJogo();
+    }
   });
 
-  drawButton();
+  drawButtons();
 }
+
 
 function startGameLoop() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  personagem.atualizar();
+  if (personagem.tempoImortal > 0) {
+    personagem.tempoImortal--;
+  }
   tubos.atualizar();
   carreteis.atualizar();
-
-
-  personagem.desenhar();
+  estrelas.atualizar();
+  personagem.atualizar();
+  atualizarQuadro();
   tubos.desenhar();
   carreteis.desenhar();
+  estrelas.desenhar();
+  personagem.desenhar();
   desenharPontuacao();
 
   if (keys[SPACE_BAR_KEY_CODE] || keys[UP_ARROW_KEY_CODE]) {
@@ -611,12 +833,17 @@ function restartGame() {
 
   frames = 0;
   personagem.y = canvas.height / 2;
+  personagem.x = 50;
   personagem.velocidade = 0;
   tubos.list = [];
+  tubos.velocidade = 2;
+  velocidadeNormalTubo = 2;
   carreteis.list = [];
+  estrelas.list = [];
   carreteisColetados = 0;
   tempoDecorrido = 0;
   tempoInicial = null;
+  personagem.tempoImortal = 0;
 
   contagemRegressiva();
 }
