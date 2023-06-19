@@ -44,6 +44,8 @@ function desenharPersonagem() {
 // Carregar as imagens antes de iniciar a animação
 let velocidadeNormalTubo = 2;
 carregarImagens();
+const animacaoPersonagemImortal = new Image();
+const imagemPersonagem = new Image();
 const personagem = {
   x: 50,
   y: canvas.height / 2,
@@ -71,8 +73,6 @@ const personagem = {
     }
   },
   desenhar() {
-    const animacaoPersonagemImortal = new Image();
-    const imagemPersonagem = new Image();
     if (personagem.estaImortal) {
       animacaoPersonagemImortal.src = imgPersonagemImortal[quadroAtual];
       ctx.drawImage(animacaoPersonagemImortal, this.x, this.y, this.imortalWidth, this.imortalHeight);
@@ -127,7 +127,9 @@ function atualizarQuadro(tempoAtual) {
   requestAnimationFrame(atualizarJogo);
 }*/ // parece inutil 
 
-// aqui começa a gerar os tubos
+// aqui começa a gerar os tubos, ta fora da funcao pq ai nao pisca
+const imagemTubo = new Image();
+imagemTubo.src = '../assets/tubo.png';
 const tubos = {
   width: 80,
   espaco: 220,
@@ -221,8 +223,6 @@ const tubos = {
   },
 
   desenhar() {
-    const imagemTubo = new Image();
-    imagemTubo.src = '../assets/tubo.png';
     for (const tubo of this.list) {
       ctx.save();
       if (tubo.y === 0) {
@@ -236,6 +236,8 @@ const tubos = {
   },
 };
 
+const imagemEstrela = new Image();
+imagemEstrela.src = '../assets/estrela.png';
 const estrelas = {
   width: 40,
   height: 40,
@@ -249,8 +251,6 @@ const estrelas = {
   },
 
   desenhar() {
-    const imagemEstrela = new Image();
-    imagemEstrela.src = '../assets/estrela.png';
     const deslocamentoHorizontal = (tubos.width - this.width) / 2;
     for (const estrela of this.list) {
       const x = estrela.x + deslocamentoHorizontal;
@@ -259,6 +259,8 @@ const estrelas = {
   },
 };
 
+const imagemCarretel = new Image();
+imagemCarretel.src = '../assets/carretel.png';
 const carreteis = {
   width: 40,
   height: 40,
@@ -272,8 +274,6 @@ const carreteis = {
   },
 
   desenhar() {
-    const imagemCarretel = new Image();
-    imagemCarretel.src = '../assets/carretel.png';
     const deslocamentoHorizontal = (tubos.width - this.width) / 2;
     for (const carretel of this.list) {
       const x = carretel.x + deslocamentoHorizontal;
