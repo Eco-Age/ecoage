@@ -292,7 +292,7 @@ $lista_avatar = listarAvatar();
                 <div class="row" id="">
                   <div class="col"></div>
                     <div class="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                      <img src="../assets/bibi_grata.png" id="Gabi_img2">                                             
+                      <img src="../assets/bibi_apresenta.png" id="Gabi_img2">                                             
                     </div>
                   <div class="col"></div>
                 </div>
