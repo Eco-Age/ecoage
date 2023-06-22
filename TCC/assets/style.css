@@ -356,6 +356,7 @@
 
 #txt_tecidos {
     color: #194d69;
+    margin-top: 50px;
 }
 
 #avatarRadio {
@@ -454,12 +455,12 @@
 #ajuda:hover,
 #icone_ajuda:hover {
     background-color: #240f36;
-    color: #efff14;
+    color: #ffffff;
 }
 
 .nav-link {
     background-color: #f1f7e0;
-    color: #2d4931;
+    color: #4e196d;
     margin-right: 15px;
     border-radius: 55px;
     border: 0.5px solid rgba(221, 221, 221, 0);
@@ -469,7 +470,8 @@
 }
 
 .dropdown-item {
-    border: 1px solid black;
+    border: 1px solid #00000000;
+    border-radius: 5px;
 }
 
 .navbar-brand {
@@ -481,7 +483,7 @@
 }
 
 
-nav {
+nav{
     border: none;
     background-color: #623f80;
     box-shadow: 2px 2px 5px #a18eaaa9;
@@ -492,6 +494,29 @@ nav {
     margin-left: 230px;
 }
 
+
+.dropdown-menu {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #dddddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: auto;
+    height: auto;
+    margin-top: 10px !important;
+    border-radius: 15px !important;
+    }
+
+    .dropdown-item:active{
+        border: 1px solid #00000000 !important;
+        background-color: #623f80 !important;
+        color: #eedeff !important;
+        outline: none;
+
+    }
+    .dropdown-item:focus{
+        border: 1px solid #00000000 !important;
+        outline: none;
+    }
 /* PÁGINA TECIDOS */
 
 /* Aparenta inutilidade mas vou deixar aq pq né
@@ -694,25 +719,62 @@ nav {
 
 #txt_portal,
 #txt_portal2 {
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin: auto;
     text-align: center;
     color: #194d69;
-    width: 100%;
+    width: auto;
     text-align: center;
+    margin-bottom: 20px !important;
+
+}
+
+#txt_portal2{
+    margin-bottom: 20px !important;
 }
 
 #portal_de_noticias {
     min-height: calc(200px);
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-#filtros_menu {
-    width: 320px;
+#filtro:focus {
+    box-shadow: none;
+    outline: none;
 }
+
+
+#form_busca {
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+
+
+#btnBusca {
+    background-color: #623f80;
+    border: none;
+    margin: 0 10px;
+    width: auto;
+    max-width: 100px;
+}
+
+.selectFiltro{
+    flex: 1 !important;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: auto;
+    max-width: 200px;
+    background-color: #000000;
+}
+
+#palavra_chave {
+    width: auto;
+    margin-right: 10px;
+}
+
 
 .img_carrosel {
     border-radius: 300px;
@@ -724,61 +786,6 @@ nav {
     object-fit: cover;
     filter: brightness(0.45);
     margin-bottom: 100px;
-}
-
-#filtros_ {
-    background-color: #581b69;
-    border: none;
-    color: #d1f5a1;
-    vertical-align: middle;
-    width: 100%;
-}
-
-#filtros_menu {
-    width: 100%;
-}
-
-#btn_filtros {
-    background-color: #194d69;
-    border: none;
-    color: #ffffff;
-    margin-left: 10px;
-    width: auto;
-    left: 0;
-}
-
-#btn_filtros:focus {
-    box-shadow: 0 0 0 0;
-    outline: 0;
-}
-
-#seta_filtro {
-    vertical-align: middle;
-}
-
-#btn_pesquisar_noticia {
-    width: auto;
-    align-items: right;
-}
-
-#buscarnoticia {
-    width: auto;
-    text-align: center;
-}
-
-#form_busca {
-    align-items: center;
-    width: 100%;
-}
-
-#filtro {
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-#btnBusca{
-    background-color: #623f80;
-    border: none;
 }
 /* rodapé */
 
@@ -855,7 +862,7 @@ nav {
 
 /* site externo */
 
-.field_site_externo {
+.field_site_externo{
     border: none;
     background-color: #f0f8e5;
     margin-top: 20px;
@@ -866,10 +873,12 @@ nav {
     height: auto;
     box-shadow: 3px 3px 10px #1d421f49;
     margin-bottom: 20px;
+    transition: transform 0.3s;
 }
 
 .field_site_externo:hover {
     background-color: #e0fcb983;
+    transform: scale(1.1);
 }
 
 #todos_field {
@@ -910,12 +919,6 @@ nav {
     outline: 0;
 }
 
-#filtros_menu2 {
-    width: 310px;
-}
-
-
-
 #btncadastrarnoticia {
     width: 80%;
     height: 90%;
@@ -929,11 +932,6 @@ nav {
 #btncadastrarnoticia:focus {
     box-shadow: 0px 0px 8px #5e397e42;
     outline: 0;
-}
-
-
-#filtros_menu3 {
-    width: 100%;
 }
 
 .btns_noticias {
@@ -969,10 +967,6 @@ nav {
     width: 100%;
 }
 
-#btnfiltros {
-    width: 100%;
-}
-
 .active .numeracao{
     background-color: #623f80 !important; /* Cor de fundo quando o botão está ativo */
     color: #ffffff !important; /* Cor do texto quando o botão está ativo */
@@ -994,6 +988,11 @@ nav {
     border: none;
     margin: 3px;
     color: #623f80 !important;
+}
+
+.numeracao:focus, .numeracao_adm:focus{
+    box-shadow: 2px 1px 10px #1b1025;
+    outline: none;
 }
 .pagination{
     margin-bottom: 100px;

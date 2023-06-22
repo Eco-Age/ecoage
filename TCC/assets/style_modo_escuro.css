@@ -75,9 +75,6 @@
 }
 
 
-  
-
-
  /* Fim do código para mudar o botão de modo */
 
 body.modo-escuro{
@@ -91,12 +88,36 @@ color: #fff;
 
 /* sessao["msg"] */
 body.modo-escuro .alert-success{
-    color: #fff;
-    background-color: #006609 !important; 
+    color: #e9d7f9 !important;
+    background-color: #000000da !important;
+    box-shadow: 2px 1px 15px #000100da;
+  }
+
+
+/*carrosel pagina inicial*/
+
+body.modo-escuro #texto_inicial_edu,
+body.modo-escuro #texto_inicial_ana,
+body.modo-escuro #texto_inicial_gabi{
+
+    background-color: #000000df !important;
+    color: #d5b4f2;
+}
+
+body.modo-escuro .destaque{
+  color: #ffffff;
+}
+
+body.modo-escuro #Ana_img,
+body.modo-escuro #Edu_img,
+body.modo-escuro #Gabi_img {
+
+    background-color: #000000ce;
+
 }
 /* titulos das paginas */
-body.modo-escuro #txt_portal, body.modo-escuro #meus_dados, body.modo-escuro #duvidas_frequentes, body.modo-escuro #txt_tecidos{
-    color: #69b4f1;   
+body.modo-escuro #txt_portal, body.modo-escuro #txt_portal2, body.modo-escuro #meus_dados, body.modo-escuro #duvidas_frequentes, body.modo-escuro #txt_tecidos, body.modo-escuro #txt_jogo{
+    color: #e9d7f9;   
 }
 
 body.modo-escuro #duvidas{
@@ -105,20 +126,18 @@ body.modo-escuro #duvidas{
 
 /* cor dos cards de tecido */
 body.modo-escuro #tecido_usu{
-  background-color: #c7c7c7;
+  background-color: #e9d7f9c5;
+  color: #330542dd;
 }
 
 /* formularios e etc */
 body.modo-escuro input[type="text"], body.modo-escuro input[type="date"], body.modo-escuro textarea, body.modo-escuro input[type="email"]{
-    background-color: #2d2d2d;
-    color: #f1f1f1;
-    border: solid 2px;
+      background-color: #000000 !important;
+      color: #f1f1f1;
+      border: solid 1px #000000;
 }
 
-body.modo-escuro textarea:focus, body.modo-escuro input::placeholder, body.modo-escuro textarea::placeholder{
-  background-color: #2d2d2d;
-  color: #b9b8b8;
-}
+
 /* alerts / modais */
 body.modo-escuro .swal2-popup, body.modo-escuro .swal2-radio, body.modo-escuro .swal2-range{
   background-color: #2d2d2d !important;
@@ -126,8 +145,8 @@ body.modo-escuro .swal2-popup, body.modo-escuro .swal2-radio, body.modo-escuro .
 }
 /* pagina de duvidas */
 body.modo-escuro #carrosel_duvidas{
-  background-color: #66ff0046;
-  box-shadow: 2px 2px 6px #ffffff18;
+  background-color: #15011dc7;
+  box-shadow: 2px 2px 6px #000000c7;
   color: white;
 }
 
@@ -136,12 +155,32 @@ body.modo-escuro #next, body.modo-escuro #ante{
   background-color: #b35ffd;
 }
 
+body.modo-escuro #enviarDuvida{
+  background-color: #b35ffd9a;
+  color: #ffffff;
+}
+
+body.modo-escuro #enviarDuvida:hover{
+  background-color: #b35ffdd7;
+  color: #ffffff;
+}
+
 /* barra de navegação */
 body.modo-escuro #icone_sobrenos:hover, body.modo-escuro #menu_home:hover, body.modo-escuro #icone_home:hover, body.modo-escuro #menu_portal:hover, body.modo-escuro #menu_tecidos:hover, 
 body.modo-escuro #game:hover,  body.modo-escuro #icone_game:hover,  body.modo-escuro #icone_menu:hover,  body.modo-escuro #menu_m:hover, 
 body.modo-escuro #ajuda:hover, body.modo-escuro #icone_ajuda:hover{
-  background-color: #8d49c9;
-  color: #efff14;
+  background-color: #000000;
+  color: #e5cdf9;
+}
+
+body.modo-escuro .dropdown-menu{
+  background-color: #000000d1;
+}
+body.modo-escuro .dropdown-item{
+  color: #ffffff;
+}
+body.modo-escuro .dropdown-item:hover{
+  background-color: #000000;
 }
 
 body.modo-escuro .nav-link{
@@ -149,4 +188,30 @@ body.modo-escuro .nav-link{
   color: #ffffff;
   border: 0.5px solid rgba(221, 221, 221, 0);
  
+}
+
+body.modo-escuro nav{
+  box-shadow: 2px 2px 6px #000000;
+}
+
+body.modo-escuro #icone_sair {
+  color: #ffffff;
+}
+/* site externo: */
+
+body.modo-escuro .field_site_externo, body.modo-escuro .link_site_externo {
+  background-color: #e9d7f9c5 !important;
+  color: #330542b3 !important;
+}
+
+body.modo-escuro .active .numeracao, body.modo-escuro .active .numeracao_adm{
+  background-color: #8d5fb6 !important; /* Cor de fundo quando o botão está ativo */
+  color: #ffffff !important; /* Cor do texto quando o botão está ativo */
+  border: none;
+}
+body.modo-escuro .numeracao, body.modo-escuro .numeracao_adm{
+  border: none;
+  margin: 3px;
+  color: #ffffff !important;
+  background-color: #623f80;
 }

@@ -30,14 +30,12 @@ $noticias = buscarNoticia($id_noticia);
         <div class="col-4"></div>
     </div>
     <div class="row">
-        <div class="col-4"></div>
-            <div class="col-4">
-
+        <div class="col-3"></div>
+            <div class="col-6">
             <fieldset>      
                   <form action="../src/editar_noticia.php" method="post" onsubmit="return confirmar_edicao_noticia(this)">
                   <input type="hidden" name="id_noticia" value="<?=$id_noticia?>">                             
-
-                            <div class="form-row">
+                            <div class="row form">
                                 <div class="form-group col-md-8">
                                     <label for="titulo_noticia">Título:</label>
                                     <input type="text" class="form-control"  name="titulo_noticia" id="titulo_noticia" value ='<?= $noticias["titulo_noticia"] ?>'>
@@ -64,7 +62,7 @@ $noticias = buscarNoticia($id_noticia);
                     </form>
               </fieldset>                                       
             </div>
-        <div class="col-4"></div>         
+        <div class="col-3"></div>         
     </div>   
       
       

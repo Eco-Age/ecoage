@@ -480,6 +480,7 @@ function contagemRegressiva() {
   }, frameRate);
 }
 
+// Pop-up que aparece quando entra na página do jogo: 
 
 $(document).ready(function () {
   var currentPage = window.location.pathname.split("/").pop();
@@ -489,69 +490,79 @@ $(document).ready(function () {
     let showAlert = localStorage.getItem('showAlert_' + id_usuario);
     if (showAlert !== 'false') {
       Swal.fire({
-        title: 'Bem vindo(a)!',
         html: `<div class="container" id="popup_instrucoes">
                 <div class="row">
-                    <div class="col-12">
-                      <h3></h3>
+                  <div class="col-12">
+                    <div id="instrucoes" class="carousel slide d-flex justify-content-center">
+                      <ol id="indicadoresCarrosel" class="carousel-indicators carousel-indicators-bottom">
+                          <li data-target="#instrucoes" data-slide-to="0" class="indicadorTutorial indicador active"></li>
+                          <li data-target="#instrucoes" data-slide-to="1" class="indicadorTutorial indicador"></li>
+                          <li data-target="#instrucoes" data-slide-to="2" class="indicadorTutorial indicador"></li>
+                          <li data-target="#instrucoes" data-slide-to="3" class="indicadorTutorial indicador"></li>
+                          <li data-target="#instrucoes" data-slide-to="4" class="indicadorTutorial indicador"></li>
+                          <li data-target="#instrucoes" data-slide-to="5" class="indicadorTutorial indicador"></li>
+                          <li data-target="#instrucoes" data-slide-to="6" class="indicadorTutorial indicador"></li>
+                          <li data-target="#instrucoes" data-slide-to="7" class="indicadorTutorial indicador"></li>
+                        </ol>
+                        <div class="carousel-inner" id="carroselInner">
+                          <div class="carrosel_item carousel-item active">
+                            <h1 id="txtOla">Olá!</h1>    
+                            <img src="../assets/personageminicio.png" alt="" class="imgInstrucao">
+                            <h4 class="txtsJogo">Para jogar o Guess The Tissue siga as instruções a seguir!</h4>
+                          </div>
+                          <div class="carrosel_item carousel-item">
+                              <h4 class="txtsJogo">Utilize as seguintes teclas para se mover:</h4>    
+                              <img src="../assets/instrucao1.gif" alt="" class="instrucao">
+                              <p></p>
+                          </div>
+                          <div class="carrosel_item carousel-item">
+                              <h4 class="txtsJogo">O objetivo do jogo é coletar carretéis!</h1>    
+                              <img src="../assets/instrucao5.gif" alt="" class="instrucao">
+                              <p></p>
+                          </div>
+                          <div class="carrosel_item carousel-item">
+                              <h4 class="txtsJogo">Mas fique atento!</h4>    
+                              <img src="../assets/instrucao2.gif" alt="" class="instrucao">
+                              <p></p>
+                          </div>
+                          <div class="carrosel_item carousel-item">
+                              <h4 class="txtsJogo">...</h4>    
+                              <img src="../assets/instrucao3.gif" alt="" class="instrucao">
+                              <p></p>
+                          </div>
+                          <div class="carrosel_item carousel-item">
+                              <h4 class="txtsJogo">...</h4>    
+                              <img src="../assets/instrucao4.gif" alt="" class="instrucao">
+                              <p></p>
+                          </div>
+                          <div class="carrosel_item carousel-item">
+                              <h4 class="txtsJogo">Quanto mais carretéis coletados, maior a chance de chegar ao pódio do ranking e alcançar conquistas!</h4>    
+                              <img src="../assets/podio.png" alt="" class="imgInstrucao">
+                              <p></p>
+                          </div>
+                          <div class="carrosel_item carousel-item">
+                              <h4>Vamos lá?</h4>    
+                              <img src="../assets/personagem.png" alt="" class="imgInstrucao">
+                              <p></p>
+                          </div>
+                        </div>
+                        
+                        <a class="carousel-control-prev carousel-control-start" href="#instrucoes" role="button" data-slide="prev" id="ante_jogo">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden"></span>
+                      </a>
+                      <a class="carousel-control-next carousel-control-end" href="#instrucoes" role="button" data-slide="next" id="next_jogo">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden"></span>
+                      </a>
                     </div>
-                </div>
-                
-                <div class="row">
-                <div class="col-12">
-                  <div id="instrucoes" class="carousel slide" data-ride="carousel">
-                    <ol id="indicadoresCarrosel" class="carousel-indicators">
-                      <li data-target="#instrucoes" data-slide-to="0" class="indicador active"></li>
-                      <li data-target="#instrucoes" data-slide-to="1" class="indicador"></li>
-                      <li data-target="#instrucoes" data-slide-to="2" class="indicador"></li>
-                      <li data-target="#instrucoes" data-slide-to="3" class="indicador"></li>
-                      <li data-target="#instrucoes" data-slide-to="4" class="indicador"></li>
-                    </ol>
-                  <div class="carousel-inner">
-                    <div class="carrosel_item carousel-item active">
-                        <img src="../assets/personageminicio.png" alt="" id="instrucao1">
-                        <p>Olá!Para jogar o Guess The Tissue siga as intruções a seguir</p>
-                      </div>
-                      <div class="carrosel_item carousel-item">
-                        <img src="../assets/instrucao1.gif" alt="" class="instrucao">
-                        <p></p>
-                      </div>
-                      <div class="carrosel_item carousel-item">
-                        <img src="../assets/instrucao5.gif" alt="" class="instrucao">
-                        <p></p>
-                      </div>
-                      <div class="carrosel_item carousel-item">
-                        <img src="../assets/instrucao2.gif" alt="" class="instrucao">
-                        <p></p>
-                      </div>
-                      <div class="carrosel_item carousel-item">
-                        <img src="../assets/instrucao3.gif" alt="" class="instrucao">
-                        <p></p>
-                      </div>
-                      <div class="carrosel_item carousel-item">
-                        <img src="../assets/instrucao4.gif" alt="" class="instrucao">
-                        <p></p>
-                      </div>
+                    <div class="text-center">
+                      <input type="checkbox" class="form-check-input" id="checkbox-avisar" />
+                      <label class="form-check-label" for="checkbox-avisar">Não ver novamente</label>
                     </div>
-                    
-                    <a class="carousel-control-prev" href="#instrucoes" role="button" data-slide="prev">
-                      <span class="carousel-control  material-icons" aria-hidden="true" id="ante_jogo">
-                        chevron_left
-                      </span>
-                    </a>
-                    <a class="carousel-control-next" href="#instrucoes" role="button" data-slide="next">
-                      <span class="carousel-control  material-icons" aria-hidden="true" id="next_jogo">
-                        chevron_right                     
-                      </span>
-                    </a>
-                  </div>                 
+                  </div>
                 </div>
-              </div>
-              
-                  <input type="checkbox" class="form-check-input" id="checkbox-avisar" />
-                  <label class="form-check-label" for="checkbox-avisar">Não ver novamente</label>
-          </div>`,
-        icon: 'info',
+              </div>`,
         showCloseButton: true,
         confirmButtonText: 'Estou preparado!',
         didRender: () => {
@@ -580,66 +591,76 @@ $(document).ready(function () {
 
 function ajudaJogo() {
   Swal.fire({
-    title: 'Bem vindo(a)!',
     html: `<div class="container" id="popup_instrucoes">
-                <div class="row">
-                    <div class="col-12">
-                      <h3></h3>
-                    </div>
-                </div>
-                
-                <div class="row">
-                <div class="col-12">
-                  <div id="instrucoes" class="carousel slide" data-ride="carousel">
-                    <ol id="indicadoresCarrosel" class="carousel-indicators">
-                      <li data-target="#instrucoes" data-slide-to="0" class="indicador active"></li>
-                      <li data-target="#instrucoes" data-slide-to="1" class="indicador"></li>
-                      <li data-target="#instrucoes" data-slide-to="2" class="indicador"></li>
-                      <li data-target="#instrucoes" data-slide-to="3" class="indicador"></li>
-                      <li data-target="#instrucoes" data-slide-to="4" class="indicador"></li>
+            <div class="row">
+              <div class="col-12">
+                <div id="instrucoes" class="carousel slide d-flex justify-content-center">
+                  <ol id="indicadoresCarrosel" class="carousel-indicators carousel-indicators-bottom">
+                      <li data-target="#instrucoes" data-slide-to="0" class="indicadorTutorial indicador active"></li>
+                      <li data-target="#instrucoes" data-slide-to="1" class="indicadorTutorial indicador"></li>
+                      <li data-target="#instrucoes" data-slide-to="2" class="indicadorTutorial indicador"></li>
+                      <li data-target="#instrucoes" data-slide-to="3" class="indicadorTutorial indicador"></li>
+                      <li data-target="#instrucoes" data-slide-to="4" class="indicadorTutorial indicador"></li>
+                      <li data-target="#instrucoes" data-slide-to="5" class="indicadorTutorial indicador"></li>
+                      <li data-target="#instrucoes" data-slide-to="6" class="indicadorTutorial indicador"></li>
+                      <li data-target="#instrucoes" data-slide-to="7" class="indicadorTutorial indicador"></li>
                     </ol>
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="../assets/personageminicio.png" alt="" id="instrucao1">
-                        <p>Olá!Para jogar o Guess The Tissue siga as intruções a seguir</p>
+                    <div class="carousel-inner" id="carroselInner">
+                      <div class="carrosel_item carousel-item active">
+                        <h1 id="txtOla">Olá!</h1>    
+                        <img src="../assets/personageminicio.png" alt="" class="imgInstrucao">
+                        <h4 class="txtsJogo">Para jogar o Guess The Tissue siga as instruções a seguir!</h4>
                       </div>
-                      <div class="carousel-item">
-                        <img src="../assets/instrucao1.gif" alt="" class="instrucao">
-                        <p></p>
+                      <div class="carrosel_item carousel-item">
+                          <h4 class="txtsJogo">Utilize as seguintes teclas para se mover:</h4>    
+                          <img src="../assets/instrucao1.gif" alt="" class="instrucao">
+                          <p></p>
                       </div>
-                      <div class="carousel-item">
-                        <img src="../assets/instrucao5.gif" alt="" class="instrucao">
-                        <p></p>
+                      <div class="carrosel_item carousel-item">
+                          <h4 class="txtsJogo">O objetivo do jogo é coletar carretéis!</h1>    
+                          <img src="../assets/instrucao5.gif" alt="" class="instrucao">
+                          <p></p>
                       </div>
-                      <div class="carousel-item">
-                        <img src="../assets/instrucao2.gif" alt="" class="instrucao">
-                        <p></p>
+                      <div class="carrosel_item carousel-item">
+                          <h4 class="txtsJogo">Mas fique atento!</h4>    
+                          <img src="../assets/instrucao2.gif" alt="" class="instrucao">
+                          <p></p>
                       </div>
-                      <div class="carousel-item">
-                        <img src="../assets/instrucao3.gif" alt="" class="instrucao">
-                        <p></p>
+                      <div class="carrosel_item carousel-item">
+                          <h4 class="txtsJogo">...</h4>    
+                          <img src="../assets/instrucao3.gif" alt="" class="instrucao">
+                          <p></p>
                       </div>
-                      <div class="carousel-item">
-                        <img src="../assets/instrucao4.gif" alt="" class="instrucao">
-                        <p></p>
+                      <div class="carrosel_item carousel-item">
+                          <h4 class="txtsJogo">...</h4>    
+                          <img src="../assets/instrucao4.gif" alt="" class="instrucao">
+                          <p></p>
+                      </div>
+                      <div class="carrosel_item carousel-item">
+                          <h4 class="txtsJogo">Quanto mais carretéis coletados, maior a chance de chegar ao pódio do ranking e alcançar conquistas!</h4>    
+                          <img src="../assets/podio.png" alt="" class="imgInstrucao">
+                          <p></p>
+                      </div>
+                      <div class="carrosel_item carousel-item">
+                          <h4>Vamos lá?</h4>    
+                          <img src="../assets/personagem.png" alt="" class="imgInstrucao">
+                          <p></p>
                       </div>
                     </div>
                     
-                    <a class="carousel-control-prev" href="#instrucoes" role="button" data-slide="prev">
-                      <span class="carousel-control  material-icons" aria-hidden="true" id="ante_jogo">
-                        chevron_left
-                      </span>
-                    </a>
-                    <a class="carousel-control-next" href="#instrucoes" role="button" data-slide="next">
-                      <span class="carousel-control  material-icons" aria-hidden="true" id="next_jogo">
-                        chevron_right                     
-                      </span>
-                    </a>
-                  </div>                 
+                    <a class="carousel-control-prev carousel-control-start" href="#instrucoes" role="button" data-slide="prev" id="ante_jogo">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden"></span>
+                  </a>
+                  <a class="carousel-control-next carousel-control-end" href="#instrucoes" role="button" data-slide="next" id="next_jogo">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden"></span>
+                  </a>
                 </div>
               </div>
+            </div>
           </div>`,
-    icon: "info",
+    showCloseButton: true,
     confirmButtonText: 'Entendi!',
     allowOutsideClick: true
   });

@@ -416,9 +416,12 @@ function alternarModo() {
 }
 
 var modoCookie = document.cookie.replace(/(?:(?:^|.*;\s*)modo\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-if (modoCookie === "escuro") {
-  document.getElementById("alternar-modoescuro").checked = true;
+var alternarModoEscuro = document.getElementById("alternar-modoescuro");
+
+if (modoCookie === "escuro" && alternarModoEscuro !== null) {
+  alternarModoEscuro.checked = true;
 }
+
 
 // fim do botao de modo escuro
 

@@ -51,57 +51,100 @@ p{
 
 
   /* Carrosel instruções: */
-
-
-  #instrucoes{
-  }
-
-  #popup_instrucoes{
-  }
-  #indicadoresCarrosel{
-    margin-top: 20px;
-    background-color: #8050b1ab;
+  
+  #indicadoresCarrosel {
+    margin-top: 50px !important;
     padding: 8px;
     border-radius: 20px;
-  }
-    
-  .carrosel_item {
-    margin-bottom: 80px;
-    margin-left: 20px;
-    margin-right: 500px;
+    bottom: 0;
+    position: absolute;
   }
 
-.instrucao{
-  width: 90% !important;
-  align-items: center !important;
-}
+  .indicadorTutorial[data-slide-to]{
+    background-color: #8a6da2d7;
+  }
 
-#instrucao1{
-  width: 40%;
-  margin: auto;
+   #indicadoresCarrosel .active{
+    background-color: #623f80e7 !important;
+  }
+  
+#carroselInner{
+  margin-bottom: 50px;
 }
+  .carousel_item {
+    margin-bottom: 100px;
+  }
+  
+  .instrucao {
+    max-width: 80%;
+    height: auto !important;
+    border-radius: 5px;
+  }
+  
+  .imgInstrucao {
+    width: 50%;
+    max-width: 100%;
+    margin: auto;
+  }
 
-#next_jogo,
-#ante_jogo {
+  #txtOla{
+    margin-top: 30px;
+  }
+  .txtsJogo{
+    margin: auto;
+    width: auto;
+    max-width: 75%;
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
+  }
+  
+  #next_jogo,
+  #ante_jogo {
     color: #ffffff;
     background-color: #623f80;
     border-radius: 20px;
     padding: 8px;
-
-}
-
-#next_jogo:hover,
-#ante_jogo:hover {
+    top: 60%;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+  }
+  
+  #next_jogo:hover,
+  #ante_jogo:hover {
     color: #efff14;
     background-color: #623f80;
-}
+  }
+
+  #popup_instrucoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: auto;
+  }
+  
+  #instrucoes {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+  
+
+  
+
+  /* Outros estilos já existentes */
+  
 
 #txt_jogo{
-  margin-top: 10px;
+  margin-top: 30px;
   margin-bottom: 50px;
   text-align: center;
   font-family: 'Noto Sans Nag Mundari' ;
-  font-size: 50px;
+  font-size: 40px;
   color: #194d69;
   width: 100%;
   text-align: center;

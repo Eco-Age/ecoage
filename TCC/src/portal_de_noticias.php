@@ -12,22 +12,22 @@ $imagens = ["../assets/noticia1.jpg", "../assets/noticia2.jpeg", "../assets/noti
 <div class="container" id="portal_de_noticias">
 
     <div class="row">
-        <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
-        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-            <h1 id="txt_portal">Portal de Notícias:</h1>
-        </div>
-        <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
+        <div class="col-2 col-sm-2 col-md-2 col-lg-3 col-xl-3"></div>
+            <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6">
+                <h1 id="txt_portal">Portal de Notícias:</h1>
+            </div>
+        <div class="col-2 col-sm-2 col-md-2 col-lg-3 col-xl-3"></div>
     </div>
 
     <div class="row" id="buscarnoticia">
-        <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
-        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <div class="col-3 col-sm-2 col-md-2 col-lg-3 col-xl-3"></div>
+        <div class="col-6 col-sm-8 col-md-8 col-lg-6 col-xl-6">
             <form id="form_busca" action="buscarNoticia.php" class="form-inline" method="post">
                 <input class="form-control" name="palavra_chave" id="palavra_chave" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar">
               
                 <div class="form-group">
                     <label for="filtro"></label>
-                    <select class=" form-control" id="filtro" name="filtro">
+                    <select class="selectFiltro form-control" id="filtro" name="filtro">
                         <option value="">Em qualquer data</option>
                         <option value="ultimas_24h">Nas últimas 24 horas</option>
                         <option value="ultima_semana">Na última semana</option>
@@ -39,7 +39,7 @@ $imagens = ["../assets/noticia1.jpg", "../assets/noticia2.jpeg", "../assets/noti
                 <div class="erro-preencher" id="palavra_chave_erro"></div>
             </form>
         </div>
-        <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
+        <div class="col-3 col-sm-2 col-md-2 col-lg-3 col-xl-3"></div>
     </div>
 </div>
 
