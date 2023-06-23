@@ -1,13 +1,21 @@
 const canvas = document.getElementById("jogoCanvas");
 const ctx = canvas.getContext("2d");
 
+const backgroundMusic = document.getElementById("backgroundMusic");
+backgroundMusic.volume = 0.15;
+
+const backgroundMusicImortal = document.getElementById("backgroundMusicImortal");
+backgroundMusicImortal.volume = 0.04;
+
+const somPulando = document.getElementById("somPulando");
+somPulando.volume = 0.07;
+somPulando.playbackRate = 2;
 // Variáveis do jogo
 let frames = 0;
 const gravidade = 0.25;
-const tempoInvencibilidade = 5000; // Tempo em milissegundos para o personagem ficar invencível
-const tempoFramesRapidos = 5000; // Tempo em milissegundos para os frames passarem mais rápido
+const tempoInvencibilidade = 10000; // Tempo em milissegundos para o personagem ficar invencível
+const tempoFramesRapidos = 10000; // Tempo em milissegundos para os frames passarem mais rápido
 let framesRapidos = false;
-let contador = 5; // tempo restante qnd ta imortal
 let intervaloContagemRegressiva;
 const imgPersonagemImortal = [
   '../assets/personagemImortal1.png',
@@ -87,7 +95,7 @@ const personagem = {
     framesRapidos = true;
 
     // Inicializa o contador e o intervalo
-    contador = 5;
+    contador = 10;
     intervaloContagemRegressiva = setInterval(() => {
       if (contador > 0) {
         contador--;
@@ -106,17 +114,17 @@ const personagem = {
   },
 };
 
-function atualizarQuadro(tempoAtual) {
-  const deltaTempo = tempoAtual - tempoUltimoQuadro;
+let tempoUltimaAtualizacaoQuadro = 0;
+const intervaloAtualizacaoQuadro = 300;
 
-  if (deltaTempo > quadroIntervalo) {
+function atualizarAnimacaoPersonagemImortal(tempoAtual) {
+  const deltaTempo = tempoAtual - tempoUltimaAtualizacaoQuadro;
+
+  if (deltaTempo > intervaloAtualizacaoQuadro) {
     quadroAtual = (quadroAtual + 1) % imgPersonagemImortal.length;
-    tempoUltimoQuadro = tempoAtual;
+    tempoUltimaAtualizacaoQuadro = tempoAtual;
   }
-
-  requestAnimationFrame(atualizarQuadro);
 }
-
 // Função de atualização do jogo
 /*function atualizarJogo() {
   frames++;
@@ -328,6 +336,23 @@ function detectCollisions() {
         }
       }
     }
+  }else{
+    for (const estrela of estrelas.list) {
+      if (collision(personagem, estrela)){
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 1.7;
+        const textoColetou = "Você já possui uma estrela! ";
+        ctx.fillStyle = "yellow";
+
+    
+        ctx.font = "18px Silkscreen";
+        const metricsColetou= ctx.measureText(textoColetou);
+        const textWidthColetou= metricsColetou.width;
+        const textXColetou = centerX - textWidthColetou / 2;
+    
+        ctx.fillText(textoColetou, textXColetou, centerY + 30);
+      }
+    }
   }
 
   // Permitindo que o personagem colete carretéis enquanto está imortal
@@ -423,6 +448,11 @@ window.addEventListener("keydown", (event) => {
   if (canvas && ([SPACE_BAR_KEY_CODE, UP_ARROW_KEY_CODE].includes(event.keyCode))) {
     event.preventDefault();
     personagem.velocidade = -personagem.pulo;
+      if (somPulando.currentTime === 0 || somPulando.ended) {
+      // Reproduz o som de salto
+      somPulando.currentTime = 0;
+      somPulando.play();
+    }
   }
 });
 
@@ -784,19 +814,31 @@ function gameLoop() {
   drawButtons();
 }
 
+function tocarMusica(){
+  if (personagem.estaImortal){
+      backgroundMusic.pause();    
+      backgroundMusicImortal.play();
+  }else{
+    backgroundMusic.play();
+    backgroundMusicImortal.pause();
+    backgroundMusicImortal.currentTime = 0;
+  }
+}
 
-function startGameLoop() {
-
+function startGameLoop(tempoAtual) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (personagem.tempoImortal > 0) {
     personagem.tempoImortal--;
   }
+  backgroundMusic.play();
   tubos.atualizar();
   carreteis.atualizar();
   estrelas.atualizar();
   personagem.atualizar();
-  atualizarQuadro();
+  tocarMusica();
+  atualizarAnimacaoPersonagemImortal(tempoAtual);
+
   tubos.desenhar();
   carreteis.desenhar();
   estrelas.desenhar();
@@ -826,6 +868,10 @@ function startGameLoop() {
 }
 
 function gameOver() {
+  backgroundMusic.pause();
+  backgroundMusic.currentTime = 0;
+  backgroundMusicImortal.pause();
+  backgroundMusicImortal.currentTime = 0;
   Swal.fire({
     title: "Fim de jogo!",
     html:

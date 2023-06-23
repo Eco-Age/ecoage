@@ -15,11 +15,11 @@ $chave_sessao = $_SESSION["id_usuario"];
                 <h1 class="col-6" id="txt_jogo">Guess the Tissue:</h1>
         <div class="col-3"></div>
     </div>
-    <canvas id="jogoCanvas" width="800" height="600">
-        
+    <canvas id="jogoCanvas" width="800" height="600">     
     </canvas>
-   
-
+    <audio id="backgroundMusic" src="../assets/backgroundmusic.mp3" loop></audio>
+    <audio id="backgroundMusicImortal" src="../assets/backgroundmusicimortal.mp3" loop></audio>
+    <audio id="somPulando" src="../assets/sompulando.mp3"></audio>
 </main>
 </div>
 
