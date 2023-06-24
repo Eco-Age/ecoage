@@ -128,7 +128,7 @@
     color: #d1f5a1;
 }
 
-#botao_inserir {
+#botao_inserirUsuario,  #botao_inserirLogin{
     width: 100%;
     background-color: #623f80;
     color: #f0f8e5;
@@ -136,7 +136,7 @@
 }
 
 #modalNovoUsuario {
-    margin-top: 5%;
+    
 }
 
 #rodape_login {
@@ -822,13 +822,6 @@ nav{
     margin-bottom: 100px;
 }
 
-#conteudo_token_novasenha {
-    min-height: calc(100vh - 100px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 #rodape {
     background-color: #623f80;
     color: #b3d39e;
@@ -1247,7 +1240,7 @@ th {
 /*  edição tecidos */
 
 
-#formEditarTecido {
+#formEditarTecido, #formEditarNoticia{
     text-align: left;
     background-color: #e9e2f0;
     padding: 20px;
@@ -1375,4 +1368,29 @@ th {
 
 .icone-curtir:hover {
     cursor: pointer;
+}
+
+/* altera senha:   */
+
+#txt_alteraSenha{
+    text-align: center; 
+    padding: 10px 0 20px;
+}
+
+#conteudo_token_novasenha {
+    min-height: calc(200vh - 800px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#submitAlteraSenha{
+    width: 100%;
+    margin: 0px auto !important;
+    background-color: #742698;
+    border: none;
+}
+
+#submitAlteraSenha:hover{
+    background-color: #631f83;
 }

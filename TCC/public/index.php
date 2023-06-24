@@ -34,7 +34,7 @@ $lista_avatar = listarAvatar();
             <form action="../src/login.php" method="post">
 
               <div class="form-group">
-                <label for="apelido_login" id="apelido_login">Apelido:</label>
+                <label for="apelido_login">Apelido:</label>
                 <input type="text" name="apelido_login" class="form-control" id="apelido_login" placeholder="Informe seu apelido...">
               </div>
 
@@ -88,14 +88,14 @@ $lista_avatar = listarAvatar();
                 <form action="../src/cadastrar_usuario.php" method="post" onsubmit="return perguntaVerificacao(this)">
                   <input type="hidden" name="verifica" value="0"/>
                   <div class="form-group">
-                    <label for="nome" id="nome">Nome Completo:</label> 
+                    <label for="nome">Nome Completo:</label> 
                     <input type="text" id="nome" name="nome_completo" class="form-control" placeholder="Informe o nome completo..." >
                     <div class="erro-preencher" id="nome_completo_erro"></div>
                   </div>
                            
                  <div class="form-row">
                     <div class="form-group col-md-6">
-                      <label for="data_nasc" id="data_nasc">Data de Nascimento:</label> 
+                      <label for="data_nasc">Data de Nascimento:</label> 
                       <input type="date" id="data_nasc" name="data_nasc" class="form-control" max="2022-12-31"  maxlength="10">
                       <small id="" class="form-text text-muted">Atenção: Insira uma data válida.</small>
                       <div class="erro-preencher" id="data_nasc_erro"></div>
@@ -103,21 +103,21 @@ $lista_avatar = listarAvatar();
 
                     <div class="form-group col-md-6">
                       <label for="tel">Telefone:</label>
-                      <input type="text" class="form-control phone-mask" name="tel" id="tel" maxlength="16" minlenght="15" placeholder="(DDD) 00000-0000">
+                      <input type="text" class="form-control phone-mask" name="tel" id="tel" maxlength="16" minlenght="15" placeholder="(DDD) 00000-0000"  autocomplete="on">
                       <small id="" class="form-text text-muted">(Opcional)</small>
                       <div class="erro-preencher" id="tel_erro"></div>
                     </div>
                   </div>
        
                   <div class="form-group">
-                    <label for="apelido" id="apelido_cadastro">Apelido:</label> 
+                    <label for="apelido">Apelido:</label> 
                     <input type="text" id="apelido" name="apelido" class="form-control" placeholder="Informe o seu apelido..." >
                     <div class="erro-preencher" id="apelido_erro"></div>
                   </div> 
                            
                   <div class="form-group">
-                    <label for="email_cadastro" id="email_cadastro">Email:</label> 
-                    <input type="email" id="email" name="email_cadastro" class="form-control" placeholder="Informe o seu email..." >
+                    <label for="email_cadastro">Email:</label> 
+                    <input type="email" id="email_cadastro" name="email_cadastro" class="form-control" placeholder="Informe o seu email..."  autocomplete="on">
                     <small id="" class="form-text text-muted">Exemplo: exemplo@gmail.com</small>
                     <div class="erro-preencher" id="email_erro"></div>
                   </div> 
@@ -131,7 +131,7 @@ $lista_avatar = listarAvatar();
                   </div>       
 
                   <div>
-                  <label for="avatar">Selecione seu avatar:</label>
+                  <label>Selecione seu avatar:</label>
                   <div class="avatar-container">
                                 <?php foreach ($lista_avatar as $avatar) : ?>
                                    <input class="avatar-radio" type="radio" id="avatar<?=$avatar["id_avatar"]?>" name="id_avatar" value="<?=$avatar["id_avatar"]?>">
@@ -152,7 +152,7 @@ $lista_avatar = listarAvatar();
                 </div>         
                   
                   <div class="form-group">    
-                    <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserir">Cadastrar</button> 
+                    <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserirUsuario">Cadastrar</button> 
                   </div>   
                 </form>
               </fieldset>       
@@ -182,11 +182,11 @@ $lista_avatar = listarAvatar();
               <fieldset>      
                 <form action="../src/esqueceu_senha.php" method="post">                             
                   <div class="form-group">
-                    <label for="email_recuperar" id="email_recuperar">Email:</label> 
+                    <label for="email_recuperar">Email:</label> 
                     <input type="text" id="email_recuperar" name="email_recuperar" class="form-control" placeholder="Informe o seu email..." required>
                   </div>
                   <div class="form-group">    
-                    <button type="submit" value="enviar" class="btn btn-primary" id="botao_inserir">Enviar</button> 
+                    <button type="submit" value="enviar" class="btn btn-primary" id="botao_inserir_login">Enviar</button> 
                   </div>   
                 </form>
               </fieldset>       

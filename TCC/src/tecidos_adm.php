@@ -107,7 +107,7 @@ $lista_tecidos = listarTecidosPaginacao($pagina_atual, $itens_por_pagina);
                   <label class="form-check-label" for="sustentavel">Sustentável?</label> 
                 </div>                      
                 <div class="form-group">    
-                  <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserir">Inserir</button>  
+                  <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserir_tecido">Inserir</button>  
                 </div>   
             </form>
           </fieldset>       

@@ -6,16 +6,18 @@ if(!isset($_SESSION["id_usuario"])){
 }
 include("../include/navegacao.php");
 require("../database/noticias.php");
+require("../database/usuario.php");
 require("../util/mensagens.php");
 require("../util/formatacoes.php");
 
+verificaSessao();
 exibirMsg();
 
 $id_noticia = $_POST["id_noticia"];
 $noticias = buscarNoticia($id_noticia);
 ?>
 
-<div class="container">
+<div class=" container">
     <div class="row">
     <div class="col-1">
       <a class="btn" href="site_externo_adm.php"><span class="material-icons" id="icone_voltar_noticias">reply</span></a>
@@ -25,14 +27,14 @@ $noticias = buscarNoticia($id_noticia);
     <div class="row">
         <div class="col-4"></div>
             <div class="col-4">
-                <h1  id="tituloTecido" >Edição:</h1>
+                <h1  id="tituloNoticia">Edição:</h1>
             </div>
         <div class="col-4"></div>
     </div>
     <div class="row">
         <div class="col-3"></div>
             <div class="col-6">
-            <fieldset>      
+            <fieldset id="formEditarNoticia">      
                   <form action="../src/editar_noticia.php" method="post" onsubmit="return confirmar_edicao_noticia(this)">
                   <input type="hidden" name="id_noticia" value="<?=$id_noticia?>">                             
                             <div class="row form">

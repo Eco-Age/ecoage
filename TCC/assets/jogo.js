@@ -911,6 +911,7 @@ function restartGame() {
   tempoDecorrido = 0;
   tempoInicial = null;
   personagem.tempoImortal = 0;
+  personagem.estaImortal = 0;
 
   contagemRegressiva();
 }

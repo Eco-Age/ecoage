@@ -116,7 +116,7 @@ body.modo-escuro #Gabi_img {
 
 }
 /* titulos das paginas */
-body.modo-escuro #txt_portal, body.modo-escuro #txt_portal2, body.modo-escuro #meus_dados, body.modo-escuro #duvidas_frequentes, body.modo-escuro #txt_tecidos, body.modo-escuro #txt_jogo{
+body.modo-escuro #txt_portal, body.modo-escuro #tituloNoticia, body.modo-escuro #txt_alteraSenha, body.modo-escuro #tituloTecido, body.modo-escuro #txt_portal2, body.modo-escuro #meus_dados, body.modo-escuro #duvidas_frequentes, body.modo-escuro #txt_tecidos, body.modo-escuro #txt_jogo{
     color: #e9d7f9;   
 }
 
@@ -131,12 +131,9 @@ body.modo-escuro #tecido_usu{
 }
 
 /* formularios e etc */
-body.modo-escuro input[type="text"], body.modo-escuro input[type="date"], body.modo-escuro textarea, body.modo-escuro input[type="email"]{
-      background-color: #000000 !important;
-      color: #f1f1f1;
-      border: solid 1px #000000;
+body.modo-escuro #formAlteraSenha{
+  color: #e9d7f9c5;
 }
-
 
 /* alerts / modais */
 body.modo-escuro .swal2-popup, body.modo-escuro .swal2-radio, body.modo-escuro .swal2-range{
