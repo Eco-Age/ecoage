@@ -111,13 +111,13 @@ $lista_avatar = listarAvatar();
        
                   <div class="form-group">
                     <label for="apelido">Apelido:</label> 
-                    <input type="text" id="apelido" name="apelido" class="form-control" placeholder="Informe o seu apelido..." >
+                    <input type="text" id="apelido" name="apelido" class="form-control" placeholder="Informe o seu apelido..." oninput="verificarApelido(this)" >
                     <div class="erro-preencher" id="apelido_erro"></div>
                   </div> 
                            
                   <div class="form-group">
                     <label for="email_cadastro">Email:</label> 
-                    <input type="email" id="email_cadastro" name="email_cadastro" class="form-control" placeholder="Informe o seu email..."  autocomplete="on">
+                    <input type="email" id="email_cadastro" name="email_cadastro" class="form-control" placeholder="Informe o seu email..." oninput="verificarEmail(this)" autocomplete="on">
                     <small id="" class="form-text text-muted">Exemplo: exemplo@gmail.com</small>
                     <div class="erro-preencher" id="email_erro"></div>
                   </div> 

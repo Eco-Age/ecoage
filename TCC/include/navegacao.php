@@ -68,7 +68,7 @@ $avatar_atual = buscarAvatarUsado($id_usuario);
                         <?php } ?>
                         <div class="dropdown-item">
                             <form id="formAlterarSenha" method="POST" action="../src/confirma_senha.php">
-                                <button style="cursor: pointer;" class="dropdown-item" id="btnAlterarSenha">
+                                <button style="cursor: pointer;" class="dropdown-item" type="submit" id="btnAlterarSenha">
                                         <span class="material-icons" id="icone_sair">lock</span>
                                         Alterar senha
                                     </button>

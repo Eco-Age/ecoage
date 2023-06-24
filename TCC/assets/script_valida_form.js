@@ -1,4 +1,65 @@
-// validacao do form de cadastro
+function verificarApelido(input) {
+  var apelido = input.value;
+  var apelidoInput = document.getElementById('apelido');
+  var apelidoError = document.querySelector('#apelido_erro');
+  if (apelido.trim() !== "") {
+    $.ajax({
+      type: 'POST',
+      url: '../src/verificar_apelido_email.php',
+      data: { apelido: apelido },
+      success: function(response) {
+        if (response === 'existe') {
+          apelidoInput.classList.add('erro-border-preencher');
+          apelidoError.classList.add('show');
+          apelidoError.textContent = 'Esse apelido já está cadastrado. Favor escolher outro.';
+          apelidoInput.focus();
+          return false;
+        } else {
+          apelidoInput.classList.remove('erro-border-preencher');
+          apelidoError.classList.remove('show');
+          apelidoError.textContent = '';
+          return true;
+        }
+      }
+    });
+  } else {
+    apelidoError.textContent = '';
+    return true;
+  }
+}
+
+function verificarEmail(input) {
+  var email = input.value;
+  var emailInput = document.getElementById('email_cadastro');
+  var emailError = document.querySelector('#email_erro');
+  if (email.trim() !== "") {
+    console.log("im here");
+    $.ajax({
+      type: 'POST',
+      url: '../src/verificar_apelido_email.php',
+      data: { email_cadastro: email },
+      success: function(response) {
+        if (response === 'existe') {
+          emailInput.classList.add('erro-border-preencher');
+          emailError.classList.add('show');
+          emailError.textContent = 'Esse email já está cadastrado. Se tiver perdido a senha, vá em recuperar senha.';
+          emailInput.focus();
+          return false;
+        } else {
+          emailInput.classList.remove('erro-border-preencher');
+          emailError.classList.remove('show');
+          emailError.textContent = '';
+          return true;
+        }
+      }
+    });
+  } else {
+    emailError.textContent = '';
+    return true;
+  }
+}
+
+
 function perguntaVerificacao(form) {
 
   var nomeCompleto = form.nome_completo.value;
@@ -62,11 +123,11 @@ function perguntaVerificacao(form) {
     apelidoError.textContent = '';
   }
 
-  var email = form.email.value;
-  var emailInput = form.email;
+  var email = form.email_cadastro.value;
+  var emailInput = form.email_cadastro;
   var emailError = document.querySelector('#email_erro');
   var padraoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!email.match(padraoEmail)) {
+  if (!email.match(padraoEmail) ) {
     emailInput.classList.add('erro-border-preencher');
     emailError.classList.add('show');
     emailError.textContent = 'Por favor, insira um email válido';

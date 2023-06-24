@@ -11,6 +11,7 @@ const somPulando = document.getElementById("somPulando");
 somPulando.volume = 0.07;
 somPulando.playbackRate = 2;
 // Variáveis do jogo
+let jogando = false;
 let frames = 0;
 const gravidade = 0.25;
 const tempoInvencibilidade = 10000; // Tempo em milissegundos para o personagem ficar invencível
@@ -445,15 +446,18 @@ window.addEventListener("keydown", (event) => {
   keys[event.keyCode] = true;
 
   // Verifique se o evento ocorreu dentro do canvas do jogo antes de executar a ação de pulo
-  if (canvas && ([SPACE_BAR_KEY_CODE, UP_ARROW_KEY_CODE].includes(event.keyCode))) {
+  if (jogando){ 
+    if (canvas && ([SPACE_BAR_KEY_CODE, UP_ARROW_KEY_CODE].includes(event.keyCode))) {
     event.preventDefault();
     personagem.velocidade = -personagem.pulo;
       if (somPulando.currentTime === 0 || somPulando.ended) {
       // Reproduz o som de salto
       somPulando.currentTime = 0;
       somPulando.play();
+      }
     }
   }
+ 
 });
 
 window.addEventListener("keyup", (event) => {
@@ -826,6 +830,7 @@ function tocarMusica(){
 }
 
 function startGameLoop(tempoAtual) {
+  jogando = true;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (personagem.tempoImortal > 0) {
@@ -868,6 +873,7 @@ function startGameLoop(tempoAtual) {
 }
 
 function gameOver() {
+  jogando = false;
   backgroundMusic.pause();
   backgroundMusic.currentTime = 0;
   backgroundMusicImortal.pause();
