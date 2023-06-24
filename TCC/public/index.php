@@ -30,7 +30,7 @@ $lista_avatar = listarAvatar();
      
       <div class="col-sm-8 col-md-6 col-lg-4 col-xl-4">
         <fieldset id="forms_login" class="">             
-          <legend id="legend_login" class=""><img id="logo" src="../assets/logo.png" alt="logo"></legend>
+          <legend id="legend_login" class=""><img id="logo" src="../assets/img/logo.png" alt="logo"></legend>
             <form action="../src/login.php" method="post">
 
               <div class="form-group">
@@ -226,7 +226,7 @@ $lista_avatar = listarAvatar();
                 <div class="row" id="avatar_nois">
                   <div class="col"></div>
                   <div class="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                    <img src="../assets/nois.png" id="nois">                                             
+                    <img src="../assets/img/nois.png" id="nois">                                             
                   </div>
                   <div class="col"></div>
                 </div>
@@ -245,7 +245,7 @@ $lista_avatar = listarAvatar();
                 <div class="row" id="">
                   <div class="col"></div>
                     <div class="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                        <img src="../assets/edu_aplauso.png" id="Edu_img2">                                             
+                        <img src="../assets/img/edu_aplauso.png" id="Edu_img2">                                             
                     </div>
                     <div class="col"></div>
                 </div>  
@@ -256,8 +256,8 @@ $lista_avatar = listarAvatar();
                       Sou o <span class="negrito">Edu</span>!
                       Amo <span class="negrito">ler</span> e <span class="negrito">escrever</span>, vocês podem conhecer mais sobre mim me seguindo nas <span class="negrito">redes sociais</span>:<br>
 
-                        <a href="https://www.facebook.com/eduardo.bonifacio.3511" target="_blank"><img src="../assets/facebook.png" class="iconeRedeSocial"></a>
-                        <a href="https://www.instagram.com/eduu_bonifacio/" target="_blank"><img src="../assets/instagram.png" class="iconeRedeSocial"></a>
+                        <a href="https://www.facebook.com/eduardo.bonifacio.3511" target="_blank"><img src="../assets/img/facebook.png" class="iconeRedeSocial"></a>
+                        <a href="https://www.instagram.com/eduu_bonifacio/" target="_blank"><img src="../assets/img/instagram.png" class="iconeRedeSocial"></a>
                       </p>
                     </div>
                   <div class="col"></div>
@@ -268,7 +268,7 @@ $lista_avatar = listarAvatar();
                 <div class="row" id="">
                   <div class="col"></div>
                     <div class="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                      <img src="../assets/Ana_avatar.png" id="Ana_img2">                                             
+                      <img src="../assets/img/Ana_avatar.png" id="Ana_img2">                                             
                     </div>
                   <div class="col"></div>
                 </div>
@@ -280,8 +280,8 @@ $lista_avatar = listarAvatar();
                         Amo <span class="negrito">ouvir música</span> e <span class="negrito">conversar com os meus amigos</span>,
                         vocês podem conhecer mais sobre mim me seguindo nas <span class="negrito">redes sociais:</span><br>
 
-                        <a href="https://www.facebook.com/anabeatriz.rochaduarte.1" target="_blank" ><img src="../assets/facebook.png" class="iconeRedeSocial"></a>
-                        <a href="https://www.instagram.com/ana_rocha_duarte_/" target="_blank" ><img src="../assets/instagram.png" class="iconeRedeSocial"></a>
+                        <a href="https://www.facebook.com/anabeatriz.rochaduarte.1" target="_blank" ><img src="../assets/img/facebook.png" class="iconeRedeSocial"></a>
+                        <a href="https://www.instagram.com/ana_rocha_duarte_/" target="_blank" ><img src="../assets/img/instagram.png" class="iconeRedeSocial"></a>
                       </p>    
                     </div>
                   <div class="col"></div>
@@ -292,7 +292,7 @@ $lista_avatar = listarAvatar();
                 <div class="row" id="">
                   <div class="col"></div>
                     <div class="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                      <img src="../assets/bibi_apresenta.png" id="Gabi_img2">                                             
+                      <img src="../assets/img/bibi_apresenta.png" id="Gabi_img2">                                             
                     </div>
                   <div class="col"></div>
                 </div>
@@ -304,8 +304,8 @@ $lista_avatar = listarAvatar();
                           Amo <span class="negrito">dançar</span> e <span class="negrito">ouvir música</span>, 
                           vocês podem conhecer mais sobre mim me seguindo nas <span class="negrito">redes sociais:</span><br>
 
-                          <a href="https://www.facebook.com/gabrielle.silva.5055" target="_blank"><img src="../assets/facebook.png" class="iconeRedeSocial"></a>
-                          <a href="https://www.instagram.com/_gabiulisses/" target="_blank"><img src="../assets/instagram.png" class="iconeRedeSocial"></a>            
+                          <a href="https://www.facebook.com/gabrielle.silva.5055" target="_blank"><img src="../assets/img/facebook.png" class="iconeRedeSocial"></a>
+                          <a href="https://www.instagram.com/_gabiulisses/" target="_blank"><img src="../assets/img/instagram.png" class="iconeRedeSocial"></a>            
                       </p>
                     </div>
                   <div class="col"></div>
@@ -339,6 +339,6 @@ $lista_avatar = listarAvatar();
                 </div>
             </div>
   </footer>
-  <script src="../assets/script.js"></script>
-  <script src="../assets/script_valida_form.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/script_valida_form.js"></script>
 </html>

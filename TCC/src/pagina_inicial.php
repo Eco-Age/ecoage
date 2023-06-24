@@ -39,7 +39,7 @@
                             <div class="row">
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                                     <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                                            <img src="../assets/edu_aplauso.png" id="Edu_img">                                             
+                                            <img src="../assets/img/edu_aplauso.png" id="Edu_img">                                             
                                     </div>
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                             </div>
@@ -61,7 +61,7 @@
                             <div class="row ">
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                                     <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                                        <img src="../assets/bibi_desconfiada.png" id="Gabi_img">
+                                        <img src="../assets/img/bibi_desconfiada.png" id="Gabi_img">
                                     </div>
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                             </div>
@@ -82,7 +82,7 @@
                             <div class="row ">
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                                     <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                                        <img src="../assets/Ana_pensando.png" id="Ana_img">
+                                        <img src="../assets/img/Ana_pensando.png" id="Ana_img">
                                     </div>
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                             </div>
@@ -102,7 +102,7 @@
                             <div class="row ">
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                                     <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                                        <img src="../assets/edu_surpreso.png" id="Edu_img">
+                                        <img src="../assets/img/edu_surpreso.png" id="Edu_img">
                                     </div>
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                             </div>
@@ -123,7 +123,7 @@
                             <div class="row ">
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                                     <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                                        <img src="../assets/bibi_triste.png" id="Gabi_img">
+                                        <img src="../assets/img/bibi_triste.png" id="Gabi_img">
                                     </div>
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                             </div>
@@ -145,7 +145,7 @@
                             <div class="row ">
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                                     <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                                        <img src="../assets/Ana_avatar.png" id="Ana_img">
+                                        <img src="../assets/img/Ana_avatar.png" id="Ana_img">
                                     </div>
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                             </div>
@@ -166,7 +166,7 @@
                             <div class="row ">
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                                     <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                                        <img src="../assets/bibi_grata.png" id="Gabi_img">
+                                        <img src="../assets/img/bibi_grata.png" id="Gabi_img">
                                     </div>
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                             </div>
@@ -203,6 +203,6 @@
 <?php
         include("../include/rodape.php");
   ?>
-<script src="../assets/script.js"></script>
+<script src="../assets/js/script.js"></script>
 </body>
 </html>

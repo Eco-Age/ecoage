@@ -34,7 +34,7 @@ excluirEmailExpirado();
         </div>
     </div>
 
-    <script type="text/javascript" src="../assets/script.js"></script>
+    <script type="text/javascript" src="../assets/js/script.js"></script>
 
     <?php
     include("../include/rodape.php");

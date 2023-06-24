@@ -13,7 +13,7 @@ $avatar_atual = buscarAvatarUsado($id_usuario);
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand" href="../src/pagina_inicial.php">
-            <img src="../assets/logo.png" width="50" height="50" alt="Eco Age">
+            <img src="../assets/img/logo.png" width="50" height="50" alt="Eco Age">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
             aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">

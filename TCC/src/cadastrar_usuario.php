@@ -63,7 +63,7 @@ if (verificarUsuarioCadastrado($apelido, $email) == true) {
         $mail->setFrom('live.ecoage@gmail.com', 'EcoAge');
         $mail->addAddress($email);
 
-        $mail->AddEmbeddedImage('../assets/logo.png', 'logo_ref');
+        $mail->AddEmbeddedImage('../assets/img/logo.png', 'logo_ref');
 
         $mail->Subject = '[Verificação de Email]';
         $mail->Body = '<h2 style="text-align: center;">Confirmação de Email</h2>

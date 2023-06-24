@@ -40,7 +40,7 @@ if (isset($_SESSION["email"])){
         $mail->setFrom('live.ecoage@gmail.com', 'EcoAge');
         $mail->addAddress($email);
 
-        $mail->AddEmbeddedImage('../assets/logo.png', 'logo_ref');
+        $mail->AddEmbeddedImage('../assets/img/logo.png', 'logo_ref');
 
         $mail->Subject = '[Recuperação de Senha]';
         $mail->Body = '<h2 style="text-align: center;">Confirmação de Email</h2>

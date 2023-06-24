@@ -92,7 +92,7 @@ $imagem_atual = basename($tecido['caminho_imagem']);
 <?php
 include("../include/rodape.php");
 ?>
-<script src="../assets/script.js"></script>
+<script src="../assets/js/script.js"></script>
 <script>
     document.querySelector('#imagem_tecido').addEventListener('change', function(e) {
         var fileName = e.target.files[0].name;

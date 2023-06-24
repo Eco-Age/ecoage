@@ -38,15 +38,15 @@ session_start();
 
             <div class="col-2" id="sobre_nos_ana">
                 <h6>Ana Beatriz</h6>
-                <img src="../assets/Ana_avatar.png" id="Ana_img">
+                <img src="../assets/img/Ana_avatar.png" id="Ana_img">
                 <div class="col-6" id="txt_apresentacao">
                     <p>Oi galera! Sou a Ana, estudo no Instituto Federal de São Paulo - Câmpus Araraquara.
                         Amo ouvir música e conversar com os meus amigos. Fiz parte do desenvolvimento do site ecoage como Trabalho
                         de Conclusão de Curso.
                         Vocês podem conhecer mais sobre mim me seguindo nas redes sociais:<br>
 
-                    <a href="https://www.facebook.com/anabeatriz.rochaduarte.1" target="_blank"><img src="../assets/facebook.png"></a>
-                    <a href="https://www.instagram.com/ana_rocha_duarte_/" target="_blank"><img src="../assets/instagram.png"></a>
+                    <a href="https://www.facebook.com/anabeatriz.rochaduarte.1" target="_blank"><img src="../assets/img/facebook.png"></a>
+                    <a href="https://www.instagram.com/ana_rocha_duarte_/" target="_blank"><img src="../assets/img/instagram.png"></a>
                     </p>
                     
                 </div>
@@ -54,30 +54,30 @@ session_start();
 
             <div class="col-2" id="sobre_nos_edu">
                 <h6>Eduardo</h6>
-                <img src="../assets/Edu_avatar.png" id="Edu_img">
+                <img src="../assets/img/Edu_avatar.png" id="Edu_img">
                 <div class="col-6" id="txt_apresentacao">
                     <p>E aí, pessoal! Sou o Edu, estudo no Instituto Federal de São Paulo - Câmpus Araraquara.
                         Amo ler e escrever. Fiz parte do desenvolvimento do site ecoage como Trabalho
                         de Conclusão de Curso.
                         Vocês podem conhecer mais sobre mim me seguindo nas redes sociais:<br>
 
-                        <a href="https://www.facebook.com/eduardo.bonifacio.3511" target="_blank"><img src="../assets/facebook.png"></a>
-                        <a href="https://www.instagram.com/eduu_bonifacio/" target="_blank"><img src="../assets/instagram.png"></a>
+                        <a href="https://www.facebook.com/eduardo.bonifacio.3511" target="_blank"><img src="../assets/img/facebook.png"></a>
+                        <a href="https://www.instagram.com/eduu_bonifacio/" target="_blank"><img src="../assets/img/instagram.png"></a>
                     </p>
                 </div>
             </div>
 
             <div class="col-2" id="sobre_nos_gabi">
                 <h6>Gabrielle</h6>
-                <img src="../assets/Gabi_avatar.png" id="Gabi_img">
+                <img src="../assets/img/Gabi_avatar.png" id="Gabi_img">
                 <div class="col-6" id="txt_apresentacao">
                     <p> Oiii gentee! Sou a Gabi, estudo no Instituto Federal de São Paulo - Câmpus Araraquara.
                         Amo dançar e ouvir música. Fiz parte do desenvolvimento do site ecoage como Trabalho
                         de Conclusão de Curso.
                         Vocês podem conhecer mais sobre mim me seguindo nas redes sociais:<br>
 
-                        <a href="https://www.facebook.com/gabrielle.silva.5055" target="_blank"><img src="../assets/facebook.png"></a>
-                        <a href="https://www.instagram.com/_gabiulisses/" target="_blank"><img src="../assets/instagram.png"></a>
+                        <a href="https://www.facebook.com/gabrielle.silva.5055" target="_blank"><img src="../assets/img/facebook.png"></a>
+                        <a href="https://www.instagram.com/_gabiulisses/" target="_blank"><img src="../assets/img/instagram.png"></a>
                         
                     </p>
                 </div>  

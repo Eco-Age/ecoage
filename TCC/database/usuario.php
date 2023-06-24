@@ -271,7 +271,7 @@ function verificatoken($email, $token_digitado){
               <a href="../src/token.php" style="text-align: center; background-color: #623f80;" class="btn btn-outline-light">Voltar</a>
             </h3>
           </div>';
-    echo "<script src='../assets/script.js'></script>";
+    echo "<script src='../assets/js/script.js'></script>";
     include ("../include/rodape.php");
   }
   
@@ -462,7 +462,7 @@ function confirmaEmail($email, $codigo_digitado){
             </a>
             </h3>
           </div>';
-    echo "<script src='../assets/script.js'></script>";
+    echo "<script src='../assets/js/script.js'></script>";
     include ("../include/rodape.php");
   }
 }

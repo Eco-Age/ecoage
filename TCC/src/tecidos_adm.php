@@ -209,8 +209,8 @@ $lista_tecidos = listarTecidosPaginacao($pagina_atual, $itens_por_pagina);
     label.innerText = fileName;
   });
 </script>
-<script src="../assets/script.js"></script>
-<script src="../assets/script_quiz.js"></script>
+<script src="../assets/js/script.js"></script>
+<script src="../assets/js/script_quiz.js"></script>
 
 
 </body>

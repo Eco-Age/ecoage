@@ -7,7 +7,7 @@ include("../include/navegacao.php");
 exibirMsg();
 verificaSessao();
 $lista_noticias = maisCurtidas();
-$imagens = ["../assets/noticia1.jpg", "../assets/noticia2.jpeg", "../assets/noticia3.jpg"]
+$imagens = ["../assets/img/noticia1.jpg", "../assets/img/noticia2.jpeg", "../assets/img/noticia3.jpg"]
 ?>
 <div class="container" id="portal_de_noticias">
 
@@ -78,8 +78,8 @@ $imagens = ["../assets/noticia1.jpg", "../assets/noticia2.jpeg", "../assets/noti
 <?php
 include("../include/rodape.php");
 ?>
-<script src="../assets/script.js"></script>
-<script src="../assets/script_valida_form.js"></script>
+<script src="../assets/js/script.js"></script>
+<script src="../assets/js/script_valida_form.js"></script>
 </body>
 
 </html>

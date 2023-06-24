@@ -17,9 +17,9 @@ $chave_sessao = $_SESSION["id_usuario"];
     </div>
     <canvas id="jogoCanvas" width="800" height="600">     
     </canvas>
-    <audio id="backgroundMusic" src="../assets/backgroundmusic.mp3" loop></audio>
-    <audio id="backgroundMusicImortal" src="../assets/backgroundmusicimortal.mp3" loop></audio>
-    <audio id="somPulando" src="../assets/sompulando.mp3"></audio>
+    <audio id="backgroundMusic" src="../assets/sounds/backgroundmusic.mp3" loop></audio>
+    <audio id="backgroundMusicImortal" src="../assets/sounds/backgroundmusicimortal.mp3" loop></audio>
+    <audio id="somPulando" src="../assets/sounds/sompulando.mp3"></audio>
 </main>
 </div>
 
@@ -29,7 +29,7 @@ $chave_sessao = $_SESSION["id_usuario"];
 <script>
     var chave_sessao = "<?php echo $chave_sessao; ?>";
 </script>
-<script src="../assets/jogo.js"></script>
-<script src="../assets/script.js"></script>
+<script src="../assets/js/jogo.js"></script>
+<script src="../assets/js/script.js"></script>
 </body>
 </html>

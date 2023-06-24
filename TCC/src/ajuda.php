@@ -113,7 +113,7 @@
     </div>
 </main>
 </div>
-<script src="../assets/script.js"></script>
+<script src="../assets/js/script.js"></script>
 <?php
     include("../include/rodape.php");  
 ?>

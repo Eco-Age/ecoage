@@ -17,10 +17,10 @@ CREATE TABLE avatars (
 );
 
 INSERT INTO avatars (nome, caminho) 
-VALUES  ('Avatar 1', '../avatars/avatar1.png'),
-        ('Avatar 2', '../avatars/avatar2.png'),
-        ('Avatar 3', '../avatars/avatar3.png'),
-        ('Avatar 4', '../avatars/avatar4.png');
+VALUES  ('Avatar 1', '../assets/avatars/avatar1.png'),
+        ('Avatar 2', '../assets/avatars/avatar2.png'),
+        ('Avatar 3', '../assets/avatars/avatar3.png'),
+        ('Avatar 4', '../assets/avatars/avatar4.png');
 
 CREATE TABLE Usuario(
     id_usuario INT AUTO_INCREMENT,

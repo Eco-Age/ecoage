@@ -72,4 +72,4 @@ $noticias = buscarNoticia($id_noticia);
 <?php
     include("../include/rodape.php");  
 ?>
-    <script src="../assets/script.js"></script> 
+    <script src="../assets/js/script.js"></script> 

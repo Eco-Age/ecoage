@@ -1,0 +1,155 @@
+body {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#jogoCanvas {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;    
+    background-image: url('../imagens_jogo/fundo.png');     
+    position: relative;
+
+}
+
+
+p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#imgpersonagem{
+    width: 200px;
+    height: 200px;
+}
+
+#guessTitulo{
+    color: #000000;
+    margin: auto 0px;
+}
+
+  #gameContainer {
+    position: relative;
+  }
+  
+  #jogoCanvas {
+    width: 800px; /* Ajuste conforme necessário */
+    height: 600px; /* Ajuste conforme necessário */
+  }
+  
+  #htmlContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Ajuste as coordenadas de posicionamento conforme necessário */
+  }
+
+  .disable-scroll {
+    overflow: hidden;
+  }
+
+
+  /* Carrosel instruções: */
+  
+  #indicadoresCarrosel {
+    margin-top: 50px !important;
+    padding: 8px;
+    border-radius: 20px;
+    bottom: 0;
+    position: absolute;
+  }
+
+  .indicadorTutorial[data-slide-to]{
+    background-color: #8a6da2d7;
+  }
+
+   #indicadoresCarrosel .active{
+    background-color: #623f80e7 !important;
+  }
+  
+#carroselInner{
+  margin-bottom: 50px;
+}
+  .carousel_item {
+    margin-bottom: 100px;
+  }
+  
+  .instrucao {
+    max-width: 80%;
+    height: auto !important;
+    border-radius: 5px;
+  }
+  
+  .imgInstrucao {
+    width: 50%;
+    max-width: 100%;
+    margin: auto;
+  }
+
+  #txtOla{
+    margin-top: 30px;
+  }
+  .txtsJogo{
+    margin: auto;
+    width: auto;
+    max-width: 75%;
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
+  }
+  
+  #next_jogo,
+  #ante_jogo {
+    color: #ffffff;
+    background-color: #623f80;
+    border-radius: 20px;
+    padding: 8px;
+    top: 60%;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+  }
+  
+  #next_jogo:hover,
+  #ante_jogo:hover {
+    color: #efff14;
+    background-color: #623f80;
+  }
+
+  #popup_instrucoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: auto;
+  }
+  
+  #instrucoes {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+  
+
+  
+
+  /* Outros estilos já existentes */
+  
+
+#txt_jogo{
+  margin-top: 30px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-family: 'Noto Sans Nag Mundari' ;
+  font-size: 40px;
+  color: #194d69;
+  width: 100%;
+  text-align: center;
+}
+
+#botaoajudajogo{
+  margin-top: 40px;
+}

@@ -132,7 +132,7 @@
 <?php
       include("../include/rodape.php");
 ?>
-<script src="../assets/script.js"></script>
+<script src="../assets/js/script.js"></script>
 <script>
   var verifica = "<?= $verifica_int; ?>";
   if (verifica == 1){
@@ -141,6 +141,6 @@
     document.getElementById("verificar_email").style.display = "block";
   }
 </script>
-<script src="../assets/script_valida_form.js"></script>
+<script src="../assets/js/script_valida_form.js"></script>
 </body> 
 </html>

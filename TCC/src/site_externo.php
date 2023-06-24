@@ -149,8 +149,8 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
 <?php
 include("../include/rodape.php");
 ?>
-<script src="../assets/script.js"></script>
-<script src="../assets/script_valida_form.js"></script>
+<script src="../assets/js/script.js"></script>
+<script src="../assets/js/script_valida_form.js"></script>
 <script>
     let id_usuario_curtida = "<?= $_SESSION["id_usuario"]; ?>";
 </script>

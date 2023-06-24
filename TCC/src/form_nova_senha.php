@@ -4,7 +4,7 @@ require ("../database/usuario.php");
 
 verificaSessao();
 ?>
-<script src="../assets/script.js"></script>
+<script src="../assets/js/script.js"></script>
 
 <div id="conteudo_token_novasenha">
     <div class="row">

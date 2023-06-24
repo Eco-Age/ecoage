@@ -42,7 +42,7 @@ function verificarEmail(input) {
         if (response === 'existe') {
           emailInput.classList.add('erro-border-preencher');
           emailError.classList.add('show');
-          emailError.textContent = 'Esse email já está cadastrado. Se tiver perdido a senha, vá em recuperar senha.';
+          emailError.textContent = 'Esse email já está cadastrado. Se tiver perdido a senha, vá em "esqueceu a senha?".';
           emailInput.focus();
           return false;
         } else {
@@ -261,7 +261,7 @@ function validacao(form) {
   if (tel !== "" && !tel.match(padraoTel)) {
     telInput.classList.add('erro-border-preencher');
     telError.classList.add('show');
-    telError.textContent = 'Seu número de telefone precisa ser como "(XX) 9XXXX-XXXX"';
+    telError.textContent = 'Seu número de telefone pode ter no máximo 15 dígitos!';
     telInput.focus();
     return false;
   } else if (tel !== "" && tel.match(padraoTel)) {
