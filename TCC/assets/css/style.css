@@ -161,7 +161,7 @@
     position: relative;
     left: 88%;
     transform: translateY(-120%);
-    background: URL('mostrar.png');
+    background: URL('../img/mostrar.png');
     background-size: cover;
     width: 25px;
     height: 25px;
@@ -169,7 +169,7 @@
 }
 
 #icon.ocultar {
-    background: URL('ocultar.png');
+    background: URL('../img/ocultar.png');
     background-size: cover;
 }
 
@@ -178,7 +178,7 @@
     margin-top: -4%;
     right: 30px;
     transform: translateY(-50%);
-    background: URL('mostrar.png');
+    background: URL('../img/mostrar.png');
     background-size: cover;
     width: 25px;
     height: 25px;
@@ -186,7 +186,7 @@
 }
 
 #icon_edicao.ocultar {
-    background: URL('ocultar.png');
+    background: URL('../img/ocultar.png');
     background-size: cover;
 }
 
@@ -194,7 +194,7 @@
     position: relative;
     left: 92%;
     transform: translateY(-120%);
-    background: URL('mostrar.png');
+    background: URL('../img/mostrar.png');
     background-size: cover;
     width: 25px;
     height: 25px;
@@ -202,7 +202,7 @@
 }
 
 #icon_cadastro.ocultar {
-    background: URL('ocultar.png');
+    background: URL('../img/ocultar.png');
     background-size: cover;
 }
 
