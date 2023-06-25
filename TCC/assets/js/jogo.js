@@ -337,20 +337,20 @@ function detectCollisions() {
         }
       }
     }
-  }else{
+  } else {
     for (const estrela of estrelas.list) {
-      if (collision(personagem, estrela)){
+      if (collision(personagem, estrela)) {
         const centerX = canvas.width / 2;
         const centerY = canvas.height / 1.7;
         const textoColetou = "Você já possui uma estrela! ";
         ctx.fillStyle = "yellow";
 
-    
+
         ctx.font = "18px Silkscreen";
-        const metricsColetou= ctx.measureText(textoColetou);
-        const textWidthColetou= metricsColetou.width;
+        const metricsColetou = ctx.measureText(textoColetou);
+        const textWidthColetou = metricsColetou.width;
         const textXColetou = centerX - textWidthColetou / 2;
-    
+
         ctx.fillText(textoColetou, textXColetou, centerY + 30);
       }
     }
@@ -400,7 +400,7 @@ function desenharPontuacao() {
 
   // Desenhar imagem de um carretel
   const carretelImg = new Image();
-  carretelImg.src = "../assets/carretel.png";
+  carretelImg.src = "../assets/imagens_jogo/carretel.png";
   ctx.drawImage(carretelImg, 10, 10, 20, 20);
 
   // Desenhar imagem de um relógio
@@ -446,18 +446,18 @@ window.addEventListener("keydown", (event) => {
   keys[event.keyCode] = true;
 
   // Verifique se o evento ocorreu dentro do canvas do jogo antes de executar a ação de pulo
-  if (jogando){ 
+  if (jogando) {
     if (canvas && ([SPACE_BAR_KEY_CODE, UP_ARROW_KEY_CODE].includes(event.keyCode))) {
-    event.preventDefault();
-    personagem.velocidade = -personagem.pulo;
+      event.preventDefault();
+      personagem.velocidade = -personagem.pulo;
       if (somPulando.currentTime === 0 || somPulando.ended) {
-      // Reproduz o som de salto
-      somPulando.currentTime = 0;
-      somPulando.play();
+        // Reproduz o som de salto
+        somPulando.currentTime = 0;
+        somPulando.play();
       }
     }
   }
- 
+
 });
 
 window.addEventListener("keyup", (event) => {
@@ -642,32 +642,32 @@ function ajudaJogo() {
                     <div class="carousel-inner" id="carroselInner">
                       <div class="carrosel_item carousel-item active">
                         <h1 id="txtOla">Olá!</h1>    
-                        <img src="../assets/personageminicio.png" alt="" class="imgInstrucao">
+                        <img src="../assets/imagens_jogo/personageminicio.png" alt="" class="imgInstrucao">
                         <h4 class="txtsJogo">Para jogar o Guess The Tissue siga as instruções a seguir!</h4>
                       </div>
                       <div class="carrosel_item carousel-item">
                           <h4 class="txtsJogo">Utilize as seguintes teclas para se mover:</h4>    
-                          <img src="../assets/instrucao1.gif" alt="" class="instrucao">
+                          <img src="../assets/imagens_jogo/instrucao1.gif" alt="" class="instrucao">
                           <p></p>
                       </div>
                       <div class="carrosel_item carousel-item">
                           <h4 class="txtsJogo">O objetivo do jogo é coletar carretéis!</h1>    
-                          <img src="../assets/instrucao5.gif" alt="" class="instrucao">
+                          <img src="../assets/imagens_jogo/instrucao5.gif" alt="" class="instrucao">
                           <p></p>
                       </div>
                       <div class="carrosel_item carousel-item">
                           <h4 class="txtsJogo">Mas fique atento!</h4>    
-                          <img src="../assets/instrucao2.gif" alt="" class="instrucao">
+                          <img src="../assets/imagens_jogo/instrucao2.gif" alt="" class="instrucao">
                           <p></p>
                       </div>
                       <div class="carrosel_item carousel-item">
                           <h4 class="txtsJogo">...</h4>    
-                          <img src="../assets/instrucao3.gif" alt="" class="instrucao">
+                          <img src="../assets/imagens_jogo/instrucao3.gif" alt="" class="instrucao">
                           <p></p>
                       </div>
                       <div class="carrosel_item carousel-item">
                           <h4 class="txtsJogo">...</h4>    
-                          <img src="../assets/instrucao4.gif" alt="" class="instrucao">
+                          <img src="../assets/imagens_jogo/instrucao4.gif" alt="" class="instrucao">
                           <p></p>
                       </div>
                       <div class="carrosel_item carousel-item">
@@ -699,10 +699,84 @@ function ajudaJogo() {
     allowOutsideClick: true
   });
 
+
   $(document).ready(function () {
     $('.popover-link').popover({ trigger: 'focus' });
   });
 };
+// arquivo.js
+
+// Função para fazer uma requisição AJAX
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var patenteNova = xhr.responseText;
+      console.log(patenteNova);
+      // Faça o que desejar com o valor da patenteNova
+    }
+  };
+  xhr.open("GET", "../database/ranking.php", true);
+  xhr.send();
+
+
+function Ranking() {
+  $.ajax({
+    type: 'GET',
+    url: '../database/ranking.php',
+    dataType: 'json',
+    success: function (data) {
+      let html = "<h2>Ranking</h2><br>";
+      html += `<table>
+          <thead>
+              <tr>
+                  <th>Rank</th>
+                  <th>Nome</th>
+                  <th>Carretéis</th>
+                  <th>Tempo</th>
+                  <th>Patente</th>
+              </tr>
+          </thead>
+          <tbody>`;
+
+      for (var i = 0; i < data.length; i++) {
+        var rank = i + 1;
+        var apelido = data[i].apelido;
+        var carreteis = data[i].carreteis;
+        var tempo = data[i].tempo;
+        var patente = data[i].patente;
+
+        html += `<tr>
+                      <td>${rank}</td>
+                      <td>${apelido}</td>
+                      <td>${carreteis}</td>
+                      <td>${tempo}</td>
+                      <td>${patente}</td>
+                  </tr>`;
+      }
+
+      html += `</tbody>
+              </table>`;
+
+
+      Swal.fire({
+        html: html,
+        confirmButtonColor: '#8614e9',
+        showCancelButton: false,
+        confirmButtonText: 'Fechar',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showCloseButton: true
+      });
+    },
+  });
+
+  $(document).ready(function () {
+    $('.popover-link').popover({ trigger: 'focus' });
+  });
+};
+
+
 
 function gameLoop() {
   let jogoIniciado = false;
@@ -740,9 +814,17 @@ function gameLoop() {
     height: buttonHeight,
     isHovered: false
   };
- // feito pq a fonte nao tava carregando ao entrar na pagina 
+
+  const podioButton = {
+    x: buttonX,
+    y: buttonY + buttonHeight + 90,
+    width: buttonWidth,
+    height: buttonHeight,
+    isHovered: false
+  };
+  // feito pq a fonte nao tava carregando ao entrar na pagina 
   async function checkFontsReady() {
-    return document.fonts.ready.then(function() {
+    return document.fonts.ready.then(function () {
       // Todas as fontes estão prontas
       drawButtons();
     });
@@ -765,6 +847,7 @@ function gameLoop() {
   function drawButtons() {
     drawButton(iniciarButton, "Iniciar");
     drawButton(duvidaButton, "TUTORIAL");
+    drawButton(podioButton, "PODIO")
   }
 
   // Função para verificar se o mouse está sobre o botão
@@ -777,7 +860,9 @@ function gameLoop() {
       mouseY >= iniciarButton.y && mouseY <= iniciarButton.y + iniciarButton.height);
     duvidaButton.isHovered = (mouseX >= duvidaButton.x && mouseX <= duvidaButton.x + duvidaButton.width &&
       mouseY >= duvidaButton.y && mouseY <= duvidaButton.y + duvidaButton.height);
-    canvas.style.cursor = iniciarButton.isHovered || duvidaButton.isHovered ? "pointer" : "default";
+    podioButton.isHovered = (mouseX >= podioButton.x && mouseX <= podioButton.x + podioButton.width &&
+      mouseY >= podioButton.y && mouseY <= podioButton.y + podioButton.height);
+    canvas.style.cursor = iniciarButton.isHovered || duvidaButton.isHovered || podioButton.isHovered ? "pointer" : "default";
     drawButtons();
   }
 
@@ -813,16 +898,20 @@ function gameLoop() {
       mouseY >= duvidaButton.y && mouseY <= duvidaButton.y + duvidaButton.height) {
       ajudaJogo();
     }
+    if (mouseX >= podioButton.x && mouseX <= podioButton.x + podioButton.width &&
+      mouseY >= podioButton.y && mouseY <= podioButton.y + podioButton.height) {
+      Ranking();
+    }
   });
 
   drawButtons();
 }
 
-function tocarMusica(){
-  if (personagem.estaImortal){
-      backgroundMusic.pause();    
-      backgroundMusicImortal.play();
-  }else{
+function tocarMusica() {
+  if (personagem.estaImortal) {
+    backgroundMusic.pause();
+    backgroundMusicImortal.play();
+  } else {
     backgroundMusic.play();
     backgroundMusicImortal.pause();
     backgroundMusicImortal.currentTime = 0;
@@ -873,6 +962,59 @@ function startGameLoop(tempoAtual) {
 }
 
 function gameOver() {
+  let id_usuario = chave_sessao
+  let id_patente = 0;
+
+  switch (true) {
+    case (carreteisColetados <= 2):
+      id_patente = 1; // Poliéster
+      break;
+    case (carreteisColetados <= 5):
+      id_patente = 2; // Seda
+      break;
+    case (carreteisColetados <= 10):
+      id_patente = 3; // Viscose
+      break;
+    case (carreteisColetados <= 12):
+      id_patente = 4; // Malha Sintética
+      break;
+    case (carreteisColetados <= 15):
+      id_patente = 5; // Bambu
+      break;
+    case (carreteisColetados <= 20):
+      id_patente = 6; // Tencel
+      break;
+    case (carreteisColetados <= 25):
+      id_patente = 7; // Linho
+      break;
+    case (carreteisColetados <= 35):
+      id_patente = 8; // Lã
+      break;
+    case (carreteisColetados <= 49):
+      id_patente = 9; // Algodão
+      break;
+    default:
+      id_patente = 9;
+      break;
+  }
+
+  $.ajax({
+    type: 'POST',
+    url: '../src/dados_ranking.php',
+    data: {
+      tempo: formatarTempo(tempoDecorrido),
+      carreteisColetados: carreteisColetados,
+      id_usuario: id_usuario,
+      id_patente: id_patente
+    },
+    success: function (response) {
+      console.log(response);
+    },
+    error: function (xhr, status, error) {
+      console.error(error);
+    }
+  });
+
   jogando = false;
   backgroundMusic.pause();
   backgroundMusic.currentTime = 0;
@@ -881,7 +1023,7 @@ function gameOver() {
   Swal.fire({
     title: "Fim de jogo!",
     html:
-      "<img id='imgpersonagem' src='../assets/personagemtriste.png'>" +
+      "<img id='imgpersonagem' src='../assets/imagens_jogo/personagemtriste.png'>" +
       "<p>Carretéis coletados: " + carreteisColetados + "</p>" +
       "<p>Tempo decorrido: " + formatarTempo(tempoDecorrido) + "</p>" +
       "<br>",
@@ -890,7 +1032,7 @@ function gameOver() {
     confirmButtonText: 'Jogar Novamente',
     allowOutsideClick: false,
     allowEscapeKey: false,
-    showCloseButton: true, // Adiciona o botão de fechar
+    showCloseButton: true, 
   })
     .then((result) => {
       if (result.value) {

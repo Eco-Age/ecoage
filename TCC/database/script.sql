@@ -1,6 +1,8 @@
 USE ecoage;
 
 DROP TABLE IF EXISTS Curtidas;
+DROP TABLE IF EXISTS Patente;
+DROP TABLE IF EXISTS Ranking;
 DROP TABLE IF EXISTS Usuario;
 DROP TABLE IF EXISTS Tecidos;
 DROP TABLE IF EXISTS Tipo_Tecidos;
@@ -8,6 +10,8 @@ DROP TABLE IF EXISTS tokens;
 DROP TABLE IF EXISTS avatars;
 DROP TABLE IF EXISTS Noticias;
 DROP TABLE IF EXISTS Codigos;
+
+
 
 CREATE TABLE avatars (
     id_avatar INT NOT NULL AUTO_INCREMENT,
@@ -40,6 +44,35 @@ CREATE TABLE Usuario(
 
 INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, verifica, id_avatar) 
 VALUES ('ecoage', '2022-02-02','123456789' , 'ecoage', 'live.ecoage@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1, 1); -- senha: admin
+
+CREATE TABLE Patente (
+     id_patente INT NOT NULL AUTO_INCREMENT,
+     patente VARCHAR(100),
+
+     PRIMARY KEY (id_patente)
+);
+
+CREATE TABLE Ranking (
+    id_ranking INT NOT NULL AUTO_INCREMENT,
+    id_usuario INT NOT NULL,
+    id_patente INT NOT NULL,
+    carreteis INT,
+    tempo VARCHAR(100),
+    PRIMARY KEY (id_ranking),
+    FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario),
+    FOREIGN KEY (id_patente) REFERENCES Patente (id_patente)
+);
+
+INSERT INTO Patente (patente)
+VALUES ('Poliéster'),
+       ('Seda'),
+       ('Viscose'),
+       ('Malha Sintética'),
+       ('Bambu'),
+       ('Tencel'),
+       ('Linho'),
+       ('Lã'),
+       ('Algodão Orgânico');
 
 CREATE TABLE Codigos(
     id_codigo INT AUTO_INCREMENT,

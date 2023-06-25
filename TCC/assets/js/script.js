@@ -458,10 +458,3 @@ $(document).ready(function() {
     Curtida(id_noticia, id_usuario, qtdLikes);
   });
 });
-
-
-
-
-
-
-
