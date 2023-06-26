@@ -39,41 +39,42 @@ $imagens = ["../assets/img/noticia1.jpg", "../assets/img/noticia2.jpeg", "../ass
                 <div class="erro-preencher" id="palavra_chave_erro"></div>
             </form>
         </div>
-        <div class="col-3 col-sm-2 col-md-2 col-lg-3 col-xl-3"></div>
+        <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-2"></div>
-    <div id="carrosel" class="carousel slide col-8" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carrosel" data-slide-to="0" class="active"></li>
-            <li data-target="#carrosel" data-slide-to="1"></li>
-            <li data-target="#carrosel" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <?php foreach ($lista_noticias as $index => $noticia) : ?>
-                <div class="carousel-item <?= $index == 0 ? 'active' : '' ?>">
-                    <a href="<?= $noticia['url_noticia'] ?>" target="_blank">
-                        <img class="img_carrosel d-block w-100" src="<?= $imagens[$index] ?>" alt="Primeiro Slide">
-                    </a>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5><?= $noticia['titulo_noticia'] ?></h5>
-                        <p><?= $noticia['descricao_noticia'] ?></p>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6 col-sm-8 col-md-8 col-lg-8 col-xl-8"></div>
+        <div id="carrosel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carrosel" data-slide-to="0" class="active"></li>
+                <li data-target="#carrosel" data-slide-to="1"></li>
+                <li data-target="#carrosel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <?php foreach ($lista_noticias as $index => $noticia) : ?>
+                    <div class="carousel-item <?= $index == 0 ? 'active' : '' ?>">
+                        <a href="<?= $noticia['url_noticia'] ?>" target="_blank">
+                            <img class="img_carrosel d-block w-100" src="<?= $imagens[$index] ?>" alt="Primeiro Slide">
+                        </a>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5><?= $noticia['titulo_noticia'] ?></h5>
+                            <p><?= $noticia['descricao_noticia'] ?></p>
+                        </div>
                     </div>
-                </div>
-            <?php endforeach ?>
+                <?php endforeach ?>
+            </div>
+            <a class="carousel-control-prev" href="#carrosel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carrosel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Próximo</span>
+            </a>
         </div>
-        <a class="carousel-control-prev" href="#carrosel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Anterior</span>
-        </a>
-        <a class="carousel-control-next" href="#carrosel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Próximo</span>
-        </a>
+        <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
     </div>
-    <div class="col-2"></div>
 </div>
 <?php
 include("../include/rodape.php");

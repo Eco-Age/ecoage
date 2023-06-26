@@ -80,6 +80,12 @@
 body.modo-escuro{
     background-color: #1c1c1e;
   }
+
+  /*jogooo*/
+
+  body.modo-escuro  .txt_patente{
+    color: #e9d7f9;
+  }
 /* field da pagina de edicao */
 body.modo-escuro #field_edicao_usuario{
 background-color: rgb(118, 61, 146);
