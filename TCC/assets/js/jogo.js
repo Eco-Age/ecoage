@@ -50,7 +50,6 @@ function desenharPersonagem() {
   }
 }
 
-// Carregar as imagens antes de iniciar a animação
 let velocidadeNormalTubo = 2;
 carregarImagens();
 const animacaoPersonagemImortal = new Image();
@@ -94,14 +93,11 @@ const personagem = {
     this.estaImortal = true;
 
     framesRapidos = true;
-
-    // Inicializa o contador e o intervalo
     contador = 10;
     intervaloContagemRegressiva = setInterval(() => {
       if (contador > 0) {
         contador--;
       } else {
-        // Se o contador atingir 0, limpe o intervalo
         clearInterval(intervaloContagemRegressiva);
       }
     }, 1000);
@@ -109,7 +105,6 @@ const personagem = {
     setTimeout(() => {
       this.estaImortal = false;
       framesRapidos = false;
-      // Limpa o intervalo quando a imortalidade acaba
       clearInterval(intervaloContagemRegressiva);
     }, tempoInvencibilidade);
   },
@@ -441,17 +436,14 @@ let keys = {};
 const SPACE_BAR_KEY_CODE = 32; // Código da tecla de espaço
 const UP_ARROW_KEY_CODE = 38; // Código da seta para cima
 
-// Adicione o evento de teclado global para capturar as teclas pressionadas
 window.addEventListener("keydown", (event) => {
   keys[event.keyCode] = true;
 
-  // Verifique se o evento ocorreu dentro do canvas do jogo antes de executar a ação de pulo
   if (jogando) {
     if (canvas && ([SPACE_BAR_KEY_CODE, UP_ARROW_KEY_CODE].includes(event.keyCode))) {
       event.preventDefault();
       personagem.velocidade = -personagem.pulo;
       if (somPulando.currentTime === 0 || somPulando.ended) {
-        // Reproduz o som de salto
         somPulando.currentTime = 0;
         somPulando.play();
       }
@@ -479,16 +471,16 @@ function contagemRegressiva() {
       ctx.font = "80px Arial";
 
       if (currentFrame < numFrames / 2) {
-        scale += 0.1; // Aumenta a escala na primeira metade da animação
+        scale += 0.1; 
       } else {
-        scale -= 0.1; // Diminui a escala na segunda metade da animação
+        scale -= 0.1; 
       }
 
       ctx.save();
       ctx.translate(canvas.width / 2, canvas.height / 2);
       ctx.scale(scale, scale);
       ctx.fillStyle = "#910ba3";
-      ctx.fillText(contador.toString(), -20, 20); // Desenha o número no ponto central deslocado (-20, 20)
+      ctx.fillText(contador.toString(), -20, 20); 
       ctx.restore();
 
       currentFrame++;
@@ -500,15 +492,12 @@ function contagemRegressiva() {
     } else {
       clearInterval(intervalo);
 
-      // Redefinir as variáveis relacionadas ao tempo
       tempoInicial = null;
       tempoPausado = 0;
       jogoFinalizado = false;
 
-      // Iniciar o cronômetro
       requestAnimationFrame(atualizarTempoDecorrido);
 
-      // Iniciar o loop do jogo
       startGameLoop();
     }
   }, frameRate);
@@ -704,21 +693,6 @@ function ajudaJogo() {
     $('.popover-link').popover({ trigger: 'focus' });
   });
 };
-// arquivo.js
-
-// Função para fazer uma requisição AJAX
-
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      var patenteNova = xhr.responseText;
-      console.log(patenteNova);
-      // Faça o que desejar com o valor da patenteNova
-    }
-  };
-  xhr.open("GET", "../database/ranking.php", true);
-  xhr.send();
-
 
 function Ranking() {
   $.ajax({

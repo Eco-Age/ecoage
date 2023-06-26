@@ -335,7 +335,7 @@ $lista_avatar = listarAvatar();
   <footer class="">
             <div class="row" id="rodape_login">
                 <div class="col-md-12">
-                    <p>Desenvolvido por <a href="sobre_nos.html" id="sobre_nos">Ana Beatriz, Eduardo e Gabrielle</a> &copy; ecoage.com.br 2023</p>
+                    <p>Desenvolvido por <a href="#" id="sobre_nos">Ana Beatriz, Eduardo e Gabrielle</a> &copy; ecoage.com.br 2023</p>
                 </div>
             </div>
   </footer>

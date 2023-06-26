@@ -13,19 +13,14 @@ $chave_sessao = $_SESSION["id_usuario"];
 
 $lista_tipo_tecidos = listarTipoTecidos();
 
-// Define o número de itens por página
 $itens_por_pagina = 3;
 
-// Obtém o número total de tecidos
 $total_tecidos = contarTecidos();
 
-// Obtém o número total de páginas
 $paginas = ceil($total_tecidos / $itens_por_pagina);
 
-// Obtém o número da página atual
 $pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 
-// Obtém os tecidos da página atual
 $lista_tecidos = listarTecidosPaginacao($pagina_atual, $itens_por_pagina);
 
 ?>

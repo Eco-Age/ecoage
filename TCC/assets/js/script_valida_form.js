@@ -223,7 +223,6 @@ function perguntaVerificacao(form) {
 }
 
 function validacao(form) {
-  // Adiciona um event listener no botão de submit
   var nomeCompleto = form.nome_completo.value;
   var nomeCompletoInput = form.nome_completo;
   var nomeCompletoError = document.querySelector('#nome_completo_erro');

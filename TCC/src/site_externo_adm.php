@@ -27,15 +27,12 @@ $paginas = ceil($total_resultados / $itens_por_pagina);
 // Obtém o número da página atual
 $pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 
-
-// Verifique se a página atual está dentro dos limites
 if ($pagina_atual < 1) {
     $pagina_atual = 1;
 } elseif ($pagina_atual > $paginas) {
     $pagina_atual = $paginas;
 }
 
-// Busque as notícias com base na palavra-chvae e nos limites
 $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_por_pagina);
    
 ?>
