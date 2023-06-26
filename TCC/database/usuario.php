@@ -56,7 +56,7 @@ if (!isset($_SESSION)) {
     $senha_md5 = md5($senha);
   
     $sql = "INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, verifica, id_avatar, tipo_usuario) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
 
     $conexao = obterConexao();
     $stmt = $conexao->prepare($sql);
