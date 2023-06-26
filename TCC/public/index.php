@@ -184,7 +184,7 @@ $lista_avatar = listarAvatar();
                     <input type="text" id="email_recuperar" name="email_recuperar" class="form-control" placeholder="Informe o seu email..." required>
                   </div>
                   <div class="form-group">    
-                    <button type="submit" value="enviar" class="btn btn-primary" id="botao_inserir_login">Enviar</button> 
+                    <button type="submit" value="enviar" class="btn btn-primary" id="botao_recupera_senha">Enviar</button> 
                   </div>   
                 </form>
               </fieldset>       

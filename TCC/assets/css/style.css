@@ -127,7 +127,7 @@
     color: #d1f5a1;
 }
 
-#botao_inserirUsuario,  #botao_inserirLogin{
+#botao_inserirUsuario,  #botao_inserirLogin, #botao_recupera_senha{
     width: 100%;
     background-color: #623f80;
     color: #f0f8e5;
