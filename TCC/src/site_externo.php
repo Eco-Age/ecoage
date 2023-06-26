@@ -14,32 +14,24 @@ if ($_SESSION["tipo_usuario"] == 1) {
 
 $chave_sessao = $_SESSION["id_usuario"];
 
-// Define o número de itens por página
 $itens_por_pagina = 3;
 
-// Obtem a palavra-chave da sessão
 $palavra_chave = isset($_SESSION["palavra_chave"]) ? $_SESSION["palavra_chave"] : '';
 if (isset($_GET['palavra_chave'])) {
     $palavra_chave = $_GET['palavra_chave'];
 }
-// Obtém o número total de resultados da pesquisa
 $total_resultados = contarNoticias($palavra_chave);
 
-// Obtém o número total de páginas
 $paginas = ceil($total_resultados / $itens_por_pagina);
 
-// Obtém o número da página atual
 $pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 
-
-// Verifique se a página atual está dentro dos limites
 if ($pagina_atual < 1) {
     $pagina_atual = 1;
 } elseif ($pagina_atual > $paginas) {
     $pagina_atual = $paginas;
 }
 
-// Busque as notícias com base na palavra-chvae e nos limites
 $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_por_pagina);
 
 ?>

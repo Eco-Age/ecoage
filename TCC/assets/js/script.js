@@ -462,6 +462,7 @@ $(document).ready(function() {
     let qtdLikes = $(this).parent().find('.contar-likes');
     Curtida(id_noticia, id_usuario, qtdLikes);
   });
+<<<<<<< HEAD
 });
 
 
@@ -473,3 +474,6 @@ $(document).ready(function() {
 
 
 
+=======
+});
+>>>>>>> adc937d90d82e306b1614b5e294bbe18263e692a

@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="col-md-12 contact-box" id="divenviarEmail">
-                <a href="mailto:ecoage@gmail.com" id="enviarEmail"><img class="contact-title" src="../assets/img/icone_gmail.png" id="icone_gmail"></a>
+                <a href="mailto:live.ecoage@gmail.com" id="enviarEmail"><img class="contact-title" src="../assets/img/icone_gmail.png" id="icone_gmail"></a>
             </div>
         </div>
     </div>

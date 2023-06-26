@@ -1,8 +1,8 @@
 <?php
-include ("../include/navegacao.php");
+include ("../include/cabecalho.php");
 require ("../database/usuario.php");
 
-verificaSessao();
+
 ?>
 <script src="../assets/js/script.js"></script>
 
