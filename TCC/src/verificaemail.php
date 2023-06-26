@@ -14,12 +14,14 @@ if (isset($_SESSION["cadastro_info"]) && $_SESSION["cadastro_info"]["tempo_expir
     $email = $_SESSION["cadastro_info"]["email"];
     $senha = $_SESSION["cadastro_info"]["senha"];
     $id_avatar = $_SESSION["cadastro_info"]["id_avatar"];
+    $tipo_usuario = $_SESSION["cadastro_info"]["tipo_usuario"];
+
 
         if (confirmaEmail($email, $codigo_digitado) == true){
             $verifica = 1;
             atualizaVerifica($email, $verifica);
             $_SESSION["id_avatar"] = $id_avatar;
-            inserirUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $verifica, $id_avatar);    
+            inserirUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $verifica, $id_avatar, $tipo_usuario);    
         }
 
    // unset($_SESSION["cadastro_info"]);

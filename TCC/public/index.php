@@ -87,6 +87,8 @@ $lista_avatar = listarAvatar();
               <fieldset>      
                 <form action="../src/cadastrar_usuario.php" method="post" onsubmit="return perguntaVerificacao(this)">
                   <input type="hidden" name="verifica" value="0"/>
+                  <input type="hidden" name="tipo_usuario" value="0"/>
+
                   <div class="form-group">
                     <label for="nome">Nome Completo:</label> 
                     <input type="text" id="nome" name="nome_completo" class="form-control" placeholder="Informe o nome completo..." >
@@ -131,33 +133,29 @@ $lista_avatar = listarAvatar();
                   </div>       
 
                   <div>
-                  <label>Selecione seu avatar:</label>
-                  <div class="avatar-container">
-                                <?php foreach ($lista_avatar as $avatar) : ?>
-                                   <input class="avatar-radio" type="radio" id="avatar<?=$avatar["id_avatar"]?>" name="id_avatar" value="<?=$avatar["id_avatar"]?>">
-                                    <label for="avatar<?=$avatar["id_avatar"]?>">
-                                      <img src="<?=$avatar["caminho"]?>" alt="<?=$avatar["nome"]?>">
-                                    </label>
-                                    <?php endforeach ?> 
-                                    <div class="erro-preencher" id="avatar_erro"></div>
-                                    <?php
-                                      $avatarEscolhido = $avatar["id_avatar"];
-                                      $caminhoEscolhido = $avatar["caminho"];
+                    <p>Selecione seu avatar:</p>
+                    <div class="avatar-container">
+                        <?php foreach ($lista_avatar as $avatar) : ?>
+                          <input class="avatar-radio" type="radio" id="avatar<?=$avatar["id_avatar"]?>" name="id_avatar" value="<?=$avatar["id_avatar"]?>">
+                          <label for="avatar<?=$avatar["id_avatar"]?>">
+                            <img src="<?=$avatar["caminho"]?>" alt="<?=$avatar["nome"]?>">
+                          </label>
+                        <?php endforeach ?> 
+                        <div class="erro-preencher" id="avatar_erro"></div>
+                        <?php
+                          $avatarEscolhido = $avatar["id_avatar"];
+                          $caminhoEscolhido = $avatar["caminho"];
 
-                                      $_SESSION["caminhoAvatar"] = $caminhoEscolhido;
-                                      $_SESSION["idAvatar"] = $avatarEscolhido;
-                                    ?>
-                  
-                           </div>  
-                </div>         
-                  
+                          $_SESSION["caminhoAvatar"] = $caminhoEscolhido;
+                          $_SESSION["idAvatar"] = $avatarEscolhido;
+                        ?>
+                  </div>  
                   <div class="form-group">    
                     <button type="submit" value="inserir" class="btn btn-primary" id="botao_inserirUsuario">Cadastrar</button> 
                   </div>   
                 </form>
               </fieldset>       
             </div>
-
           </div>
         </div>
       </div>

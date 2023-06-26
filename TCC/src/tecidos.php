@@ -8,7 +8,7 @@ require("../util/mensagens.php");
 exibirMsg();
 verificaSessao();
 
-if ($_SESSION["id_usuario"] == 1) {
+if ($_SESSION["tipo_usuario"] == 1) {
     header("Location: ../src/tecidos_adm.php");
 }
 
@@ -129,11 +129,13 @@ $lista_tecidos = listarTecidosPaginacao($pagina_atual, $itens_por_pagina);
   var chave_sessao = "<?php echo $chave_sessao; ?>";
 
     // pra mostrar o nome da imagem qnd envia no input file
-    document.querySelector('#imagem_tecido').addEventListener('change', function(e) {
+    document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('#imagem_tecido').addEventListener('change', function(e) {
     var fileName = e.target.files[0].name;
     var label = document.querySelector('.file-selected');
     label.innerText = fileName;
   });
+});
 </script>
 <script src="../assets/js/script.js"></script>
 <script src="../assets/js/script_quiz.js"></script>

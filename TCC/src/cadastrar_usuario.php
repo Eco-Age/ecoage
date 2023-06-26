@@ -6,6 +6,7 @@ require_once('PHPMailer-6.7.1/src/SMTP.php');
 require_once('PHPMailer-6.7.1/src/Exception.php');
 
 $verifica = isset($_POST['verifica']) ? intval($_POST['verifica']) : 0;
+$tipo_usuario = $_POST["tipo_usuario"];
 $nome_completo = $_POST["nome_completo"];
 $data_nasc = $_POST["data_nasc"];
 $tel = $_POST["tel"];
@@ -22,6 +23,7 @@ if (verificarUsuarioCadastrado($apelido, $email) == true) {
     if ($verifica == 1) {
 
         $_SESSION["cadastro_info"] = array(
+            "tipo_usuario" => $tipo_usuario,
             "nome_completo" => $nome_completo,
             "data_nasc" => $data_nasc,
             "tel" => $tel,
@@ -36,7 +38,6 @@ if (verificarUsuarioCadastrado($apelido, $email) == true) {
         for ($i = 0; $i < 5; $i++) {
             $codigo .= mt_rand(0, 9);
         }
-
 
         $mail = new PHPMailer\PHPMailer\PHPMailer();
 
@@ -88,7 +89,7 @@ if (verificarUsuarioCadastrado($apelido, $email) == true) {
     } else {
 
         $_SESSION["id_avatar"] = $id_avatar;
-        inserirUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $verifica, $id_avatar);
+        inserirUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $verifica, $id_avatar, $tipo_usuario);
 
     }
 }

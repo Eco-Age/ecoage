@@ -16,6 +16,7 @@ if ($usuario == null) {
   $_SESSION["nome_logado"] = $usuario["nome_completo"];
   $_SESSION["apelido_logado"] = $usuario["apelido"];
   $_SESSION["id_usuario"] = $usuario["id_usuario"];
+  $_SESSION["tipo_usuario"] = $usuario["tipo_usuario"];
   $_SESSION["email"] = $usuario["email"];
 
   header("Location: ../src/pagina_inicial.php");

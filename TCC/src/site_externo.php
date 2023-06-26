@@ -8,7 +8,7 @@ require("../util/formatacoes.php");
 exibirMsg();
 verificaSessao();
 
-if ($_SESSION["id_usuario"] == 1) {
+if ($_SESSION["tipo_usuario"] == 1) {
     header("Location: ../src/site_externo_adm.php");
 }
 

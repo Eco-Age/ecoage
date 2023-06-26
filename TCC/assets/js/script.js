@@ -370,35 +370,40 @@ if (window.location.pathname.includes("email.php")) {
 }
 
 
-const btnAlterarSenha = document.getElementById('btnAlterarSenha');
-const form = document.getElementById('formAlterarSenha');
-btnAlterarSenha.addEventListener('click', (e) => {
-  e.preventDefault();
-  Swal.fire({
-    title: "Confirme sua senha atual",
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#9370DB', // cor antiga : #8A2BE2
-    icon: "warning",
-    customClass: "alterasenha",
-    showCancelButton: true,
-    input: 'password',
-    confirmButtonText: 'Confirmar',
-    cancelButtonText: 'Cancelar',
-    allowOutsideClick: true,
+document.addEventListener('DOMContentLoaded', () => {
+  const btnAlterarSenha = document.getElementById('btnAlterarSenha');
+  const form = document.getElementById('formAlterarSenha');
+  
+  if (btnAlterarSenha && form) {
+    btnAlterarSenha.addEventListener('click', (e) => {
+      e.preventDefault();
+      Swal.fire({
+        title: "Confirme sua senha atual",
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#9370DB',
+        icon: "warning",
+        customClass: "alterasenha",
+        showCancelButton: true,
+        input: 'password',
+        confirmButtonText: 'Confirmar',
+        cancelButtonText: 'Cancelar',
+        allowOutsideClick: true,
+      }).then((result) => {
+        if (result.value) {
+          const senhaInput = document.createElement('input');
+          senhaInput.setAttribute('type', 'hidden');
+          senhaInput.setAttribute('name', 'alterar_senha');
+          senhaInput.setAttribute('value', result.value);
+          form.appendChild(senhaInput);
+          form.submit();
+        }
+      });
+    });
+  }
+});
 
-  }).then((result) => {
-    if (result.value) {
-      const senhaInput = document.createElement('input');
-      senhaInput.setAttribute('type', 'hidden');
-      senhaInput.setAttribute('name', 'alterar_senha');
-      senhaInput.setAttribute('value', result.value);
-      form.appendChild(senhaInput);
-      form.submit();
-    }
-  });
-})
 
-// para fazer o botao de modo escuro funcionar
+// para fazer o botao de modo escuro funciona
 
 function setModoCookie(modo){
   document.cookie = "modo=" + modo + ";path=/"
@@ -458,6 +463,9 @@ $(document).ready(function() {
     Curtida(id_noticia, id_usuario, qtdLikes);
   });
 });
+
+
+
 
 
 

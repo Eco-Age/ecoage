@@ -50,17 +50,17 @@ if (!isset($_SESSION)) {
     }
   }
 
-  function inserirUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $verifica, $id_avatar){
+  function inserirUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $verifica, $id_avatar, $tipo_usuario){
 
     $conexao = obterConexao();
     $senha_md5 = md5($senha);
   
-    $sql = "INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, verifica, id_avatar) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)"; 
+    $sql = "INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, verifica, id_avatar, tipo_usuario) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
 
     $conexao = obterConexao();
     $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("ssssssii", $nome_completo, $data_nasc, $tel, $apelido, $email, $senha_md5, $verifica, $id_avatar);   
+    $stmt->bind_param("ssssssiii", $nome_completo, $data_nasc, $tel, $apelido, $email, $senha_md5, $verifica, $id_avatar, $tipo_usuario);   
     $stmt->execute();
 
 
@@ -136,7 +136,7 @@ function buscarUsuarioLogado($id_usuario){
       return $usuario;  
 }
    
-function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar){
+function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar, $tipo_usuario){
   $conexao = obterConexao();
   $sql = "SELECT senha FROM Usuario WHERE id_usuario = ?";
   $stmt = $conexao->prepare($sql);
@@ -151,10 +151,10 @@ function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelid
   
   if ($senhaCadastrada === $senhaDigitada_md5){
       $sql = "UPDATE Usuario
-      SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?,  id_avatar = ?
+      SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?,  id_avatar = ?,  tipo_usuario = ?
       WHERE id_usuario = ?";
       $stmt = $conexao->prepare($sql);
-      $stmt->bind_param("sssssii", $nome_completo, $data_nasc, $tel, $apelido, $email, $id_avatar, $id_usuario);
+      $stmt->bind_param("sssssiii", $nome_completo, $data_nasc, $tel, $apelido, $email, $id_avatar, $tipo_usuario, $id_usuario);
       $stmt->execute();
 
       if ($stmt->affected_rows > 0) {
@@ -173,43 +173,6 @@ function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelid
 
 //------------------------------------------------------------------------------------------------
   
-function listarUsuario(){
-  $lista_usuario = [];
-  $sql = "SELECT u.id_usuario,u.nome_completo,u.data_nasc,u.tel,u.apelido,u.email,u.senha
-          FROM Usuario u"; 
-  
-  $conexao = obterConexao();
-  $stmt = $conexao->prepare($sql);
-  $stmt->execute();
-  $resultado = $stmt->get_result();
-
-  while ($usuario = mysqli_fetch_assoc($resultado)) {
-    array_push($lista_usuario, $usuario);
-  }
-
-  $stmt->close();
-  $conexao->close();
-
-  return $lista_usuario;
-}
-
-function removerUsuario($id_usuario) {
-  $sql = "DELETE FROM Usuario WHERE id_usuario = ? ";
-  $conexao = obterConexao();
-  $stmt = $conexao->prepare($sql);
-  $stmt->bind_param("i", $id_usuario);
-  $stmt->execute();
-  if ($stmt->affected_rows > 0) {
-    $_SESSION["msg"] = "O usuario foi removido!";
-    $_SESSION["tipo_msg"] = "alert-danger";
-  } else {
-    $_SESSION["msg"] = "O usuario  não foi removido!";
-    $_SESSION["tipo_msg"] = "alert-danger";
-  }    
-  $stmt->close();
-  $conexao->close();
-}
-
 
 date_default_timezone_set('America/Sao_Paulo');
 

@@ -327,10 +327,14 @@
     box-shadow: 2px 2px 5px #a18eaaa9;
     margin-bottom: 100px;
 }
-
+#btnSalvar{
+    padding: 8px;
+    border-radius: 5px;
+}
 #botao_editar_usuario,
 #botao_editar,
-#enviarDuvida {
+#enviarDuvida,
+#btnSalvar{
     background-color: #256c92;
     border-color: #1b5c80;
     border: none;
@@ -338,9 +342,11 @@
     width: 100%;
 }
 
+
 #botao_editar_usuario:hover,
 #botao_editar:hover,
-#enviarDuvida:hover {
+#enviarDuvida:hover,
+#btnSalvar:hover {
     background-color: #1e5c7e;
     border-color: #164b68;
 }

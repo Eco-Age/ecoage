@@ -38,8 +38,11 @@ CREATE TABLE Usuario(
         REFERENCES avatars(id_avatar) 
 );
 
-INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, verifica, id_avatar) 
-VALUES ('ecoage', '2022-02-02','123456789' , 'ecoage', 'live.ecoage@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1, 1); -- senha: admin
+ALTER TABLE Usuario 
+ADD tipo_usuario BOOLEAN NOT NULL DEFAULT false;
+
+INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, verifica, id_avatar, tipo_usuario) 
+VALUES ('ecoage', '2022-02-02','123456789' , 'ecoage', 'live.ecoage@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1, 1, 1); -- senha: admin
 
 CREATE TABLE Codigos(
     id_codigo INT AUTO_INCREMENT,
