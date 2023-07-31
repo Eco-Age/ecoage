@@ -87,8 +87,16 @@ $lista_tecidos = listarTecidosPaginacao($pagina_atual, $itens_por_pagina);
                 </select>
               </div>
               <div class="form-group">
-                <label for="desc_tecidos">Descrição do Tecido:</label>
-                <textarea class="form-control" rows="5" id="desc_tecidos" name="desc_tecidos" placeholder="Descreva o tecido..."></textarea>
+                <label for="composicao">Composição:</label>
+                <input type="text" id="composicao" name="composicao" class="form-control" placeholder="Informe a composição do tecido..." >
+              </div>
+              <div class="form-group">
+                <label for="producao">Produção:</label>
+                <input type="text" id="producao" name="producao" class="form-control" placeholder="Detalhe a produção do tecido..." >
+              </div>
+              <div class="form-group">
+                <label for="meioambiente">Relação com o meio ambiente:</label>
+                <input type="text" id="meioambiente" name="meioambiente" class="form-control" placeholder="Informe a relação do meio ambiente..." >
               </div>
               <div class="form-group">
                 <div class="input-group mb-3">
@@ -154,7 +162,9 @@ $lista_tecidos = listarTecidosPaginacao($pagina_atual, $itens_por_pagina);
         
         <div class="collapse" id="collapse<?= $tecido["id_tecidos"] ?>">
           <div class="card card-body" id="card<?= $tecido["id_tecidos"] ?>" style="max-height: 500px; overflow-y: auto;">
-            <?= $tecido["desc_tecidos"] ?>
+            <?= $tecido["composicao"] ?>
+            <?= $tecido["producao"] ?>
+            <?= $tecido["meioambiente"] ?>
           </div>
         </div>
       </div> 

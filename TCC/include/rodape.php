@@ -17,7 +17,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>Desenvolvido por <a href="#" id="sobre_nos">Ana Beatriz, Eduardo e Gabrielle</a> &copy; ecoage.com.br 2023</p>
+                    <p>Desenvolvido por <span href="#" id="sobre_nos">Ana Beatriz, Eduardo e Gabrielle</span> &copy; ecoage.com.br 2023</p>
                 </div>
             </div>
         </div>
