@@ -25,21 +25,20 @@ $avatar_atual = buscarAvatarUsado($id_usuario);
                     <a class="nav-link" href="../src/pagina_inicial.php" id="menu_home">
                         <span class="material-icons" id="icone_home" title="Página inicial">home</span>
                     </a>
-                </li>
+                </li>   
                 <li class="nav-item">
-                    <a class="nav-link" href="../src/portal_de_noticias.php" id="menu_portal">
-                        <i class="fa-solid fa-envelope-open-text" title="Portal de Notícias"></i>                                    
+                    <a class="nav-link" href="../src/jogo.php" id="game">
+                        <span class="material-symbols-outlined" id="icone_game" title="Guess the Tissue">stadia_controller</span>
                     </a>
-                </li>
-
+                </li> 
                 <li class="nav-item">
                     <a class="nav-link" href="../src/tecidos.php" id="menu_tecidos">
                         <i class="fa-solid fa-layer-group" title="Tecidos"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../src/jogo.php" id="game">
-                        <span class="material-symbols-outlined" id="icone_game" title="Guess the Tissue">stadia_controller</span>
+                    <a class="nav-link" href="../src/portal_de_noticias.php" id="menu_portal">
+                        <i class="fa-solid fa-envelope-open-text" title="Portal de Notícias"></i>                                    
                     </a>
                 </li>
             </ul>
