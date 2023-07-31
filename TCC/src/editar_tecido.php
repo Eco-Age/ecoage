@@ -3,7 +3,9 @@ require("../database/tecidos.php");
 
 $id_tecidos = $_POST["id_tecidos"];
 $id_tipo_tecidos = $_POST["id_tipo_tecidos"];
-$desc_tecidos = $_POST["desc_tecidos"];
+$composicao = $_POST["composicao"];
+$producao = $_POST["producao"];
+$meioambiente = $_POST["meioambiente"];
 
 if (!empty($_FILES["imagem_tecido"]) && $_FILES["imagem_tecido"]["error"] == UPLOAD_ERR_OK) {
   $nome_imagem = $_FILES["imagem_tecido"]["name"];
@@ -22,7 +24,7 @@ if (array_key_exists("sustentavel", $_POST)) {
     $sustentavel = 0;
   }
 
-editarTecido($id_tecidos, $id_tipo_tecidos, $desc_tecidos, $sustentavel, $caminho_imagem);
+editarTecido($id_tecidos, $id_tipo_tecidos, $composicao, $producao, $meioambiente, $sustentavel, $caminho_imagem);
 header("Location: tecidos_adm.php");
 ?>
 

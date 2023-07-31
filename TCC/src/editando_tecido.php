@@ -70,8 +70,16 @@ $imagem_atual = basename($tecido['caminho_imagem']);
                     </div>
 
                     <div class="form-group">
-                        <label for="desc_tecidos">Descrição do Tecido:</label>
-                        <textarea class="form-control" rows="5" id="desc_tecidos" name="desc_tecidos"><?= $tecido["desc_tecidos"] ?></textarea>
+                        <label for="composicao">Composição:</label>
+                        <input type="text" id="composicao" name="composicao" class="form-control" value="<?=$tecido["composicao"]?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="producao">Produção:</label>
+                        <input type="text" id="producao" name="producao" class="form-control" value="<?=$tecido["producao"]?>" >
+                    </div>
+                    <div class="form-group">
+                        <label for="meioambiente">Relação com o meio ambiente:</label>
+                        <input type="text" id="meioambiente" name="meioambiente" class="form-control" value="<?=$tecido["meioambiente"]?>">
                     </div>
 
                     <div class="form-group" id="checkbox">
