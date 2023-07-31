@@ -186,12 +186,17 @@
                     </div>
 
                     <a class="carousel-control-prev" href="#carroselIntrod" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Anterior</span>
+                        <div class="carroselControlIntrod">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </div>                    
                     </a>
                     <a class="carousel-control-next" href="#carroselIntrod" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Próximo</span>
+                        <div class="carroselControlIntrod">
+                            <span id="setaNext" class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Próximo</span>                            
+                        </div>
+
                     </a>
                 </div>
                 <div class=""></div>

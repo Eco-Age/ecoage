@@ -787,14 +787,12 @@ nav{
 
 .img_carrosel {
     border-radius: 300px;
-    width: auto;
     margin: auto;
     width: 800px;
-    height: 500px;
+    height: 550px;
     box-shadow: 2px 2px 6px #00000018;
     object-fit: cover;
     filter: brightness(0.45);
-    margin-bottom: 100px;
 }
 /* rodapé */
 
@@ -1017,6 +1015,16 @@ nav{
 .indicador {
     color: #efff14;
 }
+
+.carroselControlIntrod{
+    background-color: #000000 !important;
+    padding-bottom: 10px !important;
+    padding-top: 15px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    border-radius: 100px;
+}
+
 
 #carroselIntrod {
     background-image: url("../img/fundo_login.jpg");
