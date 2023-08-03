@@ -134,10 +134,6 @@
     border: none;
 }
 
-#modalNovoUsuario {
-    
-}
-
 #rodape_login {
     background-color: #623f80;
     color: #67b16d;
@@ -694,8 +690,6 @@ nav{
 .btn:focus{
     outline: none;
 }
-
-
 
 .btndelete {
     background-color: #ff1c1c;
