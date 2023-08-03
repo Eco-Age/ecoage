@@ -13,7 +13,10 @@ if (!isset($_SESSION)) {
 
       verificaEmail($email_recuperar);
 
-      $token = bin2hex(random_bytes(16));
+      $token = mt_rand(1, 9);
+      for ($i = 0; $i < 5; $i++) {
+          $token .= mt_rand(0, 9);
+      }
       $mail = new PHPMailer\PHPMailer\PHPMailer();
       
       $mail->isSMTP();
@@ -44,7 +47,7 @@ if (!isset($_SESSION)) {
       $mail->Body    = '<h2 style="text-align: center;">Recuperação de Senha</h2>
                         <p>Olá!</p>
                         <p>Você está recebendo este email porque requisitou uma recuperação de senha. </p>
-                        <p>Para redefinir sua senha, digite o seguinte token na página que você foi redirecinado no site: <br><p style="font-size: 18px; text-align: center;">'. $token . '</p></p>
+                        <p>Para redefinir sua senha, digite o seguinte código na página que você foi redirecinado no site: <br><p style="font-size: 18px; text-align: center;">'. $token . '</p></p>
                         <br><p style="font-size: 12px; text-align: center;">Se você não pediu por nenhuma redefinição de senha, por favor ignore este email.</p>
                         <br><p>Equipe</p>
                         <h4>ECOAGE</h4>

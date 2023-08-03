@@ -99,9 +99,9 @@ function duvida_token() {
     icon: 'question',
     title: 'Por que recebi esse erro?',
     html: `<p>Há uma série de motivos pelos quais este erro pode ter acontecido.</p>
-           <p>1. Certifique-se de que o token recebido no email é exatamente o token que foi digitado. </p>
-           <p>2. Certifique-se de que o token que está usando ainda não expirou (não passaram mais de 5 minutos).</p>
-           <p>3. Certifique-se de estar utilizando o token mais atual (caso solicite a recuperação duas vezes ou mais, o único token válido é o último a ser enviado).</p>`,
+           <p>1. Certifique-se de que o código recebido no email é exatamente o código que foi digitado. </p>
+           <p>2. Certifique-se de que o código que está usando ainda não expirou (não passaram mais de 5 minutos).</p>
+           <p>3. Certifique-se de estar utilizando o código mais atual (caso solicite a recuperação duas vezes ou mais, o único código válido é o último a ser enviado).</p>`,
     showCancelButton: false,
     confirmButtonText: 'Entendi!'
 
@@ -323,7 +323,10 @@ function logout() {
 
 // aqui eu to fazendo com que na página do código do email, toda vez q o usuario digitar 1 numero, va pro prox input automatico
 // verificando se o nome da página é "email.php"
-if (window.location.pathname.includes("email.php")) {
+if (
+  window.location.pathname.includes("email.php") ||
+  window.location.pathname.includes("token.php")
+) {
   $(document).ready(function () {
     $(".digit-only").keydown(function (event) {
       var current_input = $(this);

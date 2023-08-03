@@ -1348,13 +1348,13 @@ th {
 }
 
 /* aqui é da pagininha de recupera email ta bebes */
-.input_confirma_email {
+.input_confirma_email, .input_recupera_senha {
     text-align: center;
     border: 2px solid #ccc;
     border-radius: 4px;
 }
 
-.input_confirma_email:focus {
+.input_confirma_email:focus, .input_recupera_senha:focus {
     border-color: #007bff;
     box-shadow: none;
 }
