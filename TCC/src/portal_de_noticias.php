@@ -65,12 +65,16 @@ $imagens = ["../assets/img/noticia1.jpg", "../assets/img/noticia2.jpeg", "../ass
                         <?php endforeach ?>
                     </div>
                     <a class="carousel-control-prev" href="#carrosel" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Anterior</span>
+                        <div class="carroselControlIntrod">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </div>
                     </a>
                     <a class="carousel-control-next" href="#carrosel" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Próximo</span>
+                        <div class="carroselControlIntrod">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Próximo</span>
+                        </div>
                     </a>
                 </div>
             </div>

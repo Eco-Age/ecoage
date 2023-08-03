@@ -20,14 +20,6 @@ $lista_avatar = listarAvatar();
   <div class="container-fluid" id="login_i">
     <div class="row">
     <div class="col-sm-2 col-md-3 col-lg-4 col-xl-4"></div>
-     <!--<div class="col-sm-1 col-md-2 col-lg-3 col-xl-2"></div>
-     <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4" class="texto_inicial" >            
-        <h2 class="texto_inicial">Olá! Você faz ideia do impacto ambiental que a peça que você está vestindo pode causar? 
-         Não?! Então realize o login ao lado, ou crie uma nova conta e embarque no nosso universo!</h2> 
-         <div class="col-sm-1 col-md-2 col-lg-3 col-xl-1"></div>      
-         <div class="col-sm-2 col-md-2 col-lg-2"></div>
-      </div>-->
-     
       <div class="col-sm-8 col-md-6 col-lg-4 col-xl-4">
         <fieldset id="forms_login" class="">             
           <legend id="legend_login" class=""><img id="logo" src="../assets/img/logo.png" alt="logo"></legend>

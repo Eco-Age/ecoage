@@ -162,9 +162,14 @@ $lista_tecidos = listarTecidosPaginacao($pagina_atual, $itens_por_pagina);
         
         <div class="collapse" id="collapse<?= $tecido["id_tecidos"] ?>">
           <div class="card card-body" id="card<?= $tecido["id_tecidos"] ?>" style="max-height: 500px; overflow-y: auto;">
-            <?= $tecido["composicao"] ?>
-            <?= $tecido["producao"] ?>
-            <?= $tecido["meioambiente"] ?>
+            <span class="destaque2">Composição:</span>
+            <p><?= $tecido["composicao"] ?></p>
+              
+            <span class="destaque2">Produção:</span>
+            <p><?= $tecido["producao"] ?></p>
+
+            <span class="destaque2">Relação com o meio ambiente:</span>
+            <p><?= $tecido["meioambiente"] ?></p>         
           </div>
         </div>
       </div> 

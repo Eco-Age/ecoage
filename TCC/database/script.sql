@@ -149,46 +149,46 @@ em massa dos animais, no qual são amarrados e se machucam, ocorre uma contamina
  '../assets/imagens_tecido/tecido.png', 1),
 
 (3,
-' Feito a partir das fibras da planta do linho.', 
+'Fibras da planta do linho.', 
 ' Sua produção é feita a partir de plantações de linho, que são colhidas e passam por processos de separação das fibras, fiação 
 e tecelagem. ',
 ' Ajudam o meio ambiente por ser biodegradável, renovável e por necessitar de 
 pouca água e fertilizantes na produção.', '../assets/imagens_tecido/tecido.png', 1),
 
 (4, 
-'Feito da madeira de eucalipto, a partir de celulose de origem vegetal.', 
+'Madeira de eucalipto, a partir de celulose de origem vegetal.', 
 'No processo de produção é utilizado o N-metyl morfholine oxide, um solvente biodegradável que é considerado ecologicamente viável
 por não ser tóxico e por meio de injetores de fiação, a celulose é coagulada e então a fibra é lavada, secada e posteriormente cortada. ',
 'As fibras são biodegradáveis e compostáveis, reduzindo o impacto ambiental.', '../assets/imagens_tecido/tecido.png', 1),
 
 (5,
-'Tecido de bambu é feito a partir da fibra da planta do bambu.', 
+'Fibra da planta do bambu.', 
 'A produção do tecido começa com a extração da polpa da planta, que é transformada em fios e, 
 em seguida, tecida em um tecido macio e respirável.', 
 'Não há impactos ambientais, pois o processo de fabricação do tecido de bambu é menos poluente e também é biodegradável.','../assets/imagens_tecido/tecido.png', 1),
 
 (6, 
-'A malha é um tecido produzido através da entrelaçamento de fios de trama e urdidura, pode ser feito de algodão, lã, poliéster, entre outros materiais',
+'Entrelaçamento de fios de trama e urdidura, pode ser feito de algodão, lã, poliéster, entre outros materiais',
 'Sua fabricação ocorre através de um processo de tricotagem, que pode ser feito manualmente ou por 
 máquinas. ',
 'O uso excessivo de  materiais sintéticos na fabricação de malhas pode não ser sustentável, causando um grande impacto ambiental.', '../assets/imagens_tecido/tecido_bloqueado.png', 0),
 
 (7, 
-'A viscose é um tecido produzido a partir de celulose de madeira ou de outras plantas.', 
+'Celulose de madeira ou de outras plantas.', 
 'Sua fabricação envolve a dissolução da celulose que é extrudado em fios que são transformados em tecido.', 
 'Sua fabricação pode ser prejudicial ao meio ambiente e aos trabalhadores, pois requer muita água e produtos químicos tóxicos. 
 Além disso, a produção tem sido associada a desmatamento, trabalho escravo e poluição 
 de rios.', '../assets/imagens_tecido/tecido_bloqueado.png', 0),
 
 (8,
-'Bichos-da-seda',
+'Bichos-da-seda.',
 'Os bichos-da-seda são “domesticados” e criados em fazendas. Quando esses animais entram na fase de pupa, após finalizarem seus casulos, eles são colocados em água fervente, o que os mata e possibilita a extração da seda.',
 'Impactos negativos no meio ambiente devido a  quantidade de água e energia utilizada em sua fabricação',
 '../assets/imagens_tecido/tecido_bloqueado.png', 0),
 
 
 (9, 
-'O poliéster é um tecido sintético feito a partir do petróleo ou do gás natural.',
+'Petróleo ou do gás natural.',
 'Sua fabricação envolve a transformação de matérias-primas químicas em fibras através de um processo chamado de polimerização.', 
 'Sua produção é altamente poluente e contribui para o aumento da emissão de gases de efeito estufa, prejudicando 
 o meio ambiente e a saúde humana.', '../assets/imagens_tecido/tecido_bloqueado.png', 0);

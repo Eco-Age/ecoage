@@ -43,8 +43,8 @@
                         <input onclick="alternarModo()" type="checkbox" name="alternar-modoescuro" id="alternar-modoescuro"/>
                         <div id="labelModoEscuro">  
                             <label for="alternar-modoescuro">
-                            <i id="solIcon" class="fa-regular fa-light fa-sun fa-sm"></i>
-                            <i id="luaIcon" class="fas fa-moon fa-sm"></i>
+                                <i id="solIcon" class="fa-regular fa-light fa-sun fa-sm"></i>
+                                <i id="luaIcon" class="fas fa-moon fa-sm"></i>
                             </label>
                         </div>
                 </div>

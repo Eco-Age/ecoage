@@ -691,6 +691,12 @@ nav{
     outline: 0;
 }
 
+.btn:focus{
+    outline: none;
+}
+
+
+
 .btndelete {
     background-color: #ff1c1c;
 }
@@ -1084,10 +1090,15 @@ nav{
     display: flex;
 }
 
-.destaque {
+.destaque{
     color: #6f3295;
     font-size: 15pt;
     font-weight: 500;
+}
+
+.destaque2{
+    color: #6f3295;
+    font-weight: 600;
 }
 
 #texto_inicial_edu,
@@ -1121,7 +1132,7 @@ nav{
     margin-top: 20px;
 }
 
-#caixas_duvidas {
+#caixas_duvidas{
     margin-top: 30px;
     margin-bottom: 50px;
 }
@@ -1148,13 +1159,12 @@ nav{
     background-color: #623f80;
     border-radius: 20px;
     padding: 8px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 60px;
+    margin-right: 60px;
 }
 
 #next:hover,
 #ante:hover {
-    color: #efff14;
     background-color: #623f80;
 }
 
@@ -1162,6 +1172,7 @@ nav{
 #carrosel_duvidas {
     object-fit: cover;
     padding: 30px;
+    padding-bottom: 30px !important;
     border-radius: 100px;
     width: 100%;
     height: auto;

@@ -19,8 +19,8 @@
 
 
         <div class="row" id="caixas_duvidas">
-            <div class="col-3"></div>
-                <div class="col-12 col-lg-6 col-xl-4 mx-auto">
+            <div class="col-md-2 col-lg-2 col-xl-auto"></div>
+                <div class="col-12 col-md-8 col-lg-8 col-xl-5" style="margin:auto">
                     <div id="carrosel_duvidas" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             
@@ -75,7 +75,7 @@
                         </a>
                     </div>
                 </div>
-            <div class="col-3"></div>  
+            <div class="col-md-2 col-lg-2 col-xl-auto"></div>  
           </div>
     
         <div class="row">

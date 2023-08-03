@@ -89,10 +89,16 @@ $lista_tecidos = listarTecidosPaginacao($pagina_atual, $itens_por_pagina);
                     <br>
                 </p>
                 <div class="collapse" id="collapse<?= $tecido["id_tecidos"] ?>">
-                    <div class="card card-body" id="card<?= $tecido["id_tecidos"] ?>" style="max-height: 500px; overflow-y: scroll;">
-                    <?= $tecido["composicao"] ?>
-                    <?= $tecido["producao"] ?>
-                    <?= $tecido["meioambiente"] ?>                    
+                    <div class="card card-body" id="card<?= $tecido["id_tecidos"] ?>" style="max-height: 500px; overflow-y: auto;">
+                        <span class="destaque2">Composição:</span>
+                        <p><?= $tecido["composicao"] ?></p>
+                        
+                        <span class="destaque2">Produção:</span>
+                        <p><?= $tecido["producao"] ?></p>
+
+                        <span class="destaque2">Relação com o meio ambiente:</span>
+                        <p><?= $tecido["meioambiente"] ?></p>         
+                    </div>
                 </div>
             </div>
         <?php endforeach ?>
