@@ -226,7 +226,7 @@ function verificatoken($email, $token_digitado){
     include ("../include/cabecalho.php");
     echo '<div id="conteudo">
             <h1 style="text-align: center; padding: 50px;" class="display-2">
-              Ocorreu um erro
+              Ocorreu um erro '. $token_armazenado, $token_digitado . '
             </h1>
             <h3 style="text-align: center;" class="display-4">
               Clique no botão de dúvida para entender 

@@ -89,7 +89,7 @@ CREATE TABLE Codigos(
 CREATE TABLE tokens (
   id_token INT AUTO_INCREMENT,
   email VARCHAR(255) NOT NULL,
-  token VARCHAR(32) NOT NULL,
+  token INT(6) NOT NULL,
   data_expiracao DATETIME NOT NULL,
 
   PRIMARY KEY (id_token)
