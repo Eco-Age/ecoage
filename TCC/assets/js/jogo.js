@@ -902,7 +902,7 @@ function gameLoop() {
       mouseY >= buttonSom.y && mouseY <= buttonSom.y + buttonSom.height) {
         estaMutado = !estaMutado;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        tocarMusica();console.log(estaMutado);
+        tocarMusica();
       drawButtons();
     }
   });
