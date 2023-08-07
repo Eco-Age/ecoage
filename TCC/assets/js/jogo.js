@@ -833,7 +833,7 @@ function gameLoop() {
   }
 
   function drawButtons() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+   
     drawButton(iniciarButton, "Iniciar");
     drawButton(duvidaButton, "TUTORIAL");
     drawButton(podioButton, "PODIO");
@@ -884,7 +884,7 @@ function gameLoop() {
       jogoIniciado = true;
       canvas.removeEventListener('mousemove', checkHover);
       canvas.removeEventListener('mouseout', arguments.callee);
-      canvas.removeEventListener('click', gameLoop);
+      canvas.removeEventListener('click', arguments.callee);
       canvas.style.cursor = "default";
       contagemRegressiva();
     }
