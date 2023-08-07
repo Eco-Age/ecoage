@@ -50,17 +50,17 @@ if (!isset($_SESSION)) {
     }
   }
 
-  function inserirUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $verifica, $id_avatar, $tipo_usuario){
+  function inserirUsuario($nome_completo, $data_nasc, $tel, $apelido, $email, $senha, $verifica, $id_avatar, $tipo_usuario, $modo){
 
     $conexao = obterConexao();
     $senha_md5 = md5($senha);
   
-    $sql = "INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, verifica, id_avatar, tipo_usuario) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
+    $sql = "INSERT INTO Usuario (nome_completo, data_nasc, tel, apelido, email, senha, verifica, id_avatar, tipo_usuario, modo) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
 
     $conexao = obterConexao();
     $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("ssssssiii", $nome_completo, $data_nasc, $tel, $apelido, $email, $senha_md5, $verifica, $id_avatar, $tipo_usuario);   
+    $stmt->bind_param("ssssssiiii", $nome_completo, $data_nasc, $tel, $apelido, $email, $senha_md5, $verifica, $id_avatar, $tipo_usuario, $modo);   
     $stmt->execute();
 
 
@@ -81,11 +81,15 @@ if (!isset($_SESSION)) {
 }  
 
 function buscarUsuario($apelido, $senha) {
+
   $sql = "SELECT apelido FROM Usuario WHERE apelido = ?"; 
   $conexao = obterConexao();
+
   $stmt = $conexao->prepare($sql);
+
   $stmt->bind_param("s", $apelido);
   $stmt->execute();
+
   $resultado = $stmt->get_result();
   $usuario = mysqli_fetch_assoc($resultado);
 
@@ -136,7 +140,7 @@ function buscarUsuarioLogado($id_usuario){
       return $usuario;  
 }
    
-function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar, $tipo_usuario){
+function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar, $tipo_usuario, $modo){
   $conexao = obterConexao();
   $sql = "SELECT senha FROM Usuario WHERE id_usuario = ?";
   $stmt = $conexao->prepare($sql);
@@ -151,10 +155,10 @@ function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelid
   
   if ($senhaCadastrada === $senhaDigitada_md5){
       $sql = "UPDATE Usuario
-      SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?,  id_avatar = ?,  tipo_usuario = ?
+      SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?,  id_avatar = ?,  tipo_usuario = ?, modo = ?
       WHERE id_usuario = ?";
       $stmt = $conexao->prepare($sql);
-      $stmt->bind_param("sssssiii", $nome_completo, $data_nasc, $tel, $apelido, $email, $id_avatar, $tipo_usuario, $id_usuario);
+      $stmt->bind_param("sssssiiii", $nome_completo, $data_nasc, $tel, $apelido, $email, $id_avatar, $tipo_usuario, $modo, $id_usuario);
       $stmt->execute();
 
       if ($stmt->affected_rows > 0) {
@@ -466,19 +470,30 @@ function buscaVerifica($email){
   return array('verifica' => $verifica);
 }
 // ta vendo se é pra mostrar em modo claro ou escuro
-if (isset($_GET["modo"])){
-    $_SESSION["modo"] = $_GET["modo"];
+
+  function verificaSessao() {
+    $conexao = obterConexao();
+    $usuario = $_SESSION["id_usuario"];
+    $sql = "SELECT modo FROM Usuario WHERE id_usuario = $usuario";
+    $stmt = $conexao->prepare($sql);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    
+    if ($resultado && $resultado->num_rows > 0) {
+      $modoArray = $resultado->fetch_assoc();
+      $modo = $modoArray['modo'];
+    }
+    $conexao->close();
   
-  }
-function verificaSessao(){
-  if (isset($_COOKIE["modo"])){
-    $modo = $_COOKIE["modo"];
-    if ($modo === "escuro"){
+    if ($modo === 1) {
       echo '<script>
               document.getElementsByTagName("body")[0].classList.add("modo-escuro");
             </script>';
-    }
-  }
+    } 
+  
+  
+    
+  
   $limite_inatividade = 604800; // 1 semana de limite 
   if (isset($_SESSION["apelido_logado"]) && isset($_SESSION["nome_logado"]) && isset($_SESSION["id_usuario"])){
     if (isset($_SESSION['ultima_atividade'])) {

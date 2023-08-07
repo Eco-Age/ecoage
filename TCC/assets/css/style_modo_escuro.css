@@ -22,17 +22,17 @@
     transition: 0.3s;
   }
   
-  #alternar-modoescuro {
+  #modo{
     width: 0;
     height: 0;
     visibility: hidden;
   }
   
-  #alternar-modoescuro:checked + #labelModoEscuro {
+  #modo:checked + #labelModoEscuro {
     background: #242424;
   }
   
-  #alternar-modoescuro:checked + #labelModoEscuro:after {
+  #modo:checked + #labelModoEscuro:after {
     left: calc(100% - 25px);
     background: linear-gradient(180deg, #777, #3a3a3a);
   }
@@ -60,7 +60,7 @@
     transition: 0.3s;
 }
 
-#alternar-modoescuro:checked + #labelModoEscuro #solIcon {
+#modo:checked + #labelModoEscuro #solIcon {
     color: #7e7e7e;
 }
 
@@ -70,7 +70,7 @@
     transition: 0.3s;
 }
 
-#alternar-modoescuro:checked + #labelModoEscuro #luaIcon {
+#modo:checked + #labelModoEscuro #luaIcon {
     color: #fff;
 }
 

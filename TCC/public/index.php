@@ -80,6 +80,7 @@ $lista_avatar = listarAvatar();
                 <form action="../src/cadastrar_usuario.php" method="post" onsubmit="return perguntaVerificacao(this)">
                   <input type="hidden" name="verifica" value="0"/>
                   <input type="hidden" name="tipo_usuario" value="0"/>
+                  <input type="hidden" name="modo" value="0"/>
 
                   <div class="form-group">
                     <label for="nome">Nome Completo:</label> 

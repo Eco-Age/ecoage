@@ -16,14 +16,16 @@
   }
   $verifica = buscaVerifica($email);
   $verifica_int = intval($verifica['verifica']);
+  
 
-    if(isset($_SESSION["id_usuario"]) && isset($_SESSION["idAvatar"]) && isset($_SESSION["alternar-modoescuro"])){
+    if(isset($_SESSION["id_usuario"]) && isset($_SESSION["idAvatar"])){
     $id_usuario = $_SESSION["id_usuario"];
     $id_avatar = $_SESSION["idAvatar"];
   }
     $lista_avatar = listarAvatar();
     $avatar = buscarAvatar();
     $usuario = buscarUsuarioLogado($id_usuario);
+    $modo = $usuario["modo"];
     $avatar_atual = buscarAvatarUsado($id_usuario);
 ?>
 <div class="container" id="conteudo">
@@ -38,16 +40,7 @@
         <div class="col-1 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
         <div class="col-10 col-sm-8 col-md-8 col-lg-8 col-xl-8">
             <fieldset id="field_edicao_usuario">               
-                <div class="form-group">
-                    <p>Altere o tema de cores:</p>
-                        <input onclick="alternarModo()" type="checkbox" name="alternar-modoescuro" id="alternar-modoescuro"/>
-                        <div id="labelModoEscuro">  
-                            <label for="alternar-modoescuro">
-                                <i id="solIcon" class="fa-regular fa-light fa-sun fa-sm"></i>
-                                <i id="luaIcon" class="fas fa-moon fa-sm"></i>
-                            </label>
-                        </div>
-                </div>
+                
                 <legend id="legend_avatar" ><img id="avatarEdicao" src="<?=$avatar_atual['caminho']?>" alt="<?=$_SESSION['idAvatar']?>"></legend>
                 <form action="../src/editar_usuario.php" method="post" onsubmit=" return validacao(this)">
                     <input type="hidden" name="id_usuario" value="<?=$id_usuario?>">
@@ -55,7 +48,17 @@
                     <input type="hidden" name="apelido_atual" value="<?=$usuario["apelido"]?>">
                     <input type="hidden" name="tipo_usuario" value="<?=$usuario["tipo_usuario"]?>">
 
-                        
+                    <div class="form-group">
+                        <p>Altere o tema de cores:</p>
+                        <input onclick="alternarModo()" type="checkbox" name="modo" id="modo"  value="<?=$modo?>"/>
+                        <div id="labelModoEscuro">  
+                            <label for="modo">
+                                <i id="solIcon" class="fa-regular fa-light fa-sun fa-sm"></i>
+                                <i id="luaIcon" class="fas fa-moon fa-sm"></i>
+                            </label>
+                        </div>
+                    </div>
+                       
                     <div class="form-group">
                         <label for="nome">Nome Completo:</label> 
                         <input type="text" id="nome" name="nome_completo" class="form-control" value="<?=$usuario["nome_completo"]?>">
@@ -126,6 +129,22 @@
 <script src="../assets/js/script.js"></script>
 <script src="../assets/js/script_valida_form.js"></script>
 <script>
+  $(document).ready(function() {
+    var modo = "<?=$modo?>";
+    var modoInput = $("#modo");
+
+    if (modo === "1") {
+      modoInput.prop("checked", true);
+      $("body").addClass("modo-escuro");
+    }
+  });
+
+  var alternarModoEscuro = document.getElementById("modo").value;
+ 
+if (modo === "1" && alternarModoEscuro !== null) {
+  alternarModoEscuro.checked = true; 
+}
+
   var verifica = "<?= $verifica_int; ?>";
   if (verifica == 1){
     document.getElementById("verificar_email").style.display = "none";

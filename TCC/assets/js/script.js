@@ -492,29 +492,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // para fazer o botao de modo escuro funciona
 
-function setModoCookie(modo) {
-  document.cookie = "modo=" + modo + ";path=/"
-}
-
 function alternarModo() {
-  var body = document.getElementsByTagName("body")[0];
+   var body = document.getElementsByTagName("body")[0];
   body.classList.toggle("modo-escuro");
-
-  var modo = body.classList.contains("modo-escuro") ? "escuro" : "claro";
-  setModoCookie(modo);
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', '../database/usuario.php?modo=' + modo);
-  xhr.send();
+modo = body.classList.contains("modo-escuro") ? "1" : "0";
+  $.ajax({
+  type: 'POST',
+  url: '../src/editar_usuario.php',
+  data: {
+    modo: modo
+  }
+});
 }
-
-var modoCookie = document.cookie.replace(/(?:(?:^|.*;\s*)modo\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-var alternarModoEscuro = document.getElementById("alternar-modoescuro");
-
-if (modoCookie === "escuro" && alternarModoEscuro !== null) {
-  alternarModoEscuro.checked = true;
-}
-
-
 // fim do botao de modo escuro
 
 // curtir

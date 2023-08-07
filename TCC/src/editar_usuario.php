@@ -14,12 +14,18 @@ $email = $_POST["email_cadastro"];
 $id_avatar = $_POST["id_avatar"];
 $tipo_usuario = $_POST["tipo_usuario"];
 
+if (array_key_exists("modo", $_POST)) {
+    $modo = 1;
+  } else {
+    $modo = 0;
+  }
+
 $email_atual = $_POST["email_atual"];
 $apelido_atual = $_POST["apelido_atual"];
 
 
 if ($apelido == $apelido_atual && $email == $email_atual) {
-    editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar, $tipo_usuario);
+    editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar, $tipo_usuario, $modo);
     header("Location: edicao_usuario.php");
 } else if ($apelido != $apelido_atual && $email == $email_atual) {
     if (verificarApelidoCadastrado($apelido) == true) {
@@ -27,7 +33,7 @@ if ($apelido == $apelido_atual && $email == $email_atual) {
         $_SESSION["msg"] = "Apelido já cadastrado no sistema!";
         $_SESSION["tipo_msg"] = "alert-danger";
     } else {
-        editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar, $tipo_usuario);
+        editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar, $tipo_usuario, $modo);
         header("Location: edicao_usuario.php");
     }
 } else if ($apelido == $apelido_atual && $email != $email_atual) {
@@ -36,7 +42,7 @@ if ($apelido == $apelido_atual && $email == $email_atual) {
         $_SESSION["msg"] = "Email já cadastrado no sistema!";
         $_SESSION["tipo_msg"] = "alert-danger";
     } else {
-        editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar, $tipo_usuario);
+        editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar, $tipo_usuario, $modo);
         $verifica = buscaVerifica($email);
         if ($verifica == 0) {
             $verifica = 1;
@@ -55,7 +61,7 @@ if ($apelido == $apelido_atual && $email == $email_atual) {
     } else {
         $verifica = 0;
         atualizaVerifica($email, $verifica);
-        editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar, $tipo_usuario);
+        editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar, $tipo_usuario, $modo);
         header("Location: edicao_usuario.php");
     }
 }
