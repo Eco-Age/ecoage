@@ -164,6 +164,31 @@ function deletarTecido(id_tecidos) {
   });
 }
 
+function ajudaNoticia() {
+  Swal.fire({
+    title: "Bem vindo!",
+    html: `<div class="container">
+                  <p>
+                  Bem-vindo ao nosso Portal de notícias! <br><br>
+                  Aqui você ficará antenado aos últimos conteúdos e notícias sobre tecidos e moda 
+                  sustentável que ocorreram pelo Brasil e pelo mundo. <br><br>Sinta-se à vontade para destrinchar
+                  as reportagens através da nossa ferramenta de busca ou carrossel de entrada.
+                  Não se esqueça de curtir aquelas que você achar importante e que te esclarecerem
+                  de alguma maneira!<br><br>
+                  Para reportar erro de conteúdo ou site fora do ar, notifique-nos pela página de <a href="../src/ajuda.php">Ajuda</a>.
+                </p>
+                </div>`,
+    icon: "info",
+    confirmButtonText: 'Entendi!',
+    allowOutsideClick: true
+  });
+
+  $(document).ready(function () {
+    $('.popover-link').popover({ trigger: 'focus' });
+  });
+};
+ 
+
 function ajudaTecido() {
   Swal.fire({
     title: "Bem vindo!",

@@ -18,6 +18,21 @@ $imagens = ["../assets/img/noticia1.jpg", "../assets/img/noticia2.jpeg", "../ass
                 <h1 id="txt_portal">Portal de Notícias:</h1>
             </div>
         <div class="col-2 col-sm-2 col-md-2 col-lg-3 col-xl-3"></div>
+        <div class="container-fluid">
+        <div class="row">
+            <div class="col-4 col-md-4 d-flex justify-content-left">
+               
+            </div>
+            <div class="col-4 col-md-4"></div>
+            <div class="col-4 col-md-4">
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn-purple-circulo" onclick="ajudaNoticia()">
+                    <i class="fa fa-1x fa-question-circle"></i>
+                    </button>
+                </div>
+            </div>           
+        </div>
+    </div>
     </div>
 
     <div class="row" id="buscarnoticia">
