@@ -12,6 +12,7 @@ somPulando.volume = 0.07;
 somPulando.playbackRate = 2;
 // Variáveis do jogo
 let jogando = false;
+let estaMutado = false;
 let frames = 0;
 const gravidade = 0.25;
 const tempoInvencibilidade = 10000; // Tempo em milissegundos para o personagem ficar invencível
@@ -471,16 +472,16 @@ function contagemRegressiva() {
       ctx.font = "80px Arial";
 
       if (currentFrame < numFrames / 2) {
-        scale += 0.1; 
+        scale += 0.1;
       } else {
-        scale -= 0.1; 
+        scale -= 0.1;
       }
 
       ctx.save();
       ctx.translate(canvas.width / 2, canvas.height / 2);
       ctx.scale(scale, scale);
       ctx.fillStyle = "#910ba3";
-      ctx.fillText(contador.toString(), -20, 20); 
+      ctx.fillText(contador.toString(), -20, 20);
       ctx.restore();
 
       currentFrame++;
@@ -767,7 +768,7 @@ function gameLoop() {
   carreteisColetados = 0;
   tempoDecorrido = 0;
   tempoInicial = null;
-
+  
   const buttonWidth = 300;
   const buttonHeight = 50;
   const buttonX = canvas.width / 2 - buttonWidth / 2;
@@ -796,6 +797,19 @@ function gameLoop() {
     height: buttonHeight,
     isHovered: false
   };
+
+  const buttonSom = {
+    x: 10,
+    y: canvas.height - 50,
+    width: 40,
+    height: 40,
+    isHovered: false,
+    somImg: new Image(),
+    mutadoImg: new Image()
+  };
+
+  buttonSom.somImg.src = "../assets/imagens_jogo/som.png";
+  buttonSom.mutadoImg.src = "../assets/imagens_jogo/mutado.png";
   // feito pq a fonte nao tava carregando ao entrar na pagina 
   async function checkFontsReady() {
     return document.fonts.ready.then(function () {
@@ -819,10 +833,18 @@ function gameLoop() {
   }
 
   function drawButtons() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawButton(iniciarButton, "Iniciar");
     drawButton(duvidaButton, "TUTORIAL");
-    drawButton(podioButton, "PODIO")
+    drawButton(podioButton, "PODIO");
+
+    const buttonImg = estaMutado ? buttonSom.mutadoImg : buttonSom.somImg;
+    ctx.drawImage(buttonImg, buttonSom.x, buttonSom.y, buttonSom.width, buttonSom.height);
+
+
+    canvas.style.cursor = buttonSom.isHovered ? "pointer" : "default";
   }
+
 
   // Função para verificar se o mouse está sobre o botão
   function checkHover(event) {
@@ -837,6 +859,9 @@ function gameLoop() {
     podioButton.isHovered = (mouseX >= podioButton.x && mouseX <= podioButton.x + podioButton.width &&
       mouseY >= podioButton.y && mouseY <= podioButton.y + podioButton.height);
     canvas.style.cursor = iniciarButton.isHovered || duvidaButton.isHovered || podioButton.isHovered ? "pointer" : "default";
+    buttonSom.isHovered = (mouseX >= buttonSom.x && mouseX <= buttonSom.x + buttonSom.width &&
+      mouseY >= buttonSom.y && mouseY <= buttonSom.y + buttonSom.height);
+
     drawButtons();
   }
 
@@ -876,19 +901,37 @@ function gameLoop() {
       mouseY >= podioButton.y && mouseY <= podioButton.y + podioButton.height) {
       Ranking();
     }
+
+    if (mouseX >= buttonSom.x && mouseX <= buttonSom.x + buttonSom.width &&
+      mouseY >= buttonSom.y && mouseY <= buttonSom.y + buttonSom.height) {
+        estaMutado = !estaMutado;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        tocarMusica();console.log(estaMutado);
+      drawButtons();
+    }
   });
 
   drawButtons();
 }
 
+function mutarSom(){
+  backgroundMusic.pause();
+  somPulando.pause();
+  backgroundMusicImortal.pause();
+}
+
 function tocarMusica() {
-  if (personagem.estaImortal) {
-    backgroundMusic.pause();
-    backgroundMusicImortal.play();
-  } else {
-    backgroundMusic.play();
-    backgroundMusicImortal.pause();
-    backgroundMusicImortal.currentTime = 0;
+  if (estaMutado) {
+    mutarSom();
+  } else if (jogando){
+    if (personagem.estaImortal) {
+      backgroundMusic.pause();
+      backgroundMusicImortal.play();
+    } else {
+      backgroundMusic.play();
+      backgroundMusicImortal.pause();
+      backgroundMusicImortal.currentTime = 0;
+    }
   }
 }
 
@@ -899,7 +942,7 @@ function startGameLoop(tempoAtual) {
   if (personagem.tempoImortal > 0) {
     personagem.tempoImortal--;
   }
-  backgroundMusic.play();
+
   tubos.atualizar();
   carreteis.atualizar();
   estrelas.atualizar();
@@ -1006,7 +1049,7 @@ function gameOver() {
     confirmButtonText: 'Jogar Novamente',
     allowOutsideClick: false,
     allowEscapeKey: false,
-    showCloseButton: true, 
+    showCloseButton: true,
   })
     .then((result) => {
       if (result.value) {
