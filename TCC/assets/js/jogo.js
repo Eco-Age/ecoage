@@ -772,7 +772,7 @@ function gameLoop() {
   const buttonWidth = 300;
   const buttonHeight = 50;
   const buttonX = canvas.width / 2 - buttonWidth / 2;
-  const buttonY = canvas.height / 2 - buttonHeight; // Centralizado verticalmente
+  const buttonY = canvas.height / 2 - (buttonHeight + 28); // Centralizado verticalmente
 
   const iniciarButton = {
     x: buttonX,
