@@ -510,8 +510,8 @@ $(document).ready(function () {
   if (currentPage == 'jogo.php') {
     let id_usuario = chave_sessao;
     sessionStorage.setItem('id_usuario', id_usuario);
-    let showAlert = localStorage.getItem('showAlert_' + id_usuario);
-    if (showAlert !== 'false') {
+    let showAlertJogo = localStorage.getItem('showAlertJogo_' + id_usuario);
+    if (showAlertJogo !== 'false') {
       Swal.fire({
         html: `<div class="container" id="popup_instrucoes">
                 <div class="row">
@@ -580,8 +580,8 @@ $(document).ready(function () {
                       </a>
                     </div>
                     <div class="text-center">
-                      <input type="checkbox" class="form-check-input" id="checkbox-avisar" />
-                      <label class="form-check-label" for="checkbox-avisar">Não ver novamente</label>
+                      <input type="checkbox" class="form-check-input" id="checkbox-tutorial-jogo" />
+                      <label class="form-check-label" for="checkbox-tutorial-jogo">Não ver novamente</label>
                     </div>
                   </div>
                 </div>
@@ -593,17 +593,17 @@ $(document).ready(function () {
         },
       }).then((result) => {
         if (result.isConfirmed) {
-          if ($('#checkbox-avisar').is(':checked')) {
-            localStorage.setItem('showAlert_' + id_usuario, 'false');
+          if ($('#checkbox-tutorial-jogo').is(':checked')) {
+            localStorage.setItem('showAlertJogo_' + id_usuario, 'false');
           } else {
-            localStorage.setItem('showAlert_' + id_usuario, 'true');
+            localStorage.setItem('showAlertJogo_' + id_usuario, 'true');
           }
         }
       });
 
       $('.swal2-close').on('click', function () {
-        if ($('#checkbox-avisar').is(':checked')) {
-          localStorage.setItem('showAlert_' + id_usuario, 'false');
+        if ($('#checkbox-tutorial-jogo').is(':checked')) {
+          localStorage.setItem('showAlertJogo_' + id_usuario, 'false');
         }
       });
 

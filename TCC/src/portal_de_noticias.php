@@ -6,6 +6,7 @@ include("../include/navegacao.php");
 
 exibirMsg();
 verificaSessao();
+$chave_sessao = $_SESSION["id_usuario"];
 $lista_noticias = maisCurtidas();
 $imagens = ["../assets/img/noticia1.jpg", "../assets/img/noticia2.jpeg", "../assets/img/noticia3.jpg"]
 ?>
@@ -84,6 +85,9 @@ $imagens = ["../assets/img/noticia1.jpg", "../assets/img/noticia2.jpeg", "../ass
 <?php
 include("../include/rodape.php");
 ?>
+<script>
+  var chave_sessao = "<?php echo $chave_sessao; ?>";
+</script>
 <script src="../assets/js/script.js"></script>
 <script src="../assets/js/script_valida_form.js"></script>
 </body>

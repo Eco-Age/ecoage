@@ -169,80 +169,84 @@ function ajudaTecido() {
     title: "Bem vindo!",
     html: `<div class="container">
                   <p>
-                    Essa é a página de tecidos!<br><br> É importante lembrarmos que 
-                    ela tem relação direta com as patentes do nosso 
+                    Bem-vindo à pagina de tecidos! <br><br>
+                    Aqui você iniciará seu conhecimento em tecidos
+                    com as informações abaixo. Mas, de forma alguma, pare por aí! 
+                    Acesse nosso <a href="../src/portal_de_noticias.php" class="popover-link" data-placement="top" data-container="body">Portal de Notícias</a>
+                    e fique a par e antenado ao conteúdo mais recente no mundo da moda sustentável!
+                    <br><br> Para desfrutar de melhor experiência, conheça o nosso
                     <a href="#" class="popover-link" data-placement="top" data-content="Guess the Tissue, disponível na barra de navegação!" data-container="body">Jogo</a>
-                    , portanto, para melhor experiência, jogue primeiro e depois nos acesse!
+                    e depois acesse esta página!  
                   </p>
                 </div>`,
-        icon: "info",
-        confirmButtonText: 'Entendi!',
-        allowOutsideClick: true
-      });
-    
-      $(document).ready(function(){
-        $('.popover-link').popover({ trigger: 'focus' });
-      });
-    };
-    
-    function deletarNoticia(id_noticia){
-      Swal.fire({
-        title: "Deseja deletar essa noticia?",
-        text: "Cuidado! Não é possível recuperar após a exclusão.",
-        icon: "error",
-        confirmButtonColor: '#DC3545',
-        cancelButtonColor: '#9370DB', // cor antiga : #8A2BE2
-        showCancelButton: true,
-        cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Excluir',
-        allowOutsideClick: true,
-        closeOnConfirm: false,
-        closeOnCancel: false
-      }).then((result) => {
-          if (result.value) {
-             window.location.href='../src/remover_noticia.php?id_noticia=' + id_noticia;
-            } else if (result.dismiss === Swal.DismissReason.cancel){
-              Swal.fire(
-                'Exclusão cancelada.',
-                'Seus dados permanecem salvos',
-                'success'
-              )
-            }
-          });
-    }
-
-    function confirmar_edicao_noticia(form){
-
-      swal.fire({
-        title: "Deseja realmente alterar a noticia?",
-        text: "Cuidado! Em caso de arrependimento, seus dados deverão novamente ser editados.",
-        icon: "warning",
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#9370DB', // cor antiga : #8A2BE2
-        showCancelButton: true,
-        cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Sim, editar',
-        allowOutsideClick: true,
-        closeOnConfirm: false,
-        closeOnCancel: false
-      })
-      .then((result) => {
-        if (result.value) {
-           form.submit();
-        }else if (result.dismiss === Swal.DismissReason.cancel){
-          swal.fire(
-            'Edição cancelada.',
-            'A noticia não foi editada',
-            'success'
-          )
-        }
-      });
-      return false;
-      }
+    icon: "info",
+    confirmButtonText: 'Entendi!',
+    allowOutsideClick: true
+  });
 
   $(document).ready(function () {
     $('.popover-link').popover({ trigger: 'focus' });
   });
+};
+
+function deletarNoticia(id_noticia) {
+  Swal.fire({
+    title: "Deseja deletar essa noticia?",
+    text: "Cuidado! Não é possível recuperar após a exclusão.",
+    icon: "error",
+    confirmButtonColor: '#DC3545',
+    cancelButtonColor: '#9370DB', // cor antiga : #8A2BE2
+    showCancelButton: true,
+    cancelButtonText: 'Cancelar',
+    confirmButtonText: 'Excluir',
+    allowOutsideClick: true,
+    closeOnConfirm: false,
+    closeOnCancel: false
+  }).then((result) => {
+    if (result.value) {
+      window.location.href = '../src/remover_noticia.php?id_noticia=' + id_noticia;
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      Swal.fire(
+        'Exclusão cancelada.',
+        'Seus dados permanecem salvos',
+        'success'
+      )
+    }
+  });
+}
+
+function confirmar_edicao_noticia(form) {
+
+  swal.fire({
+    title: "Deseja realmente alterar a noticia?",
+    text: "Cuidado! Em caso de arrependimento, seus dados deverão novamente ser editados.",
+    icon: "warning",
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#9370DB', // cor antiga : #8A2BE2
+    showCancelButton: true,
+    cancelButtonText: 'Cancelar',
+    confirmButtonText: 'Sim, editar',
+    allowOutsideClick: true,
+    closeOnConfirm: false,
+    closeOnCancel: false
+  })
+    .then((result) => {
+      if (result.value) {
+        form.submit();
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        swal.fire(
+          'Edição cancelada.',
+          'A noticia não foi editada',
+          'success'
+        )
+      }
+    });
+  return false;
+}
+
+$(document).ready(function () {
+  $('.popover-link').popover({ trigger: 'focus' });
+});
 
 
 
@@ -253,37 +257,40 @@ $(document).ready(function () {
   if (currentPage == 'tecidos.php' || currentPage == 'tecidos_adm.php') {
     let id_usuario = chave_sessao
     sessionStorage.setItem('id_usuario', id_usuario);
-    let showAlert = localStorage.getItem('showAlert_' + id_usuario);
-    if (showAlert !== 'false') {
+    let showAlertTecidos = localStorage.getItem('showAlertTecidos_' + id_usuario);
+    if (showAlertTecidos !== 'false') {
       Swal.fire({
         title: 'Bem-vindo!',
         html: `<div class="container">
-                <p>
-                  Essa é a página de tecidos!<br><br> É importante lembrarmos que 
-                  ela tem relação direta com as patentes do nosso 
-                  <a href="#" class="popover-link" data-placement="top" data-content="Guess the Tissue, disponível na barra de navegação!" data-container="body">Jogo</a>
-                  , portanto para melhor experiência, jogue primeiro e depois nos acesse!
-                </p>
-                
-                <input type="checkbox" class="form-check-input" id="checkbox-avisar" />
-                <label class="form-check-label" for="checkbox-avisar"> Não me avisar novamente</label>
+                    <p>
+                    Bem-vindo à pagina de tecidos! <br><br>
+                    Aqui você iniciará seu conhecimento em tecidos
+                    com as informações abaixo. Mas, de forma alguma, pare por aí! 
+                    Acesse nosso <a href="../src/portal_de_noticias.php">Portal de Notícias</a>
+                    e fique a par e antenado ao conteúdo mais recente no mundo da moda sustentável!
+                    <br><br> Para desfrutar de melhor experiência, conheça o nosso
+                    <a href="#" class="popover-link" data-placement="top" data-content="Guess the Tissue, disponível na barra de navegação!" data-container="body">Jogo</a>
+                    e depois acesse esta página!  
+                  </p>
+                <input type="checkbox" class="form-check-input" id="checkbox-avisar-tecidos" />
+                <label class="form-check-label" for="checkbox-avisar-tecidos"> Não me avisar novamente</label>
               </div>`,
         icon: 'info',
         showCloseButton: true,
         confirmButtonText: 'Entendi!',
       }).then((result) => {
         if (result.isConfirmed) {
-          if ($('#checkbox-avisar').is(':checked')) {
-            localStorage.setItem('showAlert_' + id_usuario, 'false');
+          if ($('#checkbox-avisar-tecidos').is(':checked')) {
+            localStorage.setItem('showAlertTecidos_' + id_usuario, 'false');
           } else {
-            localStorage.setItem('showAlert_' + id_usuario, 'true');
+            localStorage.setItem('showAlertTecidos_' + id_usuario, 'true');
           }
         }
       });
 
       $('.swal2-close').on('click', function () {
-        if ($('#checkbox-avisar').is(':checked')) {
-          localStorage.setItem('showAlert_' + id_usuario, 'false');
+        if ($('#checkbox-avisar-tecidos').is(':checked')) {
+          localStorage.setItem('showAlertTecidos_' + id_usuario, 'false');
         }
       });
 
@@ -295,6 +302,58 @@ $(document).ready(function () {
 
   }
 });
+
+
+$(document).ready(function () {
+  var currentPage = window.location.pathname.split("/").pop();
+  if (currentPage == 'portal_de_noticias.php') {
+    let id_usuario = chave_sessao
+    sessionStorage.setItem('id_usuario', id_usuario);
+    let showAlertNoticias = localStorage.getItem('showAlertNoticias_' + id_usuario);
+    if (showAlertNoticias !== 'false') {
+      Swal.fire({
+        title: 'Bem-vindo!',
+        html: `<div class="container">
+                    <p>
+                    Bem-vindo ao nosso Portal de notícias! <br><br>
+                    Aqui você ficará antenado aos últimos conteúdos e notícias sobre tecidos e moda 
+                    sustentável que ocorreram pelo Brasil e pelo mundo. <br><br>Sinta-se à vontade para destrinchar
+                    as reportagens através da nossa ferramenta de busca ou carrossel de entrada.
+                    Não se esqueça de curtir aquelas que você achar importante e que te esclarecerem
+                    de alguma maneira!<br><br>
+                    Para reportar erro de conteúdo ou site fora do ar, notifique-nos pela página de <a href="../src/ajuda.php">Ajuda</a>.
+                  </p>
+                <input type="checkbox" class="form-check-input" id="checkbox-avisar-noticias" />
+                <label class="form-check-label" for="checkbox-avisar-noticias"> Não me avisar novamente</label>
+              </div>`,
+        icon: 'info',
+        showCloseButton: true,
+        confirmButtonText: 'Entendi!',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          if ($('#checkbox-avisar-noticias').is(':checked')) {
+            localStorage.setItem('showAlertNoticias_' + id_usuario, 'false');
+          } else {
+            localStorage.setItem('showAlertNoticias_' + id_usuario, 'true');
+          }
+        }
+      });
+
+      $('.swal2-close').on('click', function () {
+        if ($('#checkbox-avisar-noticias').is(':checked')) {
+          localStorage.setItem('showAlertNoticias_' + id_usuario, 'false');
+        }
+      });
+
+      $(document).ready(function () {
+        $('.popover-link').popover({ trigger: 'focus' });
+      });
+
+    }
+
+  }
+});
+
 
 function logout() {
   Swal.fire({
@@ -376,7 +435,7 @@ if (
 document.addEventListener('DOMContentLoaded', () => {
   const btnAlterarSenha = document.getElementById('btnAlterarSenha');
   const form = document.getElementById('formAlterarSenha');
-  
+
   if (btnAlterarSenha && form) {
     btnAlterarSenha.addEventListener('click', (e) => {
       e.preventDefault();
@@ -408,7 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // para fazer o botao de modo escuro funciona
 
-function setModoCookie(modo){
+function setModoCookie(modo) {
   document.cookie = "modo=" + modo + ";path=/"
 }
 
@@ -435,31 +494,31 @@ if (modoCookie === "escuro" && alternarModoEscuro !== null) {
 
 // curtir
 
-function Curtida(id_noticia, id_usuario, qtdLikes){
+function Curtida(id_noticia, id_usuario, qtdLikes) {
   let icone = $('.icone-curtir[data-noticia="' + id_noticia + '"] i');
   $.ajax({
     url: '../src/curtidas.php',
     type: 'POST',
-    data: {id_noticia: id_noticia, id_usuario: id_usuario},
-    success: function(data) {
+    data: { id_noticia: id_noticia, id_usuario: id_usuario },
+    success: function (data) {
       qtdLikes.html(data);
-      if (icone.hasClass('fa-regular')){
+      if (icone.hasClass('fa-regular')) {
         icone.removeClass('fa-regular').addClass('fa-solid').css('color', '#ff0000');
-        icone.animate({fontSize: '1.5em'}, 200).animate({fontSize: '1em'}, 200, function(){
+        icone.animate({ fontSize: '1.5em' }, 200).animate({ fontSize: '1em' }, 200, function () {
           icone.addClass('animate__heartBeat animate__rubberBand');
-          setTimeout(function(){
+          setTimeout(function () {
             icone.removeClass('animate__heartBeat animate__rubberBand');
           }, 1000);
         });
-      }else if (icone.hasClass('fa-solid')){
+      } else if (icone.hasClass('fa-solid')) {
         icone.removeClass('fa-solid').addClass('fa-regular').css('color', 'black');
       }
     }
   });
 }
 
-$(document).ready(function() {
-  $('.icone-curtir').click(function() {
+$(document).ready(function () {
+  $('.icone-curtir').click(function () {
     let id_noticia = $(this).data('noticia');
     let id_usuario = id_usuario_curtida
     let qtdLikes = $(this).parent().find('.contar-likes');
