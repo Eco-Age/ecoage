@@ -840,9 +840,6 @@ function gameLoop() {
 
     const buttonImg = estaMutado ? buttonSom.mutadoImg : buttonSom.somImg;
     ctx.drawImage(buttonImg, buttonSom.x, buttonSom.y, buttonSom.width, buttonSom.height);
-
-
-    canvas.style.cursor = buttonSom.isHovered ? "pointer" : "default";
   }
 
 
@@ -858,10 +855,9 @@ function gameLoop() {
       mouseY >= duvidaButton.y && mouseY <= duvidaButton.y + duvidaButton.height);
     podioButton.isHovered = (mouseX >= podioButton.x && mouseX <= podioButton.x + podioButton.width &&
       mouseY >= podioButton.y && mouseY <= podioButton.y + podioButton.height);
-    canvas.style.cursor = iniciarButton.isHovered || duvidaButton.isHovered || podioButton.isHovered ? "pointer" : "default";
     buttonSom.isHovered = (mouseX >= buttonSom.x && mouseX <= buttonSom.x + buttonSom.width &&
       mouseY >= buttonSom.y && mouseY <= buttonSom.y + buttonSom.height);
-
+      canvas.style.cursor = iniciarButton.isHovered || duvidaButton.isHovered || podioButton.isHovered || buttonSom.isHovered ? "pointer" : "default";
     drawButtons();
   }
 
