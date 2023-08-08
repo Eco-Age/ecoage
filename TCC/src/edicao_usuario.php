@@ -53,8 +53,8 @@
                         <input onclick="alternarModo()" type="checkbox" name="modo" id="modo"  value="<?=$modo?>"/>
                         <div id="labelModoEscuro">  
                             <label for="modo">
-                                <i id="solIcon" class="fa-regular fa-light fa-sun fa-sm"></i>
-                                <i id="luaIcon" class="fas fa-moon fa-sm"></i>
+                                <i id="solIcon" style="cursor: pointer" class="fa-regular fa-light fa-sun fa-sm"></i>
+                                <i id="luaIcon" style="cursor: pointer" class="fas fa-moon fa-sm"></i>
                             </label>
                         </div>
                     </div>
