@@ -2,6 +2,16 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.alert-success, .alert-danger, .alert-warning{
+    margin: auto;
+    width: auto !important;
+    border-radius: 100px !important;
+    box-shadow: 2px 1px 5px #00010059;
+    padding: 8px !important;
+    margin-top: 30px !important;
+    margin-left: 350px !important;
+    margin-right: 350px !important;
+  }
 
 #esqueceuSenha {
     text-decoration: none;
@@ -12,9 +22,18 @@
 }
 
 #body_login {
-    background-color: #703b7f;
+    background-image: url("../img/fundo_login.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #83000000;
+    width: 100% !important;
+    padding-top: 10px;
 }
 
+#divCadastrar{
+    margin-top: 25px !important;
+}
 .navbar-toggler:focus {
     outline: none;
 }
@@ -44,7 +63,7 @@
 }
 
 #forms_login {
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 60px;
     margin-left: 20px;
     margin-right: 20px;
@@ -58,8 +77,14 @@
     box-shadow: 3px 3px 2px #000000a9;
     font-size: clamp(0.8em, 0.8em + 1vw, 1.2em);
     font-weight: 500;
-    padding-bottom: 45px;
+    padding-bottom: 15px;
 
+}
+
+.btnsLoginFocus:focus {
+    box-shadow: 0px 0px 3px 3px #7426981f !important; 
+    outline: none !important; 
+    border: rgb(218, 218, 218);
 }
 
 #apelido_login,
@@ -76,13 +101,7 @@
 }
 
 #login_i {
-    background-image: url("../img/fundo_login.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    backdrop-filter: brightness(25%);
-    background-color: #83000000;
-    width: auto;
+
 }
 
 #legend_login,
@@ -137,10 +156,10 @@
 #rodape_login {
     background-color: #623f80;
     color: #67b16d;
-    clear: both;
     position: relative;
     margin-top: auto;
     padding-top: 20px;
+    padding-bottom: 20px;
     text-decoration: none;
     z-index: 999;
     text-align: center;
@@ -204,6 +223,43 @@
 
 /* sobre nós */
 
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); /* Saltitar para cima */
+    }
+}
+
+#nois2 {
+    animation: bounce 2s infinite;
+    margin: auto;
+    text-align: center;
+    width: 100%
+}
+
+.carousel-control-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px; /* Ajuste conforme necessário */
+  }
+  
+  .carousel-text-container {
+    flex: 1;
+    padding: 0 15px; /* Ajuste conforme necessário */
+  }
+  
+  /* Ajuste o estilo de acordo com suas necessidades */
+  .carousel-control {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    line-height: 1;
+  }
+
+
 #txt_sobre_nos {
     padding-bottom: 25px;
     font-style: normal;
@@ -212,9 +268,10 @@
     color: #f7eeff;
     font-weight: bold;
     text-align: center;
-    font-size: auto;
+    font-size: auto !important;
     padding-top: 40px;
     width: auto;
+    height: auto;
     margin: auto;
 }
 
@@ -232,7 +289,7 @@
     width: auto;
     background-color: #f5edffdb;
     color: #653292;
-    padding-top: 40px;
+    padding-top: 30px;
     padding-left: 40px;
     padding-right: 40px;
     padding-bottom: 30px;
@@ -251,7 +308,7 @@
 #Edu_img2,
 #Gabi_img2 {
     width: 100%;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
     background-image: url("../img/fundo_login.jpg");
     border-radius: 100%;
     padding: 0px;
@@ -259,6 +316,7 @@
 
 #nois {
     width: 100%;
+    margin: auto;
     margin-bottom: 50px;
     background-image: url("../img/fundo_login.jpg");
     border-radius: 200px;
@@ -273,16 +331,16 @@
 
 }
 
+
 #sobre_nos_pgn {
-    background-color: #703b7f;
+    background-color: #703b7f;    
+    padding-bottom: 50px !important;
+    margin: auto !important;
+    margin-bottom: 50px !important;
+    border-radius: 50px;    
 }
 
-#row_sobre_nos {
-    margin-bottom: 50px;
-}
-
-#carrosel_sobrenos {
-
+#carrosel_sobrenos{
     display: block;
     object-fit: cover;
     padding: 30px;
@@ -387,7 +445,7 @@
 }
 
 .avatar-radio:checked+label {
-    border-color: #73ccff;
+    border-color: #690083;
 }
 
 .avatar-radio+label img {
@@ -631,8 +689,8 @@ nav{
 
 #btncadastrartecido:focus,
 #botao_inserir_tecido:focus {
-    box-shadow: 0 0 0 0;
-    outline: 0;
+    box-shadow: 0 0 0 0 !important;
+    outline: 0 !important;
 }
 
 #btncadastrartecido:hover {
@@ -683,12 +741,13 @@ nav{
 
 .btndelete:focus,
 .btnedit:focus {
-    box-shadow: 0 0 0 0;
-    outline: 0;
+    box-shadow: 0 0 0 0 !important;
+    outline: 0 !important;
 }
 
 .btn:focus{
-    outline: none;
+    box-shadow: 0 0 0 0 !important;
+    outline: none !important;
 }
 
 .btndelete {
@@ -817,9 +876,11 @@ nav{
     margin-bottom: 3px;
 }
 #logado{
-    height: auto;
-    margin-top: 80px;
-    margin-bottom: 20px;
+    height: auto !important;
+    margin-top: 50px !important;
+    margin-bottom: 20px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
 }
 #conteudo {
     flex-direction: column;   
