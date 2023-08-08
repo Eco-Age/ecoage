@@ -75,7 +75,7 @@ const personagem = {
         tubos.velocidade = 5.3;
       } else if (tubos.velocidade > 5.3 && tubos.velocidade < 6.5) {
         velocidadeNormalTubo = tubos.velocidade;
-        tubos.velocidade += 1;
+        tubos.velocidade += 0.6;
       }
     } else {
       tubos.velocidade = velocidadeNormalTubo;
@@ -122,15 +122,6 @@ function atualizarAnimacaoPersonagemImortal(tempoAtual) {
     tempoUltimaAtualizacaoQuadro = tempoAtual;
   }
 }
-// Função de atualização do jogo
-/*function atualizarJogo() {
-  frames++;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  personagem.atualizar();
-  personagem.desenhar();
-  requestAnimationFrame(atualizarJogo);
-}*/ // parece inutil 
 
 // aqui começa a gerar os tubos, ta fora da funcao pq ai nao pisca
 const imagemTubo = new Image();
