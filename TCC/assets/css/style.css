@@ -239,25 +239,8 @@
     width: 100%
 }
 
-.carousel-control-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px; /* Ajuste conforme necessário */
-  }
-  
-  .carousel-text-container {
-    flex: 1;
-    padding: 0 15px; /* Ajuste conforme necessário */
-  }
-  
-  /* Ajuste o estilo de acordo com suas necessidades */
-  .carousel-control {
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
-    line-height: 1;
-  }
+
+
 
 
 #txt_sobre_nos {
@@ -351,6 +334,7 @@
 }
 
 #corpo_carrosel {
+    width: auto;
     height: auto;
     padding-bottom: 120px;
 }
@@ -784,6 +768,15 @@ nav{
     object-fit: cover;
 }
 
+/* Exemplo de CSS para garantir que o texto seja legível em todas as telas */
+.carousel-title {
+    font-size: 1.5rem; /* Tamanho da fonte do título */
+    font-weight: bold;
+}
+
+.carousel-description {
+    font-size: 1rem; /* Tamanho da fonte da descrição */
+}
 
 #txt_portal,
 #txt_portal2 {
@@ -791,14 +784,8 @@ nav{
     text-align: center;
     color: #194d69;
     width: auto;
-    text-align: center;
-    margin-bottom: 20px !important;
-
 }
 
-#txt_portal2{
-    margin-bottom: 20px !important;
-}
 
 #portal_de_noticias {
     min-height: calc(200px);
@@ -813,6 +800,9 @@ nav{
     outline: none;
 }
 
+#filtro{
+    width: auto;
+}
 
 #form_busca {
     display: flex;
@@ -929,7 +919,9 @@ nav{
     margin-top: 20px;
     text-align: left;
     padding-left: 20px;
+    padding-right: 20px;
     padding-top: 15px;
+    padding-bottom: 15px;
     border-radius: 8px;
     height: auto;
     box-shadow: 3px 3px 10px #1d421f49;
@@ -981,13 +973,22 @@ nav{
 }
 
 #btncadastrarnoticia {
-    width: 80%;
-    height: 90%;
+    width: auto;
+    max-width: 100px;    
+    margin: 0 10px;
     background-color: #623f80;
     color: #f0f8e5;
     border: none;
     text-align: center;
-    margin-left: 35px;
+    padding: 6px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+}
+
+#iconCadastrarNot{
+    margin: auto;
+    padding: 0px;
 }
 
 #btncadastrarnoticia:focus {
@@ -1129,8 +1130,8 @@ nav{
 #Ana_img,
 #Edu_img,
 #Gabi_img {
-    width: 200px;
-    margin: auto;
+    width: 170px;
+    margin: 10px auto !important;
     background-color: #eef8efdb;
     border-radius: 200px;
     padding: 0px;
@@ -1147,8 +1148,8 @@ nav{
 
 .destaque{
     color: #6f3295;
-    font-size: 15pt;
-    font-weight: 500;
+    font-size: 14pt;
+    font-weight: 700;
 }
 
 .destaque2{
@@ -1159,12 +1160,13 @@ nav{
 #texto_inicial_edu,
 #texto_inicial_ana,
 #texto_inicial_gabi {
-    text-align: center;
+    text-align:center;
     margin-top: 20px;
     margin-bottom: 20px;
-    font-size: 13pt;
+    font-size: 12pt;
+    font-weight: 500;
     background-color: #eef8ef;
-    color: #653292;
+    color: #69308b;
     padding-top: 40px;
     padding-left: 80px;
     padding-right: 80px;

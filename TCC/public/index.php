@@ -198,16 +198,16 @@ $lista_avatar = listarAvatar();
  
       <div id="sobre_nos_pgn">
         <div class="row">
-          <div class="col-0 col-sm-0 col-md-0 col-lg-4 col-xl-4"></div>
-              <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                <h1  id="txt_sobre_nos">DESENVOLVEDORES:</h1>
+          <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div>
+              <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4" style="margin: auto;">
+                <h2  id="txt_sobre_nos">DESENVOLVEDORES:</h2>
               </div>
-          <div class="col-0 col-sm-0 col-md-0 col-lg-4 col-xl-4"></div>
+          <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div>
         </div>
                   
         
         <div class="row">            
-          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin: auto">
             <div class="carousel slide" id="carrosel_sobrenos" data-ride="carousel">    
               
               <ol class="carousel-indicators">
@@ -311,7 +311,6 @@ $lista_avatar = listarAvatar();
                 </div>
               </div>
               
-              <div class="carousel-control-container">
                 <a class="carousel-control-prev" href="#carrosel_sobrenos" role="button" data-slide="prev">
                   <span class="carousel-control material-icons" aria-hidden="true" id="ante">
                     chevron_left
@@ -322,8 +321,6 @@ $lista_avatar = listarAvatar();
                     navigate_next
                   </span>            
                 </a>
-              </div>
-      
             </div>       
           </div>
         </div>

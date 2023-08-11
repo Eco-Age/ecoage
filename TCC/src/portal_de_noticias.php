@@ -73,7 +73,7 @@ $imagens = ["../assets/img/noticia1.jpg", "../assets/img/noticia2.jpeg", "../ass
                                 <a href="<?= $noticia['url_noticia'] ?>" target="_blank">
                                     <img class="img_carrosel d-block w-100" src="<?= $imagens[$index] ?>" alt="Primeiro Slide">
                                 </a>
-                                <div class="carousel-caption d-none d-md-block">
+                                <div class="carousel-caption">
                                     <h5><?= $noticia['titulo_noticia'] ?></h5>
                                     <p><?= $noticia['descricao_noticia'] ?></p>
                                 </div>

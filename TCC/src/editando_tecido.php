@@ -25,15 +25,15 @@ $imagem_atual = basename($tecido['caminho_imagem']);
         <div class="col-11"></div>
     </div>
     <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
+        <div class="col-3 col-sm-2 col-md-4 col-lg-4 col-xl-4"></div>
+        <div class="col-6 col-sm-8 col-md-4 col-lg-4 col-xl-4">
             <h1 id="tituloTecido">Edição:</h1>
         </div>
-        <div class="col-4"></div>
+        <div class="col-3 col-sm-2 col-md-4 col-lg-4 col-xl-4"></div>
     </div>
     <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
+        <div class="col-0 col-sm-0 col-md-2 col-lg-3 col-xl-3"></div>
+        <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
             <fieldset id="formEditarTecido">
                 <form action="editar_tecido.php" method="post" enctype="multipart/form-data" onsubmit="return confirmar_edicao_tecido(this)">
                     <input type="hidden" name="id_tecidos" value="<?= $id_tecidos ?>">
@@ -93,7 +93,7 @@ $imagem_atual = basename($tecido['caminho_imagem']);
                 </form>
             </fieldset>
         </div>
-        <div class="col-4"></div>
+        <div class="col-0 col-sm-0 col-md-2 col-lg-3 col-xl-3"></div>
     </div>
 
 </div>
