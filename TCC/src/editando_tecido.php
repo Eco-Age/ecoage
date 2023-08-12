@@ -6,7 +6,6 @@ require("../database/tipo_tecidos.php");
 require("../database/tecidos.php");
 require("../util/mensagens.php");
 verificaSessao();
-exibirMsg();
 
 $id_tecidos = $_GET["id_tecidos"];
 $tecido = buscarTecido($id_tecidos);
@@ -18,6 +17,17 @@ $imagem_atual = basename($tecido['caminho_imagem']);
 ?>
 
 <div class="container">
+
+    <div class="row">
+        <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div>
+            <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-8" style="margin: auto">
+            <?php
+                exibirMsg();
+            ?>
+            </div>
+        <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div> 
+    </div>
+
     <div class="row">
         <div class="col-1">
             <a class="btn" href="tecidos_adm.php"><span class="material-icons" id="icone_voltar_noticias">reply</span></a>

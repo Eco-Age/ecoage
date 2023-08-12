@@ -5,7 +5,6 @@ include("../include/navegacao.php");
 require("../database/noticias.php");
 require("../util/formatacoes.php");
 
-exibirMsg();
 verificaSessao();
 
 if ($_SESSION["tipo_usuario"] == 1) {
@@ -39,10 +38,20 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
 <div class="container" id="conteudo">
 
     <div class="row">
-        <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+        <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div>
+            <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-8" style="margin: auto">
+                <?php
+                    exibirMsg();
+                ?>
+            </div>
+        <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div> 
+    </div>
+
+    <div class="row">
+        <div class="col-3 col-sm-3 col-md-1 col-lg-1 col-xl-1">
             <a class="btn" href="portal_de_noticias.php"><span class="material-icons" id="icone_voltar_noticias">reply</span></a>
         </div>
-        <div class="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"></div>
+        <div class="col-9 col-sm-9 col-md-11 col-lg-11 col-xl-11"></div>
     </div>
 
     <div class="row">
@@ -54,8 +63,8 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
     </div>
 
     <div class="row">
-        <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
-            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div>
+            <div class="col-6 col-sm-6 col-md-12 col-lg-12 col-xl-12" style="margin: auto">  
                 <form id="form_busca" action="buscarNoticia.php" class="form-inline" method="post">
                     <input class="form-control" name="palavra_chave" id="palavra_chave" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar">
                     <div class="form-group">
@@ -71,9 +80,9 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
 
                     <button class="btn btn-primary" type="submit" name="buscar" id="btnBusca"><i class="fa-solid fa-magnifying-glass"></i></button>
                     <div class="erro-preencher" id="palavra_chave_erro"></div>
-                <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
+                </form>
             </div>
-        <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
+        <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div>
     </div>
         
     <?php foreach ($lista_noticias as $noticias) : ?>

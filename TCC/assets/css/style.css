@@ -9,8 +9,10 @@
     box-shadow: 2px 1px 5px #00010059;
     padding: 8px !important;
     margin-top: 30px !important;
-    margin-left: 350px !important;
-    margin-right: 350px !important;
+  }
+
+  .alertt{
+    padding: 210px;
   }
 
 #esqueceuSenha {
@@ -782,6 +784,9 @@ nav{
     width: auto;
 }
 
+#txt_portal2 {
+    margin-bottom: 10px !important;
+}
 
 #portal_de_noticias {
     min-height: calc(200px);
