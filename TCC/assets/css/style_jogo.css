@@ -12,7 +12,17 @@ body {
     position: relative;
 
 }
+    #jogoCanvas {
+      width: 800px;
+      height: 600px;
+  }
 
+  @media (max-width: 600px) {
+      #jogoCanvas {
+          width: 100%; 
+          height: auto; 
+      }
+  }
 
 p{
     margin-top: 10px;
@@ -33,16 +43,12 @@ p{
     position: relative;
   }
   
-  #jogoCanvas {
-    width: 800px; /* Ajuste conforme necessário */
-    height: 600px; /* Ajuste conforme necessário */
-  }
   
   #htmlContent {
     position: absolute;
     top: 0;
     left: 0;
-    /* Ajuste as coordenadas de posicionamento conforme necessário */
+    
   }
 
   .disable-scroll {
@@ -50,7 +56,6 @@ p{
   }
 
 
-  /* Carrosel instruções: */
   
   #indicadoresCarrosel {
     margin-top: 50px !important;

@@ -837,20 +837,23 @@ function gameLoop() {
   // Função para verificar se o mouse está sobre o botão
   function checkHover(event) {
     const rect = canvas.getBoundingClientRect();
-    const mouseX = event.clientX - rect.left;
-    const mouseY = event.clientY - rect.top;
+    const canvasX = event.clientX - rect.left;
+    const canvasY = event.clientY - rect.top;
+
+    const mouseX = canvasX * (canvas.width / rect.width);
+    const mouseY = canvasY * (canvas.height / rect.height);
 
     iniciarButton.isHovered = (mouseX >= iniciarButton.x && mouseX <= iniciarButton.x + iniciarButton.width &&
-      mouseY >= iniciarButton.y && mouseY <= iniciarButton.y + iniciarButton.height);
+        mouseY >= iniciarButton.y && mouseY <= iniciarButton.y + iniciarButton.height);
     duvidaButton.isHovered = (mouseX >= duvidaButton.x && mouseX <= duvidaButton.x + duvidaButton.width &&
-      mouseY >= duvidaButton.y && mouseY <= duvidaButton.y + duvidaButton.height);
+        mouseY >= duvidaButton.y && mouseY <= duvidaButton.y + duvidaButton.height);
     podioButton.isHovered = (mouseX >= podioButton.x && mouseX <= podioButton.x + podioButton.width &&
-      mouseY >= podioButton.y && mouseY <= podioButton.y + podioButton.height);
+        mouseY >= podioButton.y && mouseY <= podioButton.y + podioButton.height);
     buttonSom.isHovered = (mouseX >= buttonSom.x && mouseX <= buttonSom.x + buttonSom.width &&
-      mouseY >= buttonSom.y && mouseY <= buttonSom.y + buttonSom.height);
-      canvas.style.cursor = iniciarButton.isHovered || duvidaButton.isHovered || podioButton.isHovered || buttonSom.isHovered ? "pointer" : "default";
+        mouseY >= buttonSom.y && mouseY <= buttonSom.y + buttonSom.height);
+    canvas.style.cursor = iniciarButton.isHovered || duvidaButton.isHovered || podioButton.isHovered || buttonSom.isHovered ? "pointer" : "default";
     drawButtons();
-  }
+}
 
   // Evento de quando o mouse entra nos botões
   canvas.addEventListener('mousemove', checkHover);
@@ -861,15 +864,32 @@ function gameLoop() {
     duvidaButton.isHovered = false;
     canvas.style.cursor = "default";
     drawButtons();
-  });
+});
+
+
+canvas.addEventListener('touchstart', function(event) {
+  if (jogando) {
+    personagem.velocidade = -personagem.pulo;
+  }
+});
+
+ canvas.removeEventListener('mouseout', function (event) {
+            iniciarButton.isHovered = false;
+            duvidaButton.isHovered = false;
+            canvas.style.cursor = "default";
+            drawButtons();
+        });
 
   // Evento de clique nos botões
   canvas.addEventListener('click', function (event) {
     const rect = canvas.getBoundingClientRect();
-    const mouseX = event.clientX - rect.left;
-    const mouseY = event.clientY - rect.top;
+    const canvasX = event.clientX - rect.left;
+    const canvasY = event.clientY - rect.top;
 
-    if (mouseX >= iniciarButton.x && mouseX <= iniciarButton.x + iniciarButton.width &&
+    const mouseX = canvasX * (canvas.width / rect.width);
+    const mouseY = canvasY * (canvas.height / rect.height);
+
+       if (mouseX >= iniciarButton.x && mouseX <= iniciarButton.x + iniciarButton.width &&
       mouseY >= iniciarButton.y && mouseY <= iniciarButton.y + iniciarButton.height &&
       !jogoIniciado) {
       jogoIniciado = true;
@@ -880,25 +900,28 @@ function gameLoop() {
       contagemRegressiva();
     }
 
+
     if (mouseX >= duvidaButton.x && mouseX <= duvidaButton.x + duvidaButton.width &&
       mouseY >= duvidaButton.y && mouseY <= duvidaButton.y + duvidaButton.height) {
       ajudaJogo();
-    }
-    if (mouseX >= podioButton.x && mouseX <= podioButton.x + podioButton.width &&
+  }
+  if (mouseX >= podioButton.x && mouseX <= podioButton.x + podioButton.width &&
       mouseY >= podioButton.y && mouseY <= podioButton.y + podioButton.height) {
       Ranking();
-    }
+  }
 
-    if (mouseX >= buttonSom.x && mouseX <= buttonSom.x + buttonSom.width &&
+  if (mouseX >= buttonSom.x && mouseX <= buttonSom.x + buttonSom.width &&
       mouseY >= buttonSom.y && mouseY <= buttonSom.y + buttonSom.height) {
-        estaMutado = !estaMutado;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        tocarMusica();
+      estaMutado = !estaMutado;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      tocarMusica();
       drawButtons();
-    }
-  });
+  }
 
-  drawButtons();
+});
+
+canvas.addEventListener('mousemove', checkHover);
+drawButtons();
 }
 
 function mutarSom(){
@@ -942,7 +965,7 @@ function startGameLoop(tempoAtual) {
   estrelas.desenhar();
   personagem.desenhar();
   desenharPontuacao();
-
+  
   if (keys[SPACE_BAR_KEY_CODE] || keys[UP_ARROW_KEY_CODE]) {
     personagem.velocidade = -personagem.pulo;
   }
