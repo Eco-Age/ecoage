@@ -11,19 +11,29 @@ require("../util/mensagens.php");
 require("../util/formatacoes.php");
 
 verificaSessao();
-exibirMsg();
 
 $id_noticia = $_POST["id_noticia"];
 $noticias = buscarNoticia($id_noticia);
 ?>
 
 <div class=" container">
+
     <div class="row">
-    <div class="col-1">
-      <a class="btn" href="site_externo_adm.php"><span class="material-icons" id="icone_voltar_noticias">reply</span></a>
+        <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div>
+            <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-8" style="margin: auto">
+            <?php
+                exibirMsg();
+            ?>
+            </div>
+        <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div> 
     </div>
-    <div class="col-11"></div>
-  </div>
+
+    <div class="row">
+        <div class="col-1">
+        <a class="btn" href="site_externo_adm.php"><span class="material-icons" id="icone_voltar_noticias">reply</span></a>
+        </div>
+        <div class="col-11"></div>
+    </div>
     <div class="row">
         <div class="col-3 col-sm-2 col-md-4 col-lg-4 col-xl-4"></div>
             <div class="col-6 col-sm-8 col-md-4 col-lg-4 col-xl-4">

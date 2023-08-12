@@ -5,7 +5,6 @@ include("../include/navegacao.php");
 include("../util/mensagens.php");
 include("../util/formatacoes.php");
 
-exibirMsg();
 verificaSessao();
 
 if (isset($_SESSION["id_usuario"]) && isset($_SESSION["idAvatar"])) {
@@ -27,6 +26,16 @@ $modo = $usuario["modo"];
 $avatar_atual = buscarAvatarUsado($id_usuario);
 ?>
 <div class="container" id="conteudo">
+
+    <div class="row">
+        <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div>
+        <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-8" style="margin: auto">
+        <?php
+            exibirMsg();
+        ?>
+        </div>
+        <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div> 
+    </div>
 
     <div class="row">
         <div class="col-1 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>

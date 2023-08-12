@@ -5,7 +5,6 @@ include("../include/navegacao.php");
 require("../database/noticias.php");
 require("../util/formatacoes.php");
 
-exibirMsg();
 verificaSessao();
 
 $chave_sessao = $_SESSION["id_usuario"];
@@ -41,10 +40,20 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
 <div class="container" id="conteudo">
 
     <div class="row">
-        <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+        <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div>
+            <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-8" style="margin: auto">
+                <?php
+                    exibirMsg();
+                ?>
+            </div>
+        <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div> 
+    </div>
+
+    <div class="row">
+        <div class="col- col-sm-3 col-md-1 col-lg-1 col-xl-1">
             <a href="../src/portal_de_noticias.php" class="btn" id="voltar_adm"><span class="material-icons" id="icone_voltar_noticias">reply</span></a>
         </div>
-        <div class="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11"></div>
+        <div class="col-9 col-sm-9 col-md-11 col-lg-11 col-xl-11"></div>
     </div>
 
     <div class="row">
@@ -63,11 +72,11 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
                 <form id="form_busca" action="buscarNoticia.php" class="form-inline" method="post">
                     <!-- Botão pra abrir modal de cadastrar noticias-->
                     <div class="form-group">
-                    <button type="button" class="btn btn-primary" id="btncadastrarnoticia" data-toggle="modal" data-target="#modal_noticias">
-                        <span class="material-icons" id="iconCadastrarNot">
-                            post_add
-                        </span>
-                    </button>
+                        <button type="button" class="btn btn-primary" id="btncadastrarnoticia" data-toggle="modal" data-target="#modal_noticias">
+                            <span class="material-icons" id="iconCadastrarNot">
+                                post_add
+                            </span>
+                        </button>
                     </div>
 
                     <input class="form-control" name="palavra_chave" id="palavra_chave" type="search" placeholder="Buscar uma notícia..." aria-label="Pesquisar">
