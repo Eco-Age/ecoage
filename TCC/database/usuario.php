@@ -169,7 +169,7 @@ function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelid
           $_SESSION["tipo_msg"] = "alert-warning";
       }  
   } else {
-      $_SESSION["msg"] = 'Senha incorreta, ' . var_dump($senhaCadastrada) .  ' dados inalterados. Caso tenha esquecido sua senha, recupere-a na tela de login.';
+      $_SESSION["msg"] = 'Senha incorreta, dados inalterados. Caso tenha esquecido sua senha, recupere-a na tela de login.';
       $_SESSION["tipo_msg"] = "alert-danger";
   }
 }
