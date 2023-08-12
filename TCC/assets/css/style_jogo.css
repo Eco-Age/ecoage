@@ -12,7 +12,17 @@ body {
     position: relative;
 
 }
+    #jogoCanvas {
+      width: 800px;
+      height: 600px;
+  }
 
+  @media (max-width: 600px) {
+      #jogoCanvas {
+          width: 100%; 
+          height: auto; 
+      }
+  }
 
 p{
     margin-top: 10px;
@@ -33,10 +43,6 @@ p{
     position: relative;
   }
   
-  #jogoCanvas {
-    width: 800px; 
-    height: 600px; 
-  }
   
   #htmlContent {
     position: absolute;
