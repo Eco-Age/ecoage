@@ -33,6 +33,7 @@ if (verificarUsuarioCadastrado($apelido, $email) == true) {
             "email" => $email,
             "senha" => $senha,
             "id_avatar" => $id_avatar,
+            "modo" => $modo,
             "tempo_expiracao" => time() + 300 // 300 segundos = 5 minutos
         );
 

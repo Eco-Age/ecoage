@@ -20,6 +20,7 @@ if (array_key_exists("modo", $_POST)) {
     $modo = 0;
   }
 
+
 $email_atual = $_POST["email_atual"];
 $apelido_atual = $_POST["apelido_atual"];
 
@@ -41,7 +42,7 @@ if ($apelido == $apelido_atual && $email == $email_atual) {
         header("Location: ../src/edicao_usuario.php");
         $_SESSION["msg"] = "Email já cadastrado no sistema!";
         $_SESSION["tipo_msg"] = "alert-danger";
-    } else {
+    } else {  
         editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar, $tipo_usuario, $modo);
         $verifica = buscaVerifica($email);
         if ($verifica == 0) {
@@ -50,6 +51,7 @@ if ($apelido == $apelido_atual && $email == $email_atual) {
             $verifica = 0;
         }
         atualizaVerifica($email, $verifica);
+      
         header("Location: edicao_usuario.php");
     }
     
