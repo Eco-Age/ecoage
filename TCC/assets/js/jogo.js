@@ -1,5 +1,21 @@
 const canvas = document.getElementById("jogoCanvas");
 const ctx = canvas.getContext("2d");
+const imagensDeFundo = [
+  '../assets/imagens_jogo/fundo1.png',
+  '../assets/imagens_jogo/fundo2.png',
+  '../assets/imagens_jogo/fundo3.png'
+];
+
+let indiceFundoAnterior = -1;
+function selecionarFundoAleatorio() {
+  let indiceAleatorio = Math.floor(Math.random() * imagensDeFundo.length);
+  while (indiceAleatorio === indiceFundoAnterior) {
+    indiceAleatorio = Math.floor(Math.random() * imagensDeFundo.length);
+  }
+  indiceFundoAnterior = indiceAleatorio; 
+  return imagensDeFundo[indiceAleatorio];
+}
+
 
 const backgroundMusic = document.getElementById("backgroundMusic");
 backgroundMusic.volume = 0.15;
@@ -441,8 +457,19 @@ window.addEventListener("keydown", (event) => {
       }
     }
   }
-
 });
+
+function tratarToqueNaTela() {
+  if (jogando) {
+    personagem.velocidade = -personagem.pulo;
+    if (somPulando.currentTime === 0 || somPulando.ended) {
+      somPulando.currentTime = 0;
+      somPulando.play();
+    }
+  }
+}
+
+canvas.addEventListener('touchstart', tratarToqueNaTela);
 
 window.addEventListener("keyup", (event) => {
   delete keys[event.keyCode];
@@ -741,7 +768,13 @@ function Ranking() {
     $('.popover-link').popover({ trigger: 'focus' });
   });
 };
-
+//isso aq é pra qnd o usuario clicar a primeira vez ter uma imagem ja
+let fundoAleatorio = '';
+function definirFundoAleatorio() {
+  fundoAleatorio = selecionarFundoAleatorio();
+  const jogoCanvas = document.getElementById('jogoCanvas');
+  jogoCanvas.style.backgroundImage = `url('../imagens_jogo/${fundoAleatorio}')`;
+}
 
 
 function gameLoop() {
@@ -759,7 +792,12 @@ function gameLoop() {
   carreteisColetados = 0;
   tempoDecorrido = 0;
   tempoInicial = null;
-  
+  if (!fundoAleatorio) {
+    const novoFundo = selecionarFundoAleatorio();
+    const jogoCanvas = document.getElementById('jogoCanvas');
+    jogoCanvas.style.backgroundImage = `url('../imagens_jogo/${novoFundo}')`;
+    fundoAleatorio = novoFundo;
+  }
   const buttonWidth = 300;
   const buttonHeight = 50;
   const buttonX = canvas.width / 2 - buttonWidth / 2;
@@ -824,7 +862,7 @@ function gameLoop() {
   }
 
   function drawButtons() {
-   
+
     drawButton(iniciarButton, "Iniciar");
     drawButton(duvidaButton, "TUTORIAL");
     drawButton(podioButton, "PODIO");
@@ -844,16 +882,16 @@ function gameLoop() {
     const mouseY = canvasY * (canvas.height / rect.height);
 
     iniciarButton.isHovered = (mouseX >= iniciarButton.x && mouseX <= iniciarButton.x + iniciarButton.width &&
-        mouseY >= iniciarButton.y && mouseY <= iniciarButton.y + iniciarButton.height);
+      mouseY >= iniciarButton.y && mouseY <= iniciarButton.y + iniciarButton.height);
     duvidaButton.isHovered = (mouseX >= duvidaButton.x && mouseX <= duvidaButton.x + duvidaButton.width &&
-        mouseY >= duvidaButton.y && mouseY <= duvidaButton.y + duvidaButton.height);
+      mouseY >= duvidaButton.y && mouseY <= duvidaButton.y + duvidaButton.height);
     podioButton.isHovered = (mouseX >= podioButton.x && mouseX <= podioButton.x + podioButton.width &&
-        mouseY >= podioButton.y && mouseY <= podioButton.y + podioButton.height);
+      mouseY >= podioButton.y && mouseY <= podioButton.y + podioButton.height);
     buttonSom.isHovered = (mouseX >= buttonSom.x && mouseX <= buttonSom.x + buttonSom.width &&
-        mouseY >= buttonSom.y && mouseY <= buttonSom.y + buttonSom.height);
+      mouseY >= buttonSom.y && mouseY <= buttonSom.y + buttonSom.height);
     canvas.style.cursor = iniciarButton.isHovered || duvidaButton.isHovered || podioButton.isHovered || buttonSom.isHovered ? "pointer" : "default";
     drawButtons();
-}
+  }
 
   // Evento de quando o mouse entra nos botões
   canvas.addEventListener('mousemove', checkHover);
@@ -864,21 +902,21 @@ function gameLoop() {
     duvidaButton.isHovered = false;
     canvas.style.cursor = "default";
     drawButtons();
-});
+  });
 
 
-canvas.addEventListener('touchstart', function(event) {
-  if (jogando) {
-    personagem.velocidade = -personagem.pulo;
-  }
-});
+  canvas.addEventListener('touchstart', function (event) {
+    if (jogando) {
+      personagem.velocidade = -personagem.pulo;
+    }
+  });
 
- canvas.removeEventListener('mouseout', function (event) {
-            iniciarButton.isHovered = false;
-            duvidaButton.isHovered = false;
-            canvas.style.cursor = "default";
-            drawButtons();
-        });
+  canvas.removeEventListener('mouseout', function (event) {
+    iniciarButton.isHovered = false;
+    duvidaButton.isHovered = false;
+    canvas.style.cursor = "default";
+    drawButtons();
+  });
 
   // Evento de clique nos botões
   canvas.addEventListener('click', function (event) {
@@ -889,7 +927,7 @@ canvas.addEventListener('touchstart', function(event) {
     const mouseX = canvasX * (canvas.width / rect.width);
     const mouseY = canvasY * (canvas.height / rect.height);
 
-       if (mouseX >= iniciarButton.x && mouseX <= iniciarButton.x + iniciarButton.width &&
+    if (mouseX >= iniciarButton.x && mouseX <= iniciarButton.x + iniciarButton.width &&
       mouseY >= iniciarButton.y && mouseY <= iniciarButton.y + iniciarButton.height &&
       !jogoIniciado) {
       jogoIniciado = true;
@@ -904,27 +942,27 @@ canvas.addEventListener('touchstart', function(event) {
     if (mouseX >= duvidaButton.x && mouseX <= duvidaButton.x + duvidaButton.width &&
       mouseY >= duvidaButton.y && mouseY <= duvidaButton.y + duvidaButton.height) {
       ajudaJogo();
-  }
-  if (mouseX >= podioButton.x && mouseX <= podioButton.x + podioButton.width &&
+    }
+    if (mouseX >= podioButton.x && mouseX <= podioButton.x + podioButton.width &&
       mouseY >= podioButton.y && mouseY <= podioButton.y + podioButton.height) {
       Ranking();
-  }
+    }
 
-  if (mouseX >= buttonSom.x && mouseX <= buttonSom.x + buttonSom.width &&
+    if (mouseX >= buttonSom.x && mouseX <= buttonSom.x + buttonSom.width &&
       mouseY >= buttonSom.y && mouseY <= buttonSom.y + buttonSom.height) {
       estaMutado = !estaMutado;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       tocarMusica();
       drawButtons();
-  }
+    }
 
-});
+  });
 
-canvas.addEventListener('mousemove', checkHover);
-drawButtons();
+  canvas.addEventListener('mousemove', checkHover);
+  drawButtons();
 }
 
-function mutarSom(){
+function mutarSom() {
   backgroundMusic.pause();
   somPulando.pause();
   backgroundMusicImortal.pause();
@@ -933,7 +971,7 @@ function mutarSom(){
 function tocarMusica() {
   if (estaMutado) {
     mutarSom();
-  } else if (jogando){
+  } else if (jogando) {
     if (personagem.estaImortal) {
       backgroundMusic.pause();
       backgroundMusicImortal.play();
@@ -965,7 +1003,7 @@ function startGameLoop(tempoAtual) {
   estrelas.desenhar();
   personagem.desenhar();
   desenharPontuacao();
-  
+
   if (keys[SPACE_BAR_KEY_CODE] || keys[UP_ARROW_KEY_CODE]) {
     personagem.velocidade = -personagem.pulo;
   }
@@ -991,7 +1029,11 @@ function startGameLoop(tempoAtual) {
 function gameOver() {
   let id_usuario = chave_sessao
   let id_patente = 0;
+  const novoFundo = selecionarFundoAleatorio();
 
+  // Alterar o estilo do elemento #jogoCanvas para usar a nova imagem de fundo
+  const jogoCanvas = document.getElementById('jogoCanvas');
+  jogoCanvas.style.backgroundImage = `url('../imagens_jogo/${novoFundo}')`;
   switch (true) {
     case (carreteisColetados <= 2):
       id_patente = 1; // Poliéster
