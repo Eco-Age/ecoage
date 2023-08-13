@@ -376,7 +376,7 @@ function detectCollisions() {
 
 function desenharPontuacao() {
   //quadrado branco atrás do relógio
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "#ffffff00";
   ctx.fillRect(800, 0, -120, 65);
   if (personagem.estaImortal) {
     const textoPrincipal = "VOCÊ ESTÁ IMORTAL!";
@@ -404,17 +404,17 @@ function desenharPontuacao() {
   // Desenhar imagem de um carretel
   const carretelImg = new Image();
   carretelImg.src = "../assets/imagens_jogo/carretel.png";
-  ctx.drawImage(carretelImg, 10, 10, 20, 20);
+  ctx.drawImage(carretelImg, 10, 10, 35, 35);
 
   // Desenhar imagem de um relógio
   const relogioImg = new Image();
-  relogioImg.src = "../assets/imagens_jogo/relogio.png";
-  ctx.drawImage(relogioImg, 750, 15, 40, 40);
+  relogioImg.src = "../assets/imagens_jogo/relogioo.png";
+  ctx.drawImage(relogioImg, 750, 10, 35, 35);
 
-  ctx.font = "20px Arial";
-  ctx.fillStyle = "black";
-  ctx.fillText(`${carreteisColetados}`, 40, 30);
-  ctx.fillText(`${formatarTempo(tempoDecorrido)}`, 700, 45);
+  ctx.font = "22px Arial";
+  ctx.fillStyle = "white";
+  ctx.fillText(`${carreteisColetados}`, 50, 38);
+  ctx.fillText(`${formatarTempo(tempoDecorrido)}`, 690, 38);
 }
 
 function formatarTempo(tempo) {

@@ -37,15 +37,9 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
 
 <div class="container" id="conteudo">
 
-    <div class="row">
-        <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div>
-            <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-8" style="margin: auto">
-                <?php
-                    exibirMsg();
-                ?>
-            </div>
-        <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div> 
-    </div>
+    <?php
+        exibirMsg();
+    ?>
 
     <div class="row">
         <div class="col-3 col-sm-3 col-md-1 col-lg-1 col-xl-1">

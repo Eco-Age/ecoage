@@ -260,9 +260,9 @@ if (!isset($_SESSION)) {
         if (strlen(trim($palavra_chave)) >= 3){
           $sql = "SELECT * FROM Noticias 
             WHERE titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%'"; 
-        }else if (trim($palavra_chave) == ''){
+        }elseif (trim($palavra_chave) == ''){
               $sql = "SELECT * FROM Noticias";
-        } else {
+        } else{
           $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
           $_SESSION["tipo_msg"] = "alert-danger";
           header("Location: ../src/portal_de_noticias.php");
@@ -349,15 +349,12 @@ if (!isset($_SESSION)) {
         return;
       }
     }
-           
+      
       $offset = ($pagina_atual - 1) * $itens_por_pagina;
       $stmt = $conexao->prepare($sql);
       $stmt->bind_param("ii", $offset, $itens_por_pagina);
       $stmt->execute();
       $resultado = $stmt->get_result();
-   
-      //$sql = "SELECT * FROM Noticias
-
    
 
     if($resultado->num_rows == 0) {

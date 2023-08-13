@@ -367,19 +367,23 @@
     padding: 8px;
     border-radius: 5px;
 }
+
 #botao_editar_usuario,
+#botao_salvar_alteracoes,
 #botao_editar,
 #enviarDuvida,
 #btnSalvar{
-    background-color: #256c92;
+    background-color: #155474;
     border-color: #1b5c80;
     border: none;
     color: #fff;
     width: 100%;
 }
 
+#botao_editar_usuario{
+    margin-bottom: 10px;
+}
 
-#botao_editar_usuario:hover,
 #botao_editar:hover,
 #enviarDuvida:hover,
 #btnSalvar:hover {
@@ -648,26 +652,11 @@ nav{
     border: none;
     border-radius: 30px;
     height: max-content;
-    width: 320px;
-    margin-left: 20px;
+    width: auto !important;
+    margin-left: 20px !important;
     box-shadow: 3px 3px 5px #31313156;
+    position: absolute;
 }
-
-#card1 {
-    width: auto;
-    height: auto;
-}
-
-#card2 {
-    width: auto;
-    height: auto;
-}
-
-#card3 {
-    width: auto;
-    height: auto;
-}
-
 
 #btncadastrartecido:focus,
 #botao_inserir_tecido:focus {
@@ -693,10 +682,14 @@ nav{
     border: none;
 }
 
-#saibamais {
+.saibamais {
     background-color: #5f2d8d;
     color: #ffffff;
     border: none;
+}
+
+.saibamais:hover{
+    color: #ffffff;
 }
 
 #row_cadastrar {

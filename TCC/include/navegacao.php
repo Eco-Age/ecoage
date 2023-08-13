@@ -9,6 +9,7 @@ if (isset($_SESSION["id_usuario"])) {
 $avatar_atual = buscarAvatarUsado($id_usuario);
 
 ?>
+
 <header id="navegacao">
 <nav class="navbar navbar-expand-lg">
     <div class="container">
@@ -86,8 +87,6 @@ $avatar_atual = buscarAvatarUsado($id_usuario);
         </div>
     </div>
 </nav>
-
-
 </header>
-
 <body>
+

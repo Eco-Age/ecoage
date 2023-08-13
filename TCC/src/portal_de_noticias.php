@@ -4,14 +4,18 @@ require_once("../util/mensagens.php");
 require_once("../database/noticias.php");
 include("../include/navegacao.php");
 
-exibirMsg();
 verificaSessao();
+
 $chave_sessao = $_SESSION["id_usuario"];
 $lista_noticias = maisCurtidas();
 $imagens = ["../assets/img/noticia1.jpg", "../assets/img/noticia2.jpeg", "../assets/img/noticia3.jpg"]
 ?>
 <div class="container" id="portal_de_noticias">
-
+   
+    <?php
+        exibirMsg();
+    ?>
+            
     <div class="row">
         <div class="col-2 col-sm-2 col-md-2 col-lg-3 col-xl-3"></div>
             <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6">

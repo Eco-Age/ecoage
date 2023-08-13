@@ -12,18 +12,14 @@ $lista_avatar = listarAvatar();
 
 ?>
 <div class="container-fluid" id="body_login">
-  <div class="row">
-    <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div>
-    <div class="col-10 col-sm-10 col-md-8 col-lg-8 col-xl-8" style="margin: auto">
-      <?php
-        exibirMsg();
-        if (isset($_SESSION["email_recuperar"]) && (time() - intval($_SESSION['email_recuperar']) > 1800)){
-          unset($_SESSION["email_recuperar"]);
-        }
-      ?>
-    </div>
-    <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div> 
-  </div>
+
+  <?php
+    exibirMsg();
+    if (isset($_SESSION["email_recuperar"]) && (time() - intval($_SESSION['email_recuperar']) > 1800)){
+      unset($_SESSION["email_recuperar"]);
+    }
+  ?>
+    
   <body>
     <div id="login_i">
       <div class="row">
