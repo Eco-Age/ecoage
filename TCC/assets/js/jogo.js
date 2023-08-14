@@ -1105,7 +1105,6 @@ function gameOver() {
   })
     .then((result) => {
       if (result.value) {     
-        location.reload();
         restartGame();
       }
       else {
