@@ -6,6 +6,5 @@
     $filtro = $_POST["filtro"];
     $_SESSION["filtro"] = $filtro;
     buscarPalavraChave($palavra_chave);   
-    var_dump( $_SESSION["msg"]); 
     header ("Location: ../src/site_externo.php");
 ?>
