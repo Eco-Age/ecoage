@@ -1104,10 +1104,12 @@ function gameOver() {
     showCloseButton: true,
   })
     .then((result) => {
-      if (result.value) {
+      if (result.value) {     
+        location.reload();
         restartGame();
       }
       else {
+        location.reload();
         gameLoop();
       }
     });
