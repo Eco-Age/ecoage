@@ -1,17 +1,15 @@
 USE ecoage;
 
 DROP TABLE IF EXISTS Curtidas;
-DROP TABLE IF EXISTS Patente;
 DROP TABLE IF EXISTS Ranking;
 DROP TABLE IF EXISTS Usuario;
+DROP TABLE IF EXISTS Patente;
 DROP TABLE IF EXISTS Tecidos;
 DROP TABLE IF EXISTS Tipo_Tecidos;
 DROP TABLE IF EXISTS tokens;
 DROP TABLE IF EXISTS avatars;
 DROP TABLE IF EXISTS Noticias;
 DROP TABLE IF EXISTS Codigos;
-
-
 
 CREATE TABLE avatars (
     id_avatar INT NOT NULL AUTO_INCREMENT,
@@ -143,32 +141,32 @@ VALUES
 ' Utilização de corantes naturais, a água é reaproveitada e há uma rotação de culturas.' ,
 ' Ajuda o meio ambiente, no qual se mostrou 46% menos instigante ao aquecimento global.',
  '../assets/imagens_tecido/tecido.png', 1),
-       
-(2, 
-'Lã de ovelhas e inseticidas sintéticos.',
-' Temos a tosa dos animais, em seguida ocorre a lavagem, cardagem e fiamento das fibras. ',
-' Impactos negativos no meio ambiente com o uso de produtos químicos e o abate 
-em massa dos animais, no qual são amarrados e se machucam, ocorre uma contaminação do solo, água e fauna, além da emissão de gás metano, detergentes e graxa.',
- '../assets/imagens_tecido/tecido.png', 1),
 
-(3,
+(2,
 'Fibras da planta do linho.', 
 ' Sua produção é feita a partir de plantações de linho, que são colhidas e passam por processos de separação das fibras, fiação 
 e tecelagem. ',
 ' Ajudam o meio ambiente por ser biodegradável, renovável e por necessitar de 
 pouca água e fertilizantes na produção.', '../assets/imagens_tecido/tecido.png', 1),
 
-(4, 
+(3, 
 'Madeira de eucalipto, a partir de celulose de origem vegetal.', 
 'No processo de produção é utilizado o N-metyl morfholine oxide, um solvente biodegradável que é considerado ecologicamente viável
 por não ser tóxico e por meio de injetores de fiação, a celulose é coagulada e então a fibra é lavada, secada e posteriormente cortada. ',
 'As fibras são biodegradáveis e compostáveis, reduzindo o impacto ambiental.', '../assets/imagens_tecido/tecido.png', 1),
 
-(5,
+(4,
 'Fibra da planta do bambu.', 
 'A produção do tecido começa com a extração da polpa da planta, que é transformada em fios e, 
 em seguida, tecida em um tecido macio e respirável.', 
 'Não há impactos ambientais, pois o processo de fabricação do tecido de bambu é menos poluente e também é biodegradável.','../assets/imagens_tecido/tecido.png', 1),
+
+(5, 
+'Lã de ovelhas e inseticidas sintéticos.',
+' Temos a tosa dos animais, em seguida ocorre a lavagem, cardagem e fiamento das fibras. ',
+' Impactos negativos no meio ambiente com o uso de produtos químicos e o abate 
+em massa dos animais, no qual são amarrados e se machucam, ocorre uma contaminação do solo, água e fauna, além da emissão de gás metano, detergentes e graxa.',
+ '../assets/imagens_tecido/tecido_bloqueado.png', 0),
 
 (6, 
 'Entrelaçamento de fios de trama e urdidura, pode ser feito de algodão, lã, poliéster, entre outros materiais',
