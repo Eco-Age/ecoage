@@ -65,6 +65,5 @@ include("../include/rodape.php");
 </script>
 <script src="../assets/js/jogo.js"></script>
 <script src="../assets/js/script.js"></script>
-</body>
 
 </html>

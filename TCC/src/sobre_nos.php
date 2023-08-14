@@ -89,5 +89,4 @@ session_start();
 <?php
     include("../include/rodape.php");  
 ?>
-</body>
 </html>

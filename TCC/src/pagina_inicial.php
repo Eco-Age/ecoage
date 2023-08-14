@@ -48,7 +48,7 @@
                             <div class="row">
                                 <div class="col-auto col-sm-auto col-md-auto col-lg-auto col-xl-auto"></div>
                                     <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10" id="texto_inicial_edu"  style="margin: auto">
-                                        <h3>Olá, <?= $_SESSION["nome_logado"] ?>!</h3>
+                                        <h3>Olá, <?= $_SESSION["apelido_logado"] ?>!</h3>
                                         <p >Com o objetivo de auxiliar na diminuição dos 
                                             impactos ambientais gerados pela indústria têxtil, apresentamos:  
                                             <span class="destaque">  EcoAge</span> - uma aplicação web capaz de 
@@ -209,5 +209,4 @@
         include("../include/rodape.php");
   ?>
 <script src="../assets/js/script.js"></script>
-</body>
 </html>

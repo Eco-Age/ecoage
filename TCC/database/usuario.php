@@ -140,7 +140,7 @@ function buscarUsuarioLogado($id_usuario){
       return $usuario;  
 }
    
-function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar, $tipo_usuario, $modo){
+function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelido, $email, $id_usuario, $id_avatar, $tipo_usuario){
   $conexao = obterConexao();
   $sql = "SELECT senha FROM Usuario WHERE id_usuario = ?";
   $stmt = $conexao->prepare($sql);
@@ -155,10 +155,10 @@ function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelid
   
   if ($senhaCadastrada === $senhaDigitada_md5){
       $sql = "UPDATE Usuario
-      SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?,  id_avatar = ?,  tipo_usuario = ?, modo = ?
+      SET nome_completo = ?, data_nasc = ?, tel = ?, apelido = ?, email = ?,  id_avatar = ?,  tipo_usuario = ?
       WHERE id_usuario = ?";
       $stmt = $conexao->prepare($sql);
-      $stmt->bind_param("sssssiiii", $nome_completo, $data_nasc, $tel, $apelido, $email, $id_avatar, $tipo_usuario, $modo, $id_usuario);
+      $stmt->bind_param("sssssiii", $nome_completo, $data_nasc, $tel, $apelido, $email, $id_avatar, $tipo_usuario, $id_usuario);
       $stmt->execute();
 
       if ($stmt->affected_rows > 0) {
@@ -174,6 +174,17 @@ function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelid
   }
 }
 
+function editarModo($id_usuario, $modo){
+  $conexao = obterConexao();
+  
+      $sql = "UPDATE Usuario
+      SET modo = ?
+      WHERE id_usuario = ?";
+
+      $stmt = $conexao->prepare($sql);
+      $stmt->bind_param("ii", $modo, $id_usuario);
+      $stmt->execute();
+}
 
 //------------------------------------------------------------------------------------------------
   

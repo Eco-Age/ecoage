@@ -69,7 +69,6 @@ if (!isset($_GET['code']) && !isset($_POST['provider'])) {
     <p>TenantID (only relevant for Azure): <input type="text" name="tenantId"></p>
     <input type="submit" value="Continue">
 </form>
-</body>
 </html>
     <?php
     exit;

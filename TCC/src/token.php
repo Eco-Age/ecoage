@@ -44,5 +44,4 @@
         include("../include/rodape.php");
     ?>
 </div>
-</body>
 </html>

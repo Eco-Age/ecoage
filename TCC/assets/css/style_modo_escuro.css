@@ -2,11 +2,11 @@
 #labelModoEscuro {
     position: relative;
     display: inline-block;
-    background: #a7a7a7;
+    background: #d4c5e2;
     border-radius: 200px;
     cursor: pointer;
     width: 60px;
-    height: 30px;
+    height: 45px;
   }
   
   #labelModoEscuro:after {
@@ -20,9 +20,10 @@
     border-radius: 180px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     transition: 0.3s;
+    margin-top: 6px;
   }
   
-  #modo{
+  #modo{    
     width: 0;
     height: 0;
     visibility: hidden;
@@ -52,6 +53,7 @@
     position: absolute;
     top: 15px;
     z-index: 100;
+    padding-top: 6px;
   }
   
   #labelModoEscuro #solIcon {

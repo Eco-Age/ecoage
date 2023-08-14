@@ -220,6 +220,5 @@ include("../include/rodape.php");
 <script>
     let id_usuario_curtida = "<?= $_SESSION["id_usuario"]; ?>";
 </script>
-</body>
 
 </html>

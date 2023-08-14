@@ -492,18 +492,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // para fazer o botao de modo escuro funciona
 
+
+
 function alternarModo() {
-   var body = document.getElementsByTagName("body")[0];
-  body.classList.toggle("modo-escuro");
-modo = body.classList.contains("modo-escuro") ? "1" : "0";
-  $.ajax({
-  type: 'POST',
-  url: '../src/editar_usuario.php',
-  data: {
-    modo: modo
-  }
-});
+    var body = document.getElementsByTagName("body")[0];
+    body.classList.toggle("modo-escuro");
+    modo = body.classList.contains("modo-escuro") ? "1" : "0";
+
+    $.ajax({
+        type: 'POST',
+        url: '../include/navegacao.php',
+        data: {
+            modo: modo
+        }
+    });
+
+    
 }
+
+    document.getElementById("modo").addEventListener("click", function() {
+      var form = document.getElementById("formModo");
+      form.submit();
+    });
+
 // fim do botao de modo escuro
 
 // curtir

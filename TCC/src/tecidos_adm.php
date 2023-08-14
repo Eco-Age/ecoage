@@ -219,5 +219,4 @@ $lista_tecidos = listarTecidosPaginacao($pagina_atual, $itens_por_pagina);
 </script>
 <script src="../assets/js/script.js"></script>
 <script src="../assets/js/script_quiz.js"></script>
-</body>
 </html>

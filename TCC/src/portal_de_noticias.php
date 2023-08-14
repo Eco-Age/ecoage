@@ -109,6 +109,5 @@ include("../include/rodape.php");
 </script>
 <script src="../assets/js/script.js"></script>
 <script src="../assets/js/script_valida_form.js"></script>
-</body>
 
 </html>

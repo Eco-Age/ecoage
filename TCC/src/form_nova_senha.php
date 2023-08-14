@@ -44,5 +44,4 @@ require ("../database/usuario.php");
         include("../include/rodape.php");
     ?>
 </div>
-</body>
 </html>

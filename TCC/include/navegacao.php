@@ -82,6 +82,21 @@ $avatar_atual = buscarAvatarUsado($id_usuario);
                             </div>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <form action="editar_modo.php" method="post" id="formModo">
+                        <input type="hidden" name="id_usuario" value="<?= $id_usuario ?>">
+                            <div class="form-group">
+                                <input onclick="alternarModo()" type="checkbox" name="modo" id="modo" value="<?= $modo ?>"/>
+                                <div id="labelModoEscuro">
+                                    <label for="modo">
+                                        <i id="solIcon" style="cursor: pointer" class="fa-regular fa-light fa-sun fa-sm"></i>
+                                        <i id="luaIcon" style="cursor: pointer" class="fas fa-moon fa-sm"></i>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -23,7 +23,6 @@ if(isset($_SESSION["email"])){
 $verifica = buscaVerifica($email);
 $verifica_int = intval($verifica['verifica']);
 
-$modo = $usuario["modo"];
 $avatar_atual = buscarAvatarUsado($id_usuario);
 ?>
 <div class="container" id="conteudo">
@@ -50,16 +49,6 @@ $avatar_atual = buscarAvatarUsado($id_usuario);
                     <input type="hidden" name="apelido_atual" value="<?= $usuario["apelido"] ?>">
                     <input type="hidden" name="tipo_usuario" value="<?= $usuario["tipo_usuario"] ?>">
 
-                    <div class="form-group">
-                        <p>Altere o tema de cores:</p>
-                        <input onclick="alternarModo()" type="checkbox" name="modo" id="modo" value="<?= $modo ?>" disabled/>
-                        <div id="labelModoEscuro">
-                            <label for="modo">
-                                <i id="solIcon" style="cursor: pointer" class="fa-regular fa-light fa-sun fa-sm"></i>
-                                <i id="luaIcon" style="cursor: pointer" class="fas fa-moon fa-sm"></i>
-                            </label>
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <label for="nome">Nome Completo:</label>
@@ -134,7 +123,6 @@ include("../include/rodape.php");
 <script>
     function habilitarCampos() {
         // Tornar os campos editáveis
-        document.getElementById("modo").removeAttribute("disabled");
         document.getElementById("nome").removeAttribute("disabled");
         document.getElementById("data_nasc").removeAttribute("disabled");
         document.getElementById("tel").removeAttribute("disabled");
@@ -149,22 +137,6 @@ include("../include/rodape.php");
 
     }
 
-    $(document).ready(function() {
-        var modo = "<?= $modo ?>";
-        var modoInput = $("#modo");
-
-        if (modo === "1") {
-            modoInput.prop("checked", true);
-            $("body").addClass("modo-escuro");
-        }
-    });
-
-    var alternarModoEscuro = document.getElementById("modo").value;
-
-    if (modo === "1" && alternarModoEscuro !== null) {
-        alternarModoEscuro.checked = true;
-    }
-
     var verifica = "<?= $verifica_int; ?>";
     if (verifica == 1) {
         document.getElementById("verificar_email").style.display = "none";
@@ -173,6 +145,5 @@ include("../include/rodape.php");
     }
 </script>
 
-</body>
 
 </html>

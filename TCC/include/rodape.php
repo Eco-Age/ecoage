@@ -1,3 +1,23 @@
+<script>
+$(document).ready(function() {
+    var modoInput = $("input[name='modo']");
+    
+    modoInput.on("change", function() {
+        if ($(this).is(":checked")) {
+            $("body").addClass("modo-escuro");
+        } else {
+            $("body").removeClass("modo-escuro");
+        }
+    });
+
+    // Verificar o estado do checkbox ao carregar a página
+    if ($("body").hasClass("modo-escuro")) {
+        modoInput.prop("checked", true);
+    }
+});
+
+</script>
+</body>
 <footer class="" id="rodape">
     <div class="area_contato">
         <div class="container">

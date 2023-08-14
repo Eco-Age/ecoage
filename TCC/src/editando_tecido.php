@@ -116,6 +116,5 @@ include("../include/rodape.php");
     document.getElementById("inputGroupFileAddon").innerText = imagem_atual
 </script>
 
-</body>
 
 </html>
