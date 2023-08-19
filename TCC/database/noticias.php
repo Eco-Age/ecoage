@@ -216,12 +216,13 @@ if (!isset($_SESSION)) {
   }
 
 
-  function buscarPalavraChave($palavra_chave){
-
-    $resultado = [];
+  function buscarPalavraChave($palavra_chave) {
     $lista_noticias = [];
     $conexao = obterConexao(); 
 
+    // Constrói a parte do SQL para a busca
+    $sql_busca = "SELECT * FROM Noticias";
+    
     // Verifica se o filtro foi selecionado
     if(isset($_SESSION["filtro"]) && !empty($_SESSION["filtro"])) {
         $filtro = $_SESSION["filtro"];
@@ -239,61 +240,128 @@ if (!isset($_SESSION)) {
                 $intervalo = "1 YEAR";
                 break;
         }
-        if(!empty($intervalo)) {
-          // Verifica se a palavra chave tem pelo menos 3 caracteres
-          if (strlen(trim($palavra_chave)) >= 3){
-            $sql = "SELECT * FROM Noticias 
-              WHERE (titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%')
-              AND data_noticia >= DATE_SUB(NOW(), INTERVAL $intervalo)";
-          }else if (trim($palavra_chave) == ''){
-            $sql = "SELECT * FROM Noticias WHERE data_noticia >= DATE_SUB(NOW(), INTERVAL $intervalo)";
-          }
-          else {
+        if (!empty($intervalo)) {
+            $sql_busca .= " WHERE data_noticia >= DATE_SUB(NOW(), INTERVAL $intervalo)";
+        }
+    } else {
+        // Verifica se a palavra chave tem pelo menos 3 caracteres ou se é vazia ou composta apenas de espaços em branco
+        if (strlen(trim($palavra_chave)) >= 3) {
+            $sql_busca .= " WHERE titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%'";
+        } elseif (trim($palavra_chave) == '') {
+            $sql_busca .= "";
+        } else {
             $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
             $_SESSION["tipo_msg"] = "alert-danger";
             header("Location: ../src/portal_de_noticias.php");
             return;
-          }
-        } 
-      } else {
-        // Verifica se a palavra chave tem pelo menos 3 caracteres ou se é vazia ou composta apenas de espaços em branco
-        if (strlen(trim($palavra_chave)) >= 3){
-          $sql = "SELECT * FROM Noticias 
-            WHERE titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%'"; 
-        }elseif (trim($palavra_chave) == ''){
-              $sql = "SELECT * FROM Noticias";
-        } else{
-          $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
-          $_SESSION["tipo_msg"] = "alert-danger";
-          header("Location: ../src/portal_de_noticias.php");
-          return;
         }
-      }
+    }
 
-    $stmt = $conexao->prepare($sql);
+    $stmt = $conexao->prepare($sql_busca);
     $stmt->execute();
     $resultado = $stmt->get_result();
 
-   
+    // Processa os resultados
     if($resultado->num_rows == 0) {
         $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\" com o filtro selecionado.";
         $_SESSION["tipo_msg"] = "alert-danger";
         header("Location: ../src/portal_de_noticias.php");
     } else { 
-      while ($noticias = mysqli_fetch_assoc($resultado)) {
-      array_push($lista_noticias, $noticias);
+        while ($noticias = mysqli_fetch_assoc($resultado)) {
+            array_push($lista_noticias, $noticias);
+        }
     }
-  }
+
+    $stmt->close();
+    $conexao->close();
+
     return $lista_noticias;
 }
 
-  function listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_por_pagina) {
-    $lista_noticias = [];
-    $resultado = [];
-    $conexao = obterConexao(); 
 
-    // Verifica se o filtro foi selecionado
-    if(isset($_SESSION["filtro"]) && !empty($_SESSION["filtro"])) {
+function listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_por_pagina) {
+  $lista_noticias = [];
+  $conexao = obterConexao();
+  
+  // Calcula o offset baseado na página atual e itens por página
+  $offset = ($pagina_atual - 1) * $itens_por_pagina;
+
+  // Constrói a parte do SQL para a paginação
+  $sql_paginacao = "SELECT * FROM Noticias";
+
+  // Verifica se o filtro foi selecionado
+  if (isset($_SESSION["filtro"]) && !empty($_SESSION["filtro"])) {
+    $filtro = $_SESSION["filtro"];
+    switch ($filtro) {
+      case "ultimas_24h":
+        $intervalo = "1 DAY";
+        break;
+      case "ultima_semana":
+        $intervalo = "1 WEEK";
+        break;
+      case "ultimo_mes":
+        $intervalo = "1 MONTH";
+        break;
+      case "ultimo_ano":
+        $intervalo = "1 YEAR";
+        break;
+    }
+
+    if (!empty($intervalo)) {
+      $sql_paginacao .= " WHERE data_noticia >= DATE_SUB(NOW(), INTERVAL $intervalo)";
+    }
+  } else {
+    // Verifica se a palavra chave tem pelo menos 3 caracteres ou se é vazia ou composta apenas de espaços em branco
+    if (strlen(trim($palavra_chave)) >= 3) {
+      $sql_paginacao .= " WHERE titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%'";
+    } elseif (trim($palavra_chave) == '') {
+      // Não adiciona restrições à consulta se não houver palavra-chave
+    } else {
+      $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
+      $_SESSION["tipo_msg"] = "alert-danger";
+      header("Location: ../src/portal_de_noticias.php");
+      return;
+    }
+  }
+
+  // Adiciona LIMIT e OFFSET para a paginação
+  $sql_paginacao .= " LIMIT ?, ?";
+  
+  $stmt = $conexao->prepare($sql_paginacao);
+
+  // Binda parâmetros para a query
+  $stmt->bind_param("ii", $offset, $itens_por_pagina);
+
+  $stmt->execute();
+  $resultado = $stmt->get_result();
+
+  // Verifica se há resultados
+  if ($resultado->num_rows == 0) {
+    $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
+    $_SESSION["tipo_msg"] = "alert-danger";
+    header("Location: ../src/portal_de_noticias.php");
+    return;
+  }
+
+  // Processa os resultados
+  while ($noticias = mysqli_fetch_assoc($resultado)) {
+    array_push($lista_noticias, $noticias);
+  }
+
+  $stmt->close();
+  $conexao->close();
+
+  return $lista_noticias;
+}
+
+
+function contarNoticias($palavra_chave = '') {
+  $conexao = obterConexao();
+  
+  $sql = "SELECT COUNT(*) AS qtdelinhas FROM Noticias";
+
+  // Verifica se o filtro foi selecionado
+  if(isset($_SESSION["filtro"]) && !empty($_SESSION["filtro"])) {
       $filtro = $_SESSION["filtro"];
       switch($filtro) {
           case "ultimas_24h":
@@ -309,88 +377,42 @@ if (!isset($_SESSION)) {
               $intervalo = "1 YEAR";
               break;
       }
-      if(!empty($intervalo)) {
-        // Verifica se a palavra chave tem pelo menos 3 caracteres
-        if (strlen(trim($palavra_chave)) >= 3){
-          $sql = "SELECT * FROM Noticias 
-            WHERE (titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%')
-            AND data_noticia >= DATE_SUB(NOW(), INTERVAL $intervalo)
-            LIMIT ?, ?";
+      if (!empty($intervalo)) {
+          $sql .= " WHERE data_noticia >= DATE_SUB(NOW(), INTERVAL $intervalo)";
+      }
+  }
 
-        }else if (trim($palavra_chave) == ''){
-          $sql = "SELECT * FROM Noticias WHERE data_noticia >= DATE_SUB(NOW(), INTERVAL $intervalo)
-                  LIMIT ?, ?";
-        }
-        else {
-          $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
-          $_SESSION["tipo_msg"] = "alert-danger";
-          header("Location: ../src/portal_de_noticias.php");
-          return;
-        }
-      } 
-    } else {
-      // Verifica se a palavra chave tem pelo menos 3 caracteres ou se é vazia ou composta apenas de espaços em branco
-
-    
-    if (strlen(trim($palavra_chave)) >= 3){
-        $sql = "SELECT * FROM Noticias 
-          WHERE titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%'
-          LIMIT ?, ?";
-
-      }else if (trim($palavra_chave) == ''){
-            $sql = "SELECT * FROM Noticias            
-                    LIMIT ?, ?";
-            
-
+  // Se a palavra-chave não estiver vazia, adiciona a cláusula de busca
+  if (!empty($palavra_chave)) {
+      if (strpos($sql, 'WHERE') === false) {
+          $sql .= " WHERE (titulo_noticia LIKE ? OR descricao_noticia LIKE ?)";
       } else {
-        $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\". Tente ser mais específico.";
-        $_SESSION["tipo_msg"] = "alert-danger";
-        header("Location: ../src/portal_de_noticias.php");
-        return;
+          $sql .= " AND (titulo_noticia LIKE ? OR descricao_noticia LIKE ?)";
       }
-    }
-      
-      $offset = ($pagina_atual - 1) * $itens_por_pagina;
-      $stmt = $conexao->prepare($sql);
-      $stmt->bind_param("ii", $offset, $itens_por_pagina);
-      $stmt->execute();
-      $resultado = $stmt->get_result();
-   
-
-    if($resultado->num_rows == 0) {
-      $_SESSION["msg"] = "Nenhum resultado encontrado para \"$palavra_chave\" com o filtro selecionado.";
-      $_SESSION["tipo_msg"] = "alert-danger";
-      header("Location: ../src/portal_de_noticias.php");
-    } else { 
-      while ($noticias = mysqli_fetch_assoc($resultado)) {
-      array_push($lista_noticias, $noticias);
-      }
-    }    
-    $stmt->close();
-    $conexao->close();
-  
-    return $lista_noticias;
+      $palavra_chave = "%$palavra_chave%";
   }
 
-  function contarNoticias($palavra_chave = '') {
-    $conexao = obterConexao();
+  $stmt = $conexao->prepare($sql);
 
-    if(!empty($palavra_chave)){
-          $sql = "SELECT COUNT(*) AS qtdelinhas FROM Noticias
-          WHERE titulo_noticia LIKE '%$palavra_chave%' OR descricao_noticia LIKE '%$palavra_chave%'";
-    }else{
-          $sql = "SELECT COUNT(*) AS qtdelinhas FROM Noticias";
-    }
-
-    $stmt = $conexao->prepare($sql);
-    $stmt->execute();
-    $resultado = $stmt->get_result();
-    $linha = mysqli_fetch_assoc($resultado);
-    $qtde = $linha["qtdelinhas"];
-   
-    $stmt->close();
-    $conexao->close();
-
-    return $qtde;
+  // Se a palavra-chave não estiver vazia, faz o binding dos parâmetros
+  if (!empty($palavra_chave)) {
+      $stmt->bind_param("ss", $palavra_chave, $palavra_chave);
   }
+
+  $stmt->execute();
+  $resultado = $stmt->get_result();
+
+  if ($linha = mysqli_fetch_assoc($resultado)) {
+      $qtde = $linha["qtdelinhas"];
+  } else {
+      $qtde = 0;
+  }
+
+  $stmt->close();
+  $conexao->close();
+
+  return $qtde;
+}
+
+
   ?>

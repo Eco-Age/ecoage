@@ -5,43 +5,35 @@ include("../include/navegacao.php");
 require("../database/noticias.php");
 require("../util/formatacoes.php");
 
+exibirMsg();
 verificaSessao();
 
 $chave_sessao = $_SESSION["id_usuario"];
 
-// Define o número de itens por página
+
 $itens_por_pagina = 3;
 
-// Obtem a palavra-chave da sessão
 $palavra_chave = isset($_SESSION["palavra_chave"]) ? $_SESSION["palavra_chave"] : '';
 if (isset($_GET['palavra_chave'])) {
     $palavra_chave = $_GET['palavra_chave'];
 }
-// Obtém o número total de resultados da pesquisa
 $total_resultados = contarNoticias($palavra_chave);
-
-// Obtém o número total de páginas
 $paginas = ceil($total_resultados / $itens_por_pagina);
 
-// Obtém o número da página atual
 $pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 
 if ($pagina_atual < 1) {
-    $pagina_atual = 1;
+    $pagina_atual = $paginas;
 } elseif ($pagina_atual > $paginas) {
     $pagina_atual = $paginas;
 }
 
 $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_por_pagina);
-   
+
 ?>
 
 
 <div class="container" id="conteudo">
-
-    <?php
-        exibirMsg();
-    ?>
 
     <div class="row">
         <div class="col- col-sm-3 col-md-1 col-lg-1 col-xl-1">
@@ -183,6 +175,7 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
         <?php endforeach ?>        
     </div>
 
+    <?php if ($total_resultados > 0) : ?>
         <ul class="pagination justify-content-center">
             <?php if ($pagina_atual > 1) : ?>
                 <li class="page-item">
@@ -193,7 +186,14 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
                 </li>
             <?php endif ?>
 
-            <?php for ($i = 1; $i <= $paginas; $i++) : ?>
+            <?php
+            $max_numeros_pagina = 5; // Quantidade máxima de números de página exibidos
+            $paginas = ceil($total_resultados / $itens_por_pagina); // Calcula o número total de páginas
+
+            $inicio = max(1, $pagina_atual - floor($max_numeros_pagina / 2));
+            $fim = min($inicio + $max_numeros_pagina - 1, $paginas);
+
+            for ($i = $inicio; $i <= $fim; $i++) : ?>
                 <li class="page-item <?php if ($pagina_atual == $i) echo 'active' ?>">
                     <a class="numeracao btn page-link" href="?pagina=<?= $i ?>&palavra_chave=<?= urlencode($palavra_chave) ?>">
                         <?= $i ?>
@@ -210,6 +210,10 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
                 </li>
             <?php endif ?>
         </ul>
+    <?php endif ?>
+
+
+
 </div>
 
 <?php

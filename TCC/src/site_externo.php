@@ -5,6 +5,7 @@ include("../include/navegacao.php");
 require("../database/noticias.php");
 require("../util/formatacoes.php");
 
+exibirMsg();
 verificaSessao();
 
 if ($_SESSION["tipo_usuario"] == 1) {
@@ -26,7 +27,7 @@ $paginas = ceil($total_resultados / $itens_por_pagina);
 $pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
 
 if ($pagina_atual < 1) {
-    $pagina_atual = 1;
+    $pagina_atual = $paginas;
 } elseif ($pagina_atual > $paginas) {
     $pagina_atual = $paginas;
 }
@@ -36,10 +37,6 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
 ?>
 
 <div class="container" id="conteudo">
-
-    <?php
-        exibirMsg();
-    ?>
 
     <div class="row">
         <div class="col-3 col-sm-3 col-md-1 col-lg-1 col-xl-1">
@@ -109,33 +106,43 @@ $lista_noticias = listarNoticiasPaginacao($palavra_chave, $pagina_atual, $itens_
         </div>
     <?php endforeach ?>
 
-    <ul class="pagination justify-content-center">
-        <?php if ($pagina_atual > 1) : ?>
-            <li class="page-item">
-                <a class="numeracao btn page-link" href="?pagina=<?= $pagina_atual - 1 ?>&palavra_chave=<?= urlencode($palavra_chave) ?>" aria-label="Anterior">
-                    <span aria-hidden="true">&#8249;</span>
-                    <span class="sr-only">Anterior</span>
-                </a>
-            </li>
-        <?php endif ?>
+    <?php if ($total_resultados > 0) : ?>
+        <ul class="pagination justify-content-center">
+            <?php if ($pagina_atual > 1) : ?>
+                <li class="page-item">
+                    <a class="numeracao btn page-link" href="?pagina=<?= $pagina_atual - 1 ?>&palavra_chave=<?= urlencode($palavra_chave) ?>" aria-label="Anterior">
+                        <span aria-hidden="true">&#8249;</span>
+                        <span class="sr-only">Anterior</span>
+                    </a>
+                </li>
+            <?php endif ?>
 
-        <?php for ($i = 1; $i <= $paginas; $i++) : ?>
-            <li class="page-item <?php if ($pagina_atual == $i) echo 'active' ?>">
-                <a class="numeracao btn page-link" href="?pagina=<?= $i ?>&palavra_chave=<?= urlencode($palavra_chave) ?>">
-                    <?= $i ?>
-                </a>
-            </li>
-        <?php endfor ?>
+            <?php
+            $max_numeros_pagina = 5; // Quantidade máxima de números de página exibidos
+            $paginas = ceil($total_resultados / $itens_por_pagina); // Calcula o número total de páginas
 
-        <?php if ($pagina_atual < $paginas) : ?>
-            <li class="page-item">
-                <a class="numeracao btn page-link" href="?pagina=<?= $pagina_atual + 1 ?>&palavra_chave=<?= urlencode($palavra_chave) ?>" aria-label="Próximo">
-                    <span aria-hidden="true">&#8250;</span>
-                    <span class="sr-only">Próximo</span>
-                </a>
-            </li>
-        <?php endif ?>
-    </ul>
+            $inicio = max(1, $pagina_atual - floor($max_numeros_pagina / 2));
+            $fim = min($inicio + $max_numeros_pagina - 1, $paginas);
+
+            for ($i = $inicio; $i <= $fim; $i++) : ?>
+                <li class="page-item <?php if ($pagina_atual == $i) echo 'active' ?>">
+                    <a class="numeracao btn page-link" href="?pagina=<?= $i ?>&palavra_chave=<?= urlencode($palavra_chave) ?>">
+                        <?= $i ?>
+                    </a>
+                </li>
+            <?php endfor ?>
+
+            <?php if ($pagina_atual < $paginas) : ?>
+                <li class="page-item">
+                    <a class="numeracao btn page-link" href="?pagina=<?= $pagina_atual + 1 ?>&palavra_chave=<?= urlencode($palavra_chave) ?>" aria-label="Próximo">
+                        <span aria-hidden="true">&#8250;</span>
+                        <span class="sr-only">Próximo</span>
+                    </a>
+                </li>
+            <?php endif ?>
+        </ul>
+    <?php endif ?>
+
 </div>
 <?php
 include("../include/rodape.php");

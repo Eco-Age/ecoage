@@ -173,6 +173,27 @@ function editarUsuario($senhaDigitada, $nome_completo, $data_nasc, $tel, $apelid
       $_SESSION["tipo_msg"] = "alert-danger";
   }
 }
+//------------------------------------------- MODO
+
+function buscarModo($id_usuario){
+  
+  $conexao = obterConexao(); 
+  
+  $sql = "SELECT modo FROM Usuario WHERE id_usuario = ?";
+  
+  $stmt = $conexao->prepare($sql);
+
+  $stmt->bind_param("i", $id_usuario);
+  $stmt->execute();
+
+  $resultado = $stmt->get_result();
+  $modo = mysqli_fetch_assoc($resultado);
+
+  $stmt->close();
+  $conexao->close();
+
+  return $modo;  
+}
 
 function editarModo($id_usuario, $modo){
   $conexao = obterConexao();
