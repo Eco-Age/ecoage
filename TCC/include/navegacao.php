@@ -2,7 +2,8 @@
 include_once('../database/avatar.php');
 include("cabecalho.php");
 
-if (isset($_SESSION["id_usuario"])) {
+
+if(isset($_SESSION["id_usuario"])) {
     $id_usuario = $_SESSION["id_usuario"];
 }
 

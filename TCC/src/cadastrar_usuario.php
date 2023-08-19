@@ -1,6 +1,6 @@
 <?php
-include("../include/cabecalho.php");
 require("../database/usuario.php");
+include("../include/cabecalho.php");
 require_once('PHPMailer-6.7.1/src/PHPMailer.php');
 require_once('PHPMailer-6.7.1/src/SMTP.php');
 require_once('PHPMailer-6.7.1/src/Exception.php');

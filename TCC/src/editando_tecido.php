@@ -1,6 +1,6 @@
 <?php
-include("../include/navegacao.php");
 require("../database/usuario.php");
+include("../include/navegacao.php");
 require("../database/tipo_tecidos.php");
 require("../database/tecidos.php");
 require("../util/mensagens.php");

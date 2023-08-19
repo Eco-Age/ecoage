@@ -4,9 +4,9 @@ session_start();
 if(!isset($_SESSION["id_usuario"])){
   header("Location: ../public/index.php");
 }
+require("../database/usuario.php");
 include("../include/navegacao.php");
 require("../database/noticias.php");
-require("../database/usuario.php");
 require("../util/mensagens.php");
 require("../util/formatacoes.php");
 

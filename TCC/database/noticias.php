@@ -64,10 +64,10 @@ if (!isset($_SESSION)) {
   $stmt->execute();
 
   if ($stmt->affected_rows > 0) {
-      $_SESSION["msg"] = "Noticia removido com sucesso!";
+      $_SESSION["msg"] = "Noticia removida com sucesso!";
       $_SESSION["tipo_msg"] = "alert-danger";
     } else {
-      $_SESSION["msg"] = "A noticia não pôde ser removido! Erro: " . mysqli_error($conexao);
+      $_SESSION["msg"] = "A noticia não pôde ser removida! Erro: " . mysqli_error($conexao);
       $_SESSION["tipo_msg"] = "alert-danger";
     }
     $stmt->close();
