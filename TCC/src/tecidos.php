@@ -5,6 +5,7 @@ require("../database/tipo_tecidos.php");
 require("../database/tecidos.php");
 require("../util/mensagens.php");
 
+exibirMsg();
 verificaSessao();
 
 if ($_SESSION["tipo_usuario"] == 1) {
@@ -34,10 +35,6 @@ $lista_tecidos = listarTecidosPaginacao($pagina_atual, $itens_por_pagina);
 
 
 <div class="container" id="conteudo">
-    
-    <?php
-        exibirMsg();
-    ?>
 
     <div class="row">
         <h1 class="col-lg-12 text-center" id="txt_tecidos">Tecidos:</h1>

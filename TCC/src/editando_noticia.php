@@ -10,6 +10,7 @@ require("../database/usuario.php");
 require("../util/mensagens.php");
 require("../util/formatacoes.php");
 
+exibirMsg();
 verificaSessao();
 
 $id_noticia = $_POST["id_noticia"];
@@ -17,10 +18,6 @@ $noticias = buscarNoticia($id_noticia);
 ?>
 
 <div class=" container">
-
-    <?php
-        exibirMsg();
-    ?>
 
     <div class="row">
         <div class="col-1">

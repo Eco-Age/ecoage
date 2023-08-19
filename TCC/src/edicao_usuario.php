@@ -5,7 +5,7 @@ include("../include/navegacao.php");
 include("../util/formatacoes.php");
 include("../util/mensagens.php");
 
-
+exibirMsg();
 verificaSessao();
 
 if (isset($_SESSION["id_usuario"]) && isset($_SESSION["idAvatar"])) {
@@ -26,10 +26,6 @@ $verifica_int = intval($verifica['verifica']);
 $avatar_atual = buscarAvatarUsado($id_usuario);
 ?>
 <div class="container" id="conteudo">
-
-    <?php
-        exibirMsg();
-    ?>
 
     <div class="row">
         <div class="col-1 col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>

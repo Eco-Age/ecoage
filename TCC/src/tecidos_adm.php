@@ -1,11 +1,11 @@
 <?php
-
 require ("../database/usuario.php");
 include("../include/navegacao.php");
 require("../database/tipo_tecidos.php");
 require("../database/tecidos.php");
 require("../util/mensagens.php");
 
+exibirMsg();
 verificaSessao();
 
 $chave_sessao = $_SESSION["id_usuario"];
@@ -27,10 +27,6 @@ $lista_tecidos = listarTecidosPaginacao($pagina_atual, $itens_por_pagina);
 
 <div class="container" id="conteudo">
 
-    <?php
-      exibirMsg();
-    ?>
-    
     <div class="row">
       <h1 class="col-lg-12 text-center" id="txt_tecidos">Tecidos:</h1>
     </div>

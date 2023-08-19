@@ -1,10 +1,11 @@
 <?php
-
 include("../include/navegacao.php");
 require("../database/usuario.php");
 require("../database/tipo_tecidos.php");
 require("../database/tecidos.php");
 require("../util/mensagens.php");
+
+exibirMsg();
 verificaSessao();
 
 $id_tecidos = $_GET["id_tecidos"];
@@ -17,10 +18,6 @@ $imagem_atual = basename($tecido['caminho_imagem']);
 ?>
 
 <div class="container">
-
-    <?php
-        exibirMsg();
-    ?>
 
     <div class="row">
         <div class="col-1">

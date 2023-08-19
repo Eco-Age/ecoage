@@ -2,16 +2,13 @@
     require_once ("../database/usuario.php");
     include("../include/navegacao.php");
     include ("../util/mensagens.php");
-
+    
+    exibirMsg();
     verificaSessao();
 ?>
 <body >
 <div class="container" id="conteudo">
         
-    <?php
-        exibirMsg();
-    ?>       
-
     <main>
 
         <div id="pagina_de_duvidas">
