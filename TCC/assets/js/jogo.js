@@ -553,7 +553,10 @@ $(document).ready(function () {
                             <h4 class="txtsJogo">Para jogar o Guess The Tissue siga as instruções a seguir!</h4>
                           </div>
                           <div class="carrosel_item carousel-item">
-                              <h4 class="txtsJogo">Utilize as seguintes teclas para se mover:</h4>    
+                            <div class="txtsJogo">
+                              <h4>Utilize uma das seguintes teclas para se mover:</h4>
+                              <p id="smallInstrucao">Caso esteja em um dispositivo móvel, apenas toque na tela.</p>
+                            </div>
                               <img src="../assets/imagens_jogo/instrucao1.gif" alt="" class="instrucao">
                               <p></p>
                           </div>
@@ -583,8 +586,8 @@ $(document).ready(function () {
                               <p></p>
                           </div>
                           <div class="carrosel_item carousel-item">
-                              <h4>Vamos lá?</h4>    
-                              <img src="../assets/imagens_jogo/personagem.png" alt="" class="imgInstrucao">
+                              <h3 class="txtsJogo">Vamos lá?</h3>    
+                              <img src="../assets/imagens_jogo/instrucao6.png" alt="" id="imgInstrucao">
                               <p></p>
                           </div>
                         </div>

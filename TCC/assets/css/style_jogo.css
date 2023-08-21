@@ -92,16 +92,40 @@ p {
   margin: auto;
 }
 
+#imgInstrucao{
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 80%;
+  max-width: 100%;
+  margin: auto;
+}
+
 #txtOla {
   margin-top: 30px;
 }
 
+#smallInstrucao{
+  font-size: 14px;
+  color: #623f80;
+  font-weight: 500;
+}
 .txtsJogo {
   margin: auto;
   width: auto;
   max-width: 75%;
   margin-top: 30px !important;
   margin-bottom: 30px !important;
+}
+@media (max-width: 768px) { /* Media query para telas com largura máxima de 768px */
+  .txtsJogo{
+    font-size: 20px; /* Tamanho da fonte para telas menores */
+  }
+}
+
+@media (max-width: 400px) { /* Media query para telas com largura máxima de 768px */
+  .txtsJogo{
+    font-size: 16px; /* Tamanho da fonte para telas menores */
+  }
 }
 
 #next_jogo,
@@ -128,6 +152,7 @@ p {
   justify-content: center;
   height: auto;
   width: auto;
+  margin: auto;
 }
 
 #instrucoes {
