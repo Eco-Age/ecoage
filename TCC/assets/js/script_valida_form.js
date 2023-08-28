@@ -98,7 +98,7 @@ function perguntaVerificacao(form) {
     if (dataInserida > dataAtual) {
       dataNascInput.classList.add('erro-border-preencher');
       dataNascError.classList.add('show');
-      dataNascError.textContent = 'A data de nascimento não pode ser no futuro';
+      dataNascError.textContent = 'A data de nascimento não é válida.'
       dataNascInput.focus();
       return false;
     }
