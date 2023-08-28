@@ -103,7 +103,7 @@ $lista_avatar = listarAvatar();
                   <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="data_nasc">Data de Nascimento:</label> 
-                        <input type="date" id="data_nasc" name="data_nasc" class="btnsLoginFocus form-control" max="2022-12-31"  maxlength="10">
+                        <input type="date" id="data_nasc" name="data_nasc" class="btnsLoginFocus form-control" maxlength="10">
                         <small id="" class="form-text text-muted">Atenção: Insira uma data válida.</small>
                         <div class="erro-preencher" id="data_nasc_erro"></div>
                       </div> 
