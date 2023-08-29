@@ -80,18 +80,30 @@ function perguntaVerificacao(form) {
   var dataNasc = form.data_nasc.value;
   var dataNascInput = form.data_nasc;
   var dataNascError = document.querySelector('#data_nasc_erro');
+  
   if (dataNasc == "") {
     dataNascInput.classList.add('erro-border-preencher');
     dataNascError.classList.add('show');
     dataNascError.textContent = 'Por favor, preencha a data de nascimento';
     dataNascInput.focus();
     return false;
-  } else if (dataNasc !== "") {
+  } else {
     dataNascInput.classList.remove('erro-border-preencher');
     dataNascError.classList.remove('show');
     dataNascError.textContent = '';
+  
+    var dataAtual = new Date();
+    var dataInserida = new Date(dataNasc);
+  
+    if (dataInserida > dataAtual) {
+      dataNascInput.classList.add('erro-border-preencher');
+      dataNascError.classList.add('show');
+      dataNascError.textContent = 'A data de nascimento não é válida.'
+      dataNascInput.focus();
+      return false;
+    }
   }
-
+  
   var tel = form.tel.value;
   var telInput = form.tel;
   var telError = document.querySelector('#tel_erro');
