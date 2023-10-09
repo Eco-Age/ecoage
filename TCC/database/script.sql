@@ -1,4 +1,4 @@
-USE ecoage;
+USE grupo2;
 
 DROP TABLE IF EXISTS Curtidas;
 DROP TABLE IF EXISTS Ranking;
