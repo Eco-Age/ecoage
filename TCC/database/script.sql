@@ -120,14 +120,14 @@ CREATE TABLE Tecidos(
 INSERT INTO Tipo_Tecidos(nome_tecidos)
 VALUES  
         ('Algodão Orgânico'),
-        ('Lã'),
         ('Linho'),
         ('Tencel'),
         ('Bambu'),
         ('Malha Sintética'),
         ('Viscose'),
         ('Seda'),
-        ('Poliéster');
+        ('Poliéster'),
+        ('Lã');
 
 -- Para adicionar o campo checkbox: 
 ALTER TABLE Tecidos 
@@ -161,38 +161,39 @@ por não ser tóxico e por meio de injetores de fiação, a celulose é coagulad
 em seguida, tecida em um tecido macio e respirável.', 
 'Não há impactos ambientais, pois o processo de fabricação do tecido de bambu é menos poluente e também é biodegradável.','../assets/imagens_tecido/tecido.png', 1),
 
-(5, 
-'Lã de ovelhas e inseticidas sintéticos.',
-' Temos a tosa dos animais, em seguida ocorre a lavagem, cardagem e fiamento das fibras. ',
-' Impactos negativos no meio ambiente com o uso de produtos químicos e o abate 
-em massa dos animais, no qual são amarrados e se machucam, ocorre uma contaminação do solo, água e fauna, além da emissão de gás metano, detergentes e graxa.',
- '../assets/imagens_tecido/tecido_bloqueado.png', 0),
 
-(6, 
+(5, 
 'Entrelaçamento de fios de trama e urdidura, pode ser feito de algodão, lã, poliéster, entre outros materiais',
 'Sua fabricação ocorre através de um processo de tricotagem, que pode ser feito manualmente ou por 
 máquinas. ',
 'O uso excessivo de  materiais sintéticos na fabricação de malhas pode não ser sustentável, causando um grande impacto ambiental.', '../assets/imagens_tecido/tecido_bloqueado.png', 0),
 
-(7, 
+(6, 
 'Celulose de madeira ou de outras plantas.', 
 'Sua fabricação envolve a dissolução da celulose que é extrudado em fios que são transformados em tecido.', 
 'Sua fabricação pode ser prejudicial ao meio ambiente e aos trabalhadores, pois requer muita água e produtos químicos tóxicos. 
 Além disso, a produção tem sido associada a desmatamento, trabalho escravo e poluição 
 de rios.', '../assets/imagens_tecido/tecido_bloqueado.png', 0),
 
-(8,
+(7,
 'Bichos-da-seda.',
 'Os bichos-da-seda são “domesticados” e criados em fazendas. Quando esses animais entram na fase de pupa, após finalizarem seus casulos, eles são colocados em água fervente, o que os mata e possibilita a extração da seda.',
 'Impactos negativos no meio ambiente devido a  quantidade de água e energia utilizada em sua fabricação',
 '../assets/imagens_tecido/tecido_bloqueado.png', 0),
 
 
-(9, 
+(8, 
 'Petróleo ou do gás natural.',
 'Sua fabricação envolve a transformação de matérias-primas químicas em fibras através de um processo chamado de polimerização.', 
 'Sua produção é altamente poluente e contribui para o aumento da emissão de gases de efeito estufa, prejudicando 
-o meio ambiente e a saúde humana.', '../assets/imagens_tecido/tecido_bloqueado.png', 0);
+o meio ambiente e a saúde humana.', '../assets/imagens_tecido/tecido_bloqueado.png', 0),
+
+(9, 
+'Lã de ovelhas e inseticidas sintéticos.',
+' Temos a tosa dos animais, em seguida ocorre a lavagem, cardagem e fiamento das fibras. ',
+' Impactos negativos no meio ambiente com o uso de produtos químicos e o abate 
+em massa dos animais, no qual são amarrados e se machucam, ocorre uma contaminação do solo, água e fauna, além da emissão de gás metano, detergentes e graxa.',
+ '../assets/imagens_tecido/tecido_bloqueado.png', 0);
 
 CREATE TABLE Noticias(
     id_noticia INT AUTO_INCREMENT,
