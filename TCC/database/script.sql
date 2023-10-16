@@ -207,9 +207,6 @@ CREATE TABLE Noticias(
 
 INSERT INTO Noticias (titulo_noticia, data_noticia, url_noticia , descricao_noticia) 
 VALUES 
-('Tecidos sustentáveis são apostas da indústria têxtil para reduzir poluição', '2022-10-24',
-'https://oglobo.globo.com/economia/esg/noticia/2022/10/tecidos-sustentaveis-sao-apostas-da-industria-textil-para-reduzir-poluicao.ghtml' , 
-'Produto é alternativa para gerar menos impacto ambiental na produção e no descarte de produtos têxteis.'),
 
 ('Um efeito borboleta: a indústria da moda e meio-ambiente', '2022-02-02',
 'https://wp.ufpel.edu.br/empauta/um-efeito-borboleta-a-industria-da-moda-e-meio-ambiente/',
@@ -232,7 +229,7 @@ modelo também tem denúncias de violação de direitos dos trabalhadores.'),
 'https://harpersbazaar.uol.com.br/bazaar-green/moda-sustentavel-e-tecnologia-a-transformacao-ja-esta-acontecendo/',
 'Tecnologia pode ser chave para transformação sustentável da indústria da moda.'),
 
-('O que a moda sustentável pode aprender com o mundo em 2021', '21-08-30',
+('O que a moda sustentável pode aprender com o mundo em 2021', '2021-08-30',
 'https://ffw.uol.com.br/noticias/sustentabilidade/o-que-a-moda-sustentavel-pode-aprender-com-o-mundo-em-2021/',
 'Sustentabilidade: Uma mensagem sobre o presente.'),
 
@@ -244,13 +241,37 @@ modelo também tem denúncias de violação de direitos dos trabalhadores.'),
 'https://harpersbazaar.uol.com.br/bazaar-green/chiara-gadaleta-especialista-em-sustentabilidade-aponta-destaques-da-moda-sustentavel-no-mundo/',
 'Boas notícias na moda do novo mundo.'),
 
-('Sesc São Paulo realiza feiras e conversas sobre moda sustentável', '2023-03-14',
-'https://orbi.band.uol.com.br/programacao/sesc-sao-paulo-realiza-feiras-e-conversas-sobre-moda-sustentavel-4599',
-'O Sesc São Paulo realizará, a partir do dia 25 de março, diversas ações relacionadas à Moda Sustentável, como feiras de trabalhos autorais e autônomos e conversas sobre a cadeia produtiva da moda alternativa.'),
+('Iniciativas dão destino mais sustentável a toneladas de tecido que iam parar no lixo','2023-04-15','
+https://g1.globo.com/jornal-nacional/noticia/2023/04/15/iniciativas-sao-destino-mais-sustentavel-a-toneladas-de-tecido-que-iam-parar-no-lixo.ghtml',
+'Projeto tocado por pesquisadores da USP, por exemplo, ajudou centenas de pessoas que vivem em situação de vulnerabilidade social a ganhar 
+dinheiro, transformando pedaços de pano e roupas usadas em peças novas, nos últimos cinco anos.'),
 
-('Conheça o primeiro museu interativo do mundo para inovação e moda sustentável', '19-06-06',
-'https://ffw.uol.com.br/noticias/sustentabilidade/conheca-o-primeiro-museu-interativo-do-mundo-para-inovacao-e-moda-sustentavel/',
-'Museu interativo inovador promove moda sustentável e conscientização ambiental em todo o mundo.');
+('Democrático e imortal: 150 anos do jeans e uma ideia sustentável','2023-06-03',
+'https://g1.globo.com/pi/piaui/noticia/2023/06/03/democratico-e-imortal-150-anos-do-jeans-e-uma-ideia-sustentavel.ghtml',
+'Conheça a história da Clara Peres, estudante de moda, empreendedora e que reutiliza peças em jeans que iriam para o lixo e as transforma em algo de valor.'),
+
+('Moda sustentável: entenda o que é, impactos e importância para o meio ambiente','2023-03-18',
+'https://www.cnnbrasil.com.br/lifestyle/moda-sustentavel/',
+'A moda sustentável é a moda que foca em uma produção e consumo de menor impacto no meio ambiente e nas pessoas.'),
+
+('Indígenas de MT têm peças de algodão colorido expostas em evento de moda em Londres: impressionadas', '2023-09-20',
+'https://g1.globo.com/mt/mato-grosso/noticia/2023/09/20/indigenas-de-mt-tem-pecas-de-algodao-colorido-expostas-em-evento-de-moda-em-londres-impressionadas.ghtml',
+'Produção conta histórias por trás de materiais que fazem parte da biodiversidade e da cultura regional do país e celebra a ancestralidade. Sergiane Taiuke Xerente 
+e a filha Mikaela Kawyru se dizem surpresas com o alcance do trabalho.'),
+
+('O que são tecidos ecológicos? Entenda a importância e os principais benefícios', '2023-01-30',
+'https://www.tendaatacado.com.br/dicas/o-que-sao-tecidos-ecologicos-entenda-a-importancia-e-os-principais-beneficios/',
+'Seja para um fabricante de peças de roupas, seja um amante da moda, optar pelo uso de tecidos ecológicos é uma forma de contribuir 
+com o desenvolvimento do meio ambiente. As alternativas sustentáveis se tornaram essenciais para substituir materiais que impactam o planeta negativamente.'),
+
+('Stella McCartney apresenta hot pants e tecido sustentável em desfile em rua de Paris','2023-10-02',
+'https://www.bol.uol.com.br/entretenimento/2023/10/02/stella-mccartney-apresenta-hot-pants-e-tecido-sustentavel-em-desfile-em-rua-de-paris.htm',
+'Em uma rua de Paris com vista para a Torre Eiffel e bancas de feira repletas de produtos sustentáveis, Stella McCartney apresentou seu desfile de primavera com uma coleção de vestidos arejados e hot pants brilhantes.'),
+
+('Professora monta laboratório de design sustentável e fatura com acessórios de plástico reciclado','2023-10-15',
+'https://g1.globo.com/empreendedorismo/pegn/noticia/2023/10/15/professora-monta-laboratorio-de-design-sustentavel-e-fatura-com-acessorios-de-plastico-reciclado.ghtml',
+'Para ajudar nessa questão, primeiro, ela começou a incentivar os estudantes organizando mutirões de limpeza. Depois, montou um laboratório de design sustentável, onde recicla o plástico para fazer acessórios, souvenires e brindes.');
+
 
 CREATE TABLE Curtidas(
     id_curtida INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
