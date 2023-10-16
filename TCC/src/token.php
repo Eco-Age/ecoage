@@ -31,7 +31,7 @@
                         </div>
                         <div class="d-flex justify-content-center mx-auto">
                             <input type="submit" style="margin-right: 5px" class="main-btn btn btn-primary" value="Verificar Token">
-                            <a href="../public/index.php" class="btn btn-secondary">Voltar</a>
+                            <a href="../index.php" class="btn btn-secondary">Voltar</a>
                         </div>
                     </form>
                     </div>

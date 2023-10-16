@@ -77,7 +77,7 @@ if (!isset($_SESSION)) {
  
     $stmt->close();
     $conexao->close();    
-    header("Location: ../public/index.php");
+    header("Location: ../index.php");
 }  
 
 function buscarUsuario($apelido, $senha) {
@@ -301,7 +301,7 @@ function verificatoken($email, $token_digitado){
     if ($nova_senha_md5 == $senha_atual){
       $_SESSION["msg"] = "Erro: A nova senha é igual à senha atual. Por favor, escolha uma nova senha.";
       $_SESSION["tipo_msg"] = "alert-danger";
-      header("Location: ../public/index.php");
+      header("Location: ../index.php");
       exit;
     } else {
       $sql = "UPDATE Usuario SET senha = ? WHERE email = ?";
@@ -334,7 +334,7 @@ function verificatoken($email, $token_digitado){
     if ($qtd_email < 1){
       $_SESSION["msg"] = "Esta conta não está cadastrada. Favor utilizar um e-mail cadastrado.";
       $_SESSION["tipo_msg"] = "alert-danger";
-      header("Location: ../public/index.php");
+      header("Location: ../index.php");
       exit();
     }
 
@@ -534,7 +534,7 @@ function buscaVerifica($email){
             session_unset();
             $_SESSION["msg"] = "Sua sessão provavelmente expirou. Por favor, entre novamente.";
             $_SESSION["tipo_msg"] = "alert-warning";
-            header("Location: ../public/index.php");
+            header("Location: ../index.php");
             exit;
         }
     }
@@ -545,7 +545,7 @@ function buscaVerifica($email){
 
     $_SESSION["msg"] = "Sua sessão provavelmente expirou. Por favor, entre novamente.";
     $_SESSION["tipo_msg"] = "alert-warning";
-    header("Location: ../public/index.php");
+    header("Location: ../index.php");
     exit;
   }
 }

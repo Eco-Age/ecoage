@@ -18,7 +18,7 @@ $id_avatar = $_POST["id_avatar"];
 
 
 if (verificarUsuarioCadastrado($apelido, $email) == true) {
-    header("Location: ../public/index.php");
+    header("Location: ../index.php");
     $_SESSION["msg"] = "Email ou apelido já cadastrado no sistema!";
     $_SESSION["tipo_msg"] = "alert-danger";
 } else {
