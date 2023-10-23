@@ -657,7 +657,10 @@ function ajudaJogo() {
                         <h4 class="txtsJogo">Para jogar o Guess The Tissue siga as instruções a seguir!</h4>
                       </div>
                       <div class="carrosel_item carousel-item">
-                          <h4 class="txtsJogo">Utilize as seguintes teclas para se mover:</h4>    
+                        <div class="txtsJogo">
+                          <h4>Utilize uma das seguintes teclas para se mover:</h4>
+                          <p id="smallInstrucao">Caso esteja em um dispositivo móvel, apenas toque na tela.</p>
+                        </div>
                           <img src="../assets/imagens_jogo/instrucao1.gif" alt="" class="instrucao">
                           <p></p>
                       </div>
@@ -687,8 +690,8 @@ function ajudaJogo() {
                           <p></p>
                       </div>
                       <div class="carrosel_item carousel-item">
-                          <h4>Vamos lá?</h4>    
-                          <img src="../assets/imagens_jogo/personagem.png" alt="" class="imgInstrucao">
+                          <h3 class="txtsJogo">Vamos lá?</h3>    
+                          <img src="../assets/imagens_jogo/instrucao6.png" alt="" id="imgInstrucao">
                           <p></p>
                       </div>
                     </div>
@@ -723,25 +726,26 @@ function Ranking() {
     dataType: 'json',
     success: function (data) {
       let html = "<h2>Ranking</h2><br>";
-      html += `<table>
-          <thead>
-              <tr>
-                  <th>Rank</th>
-                  <th>Nome</th>
-                  <th>Carretéis</th>
-                  <th>Tempo</th>
-                  <th>Patente</th>
-              </tr>
-          </thead>
-          <tbody>`;
-
+      html += `<div style="max-height: 400px; overflow-y: scroll;">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Rank</th>
+                      <th>Nome</th>
+                      <th>Carretéis</th>
+                      <th>Tempo</th>
+                      <th>Patente</th>
+                  </tr>
+              </thead>
+              <tbody>`;
+  
       for (var i = 0; i < data.length; i++) {
         var rank = i + 1;
         var apelido = data[i].apelido;
         var carreteis = data[i].carreteis;
         var tempo = data[i].tempo;
         var patente = data[i].patente;
-
+  
         html += `<tr>
                       <td>${rank}</td>
                       <td>${apelido}</td>
@@ -750,11 +754,11 @@ function Ranking() {
                       <td>${patente}</td>
                   </tr>`;
       }
-
+  
       html += `</tbody>
-              </table>`;
-
-
+              </table>
+          </div>`;
+  
       Swal.fire({
         html: html,
         confirmButtonColor: '#8614e9',
@@ -766,6 +770,7 @@ function Ranking() {
       });
     },
   });
+  
 
   $(document).ready(function () {
     $('.popover-link').popover({ trigger: 'focus' });
