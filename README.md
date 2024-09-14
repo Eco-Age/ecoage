@@ -111,7 +111,7 @@ http://localhost/ecoage
    - **Portal de Notícias**
    - **Quiz**
    - **Jogo Guess the Tissue**
-3. Acompanhe sua pontuação e compare na **Ranking**.
+3. Acompanhe sua pontuação e compare no **Ranking**.
 
 
 
